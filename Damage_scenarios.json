@@ -1,0 +1,1235 @@
+{
+  "Models": [
+    {
+      "_id": "698397514b57b8f24ed40a43",
+      "user_id": "66ce823d95a055635c0ae0ae",
+      "name": "BatteryManagement",
+      "template": [],
+      "created_by": "prabhu.desai@gmail.com",
+      "Created_at": "2025-03-28T14:07:06.485Z",
+      "last_updated": "2025-03-28T14:07:06.485Z",
+      "status": 1
+    }
+  ],
+  "Damage_scenarios": [
+    {
+      "_id": "698397514b57b8f24ed40a4b",
+      "model_id": "698397514b57b8f24ed40a43",
+      "type": "Derived",
+      "Derivations": [
+        {
+          "task": "Check for DS due to the loss of Integrity for BatteryPack",
+          "name": "DS due to the loss of Integrity for BatteryPack",
+          "loss": "loss of Integrity",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS001",
+          "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Confidentiality for BatteryPack",
+          "name": "DS due to the loss of Confidentiality for BatteryPack",
+          "loss": "loss of Confidentiality",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS002",
+          "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Authenticity for BatteryPack",
+          "name": "DS due to the loss of Authenticity for BatteryPack",
+          "loss": "loss of Authenticity",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS003",
+          "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Authorization for BatteryPack",
+          "name": "DS due to the loss of Authorization for BatteryPack",
+          "loss": "loss of Authorization",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS004",
+          "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Availability for BatteryPack",
+          "name": "DS due to the loss of Availability for BatteryPack",
+          "loss": "loss of Availability",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS005",
+          "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Non-repudiation for BatteryPack",
+          "name": "DS due to the loss of Non-repudiation for BatteryPack",
+          "loss": "loss of Non-repudiation",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS006",
+          "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Integrity for CellMonitoring",
+          "name": "DS due to the loss of Integrity for CellMonitoring",
+          "loss": "loss of Integrity",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS007",
+          "nodeId": "db4141e3-e094-4c4e-8e06-44e1b9e1aa94",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Availability for CellMonitoring",
+          "name": "DS due to the loss of Availability for CellMonitoring",
+          "loss": "loss of Availability",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS008",
+          "nodeId": "db4141e3-e094-4c4e-8e06-44e1b9e1aa94",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Integrity for IO and Analog",
+          "name": "DS due to the loss of Integrity for IO and Analog",
+          "loss": "loss of Integrity",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS009",
+          "nodeId": "05e9f5bd-d85a-468b-954a-5dddc69079f6",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Availability for IO and Analog",
+          "name": "DS due to the loss of Availability for IO and Analog",
+          "loss": "loss of Availability",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS010",
+          "nodeId": "05e9f5bd-d85a-468b-954a-5dddc69079f6",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Confidentiality for Code Flash",
+          "name": "DS due to the loss of Confidentiality for Code Flash",
+          "loss": "loss of Confidentiality",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS011",
+          "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Integrity for Code Flash",
+          "name": "DS due to the loss of Integrity for Code Flash",
+          "loss": "loss of Integrity",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS012",
+          "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Availability for Code Flash",
+          "name": "DS due to the loss of Availability for Code Flash",
+          "loss": "loss of Availability",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS013",
+          "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Authenticity for Code Flash",
+          "name": "DS due to the loss of Authenticity for Code Flash",
+          "loss": "loss of Authenticity",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS014",
+          "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Integrity for Data Flash",
+          "name": "DS due to the loss of Integrity for Data Flash",
+          "loss": "loss of Integrity",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS015",
+          "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Availability for Data Flash",
+          "name": "DS due to the loss of Availability for Data Flash",
+          "loss": "loss of Availability",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS016",
+          "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Non-repudiation for Data Flash",
+          "name": "DS due to the loss of Non-repudiation for Data Flash",
+          "loss": "loss of Non-repudiation",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS017",
+          "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Confidentiality for Keys",
+          "name": "DS due to the loss of Confidentiality for Keys",
+          "loss": "loss of Confidentiality",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS018",
+          "nodeId": "07f29908-e559-4899-b842-5f5e6bb31d3f",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Integrity for Certificates",
+          "name": "DS due to the loss of Integrity for Certificates",
+          "loss": "loss of Integrity",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS019",
+          "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Authenticity for Certificates",
+          "name": "DS due to the loss of Authenticity for Certificates",
+          "loss": "loss of Authenticity",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS020",
+          "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Availability for Certificates",
+          "name": "DS due to the loss of Availability for Certificates",
+          "loss": "loss of Availability",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS021",
+          "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Integrity for Debug Port",
+          "name": "DS due to the loss of Integrity for Debug Port",
+          "loss": "loss of Integrity",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS022",
+          "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Availability for Debug Port",
+          "name": "DS due to the loss of Availability for Debug Port",
+          "loss": "loss of Availability",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS023",
+          "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Authorization for Debug Port",
+          "name": "DS due to the loss of Authorization for Debug Port",
+          "loss": "loss of Authorization",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS024",
+          "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Integrity for ICD Shunt CAN",
+          "name": "DS due to the loss of Integrity for ICD Shunt CAN",
+          "loss": "loss of Integrity",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS025",
+          "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Availability for ICD Shunt CAN",
+          "name": "DS due to the loss of Availability for ICD Shunt CAN",
+          "loss": "loss of Availability",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS026",
+          "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Authenticity for SoC",
+          "name": "DS due to the loss of Authenticity for SoC",
+          "loss": "loss of Authenticity",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS027",
+          "nodeId": "8f364ae0-1de5-404b-831c-86daf0e24160",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Integrity for SoC",
+          "name": "DS due to the loss of Integrity for SoC",
+          "loss": "loss of Integrity",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS028",
+          "nodeId": "8f364ae0-1de5-404b-831c-86daf0e24160",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Authenticity for SoH",
+          "name": "DS due to the loss of Authenticity for SoH",
+          "loss": "loss of Authenticity",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS029",
+          "nodeId": "389064d4-2770-4d34-9a05-c91a12d3559e",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Integrity for SoH",
+          "name": "DS due to the loss of Integrity for SoH",
+          "loss": "loss of Integrity",
+          "asset": false,
+          "damageScene": [],
+          "id": "DS030",
+          "nodeId": "389064d4-2770-4d34-9a05-c91a12d3559e",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Integrity for SPI_CellMonitor",
+          "name": "DS due to the loss of Integrity for SPI_CellMonitor",
+          "loss": "loss of Integrity",
+          "asset": null,
+          "damageScene": [],
+          "id": "DS031",
+          "nodeId": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bab-db4141e3-e094-4c4e-8e06-44e1b9e1aa94right",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Confidentiality for IO_PINS",
+          "name": "DS due to the loss of Confidentiality for IO_PINS",
+          "loss": "loss of Confidentiality",
+          "asset": null,
+          "damageScene": [],
+          "id": "DS032",
+          "nodeId": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bab-05e9f5bd-d85a-468b-954a-5dddc69079f6right",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Integrity for CAN2",
+          "name": "DS due to the loss of Integrity for CAN2",
+          "loss": "loss of Integrity",
+          "asset": null,
+          "damageScene": [],
+          "id": "DS033",
+          "nodeId": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bad-903c5635-ee0f-492d-8b4a-52106410cc8eleft",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Authenticity for CAN2",
+          "name": "DS due to the loss of Authenticity for CAN2",
+          "loss": "loss of Authenticity",
+          "asset": null,
+          "damageScene": [],
+          "id": "DS034",
+          "nodeId": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bad-903c5635-ee0f-492d-8b4a-52106410cc8eleft",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Integrity for CAN1",
+          "name": "DS due to the loss of Integrity for CAN1",
+          "loss": "loss of Integrity",
+          "asset": null,
+          "damageScene": [],
+          "id": "DS035",
+          "nodeId": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bac-6c2782e0-08da-42e8-bc9e-9f5bc3310526right",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Confidentiality for IO",
+          "name": "DS due to the loss of Confidentiality for IO",
+          "loss": "loss of Confidentiality",
+          "asset": null,
+          "damageScene": [],
+          "id": "DS036",
+          "nodeId": "reactflow__edge-05e9f5bd-d85a-468b-954a-5dddc69079f6left-e2ee030f-e8e7-4ea7-9573-8a3e4339c137right",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Confidentiality for ICD_Data",
+          "name": "DS due to the loss of Confidentiality for ICD_Data",
+          "loss": "loss of Confidentiality",
+          "asset": null,
+          "damageScene": [],
+          "id": "DS037",
+          "nodeId": "reactflow__edge-6c2782e0-08da-42e8-bc9e-9f5bc3310526left-e2ee030f-e8e7-4ea7-9573-8a3e4339c137bottom",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Confidentiality for Inernet",
+          "name": "DS due to the loss of Confidentiality for Inernet",
+          "loss": "loss of Confidentiality",
+          "asset": null,
+          "damageScene": [],
+          "id": "DS038",
+          "nodeId": "reactflow__edge-8acc2cd9-a02e-4f92-8937-56ccd324444ftop-f910efcb-e9fb-4d3c-8927-4063902f576bbottom",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Integrity for Vehicle CAN",
+          "name": "DS due to the loss of Integrity for Vehicle CAN",
+          "loss": "loss of Integrity",
+          "asset": null,
+          "damageScene": [],
+          "id": "DS039",
+          "nodeId": "reactflow__edge-8acc2cd9-a02e-4f92-8937-56ccd324444fleft-903c5635-ee0f-492d-8b4a-52106410cc8eright",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Authenticity for Vehicle CAN",
+          "name": "DS due to the loss of Authenticity for Vehicle CAN",
+          "loss": "loss of Authenticity",
+          "asset": null,
+          "damageScene": [],
+          "id": "DS040",
+          "nodeId": "reactflow__edge-8acc2cd9-a02e-4f92-8937-56ccd324444fleft-903c5635-ee0f-492d-8b4a-52106410cc8eright",
+          "is_checked": null
+        },
+        {
+          "task": "Check for DS due to the loss of Confidentiality for Vehicle CAN",
+          "name": "DS due to the loss of Confidentiality for Vehicle CAN",
+          "loss": "loss of Confidentiality",
+          "asset": null,
+          "damageScene": [],
+          "id": "DS041",
+          "nodeId": "reactflow__edge-8acc2cd9-a02e-4f92-8937-56ccd324444fleft-903c5635-ee0f-492d-8b4a-52106410cc8eright",
+          "is_checked": null
+        }
+      ],
+      "Details": [
+        {
+          "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+          "name": "BatteryPack",
+          "desc": "Description",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "bb682436-25ba-40fa-a5b3-5a23637e3f2a"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "c115d48d-c6d4-4f1d-b747-cd45bc0199aa"
+            },
+            {
+              "name": "Authenticity",
+              "id": "f35046d8-38b5-45d2-9c2c-76f6ee05e43b"
+            },
+            {
+              "name": "Authorization",
+              "id": "e6e19f98-aefa-4acb-92dd-db63651c0b1f"
+            },
+            {
+              "name": "Availability",
+              "id": "2c29f723-6dfc-4bc0-b529-712dbff2b355"
+            },
+            {
+              "name": "Non-repudiation",
+              "id": "a91fd2cc-5403-4243-abaa-f2848f256867"
+            }
+          ]
+        },
+        {
+          "nodeId": "db4141e3-e094-4c4e-8e06-44e1b9e1aa94",
+          "name": "CellMonitoring",
+          "desc": "test desc",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "0ea86770-2af5-4620-90df-3cc7b9ab1509"
+            },
+            {
+              "name": "Availability",
+              "id": "689345bf-b225-41af-9a77-91d4fce68bb2"
+            }
+          ]
+        },
+        {
+          "nodeId": "05e9f5bd-d85a-468b-954a-5dddc69079f6",
+          "name": "IO and Analog",
+          "desc": null,
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "adf88878-4ae1-45b9-a38b-430213e6b611"
+            },
+            {
+              "name": "Availability",
+              "id": "a91e120f-2b3a-45f9-b96d-de1cb91898ca"
+            }
+          ]
+        },
+        {
+          "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+          "name": "Code Flash",
+          "desc": null,
+          "type": "default",
+          "props": [
+            {
+              "name": "Confidentiality",
+              "id": "f1c3bcac-b657-4cd1-8012-90fdb15e2ac2"
+            },
+            {
+              "name": "Integrity",
+              "id": "fff98969-ed65-4b96-b8fc-27453d5f91a4"
+            },
+            {
+              "name": "Availability",
+              "id": "caaf2d19-31fa-4a41-9666-f4a119182eeb"
+            },
+            {
+              "name": "Authenticity",
+              "id": "c9f21c33-fae3-4339-a048-ac56612a794b"
+            }
+          ]
+        },
+        {
+          "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+          "name": "Data Flash",
+          "desc": null,
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "e2566f69-68d4-4c78-9db2-0752889a5bf1"
+            },
+            {
+              "name": "Availability",
+              "id": "b3c32627-6756-4306-9332-11c59d57cdcc"
+            },
+            {
+              "name": "Non-repudiation",
+              "id": "62fd9c13-55ea-4b17-9d3f-e8e5025f3307"
+            }
+          ]
+        },
+        {
+          "nodeId": "07f29908-e559-4899-b842-5f5e6bb31d3f",
+          "name": "Keys",
+          "desc": null,
+          "type": "default",
+          "props": [
+            {
+              "name": "Confidentiality",
+              "id": "a24d0df1-5efa-450e-8ee2-3102d02bf9eb"
+            }
+          ]
+        },
+        {
+          "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543",
+          "name": "Certificates",
+          "desc": null,
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "a03bcbcd-854b-46ed-abe0-cc5396bede17"
+            },
+            {
+              "name": "Authenticity",
+              "id": "3470cba1-9f1d-428d-80bf-94fd1c6fd8f0"
+            },
+            {
+              "name": "Availability",
+              "id": "b276534f-ebea-44ee-b68c-e428a4a66e4e"
+            }
+          ]
+        },
+        {
+          "nodeId": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+          "name": "CAN Transceiver",
+          "desc": null,
+          "type": "default",
+          "props": []
+        },
+        {
+          "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+          "name": "Debug Port",
+          "desc": null,
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "5d5def5e-5930-435b-b6bd-8cd5c0421457"
+            },
+            {
+              "name": "Availability",
+              "id": "78b5ab5e-d8f9-44bf-a50d-03efd86c1526"
+            },
+            {
+              "name": "Authorization",
+              "id": "004dbf00-a2e4-4aa5-9f0d-c22094309484"
+            }
+          ]
+        },
+        {
+          "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+          "name": "ICD Shunt CAN",
+          "desc": null,
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "99dd6d9e-e66f-4459-b7db-91d7ea9aa8b4"
+            },
+            {
+              "name": "Availability",
+              "id": "574b2d6e-0ff4-4d8e-ae60-43d114ab3239"
+            }
+          ]
+        },
+        {
+          "nodeId": "8acc2cd9-a02e-4f92-8937-56ccd324444f",
+          "name": "Vehicle System",
+          "desc": null,
+          "type": "default",
+          "props": []
+        },
+        {
+          "nodeId": "f910efcb-e9fb-4d3c-8927-4063902f576b",
+          "name": "Cloud",
+          "desc": null,
+          "type": "default",
+          "props": []
+        },
+        {
+          "nodeId": "8f364ae0-1de5-404b-831c-86daf0e24160",
+          "name": "SoC",
+          "desc": null,
+          "type": "data",
+          "props": [
+            {
+              "name": "Authenticity",
+              "id": "99ec2624-6bd0-4645-85dc-9dee142280b2"
+            },
+            {
+              "name": "Integrity",
+              "id": "a8e7ec55-4abc-4b20-b9cd-144113c98122"
+            }
+          ]
+        },
+        {
+          "nodeId": "389064d4-2770-4d34-9a05-c91a12d3559e",
+          "name": "SoH",
+          "desc": null,
+          "type": "data",
+          "props": [
+            {
+              "name": "Authenticity",
+              "id": "511140db-1a81-4f89-9efa-657399978a11"
+            },
+            {
+              "name": "Integrity",
+              "id": "6ef33d9b-ddb4-4e1b-a115-80d30fb12401"
+            }
+          ]
+        },
+        {
+          "nodeId": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bab-db4141e3-e094-4c4e-8e06-44e1b9e1aa94right",
+          "name": "SPI_CellMonitor",
+          "desc": null,
+          "type": "step",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "25de7ca1-51ae-43ae-8566-6d93b36562e4"
+            }
+          ]
+        },
+        {
+          "nodeId": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bab-05e9f5bd-d85a-468b-954a-5dddc69079f6right",
+          "name": "IO_PINS",
+          "desc": null,
+          "type": "step",
+          "props": [
+            {
+              "name": "Confidentiality",
+              "id": "2e2be0c6-e679-4a32-bdb5-b10b3488ec78"
+            }
+          ]
+        },
+        {
+          "nodeId": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bad-903c5635-ee0f-492d-8b4a-52106410cc8eleft",
+          "name": "CAN2",
+          "desc": null,
+          "type": "step",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "987d8574-0507-4649-9c9e-678082ea616c"
+            },
+            {
+              "name": "Authenticity",
+              "id": "c8573dc6-57c6-4a96-8a57-10e6315be6f6"
+            }
+          ]
+        },
+        {
+          "nodeId": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bac-6c2782e0-08da-42e8-bc9e-9f5bc3310526right",
+          "name": "CAN1",
+          "desc": null,
+          "type": "step",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "bb4b6b42-e1c8-4240-8382-9015d633a793"
+            }
+          ]
+        },
+        {
+          "nodeId": "reactflow__edge-db4141e3-e094-4c4e-8e06-44e1b9e1aa94left-e2ee030f-e8e7-4ea7-9573-8a3e4339c137top",
+          "name": "SPI",
+          "desc": null,
+          "type": "step",
+          "props": []
+        },
+        {
+          "nodeId": "reactflow__edge-05e9f5bd-d85a-468b-954a-5dddc69079f6left-e2ee030f-e8e7-4ea7-9573-8a3e4339c137right",
+          "name": "IO",
+          "desc": null,
+          "type": "step",
+          "props": [
+            {
+              "name": "Confidentiality",
+              "id": "182c4fa9-ee95-4a89-88c3-2b411ddbba42"
+            }
+          ]
+        },
+        {
+          "nodeId": "reactflow__edge-6c2782e0-08da-42e8-bc9e-9f5bc3310526left-e2ee030f-e8e7-4ea7-9573-8a3e4339c137bottom",
+          "name": "ICD_Data",
+          "desc": null,
+          "type": "step",
+          "props": [
+            {
+              "name": "Confidentiality",
+              "id": "64f72481-f25c-4d6d-b548-3da2c9106778"
+            }
+          ]
+        },
+        {
+          "nodeId": "reactflow__edge-8acc2cd9-a02e-4f92-8937-56ccd324444ftop-f910efcb-e9fb-4d3c-8927-4063902f576bbottom",
+          "name": "Inernet",
+          "desc": null,
+          "type": "step",
+          "props": [
+            {
+              "name": "Confidentiality",
+              "id": "ac8d6f91-efdb-4b01-9db0-1eafbc41a77c"
+            }
+          ]
+        },
+        {
+          "nodeId": "reactflow__edge-8acc2cd9-a02e-4f92-8937-56ccd324444fleft-903c5635-ee0f-492d-8b4a-52106410cc8eright",
+          "name": "Vehicle CAN",
+          "desc": null,
+          "type": "step",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "ffb1833c-a3ba-4529-a2ed-cfe795ede631"
+            },
+            {
+              "name": "Authenticity",
+              "id": "cdc92fd5-9092-40f0-9513-277e283c9096"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "ae5b77b9-45fb-4ee8-9380-1fd1a3dfd50d"
+            }
+          ]
+        }
+      ],
+      "user_id": "66ce823d95a055635c0ae0ae"
+    },
+    {
+      "_id": "698397514b57b8f24ed40a4c",
+      "model_id": "698397514b57b8f24ed40a43",
+      "type": "User-defined",
+      "Details": [
+        {
+          "Description": "ttacker modifies voltage/current thresholds in Data Flash, allowing the battery to operate outside the Safe Operating Area (SOA).",
+          "Name": "Thermal Runaway via Calibration Tampering",
+          "cyberLosses": [
+            {
+              "id": "f1c3bcac-b657-4cd1-8012-90fdb15e2ac2",
+              "is_risk_added": false,
+              "name": "Confidentiality",
+              "isSelected": true,
+              "node": "Code Flash",
+              "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14"
+            },
+            {
+              "id": "fff98969-ed65-4b96-b8fc-27453d5f91a4",
+              "is_risk_added": true,
+              "name": "Integrity",
+              "isSelected": true,
+              "node": "Code Flash",
+              "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14"
+            },
+            {
+              "id": "caaf2d19-31fa-4a41-9666-f4a119182eeb",
+              "is_risk_added": false,
+              "name": "Availability",
+              "isSelected": true,
+              "node": "Code Flash",
+              "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14"
+            },
+            {
+              "id": "c9f21c33-fae3-4339-a048-ac56612a794b",
+              "is_risk_added": true,
+              "name": "Authenticity",
+              "isSelected": true,
+              "node": "Code Flash",
+              "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14"
+            },
+            {
+              "id": "b3c32627-6756-4306-9332-11c59d57cdcc",
+              "is_risk_added": false,
+              "name": "Availability",
+              "isSelected": true,
+              "node": "Data Flash",
+              "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b"
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Severe",
+            "Safety Impact": "Severe",
+            "Operational Impact": "Severe",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 1,
+          "_id": "a5cc0119-2861-4592-a10e-2a4965a4ad22"
+        },
+        {
+          "Description": "Flooding CAN2 or CAN1 with high-priority messages prevents the BMS from communicating, causing the contactors to open (fail-safe) while driving.",
+          "Name": "BMS Lockout / Denial of Service",
+          "cyberLosses": [
+            {
+              "id": "c8573dc6-57c6-4a96-8a57-10e6315be6f6",
+              "is_risk_added": false,
+              "name": "Authenticity",
+              "isSelected": true,
+              "node": "CAN2",
+              "nodeId": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bad-903c5635-ee0f-492d-8b4a-52106410cc8eleft"
+            },
+            {
+              "id": "bb4b6b42-e1c8-4240-8382-9015d633a793",
+              "is_risk_added": false,
+              "name": "Integrity",
+              "isSelected": true,
+              "node": "CAN1",
+              "nodeId": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bac-6c2782e0-08da-42e8-bc9e-9f5bc3310526right"
+            },
+            {
+              "id": "ffb1833c-a3ba-4529-a2ed-cfe795ede631",
+              "is_risk_added": true,
+              "name": "Integrity",
+              "isSelected": true,
+              "node": "Vehicle CAN",
+              "nodeId": "reactflow__edge-8acc2cd9-a02e-4f92-8937-56ccd324444fleft-903c5635-ee0f-492d-8b4a-52106410cc8eright"
+            },
+            {
+              "id": "cdc92fd5-9092-40f0-9513-277e283c9096",
+              "is_risk_added": false,
+              "name": "Authenticity",
+              "isSelected": true,
+              "node": "Vehicle CAN",
+              "nodeId": "reactflow__edge-8acc2cd9-a02e-4f92-8937-56ccd324444fleft-903c5635-ee0f-492d-8b4a-52106410cc8eright"
+            },
+            {
+              "id": "ae5b77b9-45fb-4ee8-9380-1fd1a3dfd50d",
+              "is_risk_added": false,
+              "name": "Confidentiality",
+              "isSelected": true,
+              "node": "Vehicle CAN",
+              "nodeId": "reactflow__edge-8acc2cd9-a02e-4f92-8937-56ccd324444fleft-903c5635-ee0f-492d-8b4a-52106410cc8eright"
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Negligible",
+            "Safety Impact": "Severe",
+            "Operational Impact": "Negligible",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 2,
+          "_id": "70df8746-1bfd-4288-ba1c-70325e8836d3"
+        },
+        {
+          "Description": "JTAG:Tampering of Code or Data \r\nthrough JTAG/Debug interface",
+          "Name": "Unauthorized access of JTAG",
+          "cyberLosses": [
+            {
+              "id": "5d5def5e-5930-435b-b6bd-8cd5c0421457",
+              "is_risk_added": true,
+              "name": "Integrity",
+              "isSelected": true,
+              "node": "Debug Port",
+              "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4"
+            },
+            {
+              "id": "78b5ab5e-d8f9-44bf-a50d-03efd86c1526",
+              "is_risk_added": false,
+              "name": "Availability",
+              "isSelected": true,
+              "node": "Debug Port",
+              "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4"
+            },
+            {
+              "id": "004dbf00-a2e4-4aa5-9f0d-c22094309484",
+              "is_risk_added": false,
+              "name": "Authorization",
+              "isSelected": true,
+              "node": "Debug Port",
+              "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4"
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Severe",
+            "Safety Impact": "Severe",
+            "Operational Impact": "Severe",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 3,
+          "_id": "ff3dd819-9f4f-470a-a331-db4dcdb31163"
+        },
+        {
+          "Description": "Spoofing CAN messages to display higher SoC than reality, leaving the driver stranded",
+          "Name": "False State of Charge (SoC) Reporting",
+          "cyberLosses": [
+            {
+              "id": "fff98969-ed65-4b96-b8fc-27453d5f91a4",
+              "is_risk_added": true,
+              "name": "Integrity",
+              "isSelected": true,
+              "node": "Code Flash",
+              "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14"
+            },
+            {
+              "id": "c9f21c33-fae3-4339-a048-ac56612a794b",
+              "is_risk_added": true,
+              "name": "Authenticity",
+              "isSelected": true,
+              "node": "Code Flash",
+              "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14"
+            },
+            {
+              "id": "99ec2624-6bd0-4645-85dc-9dee142280b2",
+              "is_risk_added": false,
+              "name": "Authenticity",
+              "isSelected": true,
+              "node": "SoC",
+              "nodeId": "8f364ae0-1de5-404b-831c-86daf0e24160"
+            },
+            {
+              "id": "a8e7ec55-4abc-4b20-b9cd-144113c98122",
+              "is_risk_added": false,
+              "name": "Integrity",
+              "isSelected": true,
+              "node": "SoC",
+              "nodeId": "8f364ae0-1de5-404b-831c-86daf0e24160"
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Severe",
+            "Safety Impact": "Severe",
+            "Operational Impact": "Severe",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 4,
+          "_id": "08ba1ca4-afd7-44de-816e-4a2203e99aa3"
+        },
+        {
+          "Description": "Corruption of Calibration and Learning Data",
+          "Name": "Data Flash Corruption : Loss of Calibration and Learning Data",
+          "cyberLosses": [
+            {
+              "id": "e2566f69-68d4-4c78-9db2-0752889a5bf1",
+              "is_risk_added": false,
+              "name": "Integrity",
+              "isSelected": true,
+              "node": "Data Flash",
+              "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b"
+            },
+            {
+              "id": "b3c32627-6756-4306-9332-11c59d57cdcc",
+              "is_risk_added": false,
+              "name": "Availability",
+              "isSelected": true,
+              "node": "Data Flash",
+              "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b"
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Severe",
+            "Safety Impact": "Severe",
+            "Operational Impact": "Severe",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 5,
+          "_id": "1e968796-38d9-476f-93c3-ed613c99ada3"
+        },
+        {
+          "Description": "FW:Rolling back the BMS software \r\nwith known vulnerabilities or \r\nweaknesses.",
+          "Name": "Loss of functionality due to Rollback Attack",
+          "cyberLosses": [
+            {
+              "id": "a03bcbcd-854b-46ed-abe0-cc5396bede17",
+              "is_risk_added": false,
+              "name": "Integrity",
+              "isSelected": true,
+              "node": "Certificates",
+              "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543"
+            },
+            {
+              "id": "3470cba1-9f1d-428d-80bf-94fd1c6fd8f0",
+              "is_risk_added": false,
+              "name": "Authenticity",
+              "isSelected": true,
+              "node": "Certificates",
+              "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543"
+            },
+            {
+              "id": "b276534f-ebea-44ee-b68c-e428a4a66e4e",
+              "is_risk_added": false,
+              "name": "Availability",
+              "isSelected": true,
+              "node": "Certificates",
+              "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543"
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Severe",
+            "Safety Impact": "Severe",
+            "Operational Impact": "Moderate",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 6,
+          "_id": "66c5aef8-fed6-4050-95b5-f7a7cc3f8886"
+        },
+        {
+          "Description": "Injecting commands via IO_PINS or manipulating logic to close relays while the vehicle is charging or during maintenance",
+          "Name": "Unintended Contactors Closure",
+          "cyberLosses": [
+            {
+              "id": "adf88878-4ae1-45b9-a38b-430213e6b611",
+              "is_risk_added": false,
+              "name": "Integrity",
+              "isSelected": true,
+              "node": "IO and Analog",
+              "nodeId": "05e9f5bd-d85a-468b-954a-5dddc69079f6"
+            },
+            {
+              "id": "a91e120f-2b3a-45f9-b96d-de1cb91898ca",
+              "is_risk_added": false,
+              "name": "Availability",
+              "isSelected": true,
+              "node": "IO and Analog",
+              "nodeId": "05e9f5bd-d85a-468b-954a-5dddc69079f6"
+            },
+            {
+              "id": "a03bcbcd-854b-46ed-abe0-cc5396bede17",
+              "is_risk_added": true,
+              "name": "Integrity",
+              "isSelected": true,
+              "node": "Certificates",
+              "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543"
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Severe",
+            "Safety Impact": "Severe",
+            "Operational Impact": "Moderate",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 7,
+          "_id": "09e1d4b3-2811-410b-be95-dd1ee8a58081"
+        },
+        {
+          "Description": "Man-in-the-middle attack on CAN1 (ICD Shunt) masking high current discharge events during acceleration.",
+          "Name": "Current Sensor Spoofing",
+          "cyberLosses": [
+            {
+              "id": "99dd6d9e-e66f-4459-b7db-91d7ea9aa8b4",
+              "is_risk_added": false,
+              "name": "Integrity",
+              "isSelected": true,
+              "node": "ICD Shunt CAN",
+              "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526"
+            },
+            {
+              "id": "574b2d6e-0ff4-4d8e-ae60-43d114ab3239",
+              "is_risk_added": false,
+              "name": "Availability",
+              "isSelected": true,
+              "node": "ICD Shunt CAN",
+              "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526"
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Severe",
+            "Safety Impact": "Major",
+            "Operational Impact": "Severe",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 8,
+          "_id": "c51dbab9-46d0-4c69-a0e1-3961edaa67a2"
+        },
+        {
+          "Description": "Using the Debug Port or Side-Channel Analysis to extract private keys/Certificates.",
+          "Name": "Cryptographic Key Extraction",
+          "cyberLosses": [
+            {
+              "id": "a24d0df1-5efa-450e-8ee2-3102d02bf9eb",
+              "is_risk_added": false,
+              "name": "Confidentiality",
+              "isSelected": true,
+              "node": "Keys",
+              "nodeId": "07f29908-e559-4899-b842-5f5e6bb31d3f"
+            },
+            {
+              "id": "3470cba1-9f1d-428d-80bf-94fd1c6fd8f0",
+              "is_risk_added": false,
+              "name": "Authenticity",
+              "isSelected": true,
+              "node": "Certificates",
+              "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543"
+            },
+            {
+              "id": "b276534f-ebea-44ee-b68c-e428a4a66e4e",
+              "is_risk_added": false,
+              "name": "Availability",
+              "isSelected": true,
+              "node": "Certificates",
+              "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543"
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Severe",
+            "Safety Impact": "Major",
+            "Operational Impact": "Severe",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 9,
+          "_id": "39b4b163-c8fe-4d3d-8e8e-9bdaac1af839"
+        },
+        {
+          "Description": "Bypassing secure boot to install malware that ignores all safety checks.",
+          "Name": "Malicious Firmware Flashing",
+          "cyberLosses": [
+            {
+              "id": "f1c3bcac-b657-4cd1-8012-90fdb15e2ac2",
+              "is_risk_added": false,
+              "name": "Confidentiality",
+              "isSelected": true,
+              "node": "Code Flash",
+              "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14"
+            },
+            {
+              "id": "caaf2d19-31fa-4a41-9666-f4a119182eeb",
+              "is_risk_added": false,
+              "name": "Availability",
+              "isSelected": true,
+              "node": "Code Flash",
+              "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14"
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Severe",
+            "Safety Impact": "Severe",
+            "Operational Impact": "Severe",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 10,
+          "_id": "54b46720-2224-4aa4-b183-8fa1d1181cdb"
+        },
+        {
+          "Description": "Manipulating SPI data to hide a bad cell (e.g., undervoltage) allowing it to degrade further into a thermal even",
+          "Name": "Cell Monitoring Masking",
+          "cyberLosses": [
+            {
+              "id": "25de7ca1-51ae-43ae-8566-6d93b36562e4",
+              "is_risk_added": false,
+              "name": "Integrity",
+              "isSelected": true,
+              "node": "SPI_CellMonitor",
+              "nodeId": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bab-db4141e3-e094-4c4e-8e06-44e1b9e1aa94right"
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Major",
+            "Safety Impact": "Severe",
+            "Operational Impact": "Major",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 11,
+          "_id": "c9b63df9-a38d-40c0-ae09-36d64ae54b4c"
+        },
+        {
+          "Description": "Altering SoH (State of Health) logs in Data Flash to claim warranty on a good battery or sell a bad battery as good",
+          "Name": "Warranty Fraud / Odometer Manipulation",
+          "cyberLosses": [
+            {
+              "id": "b3c32627-6756-4306-9332-11c59d57cdcc",
+              "is_risk_added": false,
+              "name": "Availability",
+              "isSelected": true,
+              "node": "Data Flash",
+              "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b"
+            },
+            {
+              "id": "62fd9c13-55ea-4b17-9d3f-e8e5025f3307",
+              "is_risk_added": false,
+              "name": "Non-repudiation",
+              "isSelected": true,
+              "node": "Data Flash",
+              "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b"
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Moderate",
+            "Safety Impact": "Negligible",
+            "Operational Impact": "Minor",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 12,
+          "_id": "ae1412c9-54c0-42e3-a59e-b13098c3f3dc"
+        }
+      ],
+      "user_id": "66ce823d95a055635c0ae0ae"
+    }
+  ]}
