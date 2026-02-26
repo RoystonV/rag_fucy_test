@@ -1,1 +1,3 @@
-markdown2
+haystack-ai
+sentence-transformers>=2.2.0
+google-ai-haystack
