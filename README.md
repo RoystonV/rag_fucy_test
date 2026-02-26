@@ -21,7 +21,7 @@ InMemory Retriever (top_k=50)
 Prompt Builder (Jinja2 template)
    │
    ▼
-Gemini 2.0 Flash
+Gemini 
    │
    ▼
 Structured JSON Response
