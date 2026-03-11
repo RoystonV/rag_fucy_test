@@ -1,0 +1,924 @@
+{
+  "assets": {
+    "_id": "asset_id_infotainment",
+    "user_id": "user_id_123",
+    "model_id": "model_id_infotainment",
+    "template": {
+      "nodes": [
+        {
+          "id": "infotainment_ecu",
+          "type": "component",
+          "parentId": "",
+          "isAsset": true,
+          "data": {
+            "label": "Infotainment ECU",
+            "description": "The central processing unit for the infotainment system."
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 200,
+            "height": 80
+          },
+          "position": {
+            "x": 100,
+            "y": 100
+          }
+        },
+        {
+          "id": "display_unit",
+          "type": "component",
+          "parentId": "infotainment_ecu",
+          "isAsset": true,
+          "data": {
+            "label": "Display Unit",
+            "description": "The touchscreen interface for user interaction."
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 180,
+            "height": 60
+          },
+          "position": {
+            "x": 400,
+            "y": 100
+          }
+        },
+        {
+          "id": "audio_amplifier",
+          "type": "component",
+          "parentId": "infotainment_ecu",
+          "isAsset": true,
+          "data": {
+            "label": "Audio Amplifier",
+            "description": "Amplifies audio signals for speakers."
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 100,
+            "y": 300
+          }
+        },
+        {
+          "id": "navigation_module",
+          "type": "component",
+          "parentId": "infotainment_ecu",
+          "isAsset": true,
+          "data": {
+            "label": "Navigation Module",
+            "description": "Provides GPS and navigation services."
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 180,
+            "height": 60
+          },
+          "position": {
+            "x": 400,
+            "y": 300
+          }
+        },
+        {
+          "id": "bluetooth_module",
+          "type": "component",
+          "parentId": "infotainment_ecu",
+          "isAsset": true,
+          "data": {
+            "label": "Bluetooth Module",
+            "description": "Enables wireless connectivity for devices."
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 180,
+            "height": 60
+          },
+          "position": {
+            "x": 600,
+            "y": 300
+          }
+        },
+        {
+          "id": "wifi_module",
+          "type": "component",
+          "parentId": "infotainment_ecu",
+          "isAsset": true,
+          "data": {
+            "label": "Wi-Fi Module",
+            "description": "Enables wireless network connectivity."
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 180,
+            "height": 60
+          },
+          "position": {
+            "x": 800,
+            "y": 300
+          }
+        },
+        {
+          "id": "usb_interface",
+          "type": "component",
+          "parentId": "infotainment_ecu",
+          "isAsset": true,
+          "data": {
+            "label": "USB Interface",
+            "description": "Allows connection of external storage devices."
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 100,
+            "y": 500
+          }
+        },
+        {
+          "id": "microphone",
+          "type": "component",
+          "parentId": "infotainment_ecu",
+          "isAsset": true,
+          "data": {
+            "label": "Microphone",
+            "description": "Captures voice input for commands and calls."
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 120,
+            "height": 40
+          },
+          "position": {
+            "x": 300,
+            "y": 500
+          }
+        },
+        {
+          "id": "speaker_output",
+          "type": "component",
+          "parentId": "audio_amplifier",
+          "isAsset": true,
+          "data": {
+            "label": "Speaker Output",
+            "description": "Connects to vehicle speakers for audio playback."
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 100,
+            "y": 600
+          }
+        },
+        {
+          "id": "rear_camera_input",
+          "type": "component",
+          "parentId": "infotainment_ecu",
+          "isAsset": true,
+          "data": {
+            "label": "Rear Camera Input",
+            "description": "Receives video feed from the rear-view camera."
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 180,
+            "height": 60
+          },
+          "position": {
+            "x": 700,
+            "y": 100
+          }
+        },
+        {
+          "id": "user_profiles",
+          "type": "data",
+          "parentId": "infotainment_ecu",
+          "isAsset": true,
+          "data": {
+            "label": "User Profiles",
+            "description": "Stored user preferences and settings."
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 300,
+            "y": 180
+          }
+        },
+        {
+          "id": "telemetry_data",
+          "type": "data",
+          "parentId": "infotainment_ecu",
+          "isAsset": true,
+          "data": {
+            "label": "Telemetry Data",
+            "description": "Collected vehicle operational data."
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 300,
+            "y": 250
+          }
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge_1",
+          "source": "display_unit",
+          "target": "infotainment_ecu",
+          "type": "smoothstep",
+          "data": {
+            "label": "Controls"
+          }
+        },
+        {
+          "id": "edge_2",
+          "source": "audio_amplifier",
+          "target": "infotainment_ecu",
+          "type": "smoothstep",
+          "data": {
+            "label": "Controls"
+          }
+        },
+        {
+          "id": "edge_3",
+          "source": "navigation_module",
+          "target": "infotainment_ecu",
+          "type": "smoothstep",
+          "data": {
+            "label": "Provides Data To"
+          }
+        },
+        {
+          "id": "edge_4",
+          "source": "bluetooth_module",
+          "target": "infotainment_ecu",
+          "type": "smoothstep",
+          "data": {
+            "label": "Connects Via"
+          }
+        },
+        {
+          "id": "edge_5",
+          "source": "wifi_module",
+          "target": "infotainment_ecu",
+          "type": "smoothstep",
+          "data": {
+            "label": "Connects Via"
+          }
+        },
+        {
+          "id": "edge_6",
+          "source": "usb_interface",
+          "target": "infotainment_ecu",
+          "type": "smoothstep",
+          "data": {
+            "label": "Connects Via"
+          }
+        },
+        {
+          "id": "edge_7",
+          "source": "microphone",
+          "target": "infotainment_ecu",
+          "type": "smoothstep",
+          "data": {
+            "label": "Captures Input"
+          }
+        },
+        {
+          "id": "edge_8",
+          "source": "speaker_output",
+          "target": "audio_amplifier",
+          "type": "smoothstep",
+          "data": {
+            "label": "Outputs To"
+          }
+        },
+        {
+          "id": "edge_9",
+          "source": "rear_camera_input",
+          "target": "infotainment_ecu",
+          "type": "smoothstep",
+          "data": {
+            "label": "Receives Input"
+          }
+        },
+        {
+          "id": "edge_10",
+          "source": "user_profiles",
+          "target": "infotainment_ecu",
+          "type": "smoothstep",
+          "data": {
+            "label": "Managed By"
+          }
+        },
+        {
+          "id": "edge_11",
+          "source": "telemetry_data",
+          "target": "infotainment_ecu",
+          "type": "smoothstep",
+          "data": {
+            "label": "Collected By"
+          }
+        }
+      ],
+      "details": [
+        {
+          "nodeId": "infotainment_ecu",
+          "name": "Infotainment ECU",
+          "desc": "The central processing unit for the infotainment system.",
+          "type": "component",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "property_integrity"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "property_confidentiality"
+            },
+            {
+              "name": "Availability",
+              "id": "property_availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "display_unit",
+          "name": "Display Unit",
+          "desc": "The touchscreen interface for user interaction.",
+          "type": "component",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "property_integrity"
+            },
+            {
+              "name": "Availability",
+              "id": "property_availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "audio_amplifier",
+          "name": "Audio Amplifier",
+          "desc": "Amplifies audio signals for speakers.",
+          "type": "component",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "property_integrity"
+            },
+            {
+              "name": "Availability",
+              "id": "property_availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "navigation_module",
+          "name": "Navigation Module",
+          "desc": "Provides GPS and navigation services.",
+          "type": "component",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "property_integrity"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "property_confidentiality"
+            },
+            {
+              "name": "Availability",
+              "id": "property_availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "bluetooth_module",
+          "name": "Bluetooth Module",
+          "desc": "Enables wireless connectivity for devices.",
+          "type": "component",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "property_integrity"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "property_confidentiality"
+            },
+            {
+              "name": "Availability",
+              "id": "property_availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "wifi_module",
+          "name": "Wi-Fi Module",
+          "desc": "Enables wireless network connectivity.",
+          "type": "component",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "property_integrity"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "property_confidentiality"
+            },
+            {
+              "name": "Availability",
+              "id": "property_availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "usb_interface",
+          "name": "USB Interface",
+          "desc": "Allows connection of external storage devices.",
+          "type": "component",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "property_integrity"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "property_confidentiality"
+            },
+            {
+              "name": "Availability",
+              "id": "property_availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "microphone",
+          "name": "Microphone",
+          "desc": "Captures voice input for commands and calls.",
+          "type": "component",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "property_integrity"
+            },
+            {
+              "name": "Availability",
+              "id": "property_availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "speaker_output",
+          "name": "Speaker Output",
+          "desc": "Connects to vehicle speakers for audio playback.",
+          "type": "component",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "property_integrity"
+            },
+            {
+              "name": "Availability",
+              "id": "property_availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "rear_camera_input",
+          "name": "Rear Camera Input",
+          "desc": "Receives video feed from the rear-view camera.",
+          "type": "component",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "property_integrity"
+            },
+            {
+              "name": "Availability",
+              "id": "property_availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "user_profiles",
+          "name": "User Profiles",
+          "desc": "Stored user preferences and settings.",
+          "type": "data",
+          "props": [
+            {
+              "name": "Confidentiality",
+              "id": "property_confidentiality"
+            },
+            {
+              "name": "Integrity",
+              "id": "property_integrity"
+            }
+          ]
+        },
+        {
+          "nodeId": "telemetry_data",
+          "name": "Telemetry Data",
+          "desc": "Collected vehicle operational data.",
+          "type": "data",
+          "props": [
+            {
+              "name": "Confidentiality",
+              "id": "property_confidentiality"
+            },
+            {
+              "name": "Integrity",
+              "id": "property_integrity"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "damage_scenarios": {
+    "_id": "damage_scenario_infotainment",
+    "model_id": "model_id_infotainment",
+    "type": "damage",
+    "derivation": [
+      {
+        "id": "derivation_1",
+        "nodeId": "infotainment_ecu",
+        "task": "Threat Analysis",
+        "name": "CWE-15: External Control of System or Configuration Setting",
+        "loss": "Unauthorized modification of system settings",
+        "asset": "Infotainment ECU",
+        "damage_scene": "An attacker exploits a vulnerability to gain external control over the infotainment system's configuration settings.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_2",
+        "nodeId": "user_profiles",
+        "task": "Threat Analysis",
+        "name": "CWE-317: Cleartext Storage of Sensitive Information in GUI",
+        "loss": "Exposure of user profile data",
+        "asset": "User Profiles",
+        "damage_scene": "Sensitive user profile information is stored in cleartext and can be accessed by an unauthorized party via the GUI.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_3",
+        "nodeId": "telemetry_data",
+        "task": "Threat Analysis",
+        "name": "ATM Technique: Access vehicle telemetry",
+        "loss": "Unauthorized access to vehicle operational data",
+        "asset": "Telemetry Data",
+        "damage_scene": "An adversary gains access to vehicle telemetry data, potentially revealing driving patterns and vehicle status.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_4",
+        "nodeId": "display_unit",
+        "task": "Threat Analysis",
+        "name": "MITRE Technique: Screen Capture",
+        "loss": "Unauthorized capture of display content",
+        "asset": "Display Unit",
+        "damage_scene": "An attacker performs screen capture on the display unit, potentially capturing sensitive information like navigation routes or personal data.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_5",
+        "nodeId": "bluetooth_module",
+        "task": "Threat Analysis",
+        "name": "MITRE Technique: Remote System Information Discovery",
+        "loss": "Unauthorized information disclosure via Bluetooth",
+        "asset": "Bluetooth Module",
+        "damage_scene": "An attacker uses Bluetooth to discover and gather information from connected devices or the infotainment system itself.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_6",
+        "nodeId": "wifi_module",
+        "task": "Threat Analysis",
+        "name": "MITRE Technique: Remote System Discovery",
+        "loss": "Unauthorized network access",
+        "asset": "Wi-Fi Module",
+        "damage_scene": "An attacker attempts to discover and gain unauthorized access to the vehicle's Wi-Fi network.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_7",
+        "nodeId": "navigation_module",
+        "task": "Threat Analysis",
+        "name": "ATM Technique: Gather Target Information – from Vehicle",
+        "loss": "Disclosure of location and navigation history",
+        "asset": "Navigation Module",
+        "damage_scene": "An attacker gathers information about the vehicle's location and navigation history through the navigation module.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_8",
+        "nodeId": "usb_interface",
+        "task": "Threat Analysis",
+        "name": "CWE-225: DEPRECATED: General Information Management Problems",
+        "loss": "Malware propagation or data exfiltration via USB",
+        "asset": "USB Interface",
+        "damage_scene": "An attacker uses the USB interface to introduce malware or exfiltrate data from the infotainment system.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_9",
+        "nodeId": "microphone",
+        "task": "Threat Analysis",
+        "name": "CWE-488: Exposure of Data Element to Wrong Session",
+        "loss": "Unauthorized audio eavesdropping",
+        "asset": "Microphone",
+        "damage_scene": "An attacker exploits a flaw to gain unauthorized access to audio captured by the microphone, eavesdropping on conversations.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_10",
+        "nodeId": "audio_amplifier",
+        "task": "Threat Analysis",
+        "name": "CWE-610: Externally Controlled Reference to a Resource in Another Sphere",
+        "loss": "Disruption of audio services",
+        "asset": "Audio Amplifier",
+        "damage_scene": "An attacker manipulates the audio amplifier, causing disruption to normal audio playback or potentially generating harmful noise.",
+        "isChecked": false
+      }
+    ],
+    "details": [
+      {
+        "Name": "Unauthorized Configuration Modification",
+        "Description": "An attacker exploits CWE-15 to gain external control over the infotainment system's configuration settings, potentially disabling safety features or altering critical parameters.",
+        "cyberLosses": [
+          {
+            "id": "cyberloss_1",
+            "name": "Unauthorized modification of system settings",
+            "node": "Infotainment ECU",
+            "nodeId": "infotainment_ecu",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Major",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Minor"
+        },
+        "key": 1,
+        "_id": "scenario_1"
+      },
+      {
+        "Name": "User Profile Data Exposure",
+        "Description": "Leveraging CWE-317, sensitive user profile information stored in cleartext is accessed by an unauthorized party via the GUI, compromising user privacy.",
+        "cyberLosses": [
+          {
+            "id": "cyberloss_2",
+            "name": "Exposure of user profile data",
+            "node": "User Profiles",
+            "nodeId": "user_profiles",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Major"
+        },
+        "key": 2,
+        "_id": "scenario_2"
+      },
+      {
+        "Name": "Vehicle Telemetry Data Breach",
+        "Description": "An adversary gains access to vehicle telemetry data through the 'Access vehicle telemetry' ATM technique, potentially revealing driving patterns and vehicle status, impacting confidentiality.",
+        "cyberLosses": [
+          {
+            "id": "cyberloss_3",
+            "name": "Unauthorized access to vehicle operational data",
+            "node": "Telemetry Data",
+            "nodeId": "telemetry_data",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Major"
+        },
+        "key": 3,
+        "_id": "scenario_3"
+      },
+      {
+        "Name": "Display Content Eavesdropping",
+        "Description": "An attacker uses the 'Screen Capture' MITRE technique to capture display content, potentially revealing sensitive information like navigation routes or personal data displayed on the screen.",
+        "cyberLosses": [
+          {
+            "id": "cyberloss_4",
+            "name": "Unauthorized capture of display content",
+            "node": "Display Unit",
+            "nodeId": "display_unit",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Negligible",
+          "Privacy Impact": "Major"
+        },
+        "key": 4,
+        "_id": "scenario_4"
+      },
+      {
+        "Name": "Bluetooth Information Disclosure",
+        "Description": "An attacker uses 'Remote System Information Discovery' via Bluetooth to gather information from connected devices or the infotainment system, leading to unauthorized information disclosure.",
+        "cyberLosses": [
+          {
+            "id": "cyberloss_5",
+            "name": "Unauthorized information disclosure via Bluetooth",
+            "node": "Bluetooth Module",
+            "nodeId": "bluetooth_module",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 5,
+        "_id": "scenario_5"
+      },
+      {
+        "Name": "Unauthorized Wi-Fi Network Access",
+        "Description": "An attacker uses 'Remote System Discovery' to scan for and gain unauthorized access to the vehicle's Wi-Fi network, potentially compromising network integrity and availability.",
+        "cyberLosses": [
+          {
+            "id": "cyberloss_6",
+            "name": "Unauthorized network access",
+            "node": "Wi-Fi Module",
+            "nodeId": "wifi_module",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 6,
+        "_id": "scenario_6"
+      },
+      {
+        "Name": "Navigation History Compromise",
+        "Description": "Through 'Gather Target Information – from Vehicle' on the navigation module, an attacker obtains the vehicle's location and navigation history, compromising user privacy.",
+        "cyberLosses": [
+          {
+            "id": "cyberloss_7",
+            "name": "Disclosure of location and navigation history",
+            "node": "Navigation Module",
+            "nodeId": "navigation_module",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Major"
+        },
+        "key": 7,
+        "_id": "scenario_7"
+      },
+      {
+        "Name": "Malware Propagation via USB",
+        "Description": "An attacker exploits CWE-225 by using the USB interface to introduce malware, which can then propagate to other connected systems or exfiltrate data from the infotainment system.",
+        "cyberLosses": [
+          {
+            "id": "cyberloss_8",
+            "name": "Malware propagation or data exfiltration via USB",
+            "node": "USB Interface",
+            "nodeId": "usb_interface",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Moderate",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 8,
+        "_id": "scenario_8"
+      },
+      {
+        "Name": "Unauthorized Audio Eavesdropping",
+        "Description": "An attacker exploits CWE-488 on the microphone to gain unauthorized access to captured audio, leading to eavesdropping on vehicle occupants.",
+        "cyberLosses": [
+          {
+            "id": "cyberloss_9",
+            "name": "Unauthorized audio eavesdropping",
+            "node": "Microphone",
+            "nodeId": "microphone",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Negligible",
+          "Privacy Impact": "Severe"
+        },
+        "key": 9,
+        "_id": "scenario_9"
+      },
+      {
+        "Name": "Audio Service Disruption",
+        "Description": "An attacker utilizes CWE-610 to manipulate the audio amplifier, causing disruption to normal audio playback or potentially generating harmful noise, impacting availability and user experience.",
+        "cyberLosses": [
+          {
+            "id": "cyberloss_10",
+            "name": "Disruption of audio services",
+            "node": "Audio Amplifier",
+            "nodeId": "audio_amplifier",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 10,
+        "_id": "scenario_10"
+      }
+    ]
+  }
+}
