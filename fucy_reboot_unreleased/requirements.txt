@@ -1,0 +1,16 @@
+# fucy_reboot requirements
+# Core framework
+haystack-ai>=2.0.0
+haystack-integrations[google-ai]
+
+# Embeddings & re-ranking
+sentence-transformers>=2.2.0
+transformers>=4.30.0
+torch
+
+# CAG — Gemini context caching
+google-genai>=1.0.0
+
+# Utilities
+numpy
+joblib
