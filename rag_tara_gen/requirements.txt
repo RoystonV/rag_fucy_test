@@ -1,0 +1,5 @@
+# TARA RAG Pipeline — dependencies
+haystack-ai
+sentence-transformers>=2.2.0
+google-ai-haystack
+lxml
