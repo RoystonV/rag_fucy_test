@@ -63,7 +63,7 @@ def _clean_node_for_text(node: dict):
     data  = node.get("data", {})
     label = data.get("label", node.get("id", ""))
     desc  = data.get("description", "")
-    props = node.get("properties", [])
+    props = node.get("properties") or []
     ntype = node.get("type", "component")
     return label, desc, props, ntype
 
@@ -215,6 +215,13 @@ def ingest_annex(annex_path) -> list[Document]:
 # ECU data & Reports DB
 # ─────────────────────────────────────────────────────────────────────────────
 
+def _truncate_short(text, max_len: int = 800) -> str:
+    """Simple truncation with str() coercion, used for reports-DB descriptions."""
+    if not text:
+        return ""
+    text = str(text)
+    return text if len(text) <= max_len else text[:max_len] + "..."
+
 def ingest_ecu(ecu_path) -> list[Document]:
     if not Path(ecu_path).exists():
         print(f"  ECU file not found: {ecu_path} — skipping.")
@@ -310,7 +317,7 @@ def ingest_reports_db(reports_path) -> list[Document]:
             docs.append(Document(
                 content=(
                     f"Reference Damage Scenario [{model_name}]: {dname}\n"
-                    f"Description: {_truncate(det.get('Description', ''), 800)}\n"
+                    f"Description: {_truncate_short(det.get('Description', ''), 800)}\n"
                     f"Cyber Losses: {loss_str}\n"
                     f"Impact Ratings: {impact_str}"
                 ),

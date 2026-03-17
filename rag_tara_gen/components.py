@@ -34,9 +34,7 @@ REPORTS_PATH = BASE_PATH / "reports_db"
 
 EMBED_MODEL      = "BAAI/bge-small-en-v1.5"
 MAX_CHARS        = 1500
-GEMINI_MODEL     = "gemini-2.5-flash"
-LLM_TEMPERATURE  = 0.2
-LLM_MAX_TOKENS   = 8192
+GEMINI_MODEL     = "gemini-2.5-flash-lite"
 RETRIEVER_TOP_K  = 20
 
 
@@ -250,10 +248,4 @@ def build_generator():
             "   Windows : set GOOGLE_API_KEY=your-key-here\n"
             "   Linux   : export GOOGLE_API_KEY=your-key-here"
         )
-    return GoogleAIGeminiGenerator(
-        model=GEMINI_MODEL,
-        generation_kwargs={
-            "temperature":       LLM_TEMPERATURE,
-            "max_output_tokens": LLM_MAX_TOKENS,
-        },
-    )
+    return GoogleAIGeminiGenerator(model=GEMINI_MODEL)
