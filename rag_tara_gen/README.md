@@ -28,11 +28,66 @@ user_query ("Battery Management System ECU")
         │      • Annex F (impact rating guidelines)
         │      • REPORTS_DB (reference TARA reports)
         │
-        └─ Gemini LLM
+        └─ Gemini LLM (gemini-2.5-flash-lite)
              Prompt = enriched query (hint as asset constraint)
                     + retrieved context (REPORTS_DB tagged as pattern-only)
              Output = ISO 21434-compliant TARA JSON
 ```
+
+---
+
+## Module Structure
+
+| File | Role |
+|------|------|
+| `main.py` | CLI entry point — runs the full pipeline |
+| `config.py` | All paths, model names, and tunable constants |
+| `components.py` | ECU resolution, UUID post-processing, Haystack builders |
+| `ingest.py` | Loads and chunks all datasets into Haystack Documents |
+| `prompt.py` | Jinja2 prompt template sent to the LLM |
+| `pipeline.py` | Assembles and runs the Haystack RAG pipeline |
+| `postprocess.py` | UUID stamping, crosslinking, JSON parsing helpers |
+| `resolve_ecu.py` | Standalone ECU fuzzy matcher + `list_ecus()` utility |
+
+---
+
+## Setup & Usage
+
+### 1. Install dependencies
+```bash
+pip install haystack-ai "sentence-transformers>=2.2.0" google-ai-haystack lxml
+```
+
+### 2. Set your Google API key
+```powershell
+# Windows PowerShell
+$env:GOOGLE_API_KEY = "your-key-here"
+
+# Linux / macOS
+export GOOGLE_API_KEY="your-key-here"
+```
+
+### 3. Run from the terminal
+```bash
+cd rag_tara_gen
+
+# Generate a TARA report
+python main.py --query "Battery Management System ECU"
+
+# Custom output filename
+python main.py --query "Infotainment Head Unit" --output infotainment_tara.json
+
+# Print JSON to console only (no file saved)
+python main.py --query "ADAS ECU" --no-save
+
+# List all 50 supported ECU keys
+python main.py --list-ecus
+```
+
+Output is saved as `tara_output_<system_name>.json` in the `rag_tara_gen/` folder.
+
+### Notebook (Google Colab)
+Open `Tara_expo_v3_0.ipynb` in Colab, run cells top to bottom, and set your query in **Cell 13**.
 
 ---
 
@@ -51,8 +106,7 @@ user_query ("Battery Management System ECU")
           "isAsset": true,
           "data": { "label": "Battery Management MCU", "description": "..." },
           "properties": ["Integrity", "Confidentiality", "Availability"],
-          "position": { "x": 0, "y": 0 },
-          "positionAbsolute": { "x": 0, "y": 0 }
+          "position": { "x": 0, "y": 0 }
         }
       ],
       "edges": [
@@ -62,7 +116,6 @@ user_query ("Battery Management System ECU")
           "target": "<node-id>",
           "type": "step",
           "animated": true,
-          "markerEnd": { "color": "#64B5F6", "type": "arrowclosed" },
           "properties": ["Integrity"]
         }
       ]
@@ -85,7 +138,7 @@ user_query ("Battery Management System ECU")
       {
         "_id": "<uuid>",
         "Name": "CAN Bus Attack",
-        "Description": "Attacker replays CAN frames to inject malicious commands...",
+        "Description": "Attacker replays CAN frames...",
         "cyberLosses": [{ "id": "<uuid>", "name": "Integrity", "node": "CAN Transceiver", "nodeId": "<uuid>" }],
         "impacts": {
           "Safety Impact": "Major",
@@ -119,37 +172,6 @@ user_query ("Battery Management System ECU")
 
 ---
 
-## Setup (Google Colab)
-
-### 1. Install dependencies (Cell 1)
-```bash
-pip install haystack-ai sentence-transformers google-ai-haystack lxml
-```
-
-### 2. Set API key
-```python
-import os
-os.environ["GOOGLE_API_KEY"] = "your-key-here"
-# or use Colab Secrets panel
-```
-
-### 3. Set your query (Cell 13)
-```python
-user_query = "Battery Management System ECU"
-# Other examples:
-#   "Infotainment Head Unit"
-#   "Gateway / Domain Controller"
-#   "ADAS ECU"
-#   "Telematics Control Unit"
-#   "OBD-II Diagnostic Port"
-```
-
-### 4. Run all cells top to bottom
-
-Output is saved as `tara_output_<system_name>.json`.
-
----
-
 ## Datasets (`datasets/`)
 
 | File / Folder | Source | Size |
@@ -166,19 +188,10 @@ Output is saved as `tara_output_<system_name>.json`.
 
 ---
 
-## Utility Scripts
-
-| Script | Purpose |
-|--------|---------|
-| `patch_tara_all.py` | Apply all 6 patches to the notebook |
-| `patch_resolve_ecu_final.py` | Re-patch the `resolve_ecu()` function only |
-| `verify_queries.py` | Test `resolve_ecu()` matching against 12 queries |
-
----
-
 ## Key Design Decisions
 
-- **`resolve_ecu()` uses 5-pass fuzzy matching** — exact key → full name → acronym (with suffix stripping) → word overlap → partial match — plus an alias table for known abbreviations (BMS, TCU, OBD, etc.)
-- **REPORTS_DB chunks are tagged `[REFERENCE-PATTERN-ONLY]`** in the prompt so Gemini uses them for JSON structure only, never copying node names across systems
-- **Embedding uses plain query; LLM receives enriched query** — so retrieval stays accurate while the generation is constrained to the dataecu.json asset list
-- **UUID stamping post-processing** — all `id`/`_id`/`model_id` fields are guaranteed valid `uuid4` after generation; `Derivations[].nodeId` is crosslinked by asset label matching
+- **`resolve_ecu()` — 6-pass fuzzy matching**: alias table → exact key → full name substring → acronym (suffix-stripped) → word overlap → partial key match. Constrains the LLM to a curated asset list, preventing hallucination.
+- **Split query**: plain query used for embedding (accurate retrieval); enriched query (with asset list) sent to LLM (constrained generation).
+- **REPORTS_DB tagged `[REFERENCE-PATTERN-ONLY]`**: Gemini uses reference reports for JSON structure only, never copying component names across systems.
+- **UUID post-processing**: `stamp_uuids()` + `crosslink_node_ids()` guarantee all IDs are valid `uuid4` and all `Derivations[].nodeId` / `cyberLosses[].nodeId` are correctly cross-referenced.
+- **Section-level ISO 21434 chunking**: each clause section is a separate Document, enabling precise sub-clause retrieval instead of broad clause-level noise.
