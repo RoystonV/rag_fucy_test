@@ -7,7 +7,7 @@
   "bms": {
     "name": "BMS (Battery Management System)",
     "type": "ECU",
-    "hint": "Assets: Battery management MCU, CAN/vehicle network messages, Secure element/HSM, Firmware storage, Charging protocols, Cell monitoring data/thresholds."
+    "hint": "Assets: BatteryPack (external, default), CellMonitoring (default), IO and Analog (default), Code Flash (default, inside MCU group), Data Flash (default, inside MCU group), Keys (default, inside MCU group), Certificates (default, inside MCU group), Debug Port (default, inside MCU group), CAN Transceiver (default), ICD Shunt CAN (default), SoC (data node), SoH (data node), Vehicle System (external, default), Cloud (external, default). The 'Battery Management System' is a group container; inside it is an unnamed MCU subgroup containing Code Flash, Data Flash, Keys, Certificates, and Debug Port. Edges: SPI (CellMonitoring↔BatteryPack), SPI_CellMonitor (MCU group↔CellMonitoring), IO (IO and Analog↔BatteryPack), IO_PINS (MCU group↔IO and Analog), CAN1 (MCU group↔ICD Shunt CAN), CAN2 (MCU group↔CAN Transceiver), ICD_Data (ICD Shunt CAN↔BatteryPack), Vehicle CAN (Vehicle System↔CAN Transceiver), Internet (Vehicle System↔Cloud)."
   },
   "tcu": {
     "name": "TCU (Telematics Control Unit)",

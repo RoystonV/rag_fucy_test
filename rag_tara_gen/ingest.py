@@ -326,6 +326,67 @@ def ingest_reports_db(reports_path) -> list[Document]:
             ))
             detail_count += 1
 
+        # ── NEW: Hierarchy summary chunk ─────────────────────────────────
+        # Build a parent-child tree description so the retriever can surface
+        # the full structural layout in one chunk.
+        id_to_label = {}
+        children_map = {}   # parentId -> [child labels]
+        for node in nodes_list:
+            label = node.get("data", {}).get("label", "") or node.get("id", "")
+            nid   = node.get("id", "")
+            ntype = node.get("type", "default")
+            pid   = node.get("parentId")
+            id_to_label[nid] = label or f"(unnamed {ntype})"
+            children_map.setdefault(pid, []).append(
+                f"{label} (type:{ntype})" if label else f"(unnamed {ntype})"
+            )
+
+        hierarchy_lines = [f"Architecture Hierarchy for [{model_name}]:"]
+        # Top-level nodes (parentId is None or null)
+        for pid_key in [None, "null", ""]:
+            for child in children_map.get(pid_key, []):
+                hierarchy_lines.append(f"  TOP: {child}")
+        # Nested children
+        for pid, kids in children_map.items():
+            if pid in [None, "null", ""]:
+                continue
+            parent_label = id_to_label.get(pid, pid)
+            hierarchy_lines.append(f"  {parent_label} contains: {', '.join(kids)}")
+
+        if len(hierarchy_lines) > 1:
+            docs.append(Document(
+                content="\n".join(hierarchy_lines),
+                meta={"source": "REPORTS_DB", "file": fname,
+                      "model": model_name, "type": "hierarchy_summary"}
+            ))
+
+        # ── NEW: Edge summary chunk ──────────────────────────────────────
+        edges_list = []
+        if "assets" in report and "damage_scenarios" in report:
+            edges_list = report["assets"].get("template", {}).get("edges", [])
+        elif "Assets" in report:
+            a_block_edges = report["Assets"][0] if report.get("Assets") else {}
+            edges_list = a_block_edges.get("template", {}).get("edges", [])
+
+        if edges_list:
+            edge_lines = [f"Edge connections for [{model_name}]:"]
+            for edge in edges_list:
+                elabel = edge.get("data", {}).get("label", "")
+                src_id = edge.get("source", "")
+                tgt_id = edge.get("target", "")
+                src_label = id_to_label.get(src_id, src_id)
+                tgt_label = id_to_label.get(tgt_id, tgt_id)
+                eprops = edge.get("properties", [])
+                edge_lines.append(
+                    f"  {elabel}: {src_label} ↔ {tgt_label} "
+                    f"(properties: {', '.join(eprops) if eprops else 'none'})"
+                )
+            docs.append(Document(
+                content="\n".join(edge_lines),
+                meta={"source": "REPORTS_DB", "file": fname,
+                      "model": model_name, "type": "edge_summary"}
+            ))
+
         print(f"  {fname}: {node_count} components | {deriv_count} derivations | {detail_count} details")
 
     print(f"\nREPORTS_DB total chunks: {len(docs)}")
