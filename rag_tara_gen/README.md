@@ -84,7 +84,11 @@ python main.py --query "ADAS ECU" --no-save
 python main.py --list-ecus
 ```
 
-Output is saved as `tara_output_<system_name>.json` in the `rag_tara_gen/` folder.
+Outputs are saved into organised subdirectories:
+- **TARA JSON** → `rag_tara_gen/outputs/tara/tara_output_<system_name>.json`
+- **Debug prompt** → `rag_tara_gen/outputs/prompts/tara_prompt_<system_name>.txt`
+
+Both folders are created automatically on first run.
 
 ### Notebook (Google Colab)
 Open `Tara_expo_v3_0.ipynb` in Colab, run cells top to bottom, and set your query in **Cell 13**.
@@ -192,7 +196,7 @@ The output uses a **hierarchical node architecture** with three node types:
 | Key | System | Example Assets |
 |-----|--------|---------------|
 | `bms` | Battery Management System | CellMonitoring, IO and Analog, Code Flash, Keys, Certificates, Debug Port, CAN Transceiver, ICD Shunt CAN, SoC, SoH |
-| `infotainment` | Infotainment Head Unit | Head unit OS, Bluetooth/Wi-Fi, USB, Navigation, PII |
+| `infotainment` | Infotainment Head Unit | Display Unit, Audio Amplifier, Bluetooth Module, Wi-Fi Module, USB Interface, Microphone, Rear Camera Input, CAN Transceiver, Code Flash, Data Flash, Keys, Certificates, Debug Port, User Profiles (PII), Navigation Data |
 | `gateway` | Gateway / Domain Controller | Routing tables, Firewall rules, OTA gateway |
 | `adas` | ADAS ECU | Perception software, Neural networks, V2X, OTA |
 | `tcu` | Telematics Control Unit | Modem, SIM/eSIM, Cloud APIs, OTA client |
@@ -234,16 +238,20 @@ The output uses a **hierarchical node architecture** with three node types:
 
 ## Changelog
 
+### v2.3 — CAPEC Fix, Output Organisation, Infotainment Reference (2026-03-26)
+
+- **`ingest.py`** — Fixed `ingest_capec()`: CAPEC attack-pattern `Name` is an XML **attribute**, not a child element. Changed `findtext('capec:Name')` → `ap.get('Name')` and switched to `itertext()` for descriptions. All 613 CAPEC entries now populate correctly in the prompt.
+- **`main.py`** — Fixed positions bug: `parse_and_fix` was imported from `components.py` (no layout); now imported from `postprocess.py` which calls `apply_layout()` — nodes get real computed positions instead of all `{x:0, y:0}`.
+- **`main.py`** — Added ECU doc filter (Step 2b): strips all ECU docs whose content does not match the resolved target system, eliminating unrelated ECU names (ABS, HVAC, etc.) from leaking into the BMS/IVI prompt.
+- **Output folders**: Outputs now saved to organised subdirectories — `outputs/tara/` for TARA JSON and `outputs/prompts/` for debug prompt files. Folders auto-created on first run.
+- **`datasets/dataecu.json`** — Infotainment hint fully rewritten with precise BMS-style node/edge definitions: MCU subgroup (Code Flash, Data Flash, Keys, Certificates, Debug Port), all internal nodes, data nodes (User Profiles, Navigation Data), 4 externals, and 12 short-label edges.
+- **`datasets/reports_db/infotainment_1.json`** — Fully rebuilt from scratch using ISO 21434 / IVI cybersecurity principles: 21 nodes (2 groups, 17 default, 2 data), 12 edges, 52 Derivations, 10 detailed damage scenarios (OTA firmware attack, Bluetooth PII leak, GPS spoofing, USB malware, mic eavesdrop, CAN injection, debug port exploit, rear camera substitution, Wi-Fi MITM, OBD-II UDS abuse).
+- **`datasets/reports_db/abs_1.json`** — Added ABS reference architecture.
+
 ### v2.1 — Architecture Accuracy Improvements (2026-03-22)
 
 - **`dataecu.json`**: Updated BMS hint with exact component names, hierarchy (MCU group container), node types, and 9 named edge connections from the reference `bms_1.json`.
-- **`prompt.py`**: Rewrote prompt template with:
-  - ARCHITECTURE RULES section (group/default/data node types, parentId hierarchy)
-  - Three node examples in JSON schema (group, default, data) instead of one
-  - Edge label guidance (short protocol names, not descriptive phrases)
-  - Color coding instructions per component role
-  - REPORTS_DB matching instruction (follow reference when target matches)
-- **`ingest.py`**: Added hierarchy_summary and edge_summary chunk types per reference report for structural context retrieval.
+- **`prompt.py`**: Rewrote prompt template with ARCHITECTURE RULES section, three node type examples, edge label guidance, color coding, and REPORTS_DB matching instruction.
+- **`ingest.py`**: Added `hierarchy_summary` and `edge_summary` chunk types per reference report for structural context retrieval.
 - **Notebooks**: Both `Tara_expo_v2.0.ipynb` and `Tara_expo_v3_0.ipynb` updated with matching prompt template.
-- **`prompt.py`**: Removed `[REFERENCE-PATTERN-ONLY]` Jinja conditional tag from prompt template.
 

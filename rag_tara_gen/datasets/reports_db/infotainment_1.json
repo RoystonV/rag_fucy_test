@@ -1,923 +1,924 @@
 {
   "assets": {
-    "_id": "asset_id_infotainment",
-    "user_id": "user_id_123",
-    "model_id": "model_id_infotainment",
+    "_id": "infh_group_id",
+    "user_id": "",
+    "model_id": "InfHead",
     "template": {
       "nodes": [
         {
-          "id": "infotainment_ecu",
-          "type": "component",
-          "parentId": "",
-          "isAsset": true,
+          "id": "infh_root_group",
+          "type": "group",
+          "parentId": null,
+          "isAsset": false,
           "data": {
-            "label": "Infotainment ECU",
-            "description": "The central processing unit for the infotainment system."
+            "label": "Infotainment Head Unit",
+            "nodeCount": 14,
+            "style": {
+              "background": "rgba(33,150,243,0.05)",
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 560,
+              "width": 1200
+            }
           },
-          "properties": [
-            "Integrity",
-            "Confidentiality",
-            "Availability"
-          ],
-          "style": {
-            "width": 200,
-            "height": 80
-          },
-          "position": {
-            "x": 100,
-            "y": 100
-          }
+          "properties": ["Integrity", "Authenticity", "Availability"],
+          "style": { "width": 1200, "height": 560 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 1200,
+          "height": 560,
+          "zIndex": 0
         },
         {
-          "id": "display_unit",
-          "type": "component",
-          "parentId": "infotainment_ecu",
-          "isAsset": true,
+          "id": "infh_display",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
           "data": {
             "label": "Display Unit",
-            "description": "The touchscreen interface for user interaction."
+            "description": "Touchscreen HMI connected to MCU via I2C/MIPI-DSI. Renders navigation, media, and system UI.",
+            "style": {
+              "backgroundColor": "#b3d9ff",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
           },
-          "properties": [
-            "Integrity",
-            "Availability"
-          ],
-          "style": {
-            "width": 180,
-            "height": 60
-          },
-          "position": {
-            "x": 400,
-            "y": 100
-          }
+          "properties": ["Integrity", "Availability"],
+          "style": { "width": 150, "height": 50 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 150,
+          "height": 50
         },
         {
-          "id": "audio_amplifier",
-          "type": "component",
-          "parentId": "infotainment_ecu",
-          "isAsset": true,
+          "id": "infh_audio",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
           "data": {
             "label": "Audio Amplifier",
-            "description": "Amplifies audio signals for speakers."
+            "description": "Digital audio amplifier linked via I2S. Drives cabin speakers for media and navigation voice.",
+            "style": {
+              "backgroundColor": "#ffd580",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
           },
-          "properties": [
-            "Integrity",
-            "Availability"
-          ],
-          "style": {
-            "width": 150,
-            "height": 50
-          },
-          "position": {
-            "x": 100,
-            "y": 300
-          }
+          "properties": ["Integrity", "Availability"],
+          "style": { "width": 150, "height": 50 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 150,
+          "height": 50
         },
         {
-          "id": "navigation_module",
-          "type": "component",
-          "parentId": "infotainment_ecu",
-          "isAsset": true,
-          "data": {
-            "label": "Navigation Module",
-            "description": "Provides GPS and navigation services."
-          },
-          "properties": [
-            "Integrity",
-            "Confidentiality",
-            "Availability"
-          ],
-          "style": {
-            "width": 180,
-            "height": 60
-          },
-          "position": {
-            "x": 400,
-            "y": 300
-          }
-        },
-        {
-          "id": "bluetooth_module",
-          "type": "component",
-          "parentId": "infotainment_ecu",
-          "isAsset": true,
+          "id": "infh_bt",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
           "data": {
             "label": "Bluetooth Module",
-            "description": "Enables wireless connectivity for devices."
+            "description": "BT 5.x / BLE module linked via HCI UART. Handles phone pairing, A2DP audio, HFP calls, PBAP contacts.",
+            "style": {
+              "backgroundColor": "#c8aff0",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 155
+            }
           },
-          "properties": [
-            "Integrity",
-            "Confidentiality",
-            "Availability"
-          ],
-          "style": {
-            "width": 180,
-            "height": 60
-          },
-          "position": {
-            "x": 600,
-            "y": 300
-          }
+          "properties": ["Confidentiality", "Integrity", "Availability", "Authenticity"],
+          "style": { "width": 155, "height": 50 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 155,
+          "height": 50
         },
         {
-          "id": "wifi_module",
-          "type": "component",
-          "parentId": "infotainment_ecu",
-          "isAsset": true,
+          "id": "infh_wifi",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
           "data": {
             "label": "Wi-Fi Module",
-            "description": "Enables wireless network connectivity."
+            "description": "802.11ac Wi-Fi connected via SDIO. Used for OTA updates, cloud API, and hotspot.",
+            "style": {
+              "backgroundColor": "#a8e6cf",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 140
+            }
           },
-          "properties": [
-            "Integrity",
-            "Confidentiality",
-            "Availability"
-          ],
-          "style": {
-            "width": 180,
-            "height": 60
-          },
-          "position": {
-            "x": 800,
-            "y": 300
-          }
+          "properties": ["Confidentiality", "Integrity", "Availability", "Authenticity"],
+          "style": { "width": 140, "height": 50 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 140,
+          "height": 50
         },
         {
-          "id": "usb_interface",
-          "type": "component",
-          "parentId": "infotainment_ecu",
-          "isAsset": true,
+          "id": "infh_usb",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
           "data": {
             "label": "USB Interface",
-            "description": "Allows connection of external storage devices."
+            "description": "USB 2.0 host port (USB2). Supports CarPlay, Android Auto, media playback, and firmware flashing.",
+            "style": {
+              "backgroundColor": "#f7c6a0",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 140
+            }
           },
-          "properties": [
-            "Integrity",
-            "Confidentiality",
-            "Availability"
-          ],
-          "style": {
-            "width": 150,
-            "height": 50
-          },
-          "position": {
-            "x": 100,
-            "y": 500
-          }
+          "properties": ["Confidentiality", "Integrity", "Availability"],
+          "style": { "width": 140, "height": 50 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 140,
+          "height": 50
         },
         {
-          "id": "microphone",
-          "type": "component",
-          "parentId": "infotainment_ecu",
-          "isAsset": true,
+          "id": "infh_mic",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
           "data": {
             "label": "Microphone",
-            "description": "Captures voice input for commands and calls."
+            "description": "Cabin microphone for voice commands and hands-free calls. Connects via ADC line-in.",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 130
+            }
           },
-          "properties": [
-            "Integrity",
-            "Availability"
-          ],
-          "style": {
-            "width": 120,
-            "height": 40
-          },
-          "position": {
-            "x": 300,
-            "y": 500
-          }
+          "properties": ["Confidentiality", "Availability"],
+          "style": { "width": 130, "height": 50 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 130,
+          "height": 50
         },
         {
-          "id": "speaker_output",
-          "type": "component",
-          "parentId": "audio_amplifier",
-          "isAsset": true,
-          "data": {
-            "label": "Speaker Output",
-            "description": "Connects to vehicle speakers for audio playback."
-          },
-          "properties": [
-            "Integrity",
-            "Availability"
-          ],
-          "style": {
-            "width": 150,
-            "height": 50
-          },
-          "position": {
-            "x": 100,
-            "y": 600
-          }
-        },
-        {
-          "id": "rear_camera_input",
-          "type": "component",
-          "parentId": "infotainment_ecu",
-          "isAsset": true,
+          "id": "infh_camera",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
           "data": {
             "label": "Rear Camera Input",
-            "description": "Receives video feed from the rear-view camera."
+            "description": "Rear-view camera video feed received via MIPI-CSI2. Rendered on display during reverse.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 160
+            }
           },
-          "properties": [
-            "Integrity",
-            "Availability"
-          ],
-          "style": {
-            "width": 180,
-            "height": 60
-          },
-          "position": {
-            "x": 700,
-            "y": 100
-          }
+          "properties": ["Integrity", "Availability"],
+          "style": { "width": 160, "height": 50 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 160,
+          "height": 50
         },
         {
-          "id": "user_profiles",
+          "id": "infh_can_trx",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
+          "data": {
+            "label": "CAN Transceiver",
+            "description": "CAN FD transceiver bridging the IVI MCU to the vehicle CAN bus for vehicle speed, warning signals.",
+            "style": {
+              "backgroundColor": "#accd32",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 155
+            }
+          },
+          "properties": ["Integrity", "Availability"],
+          "style": { "width": 155, "height": 50 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 155,
+          "height": 50
+        },
+        {
+          "id": "infh_user_profiles",
           "type": "data",
-          "parentId": "infotainment_ecu",
-          "isAsset": true,
+          "parentId": "infh_root_group",
+          "isAsset": false,
           "data": {
             "label": "User Profiles",
-            "description": "Stored user preferences and settings."
+            "description": "PII data: driver preferences, paired device list, call/contact history, seat/mirror settings.",
+            "style": {
+              "backgroundColor": "#f9e4b7",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 120
+            }
           },
-          "properties": [
-            "Confidentiality",
-            "Integrity"
-          ],
-          "style": {
-            "width": 150,
-            "height": 50
-          },
-          "position": {
-            "x": 300,
-            "y": 180
-          }
+          "properties": ["Confidentiality", "Integrity", "Non-repudiation"],
+          "style": { "width": 120, "height": 30 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 120,
+          "height": 30
         },
         {
-          "id": "telemetry_data",
+          "id": "infh_nav_data",
           "type": "data",
-          "parentId": "infotainment_ecu",
-          "isAsset": true,
+          "parentId": "infh_root_group",
+          "isAsset": false,
           "data": {
-            "label": "Telemetry Data",
-            "description": "Collected vehicle operational data."
+            "label": "Navigation Data",
+            "description": "GPS route history, saved POIs, destination logs. High-privacy sensitivity per ISO 21434.",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 130
+            }
           },
-          "properties": [
-            "Confidentiality",
-            "Integrity"
-          ],
-          "style": {
-            "width": 150,
-            "height": 50
+          "properties": ["Confidentiality", "Integrity", "Authenticity"],
+          "style": { "width": 130, "height": 30 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 130,
+          "height": 30
+        },
+        {
+          "id": "infh_mcu_group",
+          "type": "group",
+          "parentId": "infh_root_group",
+          "isAsset": false,
+          "data": {
+            "label": "(MCU)",
+            "style": {
+              "background": "rgba(100,100,200,0.06)",
+              "border": "1px dashed #7986CB",
+              "borderRadius": "6px",
+              "height": 239,
+              "width": 310
+            }
           },
-          "position": {
-            "x": 300,
-            "y": 250
-          }
+          "properties": [],
+          "style": { "width": 310, "height": 239 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 310,
+          "height": 239,
+          "zIndex": 1
+        },
+        {
+          "id": "infh_code_flash",
+          "type": "default",
+          "parentId": "infh_mcu_group",
+          "isAsset": false,
+          "data": {
+            "label": "Code Flash",
+            "description": "IVI OS firmware (Linux/QNX) and application stack. Tamper causes compromised behaviour or bricking.",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 39,
+              "width": 104
+            }
+          },
+          "properties": ["Confidentiality", "Integrity", "Availability", "Authenticity"],
+          "style": { "width": 104, "height": 39 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 104,
+          "height": 39
+        },
+        {
+          "id": "infh_data_flash",
+          "type": "default",
+          "parentId": "infh_mcu_group",
+          "isAsset": false,
+          "data": {
+            "label": "Data Flash",
+            "description": "Non-volatile memory for calibration tables, variant coding, and persistent configuration.",
+            "style": {
+              "backgroundColor": "#f0b2b2",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 39,
+              "width": 104
+            }
+          },
+          "properties": ["Integrity", "Availability", "Non-repudiation"],
+          "style": { "width": 104, "height": 39 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 104,
+          "height": 39
+        },
+        {
+          "id": "infh_keys",
+          "type": "default",
+          "parentId": "infh_mcu_group",
+          "isAsset": false,
+          "data": {
+            "label": "Keys",
+            "description": "TLS private key, OTA package signing verification key, Bluetooth link keys. Stored in secure element / HSM.",
+            "style": {
+              "backgroundColor": "#51dc1e",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 39,
+              "width": 104
+            }
+          },
+          "properties": ["Confidentiality"],
+          "style": { "width": 104, "height": 39 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 104,
+          "height": 39
+        },
+        {
+          "id": "infh_certs",
+          "type": "default",
+          "parentId": "infh_mcu_group",
+          "isAsset": false,
+          "data": {
+            "label": "Certificates",
+            "description": "X.509 TLS client certificate and secure boot certificate chain. Required for cloud and OTA authentication.",
+            "style": {
+              "backgroundColor": "#62c945",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 39,
+              "width": 110
+            }
+          },
+          "properties": ["Integrity", "Authenticity", "Availability"],
+          "style": { "width": 110, "height": 39 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 110,
+          "height": 39
+        },
+        {
+          "id": "infh_debug",
+          "type": "default",
+          "parentId": "infh_mcu_group",
+          "isAsset": false,
+          "data": {
+            "label": "Debug Port",
+            "description": "JTAG/UART debug interface. Must be disabled in production. Exposure enables full MCU memory read.",
+            "style": {
+              "backgroundColor": "#e26a6a",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 39,
+              "width": 104
+            }
+          },
+          "properties": ["Integrity", "Availability", "Authorization"],
+          "style": { "width": 104, "height": 39 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 104,
+          "height": 39
+        },
+        {
+          "id": "infh_vehicle_can",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Vehicle CAN Bus",
+            "description": "Vehicle-wide CAN FD backbone shared with other ECUs (BCM, ADAS, Cluster, etc.).",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": ["Integrity", "Availability"],
+          "style": { "width": 150, "height": 50 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "infh_smartphone",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Smartphone",
+            "description": "User's paired mobile device. Communicates over Bluetooth (HFP/A2DP/PBAP) and USB (CarPlay/Android Auto).",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 130
+            }
+          },
+          "properties": [],
+          "style": { "width": 130, "height": 50 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 130,
+          "height": 50
+        },
+        {
+          "id": "infh_cloud",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Cloud Backend",
+            "description": "OEM cloud services: OTA update server, telematics API, map updates, remote diagnostics.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 145
+            }
+          },
+          "properties": [],
+          "style": { "width": 145, "height": 50 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 145,
+          "height": 50
+        },
+        {
+          "id": "infh_obd",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "OBD-II Port",
+            "description": "Physical diagnostic access port. Exposes UDS services on CAN. Must be access-controlled.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 130
+            }
+          },
+          "properties": [],
+          "style": { "width": 130, "height": 50 },
+          "position": { "x": 0, "y": 0 },
+          "positionAbsolute": { "x": 0, "y": 0 },
+          "width": 130,
+          "height": 50
         }
       ],
       "edges": [
         {
-          "id": "edge_1",
-          "source": "display_unit",
-          "target": "infotainment_ecu",
-          "type": "smoothstep",
-          "data": {
-            "label": "Controls"
-          }
+          "id": "infh_edge_mcu_display",
+          "source": "infh_mcu_group",
+          "target": "infh_display",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": { "color": "#64B5F6", "height": 18, "type": "arrowclosed", "width": 18 },
+          "markerStart": { "color": "#64B5F6", "height": 18, "orient": "auto-start-reverse", "type": "arrowclosed", "width": 18 },
+          "style": { "stroke": "#808080", "strokeDasharray": "0", "strokeWidth": 2 },
+          "properties": ["Integrity"],
+          "data": { "label": "I2C", "offset": 0, "t": 0.5 }
         },
         {
-          "id": "edge_2",
-          "source": "audio_amplifier",
-          "target": "infotainment_ecu",
-          "type": "smoothstep",
-          "data": {
-            "label": "Controls"
-          }
+          "id": "infh_edge_mcu_audio",
+          "source": "infh_mcu_group",
+          "target": "infh_audio",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": { "color": "#64B5F6", "height": 18, "type": "arrowclosed", "width": 18 },
+          "markerStart": { "color": "#64B5F6", "height": 18, "orient": "auto-start-reverse", "type": "arrowclosed", "width": 18 },
+          "style": { "stroke": "#808080", "strokeDasharray": "0", "strokeWidth": 2 },
+          "properties": ["Integrity"],
+          "data": { "label": "I2S", "offset": 0, "t": 0.5 }
         },
         {
-          "id": "edge_3",
-          "source": "navigation_module",
-          "target": "infotainment_ecu",
-          "type": "smoothstep",
-          "data": {
-            "label": "Provides Data To"
-          }
+          "id": "infh_edge_mcu_bt",
+          "source": "infh_mcu_group",
+          "target": "infh_bt",
+          "sourceHandle": "d",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": { "color": "#64B5F6", "height": 18, "type": "arrowclosed", "width": 18 },
+          "markerStart": { "color": "#64B5F6", "height": 18, "orient": "auto-start-reverse", "type": "arrowclosed", "width": 18 },
+          "style": { "stroke": "#808080", "strokeDasharray": "0", "strokeWidth": 2 },
+          "properties": ["Confidentiality", "Integrity", "Authenticity"],
+          "data": { "label": "HCI", "offset": 0, "t": 0.5 }
         },
         {
-          "id": "edge_4",
-          "source": "bluetooth_module",
-          "target": "infotainment_ecu",
-          "type": "smoothstep",
-          "data": {
-            "label": "Connects Via"
-          }
+          "id": "infh_edge_mcu_wifi",
+          "source": "infh_mcu_group",
+          "target": "infh_wifi",
+          "sourceHandle": "d",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": { "color": "#64B5F6", "height": 18, "type": "arrowclosed", "width": 18 },
+          "markerStart": { "color": "#64B5F6", "height": 18, "orient": "auto-start-reverse", "type": "arrowclosed", "width": 18 },
+          "style": { "stroke": "#808080", "strokeDasharray": "0", "strokeWidth": 2 },
+          "properties": ["Confidentiality", "Integrity", "Authenticity"],
+          "data": { "label": "SDIO", "offset": 0, "t": 0.5 }
         },
         {
-          "id": "edge_5",
-          "source": "wifi_module",
-          "target": "infotainment_ecu",
-          "type": "smoothstep",
-          "data": {
-            "label": "Connects Via"
-          }
+          "id": "infh_edge_mcu_usb",
+          "source": "infh_mcu_group",
+          "target": "infh_usb",
+          "sourceHandle": "c",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": { "color": "#64B5F6", "height": 18, "type": "arrowclosed", "width": 18 },
+          "markerStart": { "color": "#64B5F6", "height": 18, "orient": "auto-start-reverse", "type": "arrowclosed", "width": 18 },
+          "style": { "stroke": "#808080", "strokeDasharray": "0", "strokeWidth": 2 },
+          "properties": ["Confidentiality", "Integrity"],
+          "data": { "label": "USB2", "offset": 0, "t": 0.5 }
         },
         {
-          "id": "edge_6",
-          "source": "usb_interface",
-          "target": "infotainment_ecu",
-          "type": "smoothstep",
-          "data": {
-            "label": "Connects Via"
-          }
+          "id": "infh_edge_mcu_mic",
+          "source": "infh_mcu_group",
+          "target": "infh_mic",
+          "sourceHandle": "c",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": { "color": "#64B5F6", "height": 18, "type": "arrowclosed", "width": 18 },
+          "markerStart": { "color": "#64B5F6", "height": 18, "orient": "auto-start-reverse", "type": "arrowclosed", "width": 18 },
+          "style": { "stroke": "#808080", "strokeDasharray": "0", "strokeWidth": 2 },
+          "properties": ["Confidentiality"],
+          "data": { "label": "ADC_MIC", "offset": 0, "t": 0.5 }
         },
         {
-          "id": "edge_7",
-          "source": "microphone",
-          "target": "infotainment_ecu",
-          "type": "smoothstep",
-          "data": {
-            "label": "Captures Input"
-          }
+          "id": "infh_edge_mcu_camera",
+          "source": "infh_mcu_group",
+          "target": "infh_camera",
+          "sourceHandle": "a",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": { "color": "#64B5F6", "height": 18, "type": "arrowclosed", "width": 18 },
+          "markerStart": { "color": "#64B5F6", "height": 18, "orient": "auto-start-reverse", "type": "arrowclosed", "width": 18 },
+          "style": { "stroke": "#808080", "strokeDasharray": "0", "strokeWidth": 2 },
+          "properties": ["Integrity"],
+          "data": { "label": "MIPI_CSI", "offset": 0, "t": 0.5 }
         },
         {
-          "id": "edge_8",
-          "source": "speaker_output",
-          "target": "audio_amplifier",
-          "type": "smoothstep",
-          "data": {
-            "label": "Outputs To"
-          }
+          "id": "infh_edge_mcu_can",
+          "source": "infh_mcu_group",
+          "target": "infh_can_trx",
+          "sourceHandle": "a",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": { "color": "#64B5F6", "height": 18, "type": "arrowclosed", "width": 18 },
+          "markerStart": { "color": "#64B5F6", "height": 18, "orient": "auto-start-reverse", "type": "arrowclosed", "width": 18 },
+          "style": { "stroke": "#808080", "strokeDasharray": "0", "strokeWidth": 2 },
+          "properties": ["Integrity", "Authenticity"],
+          "data": { "label": "CAN_IVI", "offset": 0, "t": 0.5 }
         },
         {
-          "id": "edge_9",
-          "source": "rear_camera_input",
-          "target": "infotainment_ecu",
-          "type": "smoothstep",
-          "data": {
-            "label": "Receives Input"
-          }
+          "id": "infh_edge_can_vcan",
+          "source": "infh_can_trx",
+          "target": "infh_vehicle_can",
+          "sourceHandle": "right",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": { "color": "#64B5F6", "height": 18, "type": "arrowclosed", "width": 18 },
+          "markerStart": { "color": "#64B5F6", "height": 18, "orient": "auto-start-reverse", "type": "arrowclosed", "width": 18 },
+          "style": { "stroke": "#808080", "strokeDasharray": "0", "strokeWidth": 2 },
+          "properties": ["Integrity", "Availability"],
+          "data": { "label": "Vehicle_CAN", "offset": 0, "t": 0.5 }
         },
         {
-          "id": "edge_10",
-          "source": "user_profiles",
-          "target": "infotainment_ecu",
-          "type": "smoothstep",
-          "data": {
-            "label": "Managed By"
-          }
+          "id": "infh_edge_wifi_cloud",
+          "source": "infh_wifi",
+          "target": "infh_cloud",
+          "sourceHandle": "right",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": { "color": "#64B5F6", "height": 18, "type": "arrowclosed", "width": 18 },
+          "markerStart": { "color": "#64B5F6", "height": 18, "orient": "auto-start-reverse", "type": "arrowclosed", "width": 18 },
+          "style": { "stroke": "#808080", "strokeDasharray": "0", "strokeWidth": 2 },
+          "properties": ["Confidentiality", "Integrity", "Authenticity"],
+          "data": { "label": "HTTPS", "offset": 0, "t": 0.5 }
         },
         {
-          "id": "edge_11",
-          "source": "telemetry_data",
-          "target": "infotainment_ecu",
-          "type": "smoothstep",
-          "data": {
-            "label": "Collected By"
-          }
-        }
-      ],
-      "details": [
-        {
-          "nodeId": "infotainment_ecu",
-          "name": "Infotainment ECU",
-          "desc": "The central processing unit for the infotainment system.",
-          "type": "component",
-          "props": [
-            {
-              "name": "Integrity",
-              "id": "property_integrity"
-            },
-            {
-              "name": "Confidentiality",
-              "id": "property_confidentiality"
-            },
-            {
-              "name": "Availability",
-              "id": "property_availability"
-            }
-          ]
+          "id": "infh_edge_bt_phone",
+          "source": "infh_bt",
+          "target": "infh_smartphone",
+          "sourceHandle": "right",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": { "color": "#64B5F6", "height": 18, "type": "arrowclosed", "width": 18 },
+          "markerStart": { "color": "#64B5F6", "height": 18, "orient": "auto-start-reverse", "type": "arrowclosed", "width": 18 },
+          "style": { "stroke": "#808080", "strokeDasharray": "0", "strokeWidth": 2 },
+          "properties": ["Confidentiality", "Authenticity"],
+          "data": { "label": "BT_Profile", "offset": 0, "t": 0.5 }
         },
         {
-          "nodeId": "display_unit",
-          "name": "Display Unit",
-          "desc": "The touchscreen interface for user interaction.",
-          "type": "component",
-          "props": [
-            {
-              "name": "Integrity",
-              "id": "property_integrity"
-            },
-            {
-              "name": "Availability",
-              "id": "property_availability"
-            }
-          ]
-        },
-        {
-          "nodeId": "audio_amplifier",
-          "name": "Audio Amplifier",
-          "desc": "Amplifies audio signals for speakers.",
-          "type": "component",
-          "props": [
-            {
-              "name": "Integrity",
-              "id": "property_integrity"
-            },
-            {
-              "name": "Availability",
-              "id": "property_availability"
-            }
-          ]
-        },
-        {
-          "nodeId": "navigation_module",
-          "name": "Navigation Module",
-          "desc": "Provides GPS and navigation services.",
-          "type": "component",
-          "props": [
-            {
-              "name": "Integrity",
-              "id": "property_integrity"
-            },
-            {
-              "name": "Confidentiality",
-              "id": "property_confidentiality"
-            },
-            {
-              "name": "Availability",
-              "id": "property_availability"
-            }
-          ]
-        },
-        {
-          "nodeId": "bluetooth_module",
-          "name": "Bluetooth Module",
-          "desc": "Enables wireless connectivity for devices.",
-          "type": "component",
-          "props": [
-            {
-              "name": "Integrity",
-              "id": "property_integrity"
-            },
-            {
-              "name": "Confidentiality",
-              "id": "property_confidentiality"
-            },
-            {
-              "name": "Availability",
-              "id": "property_availability"
-            }
-          ]
-        },
-        {
-          "nodeId": "wifi_module",
-          "name": "Wi-Fi Module",
-          "desc": "Enables wireless network connectivity.",
-          "type": "component",
-          "props": [
-            {
-              "name": "Integrity",
-              "id": "property_integrity"
-            },
-            {
-              "name": "Confidentiality",
-              "id": "property_confidentiality"
-            },
-            {
-              "name": "Availability",
-              "id": "property_availability"
-            }
-          ]
-        },
-        {
-          "nodeId": "usb_interface",
-          "name": "USB Interface",
-          "desc": "Allows connection of external storage devices.",
-          "type": "component",
-          "props": [
-            {
-              "name": "Integrity",
-              "id": "property_integrity"
-            },
-            {
-              "name": "Confidentiality",
-              "id": "property_confidentiality"
-            },
-            {
-              "name": "Availability",
-              "id": "property_availability"
-            }
-          ]
-        },
-        {
-          "nodeId": "microphone",
-          "name": "Microphone",
-          "desc": "Captures voice input for commands and calls.",
-          "type": "component",
-          "props": [
-            {
-              "name": "Integrity",
-              "id": "property_integrity"
-            },
-            {
-              "name": "Availability",
-              "id": "property_availability"
-            }
-          ]
-        },
-        {
-          "nodeId": "speaker_output",
-          "name": "Speaker Output",
-          "desc": "Connects to vehicle speakers for audio playback.",
-          "type": "component",
-          "props": [
-            {
-              "name": "Integrity",
-              "id": "property_integrity"
-            },
-            {
-              "name": "Availability",
-              "id": "property_availability"
-            }
-          ]
-        },
-        {
-          "nodeId": "rear_camera_input",
-          "name": "Rear Camera Input",
-          "desc": "Receives video feed from the rear-view camera.",
-          "type": "component",
-          "props": [
-            {
-              "name": "Integrity",
-              "id": "property_integrity"
-            },
-            {
-              "name": "Availability",
-              "id": "property_availability"
-            }
-          ]
-        },
-        {
-          "nodeId": "user_profiles",
-          "name": "User Profiles",
-          "desc": "Stored user preferences and settings.",
-          "type": "data",
-          "props": [
-            {
-              "name": "Confidentiality",
-              "id": "property_confidentiality"
-            },
-            {
-              "name": "Integrity",
-              "id": "property_integrity"
-            }
-          ]
-        },
-        {
-          "nodeId": "telemetry_data",
-          "name": "Telemetry Data",
-          "desc": "Collected vehicle operational data.",
-          "type": "data",
-          "props": [
-            {
-              "name": "Confidentiality",
-              "id": "property_confidentiality"
-            },
-            {
-              "name": "Integrity",
-              "id": "property_integrity"
-            }
-          ]
+          "id": "infh_edge_obd_can",
+          "source": "infh_obd",
+          "target": "infh_can_trx",
+          "sourceHandle": "right",
+          "targetHandle": "bottom",
+          "type": "step",
+          "animated": true,
+          "markerEnd": { "color": "#64B5F6", "height": 18, "type": "arrowclosed", "width": 18 },
+          "markerStart": { "color": "#64B5F6", "height": 18, "orient": "auto-start-reverse", "type": "arrowclosed", "width": 18 },
+          "style": { "stroke": "#808080", "strokeDasharray": "0", "strokeWidth": 2 },
+          "properties": ["Integrity"],
+          "data": { "label": "OBD_UDS", "offset": 0, "t": 0.5 }
         }
       ]
     }
   },
   "damage_scenarios": {
-    "_id": "damage_scenario_infotainment",
-    "model_id": "model_id_infotainment",
+    "_id": "infh_ds_id",
+    "model_id": "InfHead",
     "type": "damage",
-    "derivation": [
-      {
-        "id": "derivation_1",
-        "nodeId": "infotainment_ecu",
-        "task": "Threat Analysis",
-        "name": "CWE-15: External Control of System or Configuration Setting",
-        "loss": "Unauthorized modification of system settings",
-        "asset": "Infotainment ECU",
-        "damage_scene": "An attacker exploits a vulnerability to gain external control over the infotainment system's configuration settings.",
-        "isChecked": false
-      },
-      {
-        "id": "derivation_2",
-        "nodeId": "user_profiles",
-        "task": "Threat Analysis",
-        "name": "CWE-317: Cleartext Storage of Sensitive Information in GUI",
-        "loss": "Exposure of user profile data",
-        "asset": "User Profiles",
-        "damage_scene": "Sensitive user profile information is stored in cleartext and can be accessed by an unauthorized party via the GUI.",
-        "isChecked": false
-      },
-      {
-        "id": "derivation_3",
-        "nodeId": "telemetry_data",
-        "task": "Threat Analysis",
-        "name": "ATM Technique: Access vehicle telemetry",
-        "loss": "Unauthorized access to vehicle operational data",
-        "asset": "Telemetry Data",
-        "damage_scene": "An adversary gains access to vehicle telemetry data, potentially revealing driving patterns and vehicle status.",
-        "isChecked": false
-      },
-      {
-        "id": "derivation_4",
-        "nodeId": "display_unit",
-        "task": "Threat Analysis",
-        "name": "MITRE Technique: Screen Capture",
-        "loss": "Unauthorized capture of display content",
-        "asset": "Display Unit",
-        "damage_scene": "An attacker performs screen capture on the display unit, potentially capturing sensitive information like navigation routes or personal data.",
-        "isChecked": false
-      },
-      {
-        "id": "derivation_5",
-        "nodeId": "bluetooth_module",
-        "task": "Threat Analysis",
-        "name": "MITRE Technique: Remote System Information Discovery",
-        "loss": "Unauthorized information disclosure via Bluetooth",
-        "asset": "Bluetooth Module",
-        "damage_scene": "An attacker uses Bluetooth to discover and gather information from connected devices or the infotainment system itself.",
-        "isChecked": false
-      },
-      {
-        "id": "derivation_6",
-        "nodeId": "wifi_module",
-        "task": "Threat Analysis",
-        "name": "MITRE Technique: Remote System Discovery",
-        "loss": "Unauthorized network access",
-        "asset": "Wi-Fi Module",
-        "damage_scene": "An attacker attempts to discover and gain unauthorized access to the vehicle's Wi-Fi network.",
-        "isChecked": false
-      },
-      {
-        "id": "derivation_7",
-        "nodeId": "navigation_module",
-        "task": "Threat Analysis",
-        "name": "ATM Technique: Gather Target Information – from Vehicle",
-        "loss": "Disclosure of location and navigation history",
-        "asset": "Navigation Module",
-        "damage_scene": "An attacker gathers information about the vehicle's location and navigation history through the navigation module.",
-        "isChecked": false
-      },
-      {
-        "id": "derivation_8",
-        "nodeId": "usb_interface",
-        "task": "Threat Analysis",
-        "name": "CWE-225: DEPRECATED: General Information Management Problems",
-        "loss": "Malware propagation or data exfiltration via USB",
-        "asset": "USB Interface",
-        "damage_scene": "An attacker uses the USB interface to introduce malware or exfiltrate data from the infotainment system.",
-        "isChecked": false
-      },
-      {
-        "id": "derivation_9",
-        "nodeId": "microphone",
-        "task": "Threat Analysis",
-        "name": "CWE-488: Exposure of Data Element to Wrong Session",
-        "loss": "Unauthorized audio eavesdropping",
-        "asset": "Microphone",
-        "damage_scene": "An attacker exploits a flaw to gain unauthorized access to audio captured by the microphone, eavesdropping on conversations.",
-        "isChecked": false
-      },
-      {
-        "id": "derivation_10",
-        "nodeId": "audio_amplifier",
-        "task": "Threat Analysis",
-        "name": "CWE-610: Externally Controlled Reference to a Resource in Another Sphere",
-        "loss": "Disruption of audio services",
-        "asset": "Audio Amplifier",
-        "damage_scene": "An attacker manipulates the audio amplifier, causing disruption to normal audio playback or potentially generating harmful noise.",
-        "isChecked": false
-      }
+    "Derivations": [
+      { "id": "", "nodeId": "infh_display",       "task": "Threat Analysis", "name": "DS due to the loss of Integrity for Display Unit",         "loss": "loss of Integrity",        "asset": "Display Unit",       "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_display",       "task": "Threat Analysis", "name": "DS due to the loss of Availability for Display Unit",      "loss": "loss of Availability",     "asset": "Display Unit",       "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_audio",         "task": "Threat Analysis", "name": "DS due to the loss of Integrity for Audio Amplifier",      "loss": "loss of Integrity",        "asset": "Audio Amplifier",    "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_audio",         "task": "Threat Analysis", "name": "DS due to the loss of Availability for Audio Amplifier",   "loss": "loss of Availability",     "asset": "Audio Amplifier",    "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_bt",            "task": "Threat Analysis", "name": "DS due to the loss of Confidentiality for Bluetooth Module","loss": "loss of Confidentiality",  "asset": "Bluetooth Module",   "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_bt",            "task": "Threat Analysis", "name": "DS due to the loss of Integrity for Bluetooth Module",      "loss": "loss of Integrity",        "asset": "Bluetooth Module",   "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_bt",            "task": "Threat Analysis", "name": "DS due to the loss of Availability for Bluetooth Module",   "loss": "loss of Availability",     "asset": "Bluetooth Module",   "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_bt",            "task": "Threat Analysis", "name": "DS due to the loss of Authenticity for Bluetooth Module",   "loss": "loss of Authenticity",     "asset": "Bluetooth Module",   "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_wifi",          "task": "Threat Analysis", "name": "DS due to the loss of Confidentiality for Wi-Fi Module",    "loss": "loss of Confidentiality",  "asset": "Wi-Fi Module",       "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_wifi",          "task": "Threat Analysis", "name": "DS due to the loss of Integrity for Wi-Fi Module",          "loss": "loss of Integrity",        "asset": "Wi-Fi Module",       "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_wifi",          "task": "Threat Analysis", "name": "DS due to the loss of Availability for Wi-Fi Module",       "loss": "loss of Availability",     "asset": "Wi-Fi Module",       "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_wifi",          "task": "Threat Analysis", "name": "DS due to the loss of Authenticity for Wi-Fi Module",       "loss": "loss of Authenticity",     "asset": "Wi-Fi Module",       "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_usb",           "task": "Threat Analysis", "name": "DS due to the loss of Confidentiality for USB Interface",   "loss": "loss of Confidentiality",  "asset": "USB Interface",      "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_usb",           "task": "Threat Analysis", "name": "DS due to the loss of Integrity for USB Interface",         "loss": "loss of Integrity",        "asset": "USB Interface",      "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_usb",           "task": "Threat Analysis", "name": "DS due to the loss of Availability for USB Interface",      "loss": "loss of Availability",     "asset": "USB Interface",      "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_mic",           "task": "Threat Analysis", "name": "DS due to the loss of Confidentiality for Microphone",      "loss": "loss of Confidentiality",  "asset": "Microphone",         "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_mic",           "task": "Threat Analysis", "name": "DS due to the loss of Availability for Microphone",         "loss": "loss of Availability",     "asset": "Microphone",         "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_camera",        "task": "Threat Analysis", "name": "DS due to the loss of Integrity for Rear Camera Input",     "loss": "loss of Integrity",        "asset": "Rear Camera Input",  "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_camera",        "task": "Threat Analysis", "name": "DS due to the loss of Availability for Rear Camera Input",  "loss": "loss of Availability",     "asset": "Rear Camera Input",  "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_can_trx",       "task": "Threat Analysis", "name": "DS due to the loss of Integrity for CAN Transceiver",       "loss": "loss of Integrity",        "asset": "CAN Transceiver",    "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_can_trx",       "task": "Threat Analysis", "name": "DS due to the loss of Availability for CAN Transceiver",    "loss": "loss of Availability",     "asset": "CAN Transceiver",    "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_user_profiles", "task": "Threat Analysis", "name": "DS due to the loss of Confidentiality for User Profiles",   "loss": "loss of Confidentiality",  "asset": "User Profiles",      "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_user_profiles", "task": "Threat Analysis", "name": "DS due to the loss of Integrity for User Profiles",         "loss": "loss of Integrity",        "asset": "User Profiles",      "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_user_profiles", "task": "Threat Analysis", "name": "DS due to the loss of Non-repudiation for User Profiles",   "loss": "loss of Non-repudiation",  "asset": "User Profiles",      "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_nav_data",      "task": "Threat Analysis", "name": "DS due to the loss of Confidentiality for Navigation Data", "loss": "loss of Confidentiality",  "asset": "Navigation Data",    "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_nav_data",      "task": "Threat Analysis", "name": "DS due to the loss of Integrity for Navigation Data",       "loss": "loss of Integrity",        "asset": "Navigation Data",    "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_nav_data",      "task": "Threat Analysis", "name": "DS due to the loss of Authenticity for Navigation Data",    "loss": "loss of Authenticity",     "asset": "Navigation Data",    "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_code_flash",    "task": "Threat Analysis", "name": "DS due to the loss of Confidentiality for Code Flash",      "loss": "loss of Confidentiality",  "asset": "Code Flash",         "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_code_flash",    "task": "Threat Analysis", "name": "DS due to the loss of Integrity for Code Flash",            "loss": "loss of Integrity",        "asset": "Code Flash",         "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_code_flash",    "task": "Threat Analysis", "name": "DS due to the loss of Availability for Code Flash",         "loss": "loss of Availability",     "asset": "Code Flash",         "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_code_flash",    "task": "Threat Analysis", "name": "DS due to the loss of Authenticity for Code Flash",         "loss": "loss of Authenticity",     "asset": "Code Flash",         "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_data_flash",    "task": "Threat Analysis", "name": "DS due to the loss of Integrity for Data Flash",            "loss": "loss of Integrity",        "asset": "Data Flash",         "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_data_flash",    "task": "Threat Analysis", "name": "DS due to the loss of Availability for Data Flash",         "loss": "loss of Availability",     "asset": "Data Flash",         "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_data_flash",    "task": "Threat Analysis", "name": "DS due to the loss of Non-repudiation for Data Flash",      "loss": "loss of Non-repudiation",  "asset": "Data Flash",         "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_keys",          "task": "Threat Analysis", "name": "DS due to the loss of Confidentiality for Keys",            "loss": "loss of Confidentiality",  "asset": "Keys",               "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_certs",         "task": "Threat Analysis", "name": "DS due to the loss of Integrity for Certificates",          "loss": "loss of Integrity",        "asset": "Certificates",       "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_certs",         "task": "Threat Analysis", "name": "DS due to the loss of Authenticity for Certificates",       "loss": "loss of Authenticity",     "asset": "Certificates",       "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_certs",         "task": "Threat Analysis", "name": "DS due to the loss of Availability for Certificates",       "loss": "loss of Availability",     "asset": "Certificates",       "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_debug",         "task": "Threat Analysis", "name": "DS due to the loss of Integrity for Debug Port",            "loss": "loss of Integrity",        "asset": "Debug Port",         "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_debug",         "task": "Threat Analysis", "name": "DS due to the loss of Availability for Debug Port",         "loss": "loss of Availability",     "asset": "Debug Port",         "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": "infh_debug",         "task": "Threat Analysis", "name": "DS due to the loss of Authorization for Debug Port",        "loss": "loss of Authorization",    "asset": "Debug Port",         "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": null, "task": "Threat Analysis", "name": "DS due to the loss of Integrity for I2C",            "loss": "loss of Integrity",        "asset": null, "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": null, "task": "Threat Analysis", "name": "DS due to the loss of Integrity for I2S",            "loss": "loss of Integrity",        "asset": null, "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": null, "task": "Threat Analysis", "name": "DS due to the loss of Confidentiality for HCI",      "loss": "loss of Confidentiality",  "asset": null, "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": null, "task": "Threat Analysis", "name": "DS due to the loss of Authenticity for HCI",         "loss": "loss of Authenticity",     "asset": null, "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": null, "task": "Threat Analysis", "name": "DS due to the loss of Confidentiality for SDIO",     "loss": "loss of Confidentiality",  "asset": null, "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": null, "task": "Threat Analysis", "name": "DS due to the loss of Confidentiality for USB2",     "loss": "loss of Confidentiality",  "asset": null, "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": null, "task": "Threat Analysis", "name": "DS due to the loss of Integrity for CAN_IVI",        "loss": "loss of Integrity",        "asset": null, "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": null, "task": "Threat Analysis", "name": "DS due to the loss of Integrity for Vehicle_CAN",    "loss": "loss of Integrity",        "asset": null, "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": null, "task": "Threat Analysis", "name": "DS due to the loss of Confidentiality for HTTPS",    "loss": "loss of Confidentiality",  "asset": null, "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": null, "task": "Threat Analysis", "name": "DS due to the loss of Authenticity for HTTPS",       "loss": "loss of Authenticity",     "asset": null, "damage_scene": "", "isChecked": false },
+      { "id": "", "nodeId": null, "task": "Threat Analysis", "name": "DS due to the loss of Confidentiality for BT_Profile","loss": "loss of Confidentiality", "asset": null, "damage_scene": "", "isChecked": false }
     ],
-    "details": [
+    "Details": [
       {
-        "Name": "Unauthorized Configuration Modification",
-        "Description": "An attacker exploits CWE-15 to gain external control over the infotainment system's configuration settings, potentially disabling safety features or altering critical parameters.",
+        "Name": "Malicious OTA Firmware Update via Wi-Fi",
+        "Description": "An attacker performs a man-in-the-middle attack over the Wi-Fi link (HTTPS channel) and injects a malicious firmware image into Code Flash. Because code signing verification (Certificates) is bypassed or the signing key (Keys) is compromised, the IVI MCU executes attacker-controlled firmware, enabling persistent access to the vehicle CAN bus and full cabin sensor control.",
         "cyberLosses": [
-          {
-            "id": "cyberloss_1",
-            "name": "Unauthorized modification of system settings",
-            "node": "Infotainment ECU",
-            "nodeId": "infotainment_ecu",
-            "isSelected": true,
-            "is_risk_added": false
-          }
+          { "id": "", "name": "loss of Integrity",       "node": "Code Flash",   "nodeId": "infh_code_flash", "isSelected": true, "is_risk_added": false },
+          { "id": "", "name": "loss of Authenticity",    "node": "Certificates", "nodeId": "infh_certs",      "isSelected": true, "is_risk_added": false },
+          { "id": "", "name": "loss of Confidentiality", "node": "Keys",         "nodeId": "infh_keys",       "isSelected": true, "is_risk_added": false }
         ],
-        "impacts": {
-          "Financial Impact": "Moderate",
-          "Safety Impact": "Major",
-          "Operational Impact": "Moderate",
-          "Privacy Impact": "Minor"
-        },
-        "key": 1,
-        "_id": "scenario_1"
+        "impacts": { "Financial Impact": "Major", "Safety Impact": "Major", "Operational Impact": "Major", "Privacy Impact": "Moderate" },
+        "key": 1, "_id": ""
       },
       {
-        "Name": "User Profile Data Exposure",
-        "Description": "Leveraging CWE-317, sensitive user profile information stored in cleartext is accessed by an unauthorized party via the GUI, compromising user privacy.",
+        "Name": "User PII Exfiltration via Bluetooth",
+        "Description": "An attacker exploits a Bluetooth pairing vulnerability (e.g., BIAS or KNOB attack) to impersonate a trusted device. By gaining authenticated HCI-level access, the attacker reads PBAP contact list, call history, and User Profiles stored in Data Flash, exfiltrating sensitive PII over the BT_Profile link to the attacker's device.",
         "cyberLosses": [
-          {
-            "id": "cyberloss_2",
-            "name": "Exposure of user profile data",
-            "node": "User Profiles",
-            "nodeId": "user_profiles",
-            "isSelected": true,
-            "is_risk_added": false
-          }
+          { "id": "", "name": "loss of Confidentiality", "node": "User Profiles",    "nodeId": "infh_user_profiles", "isSelected": true, "is_risk_added": false },
+          { "id": "", "name": "loss of Confidentiality", "node": "Bluetooth Module", "nodeId": "infh_bt",            "isSelected": true, "is_risk_added": false }
         ],
-        "impacts": {
-          "Financial Impact": "Minor",
-          "Safety Impact": "Negligible",
-          "Operational Impact": "Minor",
-          "Privacy Impact": "Major"
-        },
-        "key": 2,
-        "_id": "scenario_2"
+        "impacts": { "Financial Impact": "Minor", "Safety Impact": "Negligible", "Operational Impact": "Minor", "Privacy Impact": "Severe" },
+        "key": 2, "_id": ""
       },
       {
-        "Name": "Vehicle Telemetry Data Breach",
-        "Description": "An adversary gains access to vehicle telemetry data through the 'Access vehicle telemetry' ATM technique, potentially revealing driving patterns and vehicle status, impacting confidentiality.",
+        "Name": "GPS Navigation Data Spoofing",
+        "Description": "An attacker injects falsified GPS NMEA sentences through an SDR-based GPS spoofer, causing Navigation Data stored in Data Flash to record fictitious routes. The manipulated navigation data misleads the driver to wrong or dangerous destinations. Per ISO 21434 Clause 15, this constitutes a loss of Authenticity and Integrity for location-based assets.",
         "cyberLosses": [
-          {
-            "id": "cyberloss_3",
-            "name": "Unauthorized access to vehicle operational data",
-            "node": "Telemetry Data",
-            "nodeId": "telemetry_data",
-            "isSelected": true,
-            "is_risk_added": false
-          }
+          { "id": "", "name": "loss of Authenticity", "node": "Navigation Data", "nodeId": "infh_nav_data", "isSelected": true, "is_risk_added": false },
+          { "id": "", "name": "loss of Integrity",    "node": "Navigation Data", "nodeId": "infh_nav_data", "isSelected": true, "is_risk_added": false }
         ],
-        "impacts": {
-          "Financial Impact": "Moderate",
-          "Safety Impact": "Minor",
-          "Operational Impact": "Minor",
-          "Privacy Impact": "Major"
-        },
-        "key": 3,
-        "_id": "scenario_3"
+        "impacts": { "Financial Impact": "Minor", "Safety Impact": "Major", "Operational Impact": "Moderate", "Privacy Impact": "Moderate" },
+        "key": 3, "_id": ""
       },
       {
-        "Name": "Display Content Eavesdropping",
-        "Description": "An attacker uses the 'Screen Capture' MITRE technique to capture display content, potentially revealing sensitive information like navigation routes or personal data displayed on the screen.",
+        "Name": "Malware Injection via USB Interface",
+        "Description": "A malicious USB device presents as a trusted CarPlay/Android Auto accessory. It exploits a USB stack parsing vulnerability (CWE-119) to overflow a buffer in the IVI OS running from Code Flash, achieving arbitrary code execution. The malware persists in Data Flash and may open a reverse tunnel to the CAN bus via the CAN Transceiver.",
         "cyberLosses": [
-          {
-            "id": "cyberloss_4",
-            "name": "Unauthorized capture of display content",
-            "node": "Display Unit",
-            "nodeId": "display_unit",
-            "isSelected": true,
-            "is_risk_added": false
-          }
+          { "id": "", "name": "loss of Integrity",    "node": "USB Interface", "nodeId": "infh_usb",        "isSelected": true, "is_risk_added": false },
+          { "id": "", "name": "loss of Integrity",    "node": "Code Flash",    "nodeId": "infh_code_flash", "isSelected": true, "is_risk_added": false },
+          { "id": "", "name": "loss of Integrity",    "node": "Data Flash",    "nodeId": "infh_data_flash", "isSelected": true, "is_risk_added": false }
         ],
-        "impacts": {
-          "Financial Impact": "Minor",
-          "Safety Impact": "Negligible",
-          "Operational Impact": "Negligible",
-          "Privacy Impact": "Major"
-        },
-        "key": 4,
-        "_id": "scenario_4"
+        "impacts": { "Financial Impact": "Moderate", "Safety Impact": "Moderate", "Operational Impact": "Major", "Privacy Impact": "Moderate" },
+        "key": 4, "_id": ""
       },
       {
-        "Name": "Bluetooth Information Disclosure",
-        "Description": "An attacker uses 'Remote System Information Discovery' via Bluetooth to gather information from connected devices or the infotainment system, leading to unauthorized information disclosure.",
+        "Name": "Microphone Eavesdropping (Cabin Audio Intercept)",
+        "Description": "A compromised IVI application or a software implant delivered via OTA continuously streams Microphone ADC input to a remote attacker over the Wi-Fi/HTTPS channel. The driver's private conversations, phone calls, and voice commands are captured without consent — a severe privacy violation under GDPR and ISO 21434 impact categories.",
         "cyberLosses": [
-          {
-            "id": "cyberloss_5",
-            "name": "Unauthorized information disclosure via Bluetooth",
-            "node": "Bluetooth Module",
-            "nodeId": "bluetooth_module",
-            "isSelected": true,
-            "is_risk_added": false
-          }
+          { "id": "", "name": "loss of Confidentiality", "node": "Microphone",   "nodeId": "infh_mic",  "isSelected": true, "is_risk_added": false },
+          { "id": "", "name": "loss of Confidentiality", "node": "Wi-Fi Module", "nodeId": "infh_wifi", "isSelected": true, "is_risk_added": false }
         ],
-        "impacts": {
-          "Financial Impact": "Minor",
-          "Safety Impact": "Negligible",
-          "Operational Impact": "Minor",
-          "Privacy Impact": "Moderate"
-        },
-        "key": 5,
-        "_id": "scenario_5"
+        "impacts": { "Financial Impact": "Minor", "Safety Impact": "Negligible", "Operational Impact": "Minor", "Privacy Impact": "Severe" },
+        "key": 5, "_id": ""
       },
       {
-        "Name": "Unauthorized Wi-Fi Network Access",
-        "Description": "An attacker uses 'Remote System Discovery' to scan for and gain unauthorized access to the vehicle's Wi-Fi network, potentially compromising network integrity and availability.",
+        "Name": "CAN Bus Injection via IVI Gateway",
+        "Description": "The IVI's CAN Transceiver is connected to the vehicle CAN bus shared with safety-critical ECUs (BCM, ADAS, Cluster). An attacker who has compromised IVI Code Flash injects spoofed CAN frames (e.g., fake wheel speed messages, door lock commands) onto the Vehicle CAN Bus. This can manipulate other ECU behaviour and compromise vehicle safety — directly violating SFOP Safety and Operational impact categories.",
         "cyberLosses": [
-          {
-            "id": "cyberloss_6",
-            "name": "Unauthorized network access",
-            "node": "Wi-Fi Module",
-            "nodeId": "wifi_module",
-            "isSelected": true,
-            "is_risk_added": false
-          }
+          { "id": "", "name": "loss of Integrity", "node": "CAN Transceiver", "nodeId": "infh_can_trx",    "isSelected": true, "is_risk_added": false },
+          { "id": "", "name": "loss of Integrity", "node": "Vehicle CAN Bus", "nodeId": "infh_vehicle_can", "isSelected": true, "is_risk_added": false }
         ],
-        "impacts": {
-          "Financial Impact": "Moderate",
-          "Safety Impact": "Minor",
-          "Operational Impact": "Moderate",
-          "Privacy Impact": "Moderate"
-        },
-        "key": 6,
-        "_id": "scenario_6"
+        "impacts": { "Financial Impact": "Major", "Safety Impact": "Severe", "Operational Impact": "Severe", "Privacy Impact": "Minor" },
+        "key": 6, "_id": ""
       },
       {
-        "Name": "Navigation History Compromise",
-        "Description": "Through 'Gather Target Information – from Vehicle' on the navigation module, an attacker obtains the vehicle's location and navigation history, compromising user privacy.",
+        "Name": "Debug Port Exploitation for Key Extraction",
+        "Description": "An attacker with physical access connects a JTAG debugger to the exposed Debug Port. With the debug interface active (or improperly locked), full MCU memory can be read, exposing Keys (TLS private keys, OTA signing keys, Bluetooth link keys) and Certificates stored in the secure element / HSM. This enables offline decryption of past sessions and forging of OTA packages.",
         "cyberLosses": [
-          {
-            "id": "cyberloss_7",
-            "name": "Disclosure of location and navigation history",
-            "node": "Navigation Module",
-            "nodeId": "navigation_module",
-            "isSelected": true,
-            "is_risk_added": false
-          }
+          { "id": "", "name": "loss of Authorization",  "node": "Debug Port",   "nodeId": "infh_debug", "isSelected": true, "is_risk_added": false },
+          { "id": "", "name": "loss of Confidentiality","node": "Keys",         "nodeId": "infh_keys",  "isSelected": true, "is_risk_added": false },
+          { "id": "", "name": "loss of Integrity",      "node": "Certificates", "nodeId": "infh_certs", "isSelected": true, "is_risk_added": false }
         ],
-        "impacts": {
-          "Financial Impact": "Minor",
-          "Safety Impact": "Negligible",
-          "Operational Impact": "Minor",
-          "Privacy Impact": "Major"
-        },
-        "key": 7,
-        "_id": "scenario_7"
+        "impacts": { "Financial Impact": "Major", "Safety Impact": "Moderate", "Operational Impact": "Major", "Privacy Impact": "Major" },
+        "key": 7, "_id": ""
       },
       {
-        "Name": "Malware Propagation via USB",
-        "Description": "An attacker exploits CWE-225 by using the USB interface to introduce malware, which can then propagate to other connected systems or exfiltrate data from the infotainment system.",
+        "Name": "Rear Camera Feed Substitution",
+        "Description": "An attacker injects a falsified MIPI-CSI2 video stream onto the Rear Camera Input using a hardware interposer or by exploiting an in-vehicle Ethernet/CSI bridge. The Display Unit shows a manipulated or frozen rear view during reversing, creating a dangerous blind spot. Loss of Integrity of the camera feed constitutes a Safety impact at Severe level.",
         "cyberLosses": [
-          {
-            "id": "cyberloss_8",
-            "name": "Malware propagation or data exfiltration via USB",
-            "node": "USB Interface",
-            "nodeId": "usb_interface",
-            "isSelected": true,
-            "is_risk_added": false
-          }
+          { "id": "", "name": "loss of Integrity",    "node": "Rear Camera Input", "nodeId": "infh_camera",  "isSelected": true, "is_risk_added": false },
+          { "id": "", "name": "loss of Availability", "node": "Display Unit",      "nodeId": "infh_display", "isSelected": true, "is_risk_added": false }
         ],
-        "impacts": {
-          "Financial Impact": "Major",
-          "Safety Impact": "Moderate",
-          "Operational Impact": "Major",
-          "Privacy Impact": "Moderate"
-        },
-        "key": 8,
-        "_id": "scenario_8"
+        "impacts": { "Financial Impact": "Minor", "Safety Impact": "Severe", "Operational Impact": "Major", "Privacy Impact": "Negligible" },
+        "key": 8, "_id": ""
       },
       {
-        "Name": "Unauthorized Audio Eavesdropping",
-        "Description": "An attacker exploits CWE-488 on the microphone to gain unauthorized access to captured audio, leading to eavesdropping on vehicle occupants.",
+        "Name": "Wi-Fi MITM — Cloud API Token Theft",
+        "Description": "An attacker sets up a rogue Wi-Fi access point with the same SSID as a known network. The IVI auto-connects and performs TLS certificate validation using stored Certificates; if certificate pinning is absent or Certificates are compromised, the attacker performs TLS termination and steals Cloud Backend API tokens and session credentials transmitted over HTTPS.",
         "cyberLosses": [
-          {
-            "id": "cyberloss_9",
-            "name": "Unauthorized audio eavesdropping",
-            "node": "Microphone",
-            "nodeId": "microphone",
-            "isSelected": true,
-            "is_risk_added": false
-          }
+          { "id": "", "name": "loss of Confidentiality", "node": "Wi-Fi Module",  "nodeId": "infh_wifi",  "isSelected": true, "is_risk_added": false },
+          { "id": "", "name": "loss of Authenticity",    "node": "Certificates",  "nodeId": "infh_certs", "isSelected": true, "is_risk_added": false }
         ],
-        "impacts": {
-          "Financial Impact": "Minor",
-          "Safety Impact": "Minor",
-          "Operational Impact": "Negligible",
-          "Privacy Impact": "Severe"
-        },
-        "key": 9,
-        "_id": "scenario_9"
+        "impacts": { "Financial Impact": "Moderate", "Safety Impact": "Negligible", "Operational Impact": "Moderate", "Privacy Impact": "Major" },
+        "key": 9, "_id": ""
       },
       {
-        "Name": "Audio Service Disruption",
-        "Description": "An attacker utilizes CWE-610 to manipulate the audio amplifier, causing disruption to normal audio playback or potentially generating harmful noise, impacting availability and user experience.",
+        "Name": "OBD-II Diagnostic Abuse — Unauthorised UDS Service Execution",
+        "Description": "An attacker connects to the physical OBD-II Port with a standard ELM327 adapter and issues UDS service 0x27 (Security Access) without a valid seed-key challenge. A weak or unprotected diagnostic session allows reading of Data Flash calibration tables, erasing diagnostic trouble codes (DTCs), or invoking ECU reset commands — violating Integrity and Authorization of the CAN Transceiver and Data Flash assets.",
         "cyberLosses": [
-          {
-            "id": "cyberloss_10",
-            "name": "Disruption of audio services",
-            "node": "Audio Amplifier",
-            "nodeId": "audio_amplifier",
-            "isSelected": true,
-            "is_risk_added": false
-          }
+          { "id": "", "name": "loss of Integrity",    "node": "Data Flash",      "nodeId": "infh_data_flash", "isSelected": true, "is_risk_added": false },
+          { "id": "", "name": "loss of Integrity",    "node": "CAN Transceiver", "nodeId": "infh_can_trx",    "isSelected": true, "is_risk_added": false }
         ],
-        "impacts": {
-          "Financial Impact": "Minor",
-          "Safety Impact": "Minor",
-          "Operational Impact": "Moderate",
-          "Privacy Impact": "Negligible"
-        },
-        "key": 10,
-        "_id": "scenario_10"
+        "impacts": { "Financial Impact": "Moderate", "Safety Impact": "Minor", "Operational Impact": "Major", "Privacy Impact": "Minor" },
+        "key": 10, "_id": ""
       }
     ]
   }

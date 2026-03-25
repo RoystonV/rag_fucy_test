@@ -18,10 +18,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from components import (
-    resolve_ecu, list_ecus, build_enriched_query,
-    parse_and_fix, print_summary,
+    resolve_ecu, list_ecus, build_enriched_query, build_pinned_docs,
     EMBED_MODEL, GEMINI_MODEL, RETRIEVER_TOP_K,
 )
+from postprocess import parse_and_fix, print_summary
 from ingest import load_all_documents
 from pipeline import build_pipeline, run_query
 
@@ -59,7 +59,7 @@ Examples:
     user_query = args.query.strip()
 
     print("\n" + "=" * 60)
-    print("  TARA RAG Pipeline v2.0  |  ISO/SAE 21434")
+    print("  TARA RAG Pipeline v2.1  |  ISO/SAE 21434")
     print("=" * 60)
     print(f"  Query : {user_query}")
     print("=" * 60 + "\n")
@@ -87,18 +87,55 @@ Examples:
     print("\n[2/4] Ingesting datasets...")
     all_docs = load_all_documents()
 
+    # ── Step 2b: Strip unrelated ECU docs ─────────────────────────────────────
+    # Remove every ECU doc that does NOT belong to the resolved ECU entry.
+    # This prevents unrelated ECU component lists (ABS, ECM, Throttle, etc.)
+    # from leaking into the prompt via pinned docs or the retriever.
+    if ecu_entry:
+        ecu_name_lc = ecu_entry.get("name", "").lower()
+        before_count = sum(1 for d in all_docs if d.meta.get("source") == "ECU")
+        all_docs = [
+            d for d in all_docs
+            if d.meta.get("source") != "ECU" or ecu_name_lc in d.content.lower()
+        ]
+        after_count = sum(1 for d in all_docs if d.meta.get("source") == "ECU")
+        print(f"  🔍 ECU doc filter: kept {after_count}/{before_count} entries (matched ECU only)")
+
+    # ── Step 2c: Build pinned context ─────────────────────────────────────────
+    # Pinned docs = ECU entry + all REPORTS_DB chunks for the matched system.
+    # These bypass the retriever and are always guaranteed in the prompt.
+    pinned_docs, matched_model = build_pinned_docs(all_docs, ecu_entry)
+    print(f"\n  📌 Pinned context docs : {len(pinned_docs)}")
+    if matched_model:
+        print(f"     REPORTS_DB model   : {matched_model} (full reference architecture pinned)")
+    else:
+        print("     REPORTS_DB model   : (none found — using dataecu hint + threat intelligence only)")
+        # When there's no reference architecture, tighten the enriched query
+        # to make very explicit that only the authoritative asset list may be used.
+        if ecu_entry:
+            enriched_query += (
+                "\n\nIMPORTANT: No reference architecture exists in the database for this system. "
+                "Generate ONLY the components listed in the AUTHORITATIVE ASSET LIST above. "
+                "Do NOT add any extra components, sub-systems, or interfaces not mentioned there. "
+                "For an unknown system with a partial asset list, prefer fewer, well-justified "
+                "components over a long speculative list."
+            )
+
     # ── Step 3: Embed & pipeline ──────────────────────────────────────────────
-    print("\n[3/4] Embedding documents & building pipeline...")
-    pipeline, _ = build_pipeline(all_docs)
+    print("\n[3/4] Embedding threat-framework docs & building pipeline...")
+    print(f"  Embedding model : {EMBED_MODEL}")
+    print(f"  LLM model       : {GEMINI_MODEL}")
+    print(f"  Retriever top_k : {RETRIEVER_TOP_K}  (threat docs only)")
+    text_embedder, retriever, prompt_builder, generator = build_pipeline(all_docs)
 
     # ── Step 4: Generate ──────────────────────────────────────────────────────
     print("\n[4/4] Generating TARA report...")
-    print(f"  Embedding model : {EMBED_MODEL}")
-    print(f"  LLM model       : {GEMINI_MODEL}")
-    print(f"  Retriever top_k : {RETRIEVER_TOP_K}")
     print(f"  Enriched query  : {enriched_query[:120]}...")
 
-    raw_output = run_query(pipeline, user_query, enriched_query)
+    raw_output = run_query(
+        text_embedder, retriever, prompt_builder, generator,
+        user_query, enriched_query, pinned_docs,
+    )
 
     # ── Post-process ──────────────────────────────────────────────────────────
     print("\nPost-processing...")
@@ -112,6 +149,31 @@ Examples:
     print("✅ Valid JSON parsed.")
     print_summary(tara_json)
 
+    # ── Optional: save prompt for debugging ───────────────────────────────────
+    safe_name   = re.sub(r"[^a-zA-Z0-9_-]", "_", user_query.strip())
+    prompts_dir = Path(__file__).parent / "outputs" / "prompts"
+    tara_dir    = Path(__file__).parent / "outputs" / "tara"
+    prompts_dir.mkdir(parents=True, exist_ok=True)
+    tara_dir.mkdir(parents=True, exist_ok=True)
+
+    prompt_path = prompts_dir / f"tara_prompt_{safe_name}.txt"
+    try:
+        # Reconstruct the prompt text for inspection
+        from haystack.components.builders import PromptBuilder as _PB
+        from prompt import TARA_PROMPT_TEMPLATE
+        _pb = _PB(template=TARA_PROMPT_TEMPLATE, required_variables=["documents", "question"])
+        from components import build_pinned_docs as _bpd
+        # Re-assemble with same docs used (pinned_docs already computed above)
+        embedding = text_embedder.run(text=user_query)["embedding"]
+        retrieved = retriever.run(query_embedding=embedding)["documents"]
+        all_ctx   = pinned_docs + retrieved
+        _prompt   = _pb.run(documents=all_ctx, question=enriched_query)["prompt"]
+        with open(prompt_path, "w", encoding="utf-8") as _f:
+            _f.write(_prompt)
+        print(f"  📄 Prompt saved → {prompt_path}")
+    except Exception as _e:
+        print(f"  ⚠️  Prompt save skipped: {_e}")
+
     # ── Print ─────────────────────────────────────────────────────────────────
     print("\n" + "-" * 60)
     print(json.dumps(tara_json, indent=2, ensure_ascii=False))
@@ -119,10 +181,8 @@ Examples:
 
     # ── Save ──────────────────────────────────────────────────────────────────
     if not args.no_save:
-        out_file = args.output or (
-            "tara_output_" + re.sub(r"[^a-zA-Z0-9_-]", "_", user_query.strip()) + ".json"
-        )
-        out_path = Path(__file__).parent / out_file
+        out_file = args.output or f"tara_output_{safe_name}.json"
+        out_path = tara_dir / out_file
         with open(out_path, "w", encoding="utf-8") as f:
             json.dump(tara_json, f, indent=2, ensure_ascii=False)
         print(f"\n✅ Saved → {out_path}")

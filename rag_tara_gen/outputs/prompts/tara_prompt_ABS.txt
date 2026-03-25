@@ -1,0 +1,619 @@
+
+You are an automotive cybersecurity analyst performing Threat Analysis and Risk Assessment (TARA)
+according to ISO/SAE 21434 Clause 15.
+
+Your task is to generate a system architecture model and cybersecurity damage scenarios
+for the requested automotive ECU or system.
+
+STRICT KNOWLEDGE RULES
+
+- Use ONLY information relevant to the TARGET SYSTEM specified in the SYSTEM REQUEST below.
+- Do NOT invent assets or components that are not part of the targeted system.
+- If an AUTHORITATIVE ASSET LIST is provided in the request, generate EXACTLY those assets — no additions, no omissions.
+  All damage scenarios, derivations, and edges must reference ONLY those listed assets.
+- REPORTS_DB entries show real reference architectures. If the TARGET SYSTEM matches a REPORTS_DB system
+  (e.g. query is "BMS" and a BMS reference exists), follow the reference architecture's exact component names,
+  hierarchy, edge labels, and structure as closely as possible.
+- For other systems, use REPORTS_DB entries as structural EXAMPLES ONLY for JSON shape and patterns.
+- Do NOT reproduce another system's component names unless the TARGET SYSTEM matches exactly.
+- Use realistic automotive architecture relevant to the TARGET SYSTEM only.
+- Prefer knowledge retrieved from cybersecurity context (ISO 21434, CWE, CAPEC, MITRE, ATM).
+- If information is missing, infer only common industry-standard components for the specified system.
+
+NO UNNECESSARY COMPONENTS RULE (CRITICAL for automotive systems):
+- Every node you generate must have a clear justification — it must appear in the AUTHORITATIVE ASSET LIST,
+  the REPORTS_DB reference, or be a universally standard component for that specific automotive ECU type.
+- Do NOT add speculative sub-modules, buses, protocols, or external entities that are not explicitly called
+  out in the asset list or reference architecture.
+- Fewer, accurate components are ALWAYS better than many uncertain ones.
+- This rule is especially important for systems with NO REPORTS_DB reference: in that case, DO NOT
+  invent architecture beyond what is explicitly stated in the AUTHORITATIVE ASSET LIST.
+
+
+Threat reasoning must follow:
+CWE (root weakness) → CAPEC (attack pattern) → MITRE ATT&CK technique → ATM relevance → Damage Scenario
+
+-------------------------------------------------
+
+SYSTEM REQUEST:
+ABS (Anti-lock Braking System)
+
+AUTHORITATIVE ASSET LIST (from system dataecu specification) — generate ONLY these assets, no others:
+Assets: ABS ECU (root group container, default), Wheel Speed Sensors (default, child of ABS ECU — four hall-effect sensors FL/FR/RL/RR), Hydraulic Control Unit (default, child of ABS ECU — solenoid valves and pump motor), CAN Transceiver (default, child of ABS ECU), OBD-II Interface (default, child of ABS ECU — UDS diagnostic access), Code Flash (default, inside MCU group — ABS firmware and braking algorithms), Data Flash (default, inside MCU group — calibration parameters and NVM config), Keys (default, inside MCU group — cryptographic seed-key and secure boot keys), Certificates (default, inside MCU group — X.509 ECU auth certificates), Debug Port (default, inside MCU group — JTAG/SWD, must be locked in production), Brake Pressure Data (data node, child of ABS ECU), Diagnostic Data (data node, child of ABS ECU — DTCs and freeze frames), Vehicle CAN Bus (external, default), ECM Engine Control Module (external, default). The 'ABS ECU' is the root group container; inside it are Wheel Speed Sensors, Hydraulic Control Unit, CAN Transceiver, OBD-II Interface, Brake Pressure Data (data), Diagnostic Data (data), and an unnamed MCU subgroup containing Code Flash, Data Flash, Keys, Certificates, and Debug Port. Edges: PWM_Input (MCU group↔Wheel Speed Sensors), PWM_Control (MCU group↔Hydraulic Control Unit), CAN_Internal (MCU group↔CAN Transceiver), UDS_Diag (MCU group↔OBD-II Interface), CAN_Bus (CAN Transceiver↔Vehicle CAN Bus), Vehicle_CAN (Vehicle CAN Bus↔ECM), Computes (MCU group→Brake Pressure Data), Logs (MCU group→Diagnostic Data), Reads_DTC (OBD-II Interface↔Diagnostic Data).
+
+All threat analysis, damage scenarios, and edges must reference ONLY the assets listed above. Do NOT add any other components.
+
+CYBERSECURITY KNOWLEDGE CONTEXT:
+
+[ECU]
+{
+  "name": "ABS (Anti-lock Braking System)",
+  "type": "ECU",
+  "hint": "Assets: ABS ECU (root group container, default), Wheel Speed Sensors (default, child of ABS ECU \u2014 four hall-effect sensors FL/FR/RL/RR), Hydraulic Control Unit (default, child of ABS ECU \u2014 solenoid valves and pump motor), CAN Transceiver (default, child of ABS ECU), OBD-II Interface (default, child of ABS ECU \u2014 UDS diagnostic access), Code Flash (default, inside MCU group \u2014 ABS firmware and braking algorithms), Data Flash (default, inside MCU group \u2014 calibration parameters and NVM config), Keys (default, inside MCU group \u2014 cryptographic seed-key and secure boot keys), Certificates (default, inside MCU group \u2014 X.509 ECU auth certificates), Debug Port (default, inside MCU group \u2014 JTAG/SWD, must be locked in production), Brake Pressure Data (data node, child of ABS ECU), Diagnostic Data (data node, child of ABS ECU \u2014 DTCs and freeze frames), Vehicle CAN Bus (external, default), ECM Engine Control Module (external, default). The 'ABS ECU' is the root group container; inside it are Wheel Speed Sensors, Hydraulic Control Unit, CAN Transceiver, OBD-II Interface, Brake Pressure Data (data), Diagnostic Data (data), and an unnamed MCU subgroup containing Code Flash, Data Flash, Keys, Certificates, and Debug Port. Edges: PWM_Input (MCU group\u2194Wheel Speed Sensors), PWM_Control (MCU group\u2194Hydraulic Control Unit), CAN_Internal (MCU group\u2194CAN Transceiver), UDS_Diag (MCU group\u2194OBD-II Interface), CAN_Bus (CAN Transceiver\u2194Vehicle CAN Bus), Vehicle_CAN (Vehicle CAN Bus\u2194ECM), Computes (MCU group\u2192Brake Pressure Data), Logs (MCU group\u2192Diagnostic Data), Reads_DTC (OBD-II Interface\u2194Diagnostic Data)."
+}
+---
+
+[REPORTS_DB | asset]
+Reference Component [AntiLockBraking]: ABS ECU
+Type: group  IsAsset: False
+Description: 
+Security Properties: Integrity, Authenticity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [AntiLockBraking]: Code Flash
+Type: default  IsAsset: False
+Description: Stores ABS control firmware and safety-critical braking algorithms.
+Security Properties: Confidentiality, Integrity, Availability, Authenticity
+---
+
+[REPORTS_DB | asset]
+Reference Component [AntiLockBraking]: Data Flash
+Type: default  IsAsset: False
+Description: Stores calibration parameters, variant coding, and NVM configuration for the ABS ECU.
+Security Properties: Integrity, Availability, Non-repudiation
+---
+
+[REPORTS_DB | asset]
+Reference Component [AntiLockBraking]: Keys
+Type: default  IsAsset: False
+Description: Cryptographic keys for secure boot, ECU authentication, and UDS seed-key access.
+Security Properties: Confidentiality
+---
+
+[REPORTS_DB | asset]
+Reference Component [AntiLockBraking]: Certificates
+Type: default  IsAsset: False
+Description: X.509 certificates used for secure ECU authentication and OTA update validation.
+Security Properties: Integrity, Authenticity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [AntiLockBraking]: Debug Port
+Type: default  IsAsset: False
+Description: JTAG/SWD debug interface for firmware development and diagnostic access. Must be locked in production.
+Security Properties: Integrity, Availability, Authorization
+---
+
+[REPORTS_DB | asset]
+Reference Component [AntiLockBraking]: Wheel Speed Sensors
+Type: default  IsAsset: False
+Description: Four hall-effect / magnetoresistive sensors (FL, FR, RL, RR) delivering wheel rotation data to the ABS ECU via PWM signal lines.
+Security Properties: Integrity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [AntiLockBraking]: Hydraulic Control Unit
+Type: default  IsAsset: False
+Description: Electro-hydraulic actuator block (solenoid valves + pump motor) that modulates brake pressure per MCU commands.
+Security Properties: Integrity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [AntiLockBraking]: CAN Transceiver
+Type: default  IsAsset: False
+Description: Physical-layer CAN-FD transceiver bridging the MCU CAN controller to the in-vehicle CAN bus.
+Security Properties: Integrity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [AntiLockBraking]: OBD-II Interface
+Type: default  IsAsset: False
+Description: Standardized diagnostic connector exposing UDS services (0x22 ReadDataByIdentifier, 0x27 SecurityAccess, 0x34/0x36 firmware update). Doorway for authorised and adversarial diagnostic sessions.
+Security Properties: Integrity, Availability, Authorization
+---
+
+[REPORTS_DB | asset]
+Reference Component [AntiLockBraking]: Vehicle CAN Bus
+Type: default  IsAsset: False
+Description: In-vehicle CAN/CAN-FD network shared with ECM, ESP/ESC, BCM, and Gateway. Carries ABS status messages and receives vehicle speed / torque requests.
+Security Properties: Integrity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [AntiLockBraking]: ECM (Engine Control Module)
+Type: default  IsAsset: False
+Description: External node — provides vehicle speed and engine torque signals to ABS over CAN; receives ABS active flag to manage traction.
+Security Properties: N/A
+---
+
+[REPORTS_DB | asset]
+Reference Component [AntiLockBraking]: Brake Pressure Data
+Type: data  IsAsset: False
+Description: Real-time hydraulic pressure values per wheel channel computed by the ABS control algorithm.
+Security Properties: Authenticity, Integrity
+---
+
+[REPORTS_DB | asset]
+Reference Component [AntiLockBraking]: Diagnostic Data
+Type: data  IsAsset: False
+Description: DTC (Diagnostic Trouble Codes) and freeze-frame snapshots stored in NVM; read via OBD-II UDS services.
+Security Properties: Authenticity, Integrity
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [AntiLockBraking]:
+Threat/Weakness: CWE-494: Download of Code Without Integrity Check
+Affected Asset: Code Flash
+Cyber Loss: Unauthorized firmware modification via OTA or diagnostic service
+Damage Scene: An attacker delivers a tampered firmware image to the ABS ECU through an unsecured OTA channel or an unlocked UDS 0x34/0x36 session. The modified firmware disables the wheel lock prevention logic, causing the ABS to fail silently and creating a life-threatening loss-of-braking condition.
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [AntiLockBraking]:
+Threat/Weakness: CWE-321: Use of Hard-coded Cryptographic Key
+Affected Asset: Keys
+Cyber Loss: Compromise of ECU authentication and seed-key mechanism
+Damage Scene: Reverse-engineering of the ABS ECU binary reveals a hard-coded seed-key algorithm. An attacker gains full UDS SecurityAccess (service 0x27), enabling arbitrary memory read/write and firmware reprogramming without valid workshop credentials.
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [AntiLockBraking]:
+Threat/Weakness: CAPEC-390: Bypassing of Intermediate Forms in Multiple-Form Sets
+Affected Asset: Wheel Speed Sensors
+Cyber Loss: Injection of spoofed wheel speed signals causing inappropriate ABS activation
+Damage Scene: An attacker with physical or CAN access injects falsified PWM wheel-speed signals. The ABS MCU misinterprets normal braking as wheel lock and activates pulse modulation, dramatically extending stopping distance and increasing accident risk.
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [AntiLockBraking]:
+Threat/Weakness: ATM Technique: CAN Bus Message Injection
+Affected Asset: CAN Transceiver
+Cyber Loss: Injection of spoofed ABS status CAN frames affecting adjacent ECUs
+Damage Scene: An adversary connected to the in-vehicle CAN bus transmits fabricated ABS_Active and WheelSpeed CAN frames. The ECM and ESC/ESP receive false data, alter torque distribution and stability control, potentially inducing a spin or loss of vehicle stability.
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [AntiLockBraking]:
+Threat/Weakness: CAPEC-167: Bluetooth Brute Force Attack / CWE-307: Improper Restriction of Excessive Authentication Attempts
+Affected Asset: OBD-II Interface
+Cyber Loss: Brute-force of UDS SecurityAccess seed-key to gain privileged diagnostic session
+Damage Scene: An attacker connects a rogue diagnostic tool to the OBD-II port and performs automated seed-key brute-forcing using the short 16-bit seed space. After unlocking level 2 security, the attacker reprograms the ABS ECU or corrupts its NVM calibration, degrading braking performance.
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [AntiLockBraking]:
+Threat/Weakness: CWE-276: Incorrect Default Permissions on Calibration Data
+Affected Asset: Data Flash
+Cyber Loss: Tampering of ABS calibration parameters degrading stopping distance
+Damage Scene: An attacker who obtains UDS programming access overwrites ABS threshold calibration values (slip ratio limits, pressure ramp rates) stored in Data Flash. The modified parameters cause the ABS system to intervene too early or too late, increasing stopping distance measurably beyond ISO 21434 safety targets.
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [AntiLockBraking]:
+Threat/Weakness: MITRE ICS Technique T0843: Program Download / Physical Access via JTAG
+Affected Asset: Debug Port
+Cyber Loss: Full ECU compromise through unlocked JTAG debug port in production hardware
+Damage Scene: A production ABS ECU is found with the JTAG/SWD interface active and unprotected. An attacker extracts the full flash image (including Keys and firmware), patches the binary to disable ABS logic, and re-flashes the modified image, indistinguishable from legitimate firmware.
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [AntiLockBraking]:
+Threat/Weakness: ATM Technique: Manipulate Control Logic
+Affected Asset: Hydraulic Control Unit
+Cyber Loss: Denial of braking or asymmetric braking through actuator command injection
+Damage Scene: An attacker who has compromised the ABS MCU firmware sends erroneous solenoid valve commands to the HCU. This causes asymmetric brake pressure modulation (e.g., locking one wheel while releasing another), resulting in severe vehicle yaw and potential rollover at highway speed.
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [AntiLockBraking]:
+Threat/Weakness: CWE-20: Improper Input Validation — Spoofed Sensor Computation Output
+Affected Asset: Brake Pressure Data
+Cyber Loss: Falsified brake pressure data corrupting ABS control loop decisions
+Damage Scene: Tampered computation inputs cause the ABS algorithm to operate on falsified pressure values. The control loop races between excessive modulation and no modulation, creating brake fade and an inability to maintain optimal wheel slip, increasing stopping distance by up to 40%.
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [AntiLockBraking]:
+Threat/Weakness: CWE-117: Improper Output Neutralization for Logs / DTC Suppression
+Affected Asset: Diagnostic Data
+Cyber Loss: Suppression or falsification of ABS DTCs concealing safety-critical faults
+Damage Scene: An attacker uses an authorised-looking diagnostic tool to clear or overwrite DTC entries after inducing ABS faults. Technicians performing pre-delivery inspections see a clean fault memory, remain unaware of the underlying vulnerability, and the compromised vehicle is released to the customer.
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [AntiLockBraking]: ABS Firmware Tampering via OTA / UDS
+Description: Exploitation of CWE-494 to deliver unsigned/tampered ABS firmware. Disables wheel-lock prevention logic and creates a silent safety-critical failure. Rated Catastrophic for Safety Impact.
+Cyber Losses: Unauthorized firmware modification via OTA or diagnostic service (Code Flash)
+Impact Ratings: Financial Impact: Major  Safety Impact: Catastrophic  Operational Impact: Major  Privacy Impact: Negligible
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [AntiLockBraking]: Hard-coded Key Extraction and UDS Unlock
+Description: Hard-coded seed-key compromise (CWE-321) grants full security level access to ABS ECU memory and programming services, enabling any subsequent attack.
+Cyber Losses: Compromise of ECU authentication and seed-key mechanism (Keys)
+Impact Ratings: Financial Impact: Major  Safety Impact: Major  Operational Impact: Major  Privacy Impact: Minor
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [AntiLockBraking]: Wheel Speed Sensor Signal Spoofing
+Description: Injection of falsified PWM wheel-speed signals (CAPEC-390) causes the ABS to incorrectly activate during normal braking, extending stopping distance and increasing collision risk.
+Cyber Losses: Injection of spoofed wheel speed signals causing inappropriate ABS activation (Wheel Speed Sensors)
+Impact Ratings: Financial Impact: Moderate  Safety Impact: Catastrophic  Operational Impact: Major  Privacy Impact: Negligible
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [AntiLockBraking]: CAN Bus ABS Frame Injection
+Description: Spoofed ABS CAN frames (ATM) mislead connected safety ECUs (ECM, ESC), triggering unintended traction interventions and vehicle instability.
+Cyber Losses: Injection of spoofed ABS status CAN frames affecting adjacent ECUs (CAN Transceiver)
+Impact Ratings: Financial Impact: Moderate  Safety Impact: Major  Operational Impact: Major  Privacy Impact: Negligible
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [AntiLockBraking]: OBD-II Seed-Key Brute Force
+Description: Automated UDS SecurityAccess brute-force (CWE-307) through physical OBD-II port grants elevated programming access allowing ECU reprogramming.
+Cyber Losses: Brute-force of UDS SecurityAccess seed-key to gain privileged diagnostic session (OBD-II Interface)
+Impact Ratings: Financial Impact: Moderate  Safety Impact: Major  Operational Impact: Moderate  Privacy Impact: Minor
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [AntiLockBraking]: Calibration Data Tampering in Data Flash
+Description: Unauthorised modification of ABS threshold calibration (CWE-276) stored in Data Flash degrades braking performance beyond safe limits.
+Cyber Losses: Tampering of ABS calibration parameters degrading stopping distance (Data Flash)
+Impact Ratings: Financial Impact: Moderate  Safety Impact: Major  Operational Impact: Moderate  Privacy Impact: Negligible
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [AntiLockBraking]: JTAG-based Full ECU Compromise
+Description: Unlocked Debug Port enables physical firmware extraction and re-flash (MITRE ICS T0843) allowing complete ECU takeover in production.
+Cyber Losses: Full ECU compromise through unlocked JTAG debug port in production hardware (Debug Port)
+Impact Ratings: Financial Impact: Major  Safety Impact: Catastrophic  Operational Impact: Major  Privacy Impact: Minor
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [AntiLockBraking]: HCU Actuator Command Injection
+Description: Compromised MCU firmware sends erroneous solenoid commands (ATM: Manipulate Control Logic) causing asymmetric braking and vehicle yaw.
+Cyber Losses: Denial of braking or asymmetric braking through actuator command injection (Hydraulic Control Unit)
+Impact Ratings: Financial Impact: Major  Safety Impact: Catastrophic  Operational Impact: Major  Privacy Impact: Negligible
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [AntiLockBraking]: Brake Pressure Data Integrity Violation
+Description: Falsified computation inputs (CWE-20) corrupt the real-time brake pressure data used by the ABS control loop, causing oscillating modulation and extended stopping distance.
+Cyber Losses: Falsified brake pressure data corrupting ABS control loop decisions (Brake Pressure Data)
+Impact Ratings: Financial Impact: Moderate  Safety Impact: Major  Operational Impact: Moderate  Privacy Impact: Negligible
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [AntiLockBraking]: DTC Suppression Concealing ABS Safety Faults
+Description: Rogue diagnostic tool clears or overwrites Diagnostic Data (CWE-117) after inducing faults, masking ABS defects and allowing compromised vehicles to pass inspection.
+Cyber Losses: Suppression or falsification of ABS DTCs concealing safety-critical faults (Diagnostic Data)
+Impact Ratings: Financial Impact: Moderate  Safety Impact: Major  Operational Impact: Moderate  Privacy Impact: Minor
+---
+
+[REPORTS_DB | hierarchy_summary]
+Architecture Hierarchy for [AntiLockBraking]:
+  TOP: ABS ECU (type:group)
+  TOP: Vehicle CAN Bus (type:default)
+  TOP: ECM (Engine Control Module) (type:default)
+  ABS ECU contains: abs_mcu_group (type:group), Wheel Speed Sensors (type:default), Hydraulic Control Unit (type:default), CAN Transceiver (type:default), OBD-II Interface (type:default), Brake Pressure Data (type:data), Diagnostic Data (type:data)
+  abs_mcu_group contains: Code Flash (type:default), Data Flash (type:default), Keys (type:default), Certificates (type:default), Debug Port (type:default)
+---
+
+[REPORTS_DB | edge_summary]
+Edge connections for [AntiLockBraking]:
+  PWM_Input: abs_mcu_group ↔ Wheel Speed Sensors (properties: Integrity)
+  PWM_Control: abs_mcu_group ↔ Hydraulic Control Unit (properties: Integrity, Availability)
+  CAN_Internal: abs_mcu_group ↔ CAN Transceiver (properties: Integrity, Authenticity)
+  UDS_Diag: abs_mcu_group ↔ OBD-II Interface (properties: Authorization)
+  CAN_Bus: CAN Transceiver ↔ Vehicle CAN Bus (properties: Integrity, Availability)
+  Vehicle_CAN: Vehicle CAN Bus ↔ ECM (Engine Control Module) (properties: Integrity)
+  Computes: abs_mcu_group ↔ Brake Pressure Data (properties: Integrity)
+  Logs: abs_mcu_group ↔ Diagnostic Data (properties: Integrity)
+  Reads_DTC: OBD-II Interface ↔ Diagnostic Data (properties: Authorization)
+---
+
+[CWE]
+CWE-36: Absolute Path Traversal
+Description: The product uses external input to construct a pathname that should be within a restricted directory, but it does not properly neutralize absolute path sequences such as "/abs/path" that can resolve to a location that is outside of that directory.
+---
+
+[CWE]
+CWE-797: Only Filtering Special Elements at an Absolute Position
+Description: The product receives data from an upstream component, but only accounts for special elements at an absolute position (e.g. "byte number 10"), thereby missing remaining special elements that may exist before sending it to a downstream component.
+---
+
+[CAPEC]
+CAPEC-680: 
+Description: 
+            
+---
+
+[CAPEC]
+CAPEC-121: 
+Description: 
+            
+---
+
+[ISO_21434 § 6.5]
+ISO 21434 Clause 6 — Section 6.5: Work Products
+---
+
+[CWE]
+CWE-37: Path Traversal: '/absolute/pathname/here'
+Description: The product accepts input in the form of a slash absolute path ('/absolute/pathname/here') without appropriate validation, which can allow an attacker to traverse the file system to unintended locations or access arbitrary files.
+---
+
+[CAPEC]
+CAPEC-560: 
+Description: 
+            
+---
+
+[CWE]
+CWE-191: Integer Underflow (Wrap or Wraparound)
+Description: The product subtracts one value from another, such that the result is less than the minimum allowable integer value, which produces a value that is not equal to the correct result.
+---
+
+[CAPEC]
+CAPEC-273: 
+Description: 
+            
+---
+
+[CAPEC]
+CAPEC-571: 
+Description: 
+            
+---
+
+[CAPEC]
+CAPEC-600: 
+Description: 
+            
+---
+
+[ISO_21434 § 5.5]
+ISO 21434 Clause 5 — Section 5.5: Work Products
+---
+
+[CAPEC]
+CAPEC-681: 
+Description: 
+            
+---
+
+[CWE]
+CWE-38: Path Traversal: '\absolute\pathname\here'
+Description: The product accepts input in the form of a backslash absolute path ('\absolute\pathname\here') without appropriate validation, which can allow an attacker to traverse the file system to unintended locations or access arbitrary files.
+---
+
+[CAPEC]
+CAPEC-33: 
+Description: 
+            
+---
+
+[CAPEC]
+CAPEC-671: 
+Description: An adversary with access to functional requirements for an application specific integrated circuit (ASIC), a chip designed/customized for a singular particular use, maliciously alters requirements derived from originating capability needs. In the chip manufacturing process, requirements drive the chip design which, when the chip is fully manufactured, could result in an ASIC which may not meet the user’s needs, contain malicious functionality, or exhibit other anomalous behaviors thereby affecting the intended use of the ASIC.
+---
+
+[CWE]
+CWE-825: Expired Pointer Dereference
+Description: The product dereferences a pointer that contains a location for memory that was previously valid, but is no longer valid.
+---
+
+[CAPEC]
+CAPEC-572: 
+Description: 
+            
+---
+
+[CAPEC]
+CAPEC-34: 
+Description: 
+            
+---
+
+[CAPEC]
+CAPEC-5: 
+Description: 
+            
+---
+
+
+-------------------------------------------------
+
+ARCHITECTURE RULES
+
+The architecture uses a nested group/container hierarchy:
+
+1. GROUP NODES (type:"group") are invisible containers that establish parent-child hierarchy.
+   - The top-level system (e.g. "Battery Management System") is a group with parentId:null.
+   - Sub-systems (e.g. MCU block) are groups nested inside the top-level group.
+   - Group nodes have a dashed-border style, NOT a solid backgroundColor.
+
+2. DEFAULT NODES (type:"default") are visible components (CellMonitoring, Code Flash, etc.).
+   - Each default node has a parentId pointing to its containing group.
+   - External entities (BatteryPack, Vehicle System, Cloud) have parentId:null (outside the system group).
+
+3. DATA NODES (type:"data") are small circular data items (SoC, SoH).
+   - These are small (width:50, height:30) and have parentId pointing to their containing group.
+
+4. PARENTID HIERARCHY: Every node must have a parentId.
+   - parentId:null means the node is at the top level (external entities and the main system group).
+   - Components inside the system group have parentId = the system group's id.
+   - Components inside a sub-group (e.g. MCU) have parentId = the sub-group's id.
+
+5. EDGES: Each edge must have a "data.label" that is a SHORT protocol/interface name:
+   - CORRECT: "SPI", "CAN1", "CAN2", "IO_PINS", "Vehicle CAN", "Internet", "ICD_Data"
+   - WRONG: "Measurements", "CAN Communication", "Controls Power Flow", "Sends data to"
+
+6. COLOR CODING: Assign distinct backgroundColor values by component role:
+   - Monitoring/sensing: yellow shades (#e6df19, #accd32)
+   - I/O interfaces: beige/tan (#e2dfc1)
+   - Flash/storage: purple (#ccc8ea)
+   - Security (Keys, Certificates): green (#51dc1e, #62c945)
+   - Debug: red/orange (#e26a6a)
+   - Data items (SoC, SoH): light yellow (#e3e896)
+   - External/generic: gray (#dadada)
+
+-------------------------------------------------
+
+TASK
+
+1. Identify the architecture of the requested system (use the AUTHORITATIVE ASSET LIST if provided).
+2. Generate assets that belong strictly to the TARGET SYSTEM — no others.
+3. Use group containers for system/sub-system hierarchy with correct parentId references.
+4. Create architecture relationships (edges) with short protocol/interface labels.
+5. Generate realistic cybersecurity damage scenarios referencing only the generated assets.
+6. For each damage scenario derive an Impact Rating using SFOP categories.
+
+-------------------------------------------------
+
+IMPACT RATING SCALE
+
+For every damage scenario derive cyber losses using SFOP categories:
+Safety | Financial | Operational | Privacy
+
+For each cyber loss assign: Negligible | Minor | Moderate | Major | Severe
+Then derive an overall impact rating based on the highest impact.
+
+-------------------------------------------------
+
+STRICT OUTPUT FORMAT
+
+Return ONLY valid JSON. Do not include explanations, markdown fences, or prose.
+Start the response with '{'.
+
+Return JSON exactly in this structure (showing all three node types):
+
+{
+ "assets":{
+   "_id":"",
+   "user_id":"",
+   "model_id":"",
+   "template":{
+      "nodes":[
+         {
+           "id":"<system-group-uuid>",
+           "type":"group",
+           "parentId":null,
+           "data":{
+             "label":"System Name",
+             "nodeCount":7,
+             "style":{"background":"rgba(33,150,243,0.05)","border":"1px dashed #2196F3","borderRadius":"8px","boxShadow":"0 2px 6px rgba(0,0,0,0.1)","height":510,"width":1041}
+           },
+           "properties":["Integrity","Authenticity"],
+           "style":{"width":1041,"height":510},
+           "position":{"x":0,"y":0},
+           "positionAbsolute":{"x":0,"y":0},
+           "width":1041,
+           "height":510,
+           "zIndex":0
+         },
+         {
+           "id":"<component-uuid>",
+           "type":"default",
+           "parentId":"<system-group-uuid>",
+           "isAsset":false,
+           "data":{
+             "label":"ComponentName",
+             "description":"",
+             "style":{"backgroundColor":"#dadada","borderColor":"gray","borderStyle":"solid","borderWidth":"2px","color":"black","fontFamily":"Inter","fontSize":"12px","fontWeight":500,"height":50,"width":150}
+           },
+           "properties":["Integrity","Confidentiality","Availability"],
+           "style":{"width":150,"height":50},
+           "position":{"x":0,"y":0},
+           "positionAbsolute":{"x":0,"y":0},
+           "width":150,
+           "height":50
+         },
+         {
+           "id":"<data-item-uuid>",
+           "type":"data",
+           "parentId":"<system-group-uuid>",
+           "isAsset":false,
+           "data":{
+             "label":"SoC",
+             "style":{"backgroundColor":"#e3e896","borderColor":"gray","borderStyle":"solid","borderWidth":"2px","color":"black","fontFamily":"Inter","fontSize":"12px","fontWeight":500,"height":30,"width":50}
+           },
+           "properties":["Authenticity","Integrity"],
+           "style":{"width":50,"height":30},
+           "position":{"x":0,"y":0},
+           "positionAbsolute":{"x":0,"y":0},
+           "width":50,
+           "height":30
+         }
+      ],
+      "edges":[
+         {
+           "id":"",
+           "source":"<source node id>",
+           "target":"<target node id>",
+           "sourceHandle":"b",
+           "targetHandle":"left",
+           "type":"step",
+           "animated":true,
+           "markerEnd":{"color":"#64B5F6","height":18,"type":"arrowclosed","width":18},
+           "markerStart":{"color":"#64B5F6","height":18,"orient":"auto-start-reverse","type":"arrowclosed","width":18},
+           "style":{"end":true,"start":true,"stroke":"#808080","strokeDasharray":"0","strokeWidth":2},
+           "properties":["Integrity"],
+           "data":{"label":"SPI","offset":0,"t":0.5}
+         }
+      ]
+   }
+ },
+ "damage_scenarios":{
+   "_id":"",
+   "model_id":"",
+   "type":"damage",
+   "Derivations":[
+      {
+        "id":"","nodeId":"","task":"Threat Analysis",
+        "name":"","loss":"","asset":"",
+        "damage_scene":"","isChecked":false
+      }
+   ],
+   "Details":[
+      {
+        "Name":"",
+        "Description":"",
+        "cyberLosses":[{"id":"","name":"","node":"","nodeId":"","isSelected":true,"is_risk_added":false}],
+        "impacts":{"Financial Impact":"","Safety Impact":"","Operational Impact":"","Privacy Impact":""},
+        "key":1,
+        "_id":""
+      }
+   ]
+ }
+}
+
+-------------------------------------------------
+
+CONSTRAINTS
+
+- Generate ONLY the assets listed in the AUTHORITATIVE ASSET LIST (if provided), or assets strictly belonging to the TARGET SYSTEM.
+- Do NOT add components from other ECU systems.
+- Do NOT fabricate sub-modules, protocols, or external entities unless they appear in the AUTHORITATIVE ASSET LIST or REPORTS_DB reference.
+- Use group containers (type:"group") for system and sub-system boundaries. Use type:"data" for small data nodes.
+- Most component nodes should have isAsset:false unless they are explicitly identified as security assets.
+- Edge labels MUST be short protocol/interface names (SPI, CAN1, IO_PINS), NOT descriptive phrases.
+- Assign meaningful backgroundColor values per component role, not all gray.
+- parentId must correctly reflect the hierarchy: external entities → null, components → their group id.
+- Damage scenarios must reference valid nodeId values from the nodes above.
+- Impact rating must be derived from the damage scenario context.
+- Use threat reasoning from CWE, MITRE, CAPEC, ATM — not from REPORTS_DB examples.
+- Fewer correct components are better than many speculative ones.
+
+Return JSON only. Start the response with '{'.

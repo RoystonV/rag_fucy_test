@@ -1,8 +1,4 @@
-# =============================================================================
-# prompt.py — TARA generation prompt template
-# =============================================================================
 
-TARA_PROMPT_TEMPLATE = """
 You are an automotive cybersecurity analyst performing Threat Analysis and Risk Assessment (TARA)
 according to ISO/SAE 21434 Clause 15.
 
@@ -18,27 +14,11 @@ STRICT KNOWLEDGE RULES
 - REPORTS_DB entries show real reference architectures. If the TARGET SYSTEM matches a REPORTS_DB system
   (e.g. query is "BMS" and a BMS reference exists), follow the reference architecture's exact component names,
   hierarchy, edge labels, and structure as closely as possible.
-- CRITICAL — FULL REFERENCE ARCHITECTURE BLOCK: If the context contains a block starting with
-  "=== FULL REFERENCE ARCHITECTURE: <ModelName> ===" this is the COMPLETE authoritative architecture for
-  that system. You MUST reproduce ALL nodes (with their exact labels, types, parentId relationships, colors
-  and sizes), ALL edges (with their exact protocol labels, source/target relationships), ALL damage
-  derivations, and ALL damage details exactly as specified in that block. Do NOT omit any component,
-  edge, or damage scenario listed there. This block takes precedence over all other instructions.
 - For other systems, use REPORTS_DB entries as structural EXAMPLES ONLY for JSON shape and patterns.
 - Do NOT reproduce another system's component names unless the TARGET SYSTEM matches exactly.
 - Use realistic automotive architecture relevant to the TARGET SYSTEM only.
 - Prefer knowledge retrieved from cybersecurity context (ISO 21434, CWE, CAPEC, MITRE, ATM).
 - If information is missing, infer only common industry-standard components for the specified system.
-
-NO UNNECESSARY COMPONENTS RULE (CRITICAL for automotive systems):
-- Every node you generate must have a clear justification — it must appear in the AUTHORITATIVE ASSET LIST,
-  the REPORTS_DB reference, or be a universally standard component for that specific automotive ECU type.
-- Do NOT add speculative sub-modules, buses, protocols, or external entities that are not explicitly called
-  out in the asset list or reference architecture.
-- Fewer, accurate components are ALWAYS better than many uncertain ones.
-- This rule is especially important for systems with NO REPORTS_DB reference: in that case, DO NOT
-  invent architecture beyond what is explicitly stated in the AUTHORITATIVE ASSET LIST.
-
 
 Threat reasoning must follow:
 CWE (root weakness) → CAPEC (attack pattern) → MITRE ATT&CK technique → ATM relevance → Damage Scenario
@@ -46,14 +26,173 @@ CWE (root weakness) → CAPEC (attack pattern) → MITRE ATT&CK technique → AT
 -------------------------------------------------
 
 SYSTEM REQUEST:
-{{question}}
+BMS (Battery Management System)
+
+AUTHORITATIVE ASSET LIST (from system dataecu specification) — generate ONLY these assets, no others:
+Assets: BatteryPack (external, default), CellMonitoring (default), IO and Analog (default), Code Flash (default, inside MCU group), Data Flash (default, inside MCU group), Keys (default, inside MCU group), Certificates (default, inside MCU group), Debug Port (default, inside MCU group), CAN Transceiver (default), ICD Shunt CAN (default), SoC (data node), SoH (data node), Vehicle System (external, default), Cloud (external, default). The 'Battery Management System' is a group container; inside it is an unnamed MCU subgroup containing Code Flash, Data Flash, Keys, Certificates, and Debug Port. Edges: SPI (CellMonitoring↔BatteryPack), SPI_CellMonitor (MCU group↔CellMonitoring), IO (IO and Analog↔BatteryPack), IO_PINS (MCU group↔IO and Analog), CAN1 (MCU group↔ICD Shunt CAN), CAN2 (MCU group↔CAN Transceiver), ICD_Data (ICD Shunt CAN↔BatteryPack), Vehicle CAN (Vehicle System↔CAN Transceiver), Internet (Vehicle System↔Cloud).
+
+All threat analysis, damage scenarios, and edges must reference ONLY the assets listed above. Do NOT add any other components.
 
 CYBERSECURITY KNOWLEDGE CONTEXT:
-{% for doc in documents %}
-[{{ doc.meta.source }}{% if doc.meta.section_id is defined %} § {{ doc.meta.section_id }}{% endif %}{% if doc.meta.type is defined %} | {{ doc.meta.type }}{% endif %}]
-{{ doc.content }}
+
+[ECU]
+{
+  "name": "BMS (Battery Management System)",
+  "type": "ECU",
+  "hint": "Assets: BatteryPack (external, default), CellMonitoring (default), IO and Analog (default), Code Flash (default, inside MCU group), Data Flash (default, inside MCU group), Keys (default, inside MCU group), Certificates (default, inside MCU group), Debug Port (default, inside MCU group), CAN Transceiver (default), ICD Shunt CAN (default), SoC (data node), SoH (data node), Vehicle System (external, default), Cloud (external, default). The 'Battery Management System' is a group container; inside it is an unnamed MCU subgroup containing Code Flash, Data Flash, Keys, Certificates, and Debug Port. Edges: SPI (CellMonitoring\u2194BatteryPack), SPI_CellMonitor (MCU group\u2194CellMonitoring), IO (IO and Analog\u2194BatteryPack), IO_PINS (MCU group\u2194IO and Analog), CAN1 (MCU group\u2194ICD Shunt CAN), CAN2 (MCU group\u2194CAN Transceiver), ICD_Data (ICD Shunt CAN\u2194BatteryPack), Vehicle CAN (Vehicle System\u2194CAN Transceiver), Internet (Vehicle System\u2194Cloud)."
+}
 ---
-{% endfor %}
+
+[ECU]
+{
+  "name": "ECU - General (Electronic Control Unit)",
+  "type": "ECU",
+  "hint": "Assets: MCU/SoC, Firmware flash, RAM content, Bootloader, Secure boot keys, Debug ports (JTAG/UART), Network interfaces (CAN, Ethernet), Diagnostic interface."
+}
+---
+
+[REPORTS_DB | hierarchy_summary]
+Architecture Hierarchy for [BatteryManagement]:
+  TOP: Vehicle System (type:default)
+  TOP: Cloud (type:default)
+  TOP: Battery Management System (type:group)
+  Battery Management System contains: BatteryPack (type:default), CellMonitoring (type:default), IO and Analog (type:default), 8082874e-707c-4bc8-94fe-627ee4e4a3ba (type:group), CAN Transceiver (type:default), ICD Shunt CAN (type:default), SoC (type:data), SoH (type:data)
+  8082874e-707c-4bc8-94fe-627ee4e4a3ba contains: Code Flash (type:default), Data Flash (type:default), Keys (type:default), Certificates (type:default), Debug Port (type:default)
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: Battery Management System
+Type: group  IsAsset: False
+Description: 
+Security Properties: Integrity, Authenticity
+---
+
+[ECU]
+{
+  "name": "ECM / Powertrain (Engine Control Module)",
+  "type": "ECU",
+  "hint": "Assets: ECU MCU, CAN bus messages, OBD-II diagnostic services, Firmware, Calibration files (Engine maps), Variant coding."
+}
+---
+
+[ECU]
+{
+  "name": "Throttle Control System",
+  "type": "System",
+  "hint": "Assets: ECU driver software, CAN bus messages, Calibration data, Firmware."
+}
+---
+
+[REPORTS_DB | edge_summary]
+Edge connections for [BatteryManagement]:
+  SPI_CellMonitor: 8082874e-707c-4bc8-94fe-627ee4e4a3ba ↔ CellMonitoring (properties: Integrity)
+  IO_PINS: 8082874e-707c-4bc8-94fe-627ee4e4a3ba ↔ IO and Analog (properties: Confidentiality)
+  CAN2: 8082874e-707c-4bc8-94fe-627ee4e4a3ba ↔ CAN Transceiver (properties: Integrity, Authenticity)
+  CAN1: 8082874e-707c-4bc8-94fe-627ee4e4a3ba ↔ ICD Shunt CAN (properties: Integrity)
+  SPI: CellMonitoring ↔ BatteryPack (properties: none)
+  IO: IO and Analog ↔ BatteryPack (properties: Confidentiality)
+  ICD_Data: ICD Shunt CAN ↔ BatteryPack (properties: Confidentiality)
+  Inernet: Vehicle System ↔ Cloud (properties: Confidentiality)
+  Vehicle CAN: Vehicle System ↔ CAN Transceiver (properties: Integrity, Authenticity, Confidentiality)
+---
+
+[ECU]
+{
+  "name": "Instrument Cluster",
+  "type": "ECU",
+  "hint": "Assets: Cluster MCU, CAN interface messages, UI Application software, Firmware, Diagnostic services."
+}
+---
+
+[ECU]
+{
+  "name": "Motor Controller / Inverter",
+  "type": "ECU",
+  "hint": "Assets: Inverter control MCU, CAN/Ethernet messages, Firmware, Control algorithms, Calibration data."
+}
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: IO and Analog
+Type: default  IsAsset: False
+Description: 
+Security Properties: Integrity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: Keys
+Type: default  IsAsset: False
+Description: 
+Security Properties: Confidentiality
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: SoH
+Type: data  IsAsset: False
+Description: 
+Security Properties: Authenticity, Integrity
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: Vehicle System
+Type: default  IsAsset: False
+Description: 
+Security Properties: N/A
+---
+
+[ECU]
+{
+  "name": "Steering ECU",
+  "type": "ECU",
+  "hint": "Assets: Steering control firmware, CAN bus messages, Safety watchdogs, Calibration parameters."
+}
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: SoC
+Type: data  IsAsset: False
+Description: 
+Security Properties: Authenticity, Integrity
+---
+
+[ECU]
+{
+  "name": "EV Charger Interface / Onboard Charger",
+  "type": "Interface",
+  "hint": "Assets: Charger control MCU, Charging protocols (OCPP, ISO 15118), Digital certificates (Plug & Charge), CAN comms, OTA client."
+}
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: CAN Transceiver
+Type: default  IsAsset: False
+Description: 
+Security Properties: N/A
+---
+
+[ECU]
+{
+  "name": "HVAC Controller",
+  "type": "ECU",
+  "hint": "Assets: HVAC control MCU, CAN/LIN messages, Firmware, Configuration flags."
+}
+---
+
+[ECU]
+{
+  "name": "ABS (Anti-lock Braking System)",
+  "type": "ECU",
+  "hint": "Assets: ABS ECU Firmware, MCU, CAN bus messages, Diagnostic services (UDS), Diagnostic port (OBD-II) interface, Calibration data."
+}
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: Cloud
+Type: default  IsAsset: False
+Description: 
+Security Properties: N/A
+---
+
 
 -------------------------------------------------
 
@@ -227,7 +366,6 @@ CONSTRAINTS
 
 - Generate ONLY the assets listed in the AUTHORITATIVE ASSET LIST (if provided), or assets strictly belonging to the TARGET SYSTEM.
 - Do NOT add components from other ECU systems.
-- Do NOT fabricate sub-modules, protocols, or external entities unless they appear in the AUTHORITATIVE ASSET LIST or REPORTS_DB reference.
 - Use group containers (type:"group") for system and sub-system boundaries. Use type:"data" for small data nodes.
 - Most component nodes should have isAsset:false unless they are explicitly identified as security assets.
 - Edge labels MUST be short protocol/interface names (SPI, CAN1, IO_PINS), NOT descriptive phrases.
@@ -236,9 +374,5 @@ CONSTRAINTS
 - Damage scenarios must reference valid nodeId values from the nodes above.
 - Impact rating must be derived from the damage scenario context.
 - Use threat reasoning from CWE, MITRE, CAPEC, ATM — not from REPORTS_DB examples.
-- Fewer correct components are better than many speculative ones.
-- Do NOT include "position" or "positionAbsolute" fields in any node — these are computed automatically after generation.
 
 Return JSON only. Start the response with '{'.
-"""
-

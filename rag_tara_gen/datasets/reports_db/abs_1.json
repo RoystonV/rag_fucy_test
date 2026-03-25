@@ -1,0 +1,910 @@
+{
+  "Models": [
+    {
+      "_id": "abs_model_001",
+      "user_id": "user_id_123",
+      "name": "AntiLockBraking",
+      "template": [],
+      "created_by": "system",
+      "Created_at": "2025-03-23T07:30:00.000Z",
+      "last_updated": "2025-03-23T07:30:00.000Z",
+      "status": 1
+    }
+  ],
+  "Assets": [
+    {
+      "_id": "abs_asset_001",
+      "user_id": "user_id_123",
+      "model_id": "abs_model_001",
+      "template": {
+        "nodes": [
+          {
+            "id": "abs_ecu_group",
+            "type": "group",
+            "parentId": null,
+            "isAsset": false,
+            "data": {
+              "label": "ABS ECU",
+              "nodeCount": 7,
+              "style": {
+                "background": "rgba(33,150,243,0.05)",
+                "border": "1px dashed #2196F3",
+                "borderRadius": "8px",
+                "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+                "height": 520,
+                "width": 1000
+              }
+            },
+            "properties": ["Integrity", "Authenticity", "Availability"],
+            "position": { "x": -100, "y": -50 },
+            "positionAbsolute": { "x": -100, "y": -50 },
+            "style": { "height": 520, "width": 1000 },
+            "width": 1000,
+            "height": 520,
+            "zIndex": 0,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "abs_mcu_group",
+            "type": "group",
+            "parentId": "abs_ecu_group",
+            "isAsset": false,
+            "data": {
+              "label": "",
+              "nodeCount": 5,
+              "style": {
+                "background": "rgba(33,150,243,0.05)",
+                "border": "1px dashed #2196F3",
+                "borderRadius": "8px",
+                "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+                "height": 250,
+                "width": 300
+              }
+            },
+            "properties": [],
+            "position": { "x": 400, "y": 60 },
+            "positionAbsolute": { "x": 400, "y": 60 },
+            "style": { "height": 250, "width": 300 },
+            "width": 300,
+            "height": 250,
+            "zIndex": 1,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "abs_code_flash",
+            "type": "default",
+            "parentId": "abs_mcu_group",
+            "isAsset": false,
+            "data": {
+              "label": "Code Flash",
+              "description": "Stores ABS control firmware and safety-critical braking algorithms.",
+              "style": {
+                "backgroundColor": "#ccc8ea",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "height": 50,
+                "width": 110
+              }
+            },
+            "properties": ["Confidentiality", "Integrity", "Availability", "Authenticity"],
+            "position": { "x": 420, "y": 80 },
+            "positionAbsolute": { "x": 420, "y": 80 },
+            "style": { "height": 50, "width": 110 },
+            "width": 110,
+            "height": 50,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "abs_data_flash",
+            "type": "default",
+            "parentId": "abs_mcu_group",
+            "isAsset": false,
+            "data": {
+              "label": "Data Flash",
+              "description": "Stores calibration parameters, variant coding, and NVM configuration for the ABS ECU.",
+              "style": {
+                "backgroundColor": "#f0b2b2",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "height": 41,
+                "width": 110
+              }
+            },
+            "properties": ["Integrity", "Availability", "Non-repudiation"],
+            "position": { "x": 550, "y": 80 },
+            "positionAbsolute": { "x": 550, "y": 80 },
+            "style": { "height": 41, "width": 110 },
+            "width": 110,
+            "height": 41,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "abs_keys",
+            "type": "default",
+            "parentId": "abs_mcu_group",
+            "isAsset": false,
+            "data": {
+              "label": "Keys",
+              "description": "Cryptographic keys for secure boot, ECU authentication, and UDS seed-key access.",
+              "style": {
+                "backgroundColor": "#51dc1e",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "height": 39,
+                "width": 110
+              }
+            },
+            "properties": ["Confidentiality"],
+            "position": { "x": 550, "y": 140 },
+            "positionAbsolute": { "x": 550, "y": 140 },
+            "style": { "height": 39, "width": 110 },
+            "width": 110,
+            "height": 39,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "abs_certificates",
+            "type": "default",
+            "parentId": "abs_mcu_group",
+            "isAsset": false,
+            "data": {
+              "label": "Certificates",
+              "description": "X.509 certificates used for secure ECU authentication and OTA update validation.",
+              "style": {
+                "backgroundColor": "#62c945",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "height": 41,
+                "width": 110
+              }
+            },
+            "properties": ["Integrity", "Authenticity", "Availability"],
+            "position": { "x": 550, "y": 195 },
+            "positionAbsolute": { "x": 550, "y": 195 },
+            "style": { "height": 41, "width": 110 },
+            "width": 110,
+            "height": 41,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "abs_debug_port",
+            "type": "default",
+            "parentId": "abs_mcu_group",
+            "isAsset": false,
+            "data": {
+              "label": "Debug Port",
+              "description": "JTAG/SWD debug interface for firmware development and diagnostic access. Must be locked in production.",
+              "style": {
+                "backgroundColor": "#e26a6a",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "height": 37,
+                "width": 110
+              }
+            },
+            "properties": ["Integrity", "Availability", "Authorization"],
+            "position": { "x": 420, "y": 165 },
+            "positionAbsolute": { "x": 420, "y": 165 },
+            "style": { "height": 37, "width": 110 },
+            "width": 110,
+            "height": 37,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "abs_wheel_speed_sensors",
+            "type": "default",
+            "parentId": "abs_ecu_group",
+            "isAsset": false,
+            "data": {
+              "label": "Wheel Speed Sensors",
+              "description": "Four hall-effect / magnetoresistive sensors (FL, FR, RL, RR) delivering wheel rotation data to the ABS ECU via PWM signal lines.",
+              "style": {
+                "backgroundColor": "#dadada",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "height": 70,
+                "width": 160
+              }
+            },
+            "properties": ["Integrity", "Availability"],
+            "position": { "x": 100, "y": 60 },
+            "positionAbsolute": { "x": 100, "y": 60 },
+            "style": { "height": 70, "width": 160 },
+            "width": 160,
+            "height": 70,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "abs_hydraulic_control_unit",
+            "type": "default",
+            "parentId": "abs_ecu_group",
+            "isAsset": false,
+            "data": {
+              "label": "Hydraulic Control Unit",
+              "description": "Electro-hydraulic actuator block (solenoid valves + pump motor) that modulates brake pressure per MCU commands.",
+              "style": {
+                "backgroundColor": "#e2dfc1",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "height": 70,
+                "width": 160
+              }
+            },
+            "properties": ["Integrity", "Availability"],
+            "position": { "x": 100, "y": 240 },
+            "positionAbsolute": { "x": 100, "y": 240 },
+            "style": { "height": 70, "width": 160 },
+            "width": 160,
+            "height": 70,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "abs_can_transceiver",
+            "type": "default",
+            "parentId": "abs_ecu_group",
+            "isAsset": false,
+            "data": {
+              "label": "CAN Transceiver",
+              "description": "Physical-layer CAN-FD transceiver bridging the MCU CAN controller to the in-vehicle CAN bus.",
+              "style": {
+                "backgroundColor": "#dadada",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "height": 50,
+                "width": 150
+              }
+            },
+            "properties": ["Integrity", "Availability"],
+            "position": { "x": 760, "y": 200 },
+            "positionAbsolute": { "x": 760, "y": 200 },
+            "style": { "height": 50, "width": 150 },
+            "width": 150,
+            "height": 50,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "abs_obd_interface",
+            "type": "default",
+            "parentId": "abs_ecu_group",
+            "isAsset": false,
+            "data": {
+              "label": "OBD-II Interface",
+              "description": "Standardized diagnostic connector exposing UDS services (0x22 ReadDataByIdentifier, 0x27 SecurityAccess, 0x34/0x36 firmware update). Doorway for authorised and adversarial diagnostic sessions.",
+              "style": {
+                "backgroundColor": "#accd32",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "height": 50,
+                "width": 150
+              }
+            },
+            "properties": ["Integrity", "Availability", "Authorization"],
+            "position": { "x": 100, "y": 400 },
+            "positionAbsolute": { "x": 100, "y": 400 },
+            "style": { "height": 50, "width": 150 },
+            "width": 150,
+            "height": 50,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "abs_vehicle_can_bus",
+            "type": "default",
+            "parentId": null,
+            "isAsset": false,
+            "data": {
+              "label": "Vehicle CAN Bus",
+              "description": "In-vehicle CAN/CAN-FD network shared with ECM, ESP/ESC, BCM, and Gateway. Carries ABS status messages and receives vehicle speed / torque requests.",
+              "style": {
+                "backgroundColor": "#dadada",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "height": 400,
+                "width": 150
+              }
+            },
+            "properties": ["Integrity", "Availability"],
+            "position": { "x": 1050, "y": 50 },
+            "positionAbsolute": { "x": 1050, "y": 50 },
+            "style": { "height": 400, "width": 150 },
+            "width": 150,
+            "height": 400,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "abs_ecm",
+            "type": "default",
+            "parentId": null,
+            "isAsset": false,
+            "data": {
+              "label": "ECM (Engine Control Module)",
+              "description": "External node — provides vehicle speed and engine torque signals to ABS over CAN; receives ABS active flag to manage traction.",
+              "style": {
+                "backgroundColor": "#dadada",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "height": 60,
+                "width": 200
+              }
+            },
+            "properties": [],
+            "position": { "x": 1250, "y": 50 },
+            "positionAbsolute": { "x": 1250, "y": 50 },
+            "style": { "height": 60, "width": 200 },
+            "width": 200,
+            "height": 60,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "abs_brake_pressure_data",
+            "type": "data",
+            "parentId": "abs_ecu_group",
+            "isAsset": false,
+            "data": {
+              "label": "Brake Pressure Data",
+              "description": "Real-time hydraulic pressure values per wheel channel computed by the ABS control algorithm.",
+              "style": {
+                "backgroundColor": "#e3e896",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "height": 30,
+                "width": 130
+              }
+            },
+            "properties": ["Authenticity", "Integrity"],
+            "position": { "x": 480, "y": 400 },
+            "positionAbsolute": { "x": 480, "y": 400 },
+            "style": { "height": 30, "width": 130 },
+            "width": 130,
+            "height": 30,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "abs_diagnostic_data",
+            "type": "data",
+            "parentId": "abs_ecu_group",
+            "isAsset": false,
+            "data": {
+              "label": "Diagnostic Data",
+              "description": "DTC (Diagnostic Trouble Codes) and freeze-frame snapshots stored in NVM; read via OBD-II UDS services.",
+              "style": {
+                "backgroundColor": "#e6ed7d",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "height": 30,
+                "width": 130
+              }
+            },
+            "properties": ["Authenticity", "Integrity"],
+            "position": { "x": 640, "y": 400 },
+            "positionAbsolute": { "x": 640, "y": 400 },
+            "style": { "height": 30, "width": 130 },
+            "width": 130,
+            "height": 30,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          }
+        ],
+        "edges": [
+          {
+            "id": "edge_abs_mcu_wss",
+            "source": "abs_mcu_group",
+            "target": "abs_wheel_speed_sensors",
+            "type": "step",
+            "animated": true,
+            "properties": ["Integrity"],
+            "data": { "label": "PWM_Input", "offset": 0, "t": 0.5 },
+            "style": { "stroke": "#808080", "strokeWidth": 2 },
+            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 },
+            "markerStart": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18, "orient": "auto-start-reverse" }
+          },
+          {
+            "id": "edge_abs_mcu_hcu",
+            "source": "abs_mcu_group",
+            "target": "abs_hydraulic_control_unit",
+            "type": "step",
+            "animated": true,
+            "properties": ["Integrity", "Availability"],
+            "data": { "label": "PWM_Control", "offset": 0, "t": 0.5 },
+            "style": { "stroke": "#808080", "strokeWidth": 2 },
+            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 },
+            "markerStart": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18, "orient": "auto-start-reverse" }
+          },
+          {
+            "id": "edge_abs_mcu_can",
+            "source": "abs_mcu_group",
+            "target": "abs_can_transceiver",
+            "type": "step",
+            "animated": true,
+            "properties": ["Integrity", "Authenticity"],
+            "data": { "label": "CAN_Internal", "offset": 0, "t": 0.5 },
+            "style": { "stroke": "#808080", "strokeWidth": 2 },
+            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 },
+            "markerStart": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18, "orient": "auto-start-reverse" }
+          },
+          {
+            "id": "edge_abs_mcu_obd",
+            "source": "abs_mcu_group",
+            "target": "abs_obd_interface",
+            "type": "step",
+            "animated": true,
+            "properties": ["Authorization"],
+            "data": { "label": "UDS_Diag", "offset": 0, "t": 0.5 },
+            "style": { "stroke": "#808080", "strokeWidth": 2 },
+            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 },
+            "markerStart": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18, "orient": "auto-start-reverse" }
+          },
+          {
+            "id": "edge_abs_can_vcb",
+            "source": "abs_can_transceiver",
+            "target": "abs_vehicle_can_bus",
+            "type": "step",
+            "animated": true,
+            "properties": ["Integrity", "Availability"],
+            "data": { "label": "CAN_Bus", "offset": 0, "t": 0.5 },
+            "style": { "stroke": "#808080", "strokeWidth": 2 },
+            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 },
+            "markerStart": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18, "orient": "auto-start-reverse" }
+          },
+          {
+            "id": "edge_abs_vcb_ecm",
+            "source": "abs_vehicle_can_bus",
+            "target": "abs_ecm",
+            "type": "step",
+            "animated": true,
+            "properties": ["Integrity"],
+            "data": { "label": "Vehicle_CAN", "offset": 0, "t": 0.5 },
+            "style": { "stroke": "#808080", "strokeWidth": 2 },
+            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 },
+            "markerStart": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18, "orient": "auto-start-reverse" }
+          },
+          {
+            "id": "edge_abs_mcu_bpd",
+            "source": "abs_mcu_group",
+            "target": "abs_brake_pressure_data",
+            "type": "step",
+            "animated": true,
+            "properties": ["Integrity"],
+            "data": { "label": "Computes", "offset": 0, "t": 0.5 },
+            "style": { "stroke": "#808080", "strokeWidth": 2 },
+            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 }
+          },
+          {
+            "id": "edge_abs_mcu_dd",
+            "source": "abs_mcu_group",
+            "target": "abs_diagnostic_data",
+            "type": "step",
+            "animated": true,
+            "properties": ["Integrity"],
+            "data": { "label": "Logs", "offset": 0, "t": 0.5 },
+            "style": { "stroke": "#808080", "strokeWidth": 2 },
+            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 }
+          },
+          {
+            "id": "edge_abs_obd_dd",
+            "source": "abs_obd_interface",
+            "target": "abs_diagnostic_data",
+            "type": "step",
+            "animated": true,
+            "properties": ["Authorization"],
+            "data": { "label": "Reads_DTC", "offset": 0, "t": 0.5 },
+            "style": { "stroke": "#808080", "strokeWidth": 2 },
+            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 },
+            "markerStart": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18, "orient": "auto-start-reverse" }
+          }
+        ]
+      }
+    }
+  ],
+  "DamageScenarios": [
+    {
+      "_id": "abs_ds_001",
+      "model_id": "abs_model_001",
+      "type": "damage",
+      "derivation": [
+        {
+          "id": "abs_deriv_1",
+          "nodeId": "abs_code_flash",
+          "task": "Threat Analysis",
+          "name": "CWE-494: Download of Code Without Integrity Check",
+          "loss": "Unauthorized firmware modification via OTA or diagnostic service",
+          "asset": "Code Flash",
+          "damage_scene": "An attacker delivers a tampered firmware image to the ABS ECU through an unsecured OTA channel or an unlocked UDS 0x34/0x36 session. The modified firmware disables the wheel lock prevention logic, causing the ABS to fail silently and creating a life-threatening loss-of-braking condition.",
+          "isChecked": false
+        },
+        {
+          "id": "abs_deriv_2",
+          "nodeId": "abs_keys",
+          "task": "Threat Analysis",
+          "name": "CWE-321: Use of Hard-coded Cryptographic Key",
+          "loss": "Compromise of ECU authentication and seed-key mechanism",
+          "asset": "Keys",
+          "damage_scene": "Reverse-engineering of the ABS ECU binary reveals a hard-coded seed-key algorithm. An attacker gains full UDS SecurityAccess (service 0x27), enabling arbitrary memory read/write and firmware reprogramming without valid workshop credentials.",
+          "isChecked": false
+        },
+        {
+          "id": "abs_deriv_3",
+          "nodeId": "abs_wheel_speed_sensors",
+          "task": "Threat Analysis",
+          "name": "CAPEC-390: Bypassing of Intermediate Forms in Multiple-Form Sets",
+          "loss": "Injection of spoofed wheel speed signals causing inappropriate ABS activation",
+          "asset": "Wheel Speed Sensors",
+          "damage_scene": "An attacker with physical or CAN access injects falsified PWM wheel-speed signals. The ABS MCU misinterprets normal braking as wheel lock and activates pulse modulation, dramatically extending stopping distance and increasing accident risk.",
+          "isChecked": false
+        },
+        {
+          "id": "abs_deriv_4",
+          "nodeId": "abs_can_transceiver",
+          "task": "Threat Analysis",
+          "name": "ATM Technique: CAN Bus Message Injection",
+          "loss": "Injection of spoofed ABS status CAN frames affecting adjacent ECUs",
+          "asset": "CAN Transceiver",
+          "damage_scene": "An adversary connected to the in-vehicle CAN bus transmits fabricated ABS_Active and WheelSpeed CAN frames. The ECM and ESC/ESP receive false data, alter torque distribution and stability control, potentially inducing a spin or loss of vehicle stability.",
+          "isChecked": false
+        },
+        {
+          "id": "abs_deriv_5",
+          "nodeId": "abs_obd_interface",
+          "task": "Threat Analysis",
+          "name": "CAPEC-167: Bluetooth Brute Force Attack / CWE-307: Improper Restriction of Excessive Authentication Attempts",
+          "loss": "Brute-force of UDS SecurityAccess seed-key to gain privileged diagnostic session",
+          "asset": "OBD-II Interface",
+          "damage_scene": "An attacker connects a rogue diagnostic tool to the OBD-II port and performs automated seed-key brute-forcing using the short 16-bit seed space. After unlocking level 2 security, the attacker reprograms the ABS ECU or corrupts its NVM calibration, degrading braking performance.",
+          "isChecked": false
+        },
+        {
+          "id": "abs_deriv_6",
+          "nodeId": "abs_data_flash",
+          "task": "Threat Analysis",
+          "name": "CWE-276: Incorrect Default Permissions on Calibration Data",
+          "loss": "Tampering of ABS calibration parameters degrading stopping distance",
+          "asset": "Data Flash",
+          "damage_scene": "An attacker who obtains UDS programming access overwrites ABS threshold calibration values (slip ratio limits, pressure ramp rates) stored in Data Flash. The modified parameters cause the ABS system to intervene too early or too late, increasing stopping distance measurably beyond ISO 21434 safety targets.",
+          "isChecked": false
+        },
+        {
+          "id": "abs_deriv_7",
+          "nodeId": "abs_debug_port",
+          "task": "Threat Analysis",
+          "name": "MITRE ICS Technique T0843: Program Download / Physical Access via JTAG",
+          "loss": "Full ECU compromise through unlocked JTAG debug port in production hardware",
+          "asset": "Debug Port",
+          "damage_scene": "A production ABS ECU is found with the JTAG/SWD interface active and unprotected. An attacker extracts the full flash image (including Keys and firmware), patches the binary to disable ABS logic, and re-flashes the modified image, indistinguishable from legitimate firmware.",
+          "isChecked": false
+        },
+        {
+          "id": "abs_deriv_8",
+          "nodeId": "abs_hydraulic_control_unit",
+          "task": "Threat Analysis",
+          "name": "ATM Technique: Manipulate Control Logic",
+          "loss": "Denial of braking or asymmetric braking through actuator command injection",
+          "asset": "Hydraulic Control Unit",
+          "damage_scene": "An attacker who has compromised the ABS MCU firmware sends erroneous solenoid valve commands to the HCU. This causes asymmetric brake pressure modulation (e.g., locking one wheel while releasing another), resulting in severe vehicle yaw and potential rollover at highway speed.",
+          "isChecked": false
+        },
+        {
+          "id": "abs_deriv_9",
+          "nodeId": "abs_brake_pressure_data",
+          "task": "Threat Analysis",
+          "name": "CWE-20: Improper Input Validation — Spoofed Sensor Computation Output",
+          "loss": "Falsified brake pressure data corrupting ABS control loop decisions",
+          "asset": "Brake Pressure Data",
+          "damage_scene": "Tampered computation inputs cause the ABS algorithm to operate on falsified pressure values. The control loop races between excessive modulation and no modulation, creating brake fade and an inability to maintain optimal wheel slip, increasing stopping distance by up to 40%.",
+          "isChecked": false
+        },
+        {
+          "id": "abs_deriv_10",
+          "nodeId": "abs_diagnostic_data",
+          "task": "Threat Analysis",
+          "name": "CWE-117: Improper Output Neutralization for Logs / DTC Suppression",
+          "loss": "Suppression or falsification of ABS DTCs concealing safety-critical faults",
+          "asset": "Diagnostic Data",
+          "damage_scene": "An attacker uses an authorised-looking diagnostic tool to clear or overwrite DTC entries after inducing ABS faults. Technicians performing pre-delivery inspections see a clean fault memory, remain unaware of the underlying vulnerability, and the compromised vehicle is released to the customer.",
+          "isChecked": false
+        }
+      ],
+      "details": [
+        {
+          "Name": "ABS Firmware Tampering via OTA / UDS",
+          "Description": "Exploitation of CWE-494 to deliver unsigned/tampered ABS firmware. Disables wheel-lock prevention logic and creates a silent safety-critical failure. Rated Catastrophic for Safety Impact.",
+          "cyberLosses": [
+            {
+              "id": "cl_abs_1",
+              "name": "Unauthorized firmware modification via OTA or diagnostic service",
+              "node": "Code Flash",
+              "nodeId": "abs_code_flash",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Major",
+            "Safety Impact": "Catastrophic",
+            "Operational Impact": "Major",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 1,
+          "_id": "abs_detail_1"
+        },
+        {
+          "Name": "Hard-coded Key Extraction and UDS Unlock",
+          "Description": "Hard-coded seed-key compromise (CWE-321) grants full security level access to ABS ECU memory and programming services, enabling any subsequent attack.",
+          "cyberLosses": [
+            {
+              "id": "cl_abs_2",
+              "name": "Compromise of ECU authentication and seed-key mechanism",
+              "node": "Keys",
+              "nodeId": "abs_keys",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Major",
+            "Safety Impact": "Major",
+            "Operational Impact": "Major",
+            "Privacy Impact": "Minor"
+          },
+          "key": 2,
+          "_id": "abs_detail_2"
+        },
+        {
+          "Name": "Wheel Speed Sensor Signal Spoofing",
+          "Description": "Injection of falsified PWM wheel-speed signals (CAPEC-390) causes the ABS to incorrectly activate during normal braking, extending stopping distance and increasing collision risk.",
+          "cyberLosses": [
+            {
+              "id": "cl_abs_3",
+              "name": "Injection of spoofed wheel speed signals causing inappropriate ABS activation",
+              "node": "Wheel Speed Sensors",
+              "nodeId": "abs_wheel_speed_sensors",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Moderate",
+            "Safety Impact": "Catastrophic",
+            "Operational Impact": "Major",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 3,
+          "_id": "abs_detail_3"
+        },
+        {
+          "Name": "CAN Bus ABS Frame Injection",
+          "Description": "Spoofed ABS CAN frames (ATM) mislead connected safety ECUs (ECM, ESC), triggering unintended traction interventions and vehicle instability.",
+          "cyberLosses": [
+            {
+              "id": "cl_abs_4",
+              "name": "Injection of spoofed ABS status CAN frames affecting adjacent ECUs",
+              "node": "CAN Transceiver",
+              "nodeId": "abs_can_transceiver",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Moderate",
+            "Safety Impact": "Major",
+            "Operational Impact": "Major",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 4,
+          "_id": "abs_detail_4"
+        },
+        {
+          "Name": "OBD-II Seed-Key Brute Force",
+          "Description": "Automated UDS SecurityAccess brute-force (CWE-307) through physical OBD-II port grants elevated programming access allowing ECU reprogramming.",
+          "cyberLosses": [
+            {
+              "id": "cl_abs_5",
+              "name": "Brute-force of UDS SecurityAccess seed-key to gain privileged diagnostic session",
+              "node": "OBD-II Interface",
+              "nodeId": "abs_obd_interface",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Moderate",
+            "Safety Impact": "Major",
+            "Operational Impact": "Moderate",
+            "Privacy Impact": "Minor"
+          },
+          "key": 5,
+          "_id": "abs_detail_5"
+        },
+        {
+          "Name": "Calibration Data Tampering in Data Flash",
+          "Description": "Unauthorised modification of ABS threshold calibration (CWE-276) stored in Data Flash degrades braking performance beyond safe limits.",
+          "cyberLosses": [
+            {
+              "id": "cl_abs_6",
+              "name": "Tampering of ABS calibration parameters degrading stopping distance",
+              "node": "Data Flash",
+              "nodeId": "abs_data_flash",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Moderate",
+            "Safety Impact": "Major",
+            "Operational Impact": "Moderate",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 6,
+          "_id": "abs_detail_6"
+        },
+        {
+          "Name": "JTAG-based Full ECU Compromise",
+          "Description": "Unlocked Debug Port enables physical firmware extraction and re-flash (MITRE ICS T0843) allowing complete ECU takeover in production.",
+          "cyberLosses": [
+            {
+              "id": "cl_abs_7",
+              "name": "Full ECU compromise through unlocked JTAG debug port in production hardware",
+              "node": "Debug Port",
+              "nodeId": "abs_debug_port",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Major",
+            "Safety Impact": "Catastrophic",
+            "Operational Impact": "Major",
+            "Privacy Impact": "Minor"
+          },
+          "key": 7,
+          "_id": "abs_detail_7"
+        },
+        {
+          "Name": "HCU Actuator Command Injection",
+          "Description": "Compromised MCU firmware sends erroneous solenoid commands (ATM: Manipulate Control Logic) causing asymmetric braking and vehicle yaw.",
+          "cyberLosses": [
+            {
+              "id": "cl_abs_8",
+              "name": "Denial of braking or asymmetric braking through actuator command injection",
+              "node": "Hydraulic Control Unit",
+              "nodeId": "abs_hydraulic_control_unit",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Major",
+            "Safety Impact": "Catastrophic",
+            "Operational Impact": "Major",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 8,
+          "_id": "abs_detail_8"
+        },
+        {
+          "Name": "Brake Pressure Data Integrity Violation",
+          "Description": "Falsified computation inputs (CWE-20) corrupt the real-time brake pressure data used by the ABS control loop, causing oscillating modulation and extended stopping distance.",
+          "cyberLosses": [
+            {
+              "id": "cl_abs_9",
+              "name": "Falsified brake pressure data corrupting ABS control loop decisions",
+              "node": "Brake Pressure Data",
+              "nodeId": "abs_brake_pressure_data",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Moderate",
+            "Safety Impact": "Major",
+            "Operational Impact": "Moderate",
+            "Privacy Impact": "Negligible"
+          },
+          "key": 9,
+          "_id": "abs_detail_9"
+        },
+        {
+          "Name": "DTC Suppression Concealing ABS Safety Faults",
+          "Description": "Rogue diagnostic tool clears or overwrites Diagnostic Data (CWE-117) after inducing faults, masking ABS defects and allowing compromised vehicles to pass inspection.",
+          "cyberLosses": [
+            {
+              "id": "cl_abs_10",
+              "name": "Suppression or falsification of ABS DTCs concealing safety-critical faults",
+              "node": "Diagnostic Data",
+              "nodeId": "abs_diagnostic_data",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Moderate",
+            "Safety Impact": "Major",
+            "Operational Impact": "Moderate",
+            "Privacy Impact": "Minor"
+          },
+          "key": 10,
+          "_id": "abs_detail_10"
+        }
+      ]
+    }
+  ]
+}

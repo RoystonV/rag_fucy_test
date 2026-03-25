@@ -1,72 +1,98 @@
 # =============================================================================
-# pipeline.py — Haystack RAG pipeline assembly and run
+# pipeline.py — Haystack RAG pipeline assembly and run (two-phase context)
+# =============================================================================
+#
+# CONTEXT STRATEGY:
+#  - Pinned docs (ECU entry + matching REPORTS_DB chunks) are injected directly.
+#  - The semantic retriever only operates on threat-framework docs
+#    (MITRE, ATM, CAPEC, CWE, ISO 21434, Annex F) so all top_k slots are
+#    used for threat intelligence, not wasted on unrelated ECU entries.
 # =============================================================================
 
 from collections import Counter
 
-from haystack import Pipeline
 from haystack.components.builders import PromptBuilder
+from haystack.components.embedders import SentenceTransformersTextEmbedder
 
-from components import build_store, build_retriever, build_generator, EMBED_MODEL, RETRIEVER_TOP_K
+from components import (
+    build_threat_store, build_retriever, build_generator,
+    EMBED_MODEL, RETRIEVER_TOP_K,
+)
 from prompt import TARA_PROMPT_TEMPLATE
 
 
-def build_pipeline(all_docs):
+def build_pipeline(all_docs: list):
     """
-    Embed documents, build and connect the full Haystack RAG pipeline.
+    Build the RAG pipeline using a threat-framework-only document store.
+    ECU/REPORTS_DB docs are pinned separately (see build_pinned_docs in components.py).
 
     Returns:
-        pipeline       — assembled, connected Haystack Pipeline
-        text_embedder  — SentenceTransformersTextEmbedder (needed for run_query)
+        text_embedder  — SentenceTransformersTextEmbedder (warmed up)
+        retriever      — InMemoryEmbeddingRetriever on threat-only store
+        prompt_builder — PromptBuilder with TARA template
+        generator      — GoogleAIGeminiGenerator
     """
-    # Build document store and embedders
-    store, text_embedder = build_store(all_docs)
+    # Build threat-only store (MITRE, ATM, CAPEC, CWE, ISO 21434, Annex F)
+    threat_store, text_embedder = build_threat_store(all_docs)
+    print(f"✅ Embedders ready  [{EMBED_MODEL}]")
 
-    # Build components
-    retriever      = build_retriever(store)
+    retriever      = build_retriever(threat_store)
     generator      = build_generator()
     prompt_builder = PromptBuilder(
         template=TARA_PROMPT_TEMPLATE,
         required_variables=["documents", "question"],
     )
 
-    # Assemble pipeline
-    pipeline = Pipeline()
-    pipeline.add_component("text_embedder",  text_embedder)
-    pipeline.add_component("retriever",      retriever)
-    pipeline.add_component("prompt_builder", prompt_builder)
-    pipeline.add_component("llm",            generator)
-
-    pipeline.connect("text_embedder.embedding", "retriever.query_embedding")
-    pipeline.connect("retriever",               "prompt_builder.documents")
-    pipeline.connect("prompt_builder",          "llm")
-
-    print("✅ TARA RAG pipeline built and connected.")
-    return pipeline, text_embedder
+    print("✅ TARA RAG pipeline built (two-phase: pinned + threat retriever).")
+    return text_embedder, retriever, prompt_builder, generator
 
 
-def run_query(pipeline, user_query: str, enriched_query: str) -> str:
+def run_query(
+    text_embedder: SentenceTransformersTextEmbedder,
+    retriever,
+    prompt_builder: PromptBuilder,
+    generator,
+    user_query: str,
+    enriched_query: str,
+    pinned_docs: list,
+) -> str:
     """
-    Run the pipeline for a single query.
+    Run the two-phase TARA query:
+      Phase 1 — pinned_docs are injected directly (ECU entry + REPORTS_DB reference)
+      Phase 2 — semantic retrieval on threat-framework store (top_k slots = CWE/CAPEC/MITRE/ATM)
+    The two sets are merged (pinned first) before the LLM prompt is built.
 
     Args:
-        pipeline:       Assembled Haystack pipeline (from build_pipeline).
-        user_query:     Plain query — used for embedding (accurate retrieval).
-        enriched_query: Query + authoritative asset list — used for the LLM prompt.
+        text_embedder:  Warmed-up SentenceTransformersTextEmbedder.
+        retriever:      InMemoryEmbeddingRetriever on threat-only store.
+        prompt_builder: PromptBuilder with TARA template.
+        generator:      GoogleAIGeminiGenerator.
+        user_query:     Plain query for embedding (accurate retrieval signal).
+        enriched_query: Expanded query with asset list — used for the LLM prompt.
+        pinned_docs:    Docs guaranteed to be in context (ECU + REPORTS_DB chunks).
 
     Returns:
         Raw LLM reply string.
     """
-    result = pipeline.run(
-        {
-            "text_embedder":  {"text": user_query},
-            "prompt_builder": {"question": enriched_query},
-        },
-        include_outputs_from=["retriever"],
-    )
+    # Phase 1 — embed the plain query
+    embedding = text_embedder.run(text=user_query)["embedding"]
 
-    ret_docs = result["retriever"]["documents"]
-    print(f"\nDocuments retrieved : {len(ret_docs)}")
-    print(f"Sources             : {Counter(d.meta.get('source') for d in ret_docs)}\n")
+    # Phase 2 — retrieve threat-framework docs
+    retrieved_docs = retriever.run(query_embedding=embedding)["documents"]
 
-    return result["llm"]["replies"][0] if result["llm"]["replies"] else ""
+    # Merge: pinned first so they appear at the top of the context block
+    all_context = pinned_docs + retrieved_docs
+
+    print(f"\nPinned docs        : {len(pinned_docs)}")
+    print(f"  Sources          : {Counter(d.meta.get('source') for d in pinned_docs)}")
+    print(f"Retrieved docs     : {len(retrieved_docs)}")
+    print(f"  Sources          : {Counter(d.meta.get('source') for d in retrieved_docs)}")
+    print(f"Total context docs : {len(all_context)}\n")
+
+    # Build prompt with merged context
+    prompt_output = prompt_builder.run(documents=all_context, question=enriched_query)
+    prompt_text   = prompt_output["prompt"]
+
+    # Generate
+    llm_output = generator.run(parts=prompt_text)
+    return llm_output["replies"][0] if llm_output.get("replies") else ""

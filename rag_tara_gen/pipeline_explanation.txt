@@ -1,0 +1,799 @@
+================================================================================
+  TARA RAG PIPELINE — COMPLETE ARCHITECTURE & OUTPUT EXPLANATION
+  Project: rag_tara_gen  |  Standard: ISO/SAE 21434
+================================================================================
+
+
+TABLE OF CONTENTS
+-----------------
+1.  Overview
+2.  File Roles and Responsibilities
+3.  Execution Flow (Step-by-Step)
+4.  Data Sources and Ingestion (ingest.py)
+5.  ECU Resolution (components.py → resolve_ecu)
+6.  Two-Phase Context Strategy
+7.  Pipeline Assembly (pipeline.py)
+8.  The Prompt Template (prompt.py)
+9.  How Components "Know" What to Connect To
+10. Post-Processing (stamp_uuids, crosslink_node_ids)
+11. Output JSON — Detailed Structure Explanation
+12. Node Types, Sizes, and Color Coding
+13. Edge Connection Rules
+14. Damage Scenario Structure
+15. Configuration (config.py / components.py)
+
+
+================================================================================
+1. OVERVIEW
+================================================================================
+
+The TARA RAG Pipeline generates ISO/SAE 21434-compliant Threat Analysis and
+Risk Assessment (TARA) reports for automotive ECU systems.
+
+It works by:
+  - Loading data from multiple cybersecurity knowledge sources (MITRE, CWE,
+    CAPEC, ATM, ISO 21434 clauses, and real reference architectures).
+  - Resolving the user's query to a specific ECU entry from dataecu.json.
+  - Fetching pinned context (guaranteed in the prompt) and retrieved context
+    (semantic vector search on threat intelligence).
+  - Sending a structured prompt to Google Gemini (gemini-2.5-flash-lite).
+  - Post-processing the JSON output for ID consistency and node cross-linking.
+
+Entry point: main.py
+Command:     python main.py --query "Anti-lock Braking System"
+
+
+================================================================================
+2. FILE ROLES AND RESPONSIBILITIES
+================================================================================
+
+  main.py          — CLI entry point. Orchestrates all steps in order.
+  ingest.py        — Loads all data sources into Haystack Document objects.
+  components.py    — ECU resolution, pinning logic, post-processing, builders.
+  pipeline.py      — Assembles Haystack RAG pipeline and runs queries.
+  prompt.py        — Jinja2 LLM prompt template with rules and JSON schema.
+  config.py        — Duplicate config constants (mostly overridden by
+                     the copies in components.py; kept for reference).
+
+Dependency map:
+  main.py
+    ├── ingest.py
+    │     └── components.py (imports path constants + MAX_CHARS)
+    ├── components.py (resolve_ecu, build_pinned_docs, parse_and_fix, etc.)
+    └── pipeline.py
+          ├── components.py (build_threat_store, build_retriever, build_generator)
+          └── prompt.py (TARA_PROMPT_TEMPLATE)
+
+
+================================================================================
+3. EXECUTION FLOW (STEP-BY-STEP)
+================================================================================
+
+User runs:
+  python main.py --query "ABS"
+
+  STEP 1  — Resolve ECU
+  ┌─────────────────────────────────────────────────────┐
+  │ resolve_ecu("ABS")                                  │
+  │  → 5-pass fuzzy match against dataecu.json          │
+  │  → returns: { name, type, hint, ... }               │
+  └─────────────────────────────────────────────────────┘
+
+  STEP 2  — Enrich the Query
+  ┌─────────────────────────────────────────────────────┐
+  │ build_enriched_query(user_query, ecu_entry)         │
+  │  → appends the AUTHORITATIVE ASSET LIST from hint   │
+  │  → this becomes the LLM question (not for embedding)│
+  └─────────────────────────────────────────────────────┘
+
+  STEP 3  — Ingest All Documents
+  ┌─────────────────────────────────────────────────────┐
+  │ load_all_documents()                                │
+  │  → loads MITRE, ATM, CAPEC, CWE, ISO 21434,        │
+  │    Annex F, dataecu.json, reports_db/*.json         │
+  │  → returns flat list of Haystack Document objects   │
+  └─────────────────────────────────────────────────────┘
+
+  STEP 4  — Build Pinned Context
+  ┌─────────────────────────────────────────────────────┐
+  │ build_pinned_docs(all_docs, ecu_entry)              │
+  │  → finds ECU entry doc from dataecu.json            │
+  │  → finds all REPORTS_DB chunks matching the system  │
+  │  → these go DIRECTLY into prompt (bypass retriever) │
+  └─────────────────────────────────────────────────────┘
+
+  STEP 5  — Build Haystack Pipeline
+  ┌─────────────────────────────────────────────────────┐
+  │ build_pipeline(all_docs)                            │
+  │  → filters to THREAT_SOURCES only                   │
+  │  → embeds using BAAI/bge-small-en-v1.5              │
+  │  → stores in InMemoryDocumentStore                  │
+  │  → creates retriever (top_k=20)                     │
+  │  → prepares PromptBuilder + GoogleAIGeminiGenerator │
+  └─────────────────────────────────────────────────────┘
+
+  STEP 6  — Run the Query (Two-Phase)
+  ┌─────────────────────────────────────────────────────┐
+  │ run_query(...)                                      │
+  │  Phase 1: embed plain query → vector                │
+  │  Phase 2: retrieve top-20 threat docs from store    │
+  │  Merge: pinned_docs (front) + retrieved_docs (back) │
+  │  Build prompt → send to Gemini → raw JSON string    │
+  └─────────────────────────────────────────────────────┘
+
+  STEP 7  — Post-Process
+  ┌─────────────────────────────────────────────────────┐
+  │ parse_and_fix(raw_output)                           │
+  │  → strip markdown fences (```json ... ```)          │
+  │  → parse JSON                                       │
+  │  → stamp_uuids: fill missing uuid4 IDs             │
+  │  → crosslink_node_ids: fix damage scenario nodeIds  │
+  └─────────────────────────────────────────────────────┘
+
+  STEP 8  — Save
+  → tara_output_ABS.json (and optionally tara_prompt_ABS.txt)
+
+
+================================================================================
+4. DATA SOURCES AND INGESTION (ingest.py)
+================================================================================
+
+Each function reads a file and produces a list of Haystack Document objects.
+A Document has: content (text) + meta (dict of labels).
+
+  ┌─────────────────┬──────────────────────────┬──────────────────┐
+  │ Function        │ Source File              │ meta.source tag  │
+  ├─────────────────┼──────────────────────────┼──────────────────┤
+  │ ingest_mitre()  │ mobileattack.json        │ MITRE_MOBILE     │
+  │ ingest_mitre()  │ icsattack.json           │ MITRE_ICS        │
+  │ ingest_atm()    │ atm.json                 │ ATM              │
+  │ ingest_capec()  │ capec.xml                │ CAPEC            │
+  │ ingest_cwe()    │ cwec.xml                 │ CWE              │
+  │ ingest_iso...() │ clauses/clause-*.json    │ ISO_21434        │
+  │ ingest_annex()  │ annex.json               │ ANNEX_F          │
+  │ ingest_ecu()    │ dataecu.json             │ ECU              │
+  │ ingest_reports..│ reports_db/*.json        │ REPORTS_DB       │
+  └─────────────────┴──────────────────────────┴──────────────────┘
+
+REPORTS_DB files are decomposed into 5 chunk types per file:
+  1. asset         — one chunk per node (component label, type, properties)
+  2. damage_deriv  — one chunk per derivation (threat, loss, damage scene)
+  3. damage_detail — one chunk per Detail (description, cyber losses, impacts)
+  4. hierarchy_summary — one chunk describing the full parent-child tree
+  5. edge_summary  — one chunk listing every edge (protocol: A ↔ B)
+
+These 5 levels give the retriever and the LLM full structural awareness of
+each reference system at multiple granularities.
+
+
+================================================================================
+5. ECU RESOLUTION (resolve_ecu)
+================================================================================
+
+resolve_ecu(query) performs 5 passes against dataecu.json to fuzzy-match the
+user's query to a known ECU entry:
+
+  Pass 0 — Alias table
+    Hard-coded shortcuts: "abs" → "abs", "bms" → "bms", "ivi" → "ivi", etc.
+    Prevents ambiguity for known short names.
+
+  Pass 1 — Exact key or standalone word
+    Checks if the query exactly equals a key, or if the key appears as a
+    whole word inside the query.
+
+  Pass 2 — Full name substring
+    Checks if entry["name"].lower() is contained in the query.
+    Example: query "Battery Management System ECU" matches name "BMS".
+
+  Pass 3a — Exact acronym
+    Computes an acronym from the query (skipping stopwords and suffix words
+    like "system", "module", "controller").
+    Matches it against all keys.
+
+  Pass 3b — Acronym prefix
+    If the generated acronym is ≥2 chars, allows off-by-one key matches.
+
+  Pass 4 — Word overlap
+    Extracts significant words (len > 2, not a suffix word) from each entry
+    name and counts how many appear in the query. Matches if ≥ 2 words match.
+
+  Pass 5 — Key word in query
+    Checks if any word from the key (split on underscore) appears in the query.
+
+If no pass matches, the system generates with open-ended LLM reasoning only.
+
+
+================================================================================
+6. TWO-PHASE CONTEXT STRATEGY
+================================================================================
+
+The core insight: threat documents (CWE, CAPEC, MITRE) are semantically very
+different from architecture documents (ECU entries, component nodes). If they
+share one document store, the vector retriever wastes top_k slots on ECU docs
+when the query is about threats, and vice versa.
+
+  PHASE 1 — PINNED DOCS (bypass the retriever entirely)
+  ─────────────────────────────────────────────────────
+  Sources: ECU, REPORTS_DB
+  What:    The ECU entry from dataecu.json + all REPORTS_DB chunks for this
+           specific system (nodes, edges, hierarchy, derivations, details).
+  Why:     These MUST be in the prompt — no matter what. The LLM cannot
+           generate accurate architecture without the reference.
+  How:     Appended directly to all_context before prompt building.
+
+  PHASE 2 — RETRIEVED DOCS (semantic vector search)
+  ─────────────────────────────────────────────────
+  Sources: MITRE_MOBILE, MITRE_ICS, ATM, CAPEC, CWE, ISO_21434, ANNEX_F
+  What:    Top-20 semantically closest threat-intelligence documents to the
+           plain user query.
+  Why:     Ensures all top_k slots go to threat context, not structural data.
+  How:     Plain query (not enriched) → embed → retrieve → merge after pinned.
+
+  Final context order in prompt:
+    [ pinned ECU entry, pinned REPORTS_DB chunks, ... retrieved threat docs ]
+
+
+================================================================================
+7. PIPELINE ASSEMBLY (pipeline.py)
+================================================================================
+
+build_pipeline(all_docs) returns four components:
+
+  text_embedder  = SentenceTransformersTextEmbedder(BAAI/bge-small-en-v1.5)
+                   Used to embed the user query into a vector at query time.
+
+  retriever      = InMemoryEmbeddingRetriever(threat_only_store, top_k=20)
+                   Finds the 20 most similar threat docs to the query vector.
+
+  prompt_builder = PromptBuilder(template=TARA_PROMPT_TEMPLATE,
+                                 required_variables=["documents","question"])
+                   Renders the Jinja2 template with context docs + question.
+
+  generator      = GoogleAIGeminiGenerator(model="gemini-2.5-flash-lite")
+                   Sends the assembled prompt to Gemini and returns raw text.
+
+run_query() calls them in sequence:
+  1. text_embedder.run(text=user_query)       → embedding vector
+  2. retriever.run(query_embedding=embedding) → top-20 threat docs
+  3. pinned_docs + retrieved_docs             → all_context list
+  4. prompt_builder.run(documents=all_context,
+                        question=enriched_query) → prompt string
+  5. generator.run(parts=prompt_text)         → raw JSON reply
+
+
+================================================================================
+8. THE PROMPT TEMPLATE (prompt.py)
+================================================================================
+
+TARA_PROMPT_TEMPLATE is a Jinja2 string with two injection points:
+
+  {{ question }}
+    → Receives the enriched_query (system name + asset list from dataecu hint).
+
+  {% for doc in documents %}
+    [{{ doc.meta.source }} § {{ doc.meta.section_id }} | {{ doc.meta.type }}]
+    {{ doc.content }}
+    ---
+  {% endfor %}
+    → Iterates over all context documents (pinned first, then threat retrieved).
+    → Each doc is prefixed with its source tag so the LLM knows the provenance.
+
+The prompt contains five major instruction blocks:
+  1. STRICT KNOWLEDGE RULES — only use assets from the target system
+  2. NO UNNECESSARY COMPONENTS RULE — fewer accurate components > many speculative
+  3. ARCHITECTURE RULES — node types, parentId hierarchy, edge label format, colors
+  4. TASK — numbered instructions for what to generate
+  5. STRICT OUTPUT FORMAT — exact JSON schema the LLM must follow
+  6. CONSTRAINTS — repeated final reminders to enforce all rules
+
+
+================================================================================
+9. HOW COMPONENTS "KNOW" WHAT TO CONNECT TO
+================================================================================
+
+Connections (edges) are established through three mechanisms:
+
+  A) LLM Self-Consistency During Generation
+     ─────────────────────────────────────────
+     When Gemini generates the JSON in one pass, it invents node UUIDs and
+     immediately reuses the same UUID as source/target in edges. Within a single
+     generation the IDs are internally consistent. Example:
+
+       nodes: [{ "id": "uuid-abc", "data": { "label": "HCU" } }, ...]
+       edges: [{ "source": "uuid-abc", "target": "uuid-xyz", "data": { "label": "CAN1" } }]
+
+  B) Reference Architecture (REPORTS_DB edge_summary)
+     ──────────────────────────────────────────────────
+     When the query matches a system in reports_db (e.g. ABS → abs_1.json),
+     the edge_summary chunk is pinned into the prompt:
+
+       "Edge connections for [ABS]:
+         CAN1: HCU ↔ Wheel Speed Sensor Front Left (properties: Integrity)
+         SPI: MCU ↔ Code Flash (properties: Integrity, Authenticity)
+         ..."
+
+     The LLM reads these real wiring descriptions and reproduces them in the
+     output JSON, using the correct protocol labels and component pairings.
+
+  C) parentId Hierarchy (Containment)
+     ───────────────────────────────────
+     The prompt specifies strict parentId rules, so containment structure
+     (which group a component lives inside) is also guided by the reference.
+     Example hierarchy chunk:
+
+       "Architecture Hierarchy for [ABS]:
+         TOP: Anti-lock Braking System (type:group)
+         Anti-lock Braking System contains: HCU (type:default), MCU Block (type:group), ...
+         MCU Block contains: Code Flash (type:default), SRAM (type:default), ..."
+
+     The LLM mirrors this to set parentId values correctly.
+
+  D) Post-Processing Repair (stamp_uuids + crosslink_node_ids)
+     ─────────────────────────────────────────────────────────
+     If the LLM leaves any ID empty or uses a placeholder, stamp_uuids() fills
+     it with a fresh uuid4. Then crosslink_node_ids() repairs damage scenario
+     nodeId references by label-matching:
+
+       label_to_id = { "hcu": "uuid-abc", "wheel speed sensor": "uuid-xyz", ... }
+       derivation["nodeId"] = label_to_id.get(derivation["asset"].lower())
+
+     This ensures damage scenarios always point to a real node UUID.
+
+
+================================================================================
+10. POST-PROCESSING (components.py)
+================================================================================
+
+parse_and_fix(raw_text):
+  Step 1 — Strip markdown fences
+    re.sub(r"^```[a-z]*\n?", "", ...) removes ```json``` wrappers the LLM
+    sometimes adds despite being told not to.
+
+  Step 2 — JSON parse
+    json.loads(cleaned) — if this fails, the error + first 500 chars are printed.
+
+  Step 3 — stamp_uuids(obj)
+    Walks the entire JSON tree recursively. For any key in {"id","_id","model_id"}
+    whose value is empty, None, starts with "<", or contains "PLACEHOLDER",
+    replaces it with str(uuid.uuid4()).
+
+  Step 4 — crosslink_node_ids(obj)
+    Builds label_to_id map from assets.template.nodes.
+    Iterates damage_scenarios.Derivations[]:
+      - If nodeId is empty/placeholder → look up by d["asset"].lower()
+    Iterates damage_scenarios.Details[].cyberLosses[]:
+      - If nodeId is bad → look up by cl["node"].lower()
+      - If id is bad → stamp new uuid4
+
+
+================================================================================
+11. OUTPUT JSON — DETAILED STRUCTURE EXPLANATION
+================================================================================
+
+The final output file (e.g. tara_output_ABS.json) has exactly two top-level keys:
+  - "assets"
+  - "damage_scenarios"
+
+──────────────────────────────────────────────────────────────
+11.1  assets
+──────────────────────────────────────────────────────────────
+
+{
+  "assets": {
+    "_id":      "<uuid>",      ← document-level ID for this assets record
+    "user_id":  "<uuid>",      ← who owns this model (stamped post-gen)
+    "model_id": "<uuid>",      ← links assets ↔ damage_scenarios together
+    "template": {
+      "nodes": [ ... ],        ← list of all architecture nodes
+      "edges": [ ... ]         ← list of all connections between nodes
+    }
+  }
+}
+
+assets._id      — Unique identifier for this assets document in the database.
+assets.user_id  — Intended owner/user identifier (stamped by post-processing).
+assets.model_id — The key that ties the assets block to its damage_scenarios
+                  block. Both records share the same model_id so the frontend
+                  can load them together.
+
+──────────────────────────────────────────────────────────────
+11.2  assets.template.nodes  (array of node objects)
+──────────────────────────────────────────────────────────────
+
+Each node represents one element on the architecture diagram.
+There are THREE node types:
+
+─────────────────────────────────────────────
+NODE TYPE 1 — GROUP  (type: "group")
+─────────────────────────────────────────────
+Purpose: Invisible container that defines a system or sub-system boundary.
+The top-level system (e.g. "Anti-lock Braking System") is a group.
+Sub-systems (e.g. "MCU Block") are nested groups.
+
+{
+  "id":       "<system-group-uuid>",
+  "type":     "group",
+  "parentId": null,                    ← null = top-level, no parent
+  "data": {
+    "label":     "Anti-lock Braking System",
+    "nodeCount": 9,                    ← how many child nodes are inside
+    "style": {
+      "background":   "rgba(33,150,243,0.05)",  ← very faint blue fill
+      "border":       "1px dashed #2196F3",     ← dashed blue border
+      "borderRadius": "8px",
+      "boxShadow":    "0 2px 6px rgba(0,0,0,0.1)",
+      "height":       510,             ← total height of this group box (px)
+      "width":        1041             ← total width of this group box (px)
+    }
+  },
+  "properties": ["Integrity", "Authenticity"],  ← security properties of the system
+  "style":      { "width": 1041, "height": 510 },
+  "position":   { "x": 0, "y": 0 },            ← canvas position (top-left corner)
+  "positionAbsolute": { "x": 0, "y": 0 },
+  "width":  1041,
+  "height": 510,
+  "zIndex": 0                                   ← rendered behind child nodes
+}
+
+Key fields explained:
+  parentId: null   — This is a root element, not inside any other container.
+  nodeCount        — Informational; counts all immediate children.
+  style.width/height — Determines how large the group box is drawn on canvas.
+  style.background   — Faint fill so the container is visible but not distracting.
+  style.border dashed — Visually distinguishes groups from solid components.
+  position.x/y     — Absolute position on the React Flow canvas (pixels).
+  zIndex: 0        — Groups sit at z-layer 0 so components render on top.
+
+
+─────────────────────────────────────────────
+NODE TYPE 2 — DEFAULT  (type: "default")
+─────────────────────────────────────────────
+Purpose: A visible component box (e.g. "HCU", "Wheel Speed Sensor", "Code Flash").
+This is the most common node type.
+
+{
+  "id":       "<component-uuid>",
+  "type":     "default",
+  "parentId": "<system-group-uuid>",    ← must point to the enclosing group
+  "isAsset":  false,                    ← true only if explicitly a security asset
+  "data": {
+    "label":       "HCU",
+    "description": "Hydraulic Control Unit managing brake pressure.",
+    "style": {
+      "backgroundColor": "#dadada",     ← color by role (see color table below)
+      "borderColor":     "gray",
+      "borderStyle":     "solid",
+      "borderWidth":     "2px",
+      "color":           "black",       ← text color
+      "fontFamily":      "Inter",
+      "fontSize":        "12px",
+      "fontWeight":      500,
+      "height":          50,            ← component box height (px)
+      "width":           150            ← component box width (px)
+    }
+  },
+  "properties": ["Integrity", "Confidentiality", "Availability"],
+  "style":      { "width": 150, "height": 50 },
+  "position":   { "x": 120, "y": 80 },          ← relative to parent group
+  "positionAbsolute": { "x": 120, "y": 80 },
+  "width":  150,
+  "height": 50
+}
+
+Key fields explained:
+  parentId         — The UUID of the group that contains this component.
+                     The renderer nests this node visually inside that group.
+  isAsset          — When true, the frontend marks it as a tracked security asset.
+                     Most components are false; security-critical ones are true.
+  data.label       — The display name shown inside the box on the diagram.
+  data.description — Longer human-readable description (used in reports/tooltips).
+  data.style.backgroundColor — Color-coded by component role (see Section 12).
+  data.style.width/height    — Size of the rendered box in pixels.
+  position.x/y     — Position relative to the parent group's top-left corner.
+  properties       — ISO/SAE 21434 security property claims (CIA triad + extras).
+
+
+─────────────────────────────────────────────
+NODE TYPE 3 — DATA  (type: "data")
+─────────────────────────────────────────────
+Purpose: Small circular/tiny data item nodes (e.g. "SoC", "SoH", "Key Store").
+These represent data objects rather than physical components.
+
+{
+  "id":       "<data-item-uuid>",
+  "type":     "data",
+  "parentId": "<system-group-uuid>",
+  "isAsset":  false,
+  "data": {
+    "label": "SoC",
+    "style": {
+      "backgroundColor": "#e3e896",   ← light yellow for data items
+      "borderColor":     "gray",
+      "borderStyle":     "solid",
+      "borderWidth":     "2px",
+      "color":           "black",
+      "fontFamily":      "Inter",
+      "fontSize":        "12px",
+      "fontWeight":      500,
+      "height":          30,          ← smaller than default nodes
+      "width":           50
+    }
+  },
+  "properties": ["Authenticity", "Integrity"],
+  "style":      { "width": 50, "height": 30 },
+  "position":   { "x": 200, "y": 400 },
+  "positionAbsolute": { "x": 200, "y": 400 },
+  "width":  50,
+  "height": 30
+}
+
+Key fields explained:
+  Data nodes are intentionally small (50×30 px vs 150×50 for default nodes).
+  They represent data values or stores, not physical ECU modules.
+  Light yellow (#e3e896) background distinguishes them from component boxes.
+
+
+──────────────────────────────────────────────────────────────
+11.3  assets.template.edges  (array of edge/connection objects)
+──────────────────────────────────────────────────────────────
+
+Each edge represents a communication channel or data flow between two nodes.
+
+{
+  "id":           "<edge-uuid>",
+  "source":       "<source-node-uuid>",   ← UUID of the originating node
+  "target":       "<target-node-uuid>",   ← UUID of the destination node
+  "sourceHandle": "b",                    ← which handle on the source (bottom)
+  "targetHandle": "left",                 ← which handle on the target (left side)
+  "type":         "step",                 ← routing style ("step" = right-angle path)
+  "animated":     true,                   ← dashed animated flow line
+  "markerEnd": {
+    "color":  "#64B5F6",
+    "height": 18,
+    "type":   "arrowclosed",              ← filled arrowhead at target
+    "width":  18
+  },
+  "markerStart": {
+    "color":  "#64B5F6",
+    "height": 18,
+    "orient": "auto-start-reverse",
+    "type":   "arrowclosed",              ← filled arrowhead at source (bidirectional)
+    "width":  18
+  },
+  "style": {
+    "end":            true,
+    "start":          true,
+    "stroke":         "#808080",          ← gray line color
+    "strokeDasharray": "0",               ← solid line (0 = no dashes)
+    "strokeWidth":    2
+  },
+  "properties": ["Integrity"],            ← security properties of this channel
+  "data": {
+    "label":  "CAN1",                     ← SHORT protocol name (CRITICAL rule)
+    "offset": 0,
+    "t":      0.5                         ← label position along the edge (midpoint)
+  }
+}
+
+Key fields explained:
+  source / target      — Must be exact UUIDs matching nodes in the nodes array.
+                         This is how the renderer draws lines between boxes.
+  sourceHandle/targetHandle — Which side of the box the line connects to.
+                         "b" = bottom, "left" = left side, etc.
+  type: "step"         — Routing algorithm. "step" creates right-angle paths
+                         (horizontal then vertical, no diagonal lines).
+  animated: true       — The edge line animates (flows visually on the canvas).
+  markerEnd + markerStart — Both ends have arrowheads → bidirectional connection.
+  data.label           — MUST be a short protocol name, e.g.:
+                           "SPI", "CAN1", "CAN2", "IO_PINS", "Vehicle CAN",
+                           "Internet", "ICD_Data", "UART", "Ethernet"
+                         NOT: "Sends data to", "CAN Communication", "Reads values"
+  properties           — Security properties claimed for this communication channel.
+  data.t               — Float 0–1; label is placed at the t-fraction of the edge.
+
+
+──────────────────────────────────────────────────────────────
+11.4  damage_scenarios
+──────────────────────────────────────────────────────────────
+
+{
+  "damage_scenarios": {
+    "_id":      "<uuid>",         ← document-level ID for this damage_scenarios record
+    "model_id": "<uuid>",         ← SAME as assets.model_id (links the two together)
+    "type":     "damage",
+    "Derivations": [ ... ],       ← threat derivation entries (one per threat/asset pair)
+    "Details":    [ ... ]         ← full damage scenario descriptions
+  }
+}
+
+─────────────────────────────────────────────
+11.4.1  Derivations (array)
+─────────────────────────────────────────────
+Each entry links a threat/weakness to an asset and gives it a one-line damage scene.
+
+{
+  "id":           "<uuid>",              ← unique ID for this derivation row
+  "nodeId":       "<node-uuid>",         ← UUID of the affected asset node
+  "task":         "Threat Analysis",     ← always "Threat Analysis"
+  "name":         "Unauthorized CAN bus injection",
+  "loss":         "Integrity",           ← type of cyber loss
+  "asset":        "HCU",                 ← display name matching a node label
+  "damage_scene": "Brake pressure manipulation causing vehicle instability",
+  "isChecked":    false                  ← UI checkbox state
+}
+
+Key fields explained:
+  nodeId      — Cross-referenced to assets.template.nodes[x].id by label-matching
+                in crosslink_node_ids(). This allows the frontend to highlight
+                the affected node when viewing a derivation.
+  name        — Short name of the threat or attack technique.
+  loss        — The cyber loss type: Integrity, Confidentiality, or Availability.
+  asset       — The component that is threatened (must match a node label exactly).
+  damage_scene— One-sentence description of what happens if this threat succeeds.
+
+
+─────────────────────────────────────────────
+11.4.2  Details (array)
+─────────────────────────────────────────────
+Full damage scenario objects with cyber losses and impact ratings.
+
+{
+  "Name":        "Brake Pressure Manipulation via CAN Bus Injection",
+  "Description": "An attacker injects malicious CAN messages to the HCU, causing
+                  the ABS to apply incorrect braking force, leading to loss of
+                  vehicle control at highway speeds.",
+  "cyberLosses": [
+    {
+      "id":           "<uuid>",           ← unique ID for this cyber loss entry
+      "name":         "Integrity Loss",   ← type of loss
+      "node":         "HCU",             ← component where the loss occurs
+      "nodeId":       "<hcu-node-uuid>", ← repaired by crosslink_node_ids()
+      "isSelected":   true,
+      "is_risk_added": false
+    }
+  ],
+  "impacts": {
+    "Financial Impact":    "Minor",       ← one of: Negligible/Minor/Moderate/Major/Severe
+    "Safety Impact":       "Severe",
+    "Operational Impact":  "Major",
+    "Privacy Impact":      "Negligible"
+  },
+  "key":  1,                              ← sequential 1-based index
+  "_id":  "<uuid>"
+}
+
+Key fields explained:
+  Name        — Full human-readable scenario title.
+  Description — Detailed attack narrative explaining the vector, affected asset,
+                and resulting harm.
+  cyberLosses — One entry per affected component in this scenario. Multiple losses
+                can exist (e.g. HCU integrity loss + Code Flash confidentiality loss).
+  cyberLosses.node   — Display name of the affected component.
+  cyberLosses.nodeId — UUID of the affected node from the assets block.
+                       Repaired post-generation by crosslink_node_ids().
+  impacts     — SFOP (Safety, Financial, Operational, Privacy) impact ratings.
+                Derived from the damage scenario severity using Annex F guidelines.
+  key         — 1-based integer sequence number for UI ordering.
+  _id         — Unique ID for this Detail record.
+
+The overall impact rating for a scenario = the HIGHEST individual SFOP rating.
+  Negligible < Minor < Moderate < Major < Severe
+
+
+================================================================================
+12. NODE TYPES, SIZES, AND COLOR CODING
+================================================================================
+
+  ┌─────────────────┬───────────┬─────────────────────────────────────────────┐
+  │ Node Type       │ Size (px) │ Purpose                                     │
+  ├─────────────────┼───────────┼─────────────────────────────────────────────┤
+  │ group           │ 1041×510  │ Container for system/sub-system boundary     │
+  │ group (sub)     │ flexible  │ Nested container (e.g. MCU Block)            │
+  │ default         │ 150×50    │ Physical component (HCU, Flash, Sensor...)   │
+  │ data            │ 50×30     │ Data item (SoC, SoH, Key, Certificate)       │
+  └─────────────────┴───────────┴─────────────────────────────────────────────┘
+
+  Color coding by component role:
+  ┌──────────────────────────────────┬─────────────┐
+  │ Role                             │ Color       │
+  ├──────────────────────────────────┼─────────────┤
+  │ Monitoring / sensing             │ #e6df19     │
+  │ Monitoring / sensing (alt)       │ #accd32     │
+  │ I/O interfaces                   │ #e2dfc1     │
+  │ Flash / storage                  │ #ccc8ea     │
+  │ Security (keys, certificates)    │ #51dc1e     │
+  │ Security (alt)                   │ #62c945     │
+  │ Debug / JTAG                     │ #e26a6a     │
+  │ Data nodes (SoC, SoH)            │ #e3e896     │
+  │ External / generic               │ #dadada     │
+  └──────────────────────────────────┴─────────────┘
+
+
+================================================================================
+13. EDGE CONNECTION RULES
+================================================================================
+
+  RULE 1 — data.label MUST be a short protocol/interface name
+    ✅ CORRECT: "SPI", "CAN1", "CAN2", "IO_PINS", "Vehicle CAN", "Internet",
+                "ICD_Data", "UART", "Ethernet", "LIN", "FlexRay"
+    ❌ WRONG:   "Measurements", "CAN Communication", "Controls Power Flow",
+                "Sends data to", "Reads sensor values"
+
+  RULE 2 — bidirectional arrows (markerStart + markerEnd both set)
+    Both ends of every edge have arrowclosed markers. This represents
+    bidirectional data flow by default.
+
+  RULE 3 — animated:true
+    All edges use animated flow to indicate active communication channels.
+
+  RULE 4 — type:"step" routing
+    All edges use right-angle step routing (no diagonals).
+
+  RULE 5 — source/target must reference real node UUIDs
+    The edge source/target UUIDs must exactly match an id in the nodes array.
+    Post-processing verifies and repairs damage-scenario nodeIds but does NOT
+    auto-repair edge source/target (the LLM is trusted to be consistent here).
+
+  RULE 6 — properties carries security relevance
+    Each edge carries properties like ["Integrity"] or ["Confidentiality"]
+    to indicate which security attribute that channel is relevant to.
+
+
+================================================================================
+14. DAMAGE SCENARIO — THREAT REASONING CHAIN
+================================================================================
+
+Threat reasoning must follow this chain (enforced in the prompt):
+
+  CWE (root weakness)
+    ↓ describes the underlying software/hardware flaw
+  CAPEC (attack pattern)
+    ↓ describes how the weakness is exploited
+  MITRE ATT&CK technique
+    ↓ maps to a specific adversary technique
+  ATM (Automotive Threat Matrix) relevance
+    ↓ confirms automotive-specific threat application
+  Damage Scenario
+    → final human impact / vehicle safety consequence
+
+Example chain for ABS:
+  CWE-284 (Improper Access Control)
+    → CAPEC-390 (Bypassing of Intermediate Forms in Multiple-Form Sets)
+    → MITRE T0859 (Valid Accounts – ICS)
+    → ATM: CAN bus injection via OBD-II port
+    → Damage: Attacker manipulates HCU brake pressure causing loss of control
+
+
+================================================================================
+15. CONFIGURATION CONSTANTS
+================================================================================
+
+All key values are defined in components.py (and duplicated in config.py):
+
+  EMBED_MODEL     = "BAAI/bge-small-en-v1.5"
+    → Sentence embedding model used for both doc embedding and query embedding.
+    → BGE-small outperforms all-MiniLM-L6-v2 on BEIR benchmarks at same size.
+
+  MAX_CHARS       = 1500
+    → Maximum characters per chunk for threat-framework entries.
+    → Truncation preserves sentence boundaries (cuts at last ". ").
+
+  GEMINI_MODEL    = "gemini-2.5-flash-lite"
+    → The Google Gemini model used for generation.
+
+  RETRIEVER_TOP_K = 20
+    → Number of threat documents retrieved from the vector store per query.
+    → All 20 slots are dedicated to threat intelligence (CWE, CAPEC, MITRE, etc.)
+    → because ECU/REPORTS_DB documents are handled by pinning, not retrieval.
+
+  THREAT_SOURCES  = {MITRE_MOBILE, MITRE_ICS, ATM, CAPEC, CWE, ISO_21434, ANNEX_F}
+    → Only these sources enter the vector store and are subject to retrieval.
+
+  PINNED_SOURCES  = {ECU, REPORTS_DB}
+    → These sources bypass the retriever and are always injected into the prompt.
+
+
+================================================================================
+  END OF DOCUMENT
+  Generated: 2026-03-25  |  Pipeline version: v2.1
+================================================================================

@@ -115,8 +115,12 @@ def ingest_capec(xml_path) -> list[Document]:
     docs = []
     for ap in root.findall(".//capec:Attack_Pattern", ns):
         cid  = ap.get("ID")
-        name = ap.findtext("capec:Name", default="", namespaces=ns)
-        desc = _truncate(ap.findtext("capec:Description", default="", namespaces=ns))
+        name = ap.get("Name", "")          # Name is an XML attribute, not a child element
+        desc_el = ap.find("capec:Description", ns)
+        if desc_el is not None:
+            desc = _truncate(" ".join(desc_el.itertext()).strip())
+        else:
+            desc = ""
         if not desc:
             continue
         docs.append(Document(
@@ -222,6 +226,103 @@ def _truncate_short(text, max_len: int = 800) -> str:
     text = str(text)
     return text if len(text) <= max_len else text[:max_len] + "..."
 
+
+# Visual-only fields that carry zero semantic value for the LLM
+_VISUAL_FIELDS = {
+    "position", "positionAbsolute", "dragging", "selected",
+    "resizing", "isCopied", "zIndex", "width", "height",
+}
+
+
+def _strip_node(node: dict) -> dict:
+    """Keep only semantically meaningful fields from a node object."""
+    data = node.get("data", {})
+    clean = {
+        "id":       node.get("id", ""),
+        "type":     node.get("type", "default"),
+        "parentId": node.get("parentId"),
+        "isAsset":  node.get("isAsset", False),
+        "label":    data.get("label", "") or f"(group:{node.get('id','')[:8]})",
+        "properties": node.get("properties", []),
+    }
+    if data.get("description"):
+        clean["description"] = data["description"]
+    # Keep color so LLM reproduces the same scheme
+    bg = data.get("style", {}).get("backgroundColor")
+    if bg:
+        clean["backgroundColor"] = bg
+    sz_h = data.get("style", {}).get("height") or node.get("height")
+    sz_w = data.get("style", {}).get("width")  or node.get("width")
+    if sz_h:
+        clean["height"] = sz_h
+    if sz_w:
+        clean["width"]  = sz_w
+    return clean
+
+
+def _strip_edge(edge: dict) -> dict:
+    """Keep only semantically meaningful fields from an edge object."""
+    return {
+        "id":           edge.get("id", ""),
+        "source":       edge.get("source", ""),
+        "target":       edge.get("target", ""),
+        "sourceHandle": edge.get("sourceHandle", ""),
+        "targetHandle": edge.get("targetHandle", ""),
+        "protocol":     edge.get("data", {}).get("label", ""),
+        "properties":   edge.get("properties", []),
+    }
+
+
+def _strip_derivation(d: dict) -> dict:
+    return {
+        "name":         d.get("name", ""),
+        "asset":        d.get("asset", ""),
+        "loss":         d.get("loss", ""),
+        "damage_scene": d.get("damage_scene", ""),
+    }
+
+
+def _strip_detail(det: dict) -> dict:
+    return {
+        "Name":        det.get("Name", ""),
+        "Description": det.get("Description", ""),
+        "cyberLosses": [
+            {"name": cl.get("name", ""), "node": cl.get("node", "")}
+            for cl in det.get("cyberLosses", [])
+        ],
+        "impacts": det.get("impacts", {}),
+    }
+
+
+def _serialize_report_for_llm(
+    model_name: str,
+    nodes_list: list,
+    edges_list: list,
+    derivation_list: list,
+    details_list: list,
+) -> str:
+    """
+    Produce a compact, semantically complete text representation of an entire
+    reports_db entry — stripping all visual/layout-only fields so the LLM
+    gets the full architecture without token-wasting coordinates and style noise.
+    """
+    payload = {
+        "model": model_name,
+        "nodes": [_strip_node(n) for n in nodes_list],
+        "edges": [_strip_edge(e) for e in edges_list],
+        "damage_derivations": [
+            _strip_derivation(d) for d in derivation_list if d.get("name")
+        ],
+        "damage_details": [
+            _strip_detail(det) for det in details_list if det.get("Name")
+        ],
+    }
+    return (
+        f"=== FULL REFERENCE ARCHITECTURE: {model_name} ===\n"
+        + json.dumps(payload, indent=2, ensure_ascii=False)
+        + f"\n=== END REFERENCE ARCHITECTURE: {model_name} ==="
+    )
+
 def ingest_ecu(ecu_path) -> list[Document]:
     if not Path(ecu_path).exists():
         print(f"  ECU file not found: {ecu_path} — skipping.")
@@ -269,11 +370,32 @@ def ingest_reports_db(reports_path) -> list[Document]:
             print(f"  Unrecognised format in {fname} — skipping.")
             continue
 
+        # ── Extract edges (needed for full_file chunk and edge summary) ─────
+        if "assets" in report and "damage_scenarios" in report:
+            edges_list = report["assets"].get("template", {}).get("edges", [])
+        elif "Assets" in report:
+            edges_list = (report["Assets"][0] if report.get("Assets") else {}).get("template", {}).get("edges", [])
+        else:
+            edges_list = []
+
+        # ── FULL-FILE chunk (ALWAYS FIRST) ────────────────────────────────
+        # Serialises the entire report semantically — this is the primary
+        # context the LLM uses; individual chunks below are supplementary.
+        full_text = _serialize_report_for_llm(
+            model_name, nodes_list, edges_list, derivation_list, details_list
+        )
+        docs.append(Document(
+            content=full_text,
+            meta={"source": "REPORTS_DB", "file": fname,
+                  "model": model_name, "type": "full_file"}
+        ))
+
         node_count = 0
         for node in nodes_list:
             label, desc, props, ntype = _clean_node_for_text(node)
+            # Fall back to id prefix for unlabelled group nodes
             if not label or label.strip() == "":
-                continue
+                label = f"(group:{node.get('id','')[:8]})"
             is_asset = node.get("isAsset", False)
             docs.append(Document(
                 content=(
@@ -360,14 +482,7 @@ def ingest_reports_db(reports_path) -> list[Document]:
                       "model": model_name, "type": "hierarchy_summary"}
             ))
 
-        # ── NEW: Edge summary chunk ──────────────────────────────────────
-        edges_list = []
-        if "assets" in report and "damage_scenarios" in report:
-            edges_list = report["assets"].get("template", {}).get("edges", [])
-        elif "Assets" in report:
-            a_block_edges = report["Assets"][0] if report.get("Assets") else {}
-            edges_list = a_block_edges.get("template", {}).get("edges", [])
-
+        # ── Edge summary chunk ───────────────────────────────────────────
         if edges_list:
             edge_lines = [f"Edge connections for [{model_name}]:"]
             for edge in edges_list:

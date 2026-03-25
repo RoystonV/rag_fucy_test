@@ -1,0 +1,857 @@
+{
+  "assets": {
+    "_id": "asset_infotainment_head_unit",
+    "user_id": "user_123",
+    "model_id": "model_id_infotainment_head_unit",
+    "template": {
+      "nodes": [
+        {
+          "id": "infotainment_ecu_group",
+          "type": "group",
+          "parentId": null,
+          "data": {
+            "label": "Infotainment Head Unit",
+            "nodeCount": 8,
+            "style": {
+              "background": "rgba(33,150,243,0.05)",
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 600,
+              "width": 1200
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity",
+            "Availability"
+          ],
+          "style": {
+            "width": 1200,
+            "height": 600
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 1200,
+          "height": 600,
+          "zIndex": 0
+        },
+        {
+          "id": "head_unit_os",
+          "type": "default",
+          "parentId": "infotainment_ecu_group",
+          "isAsset": true,
+          "data": {
+            "label": "Head unit OS",
+            "description": "The operating system running on the head unit (e.g., Linux, Android, QNX).",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "purple",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 100,
+            "y": 100
+          },
+          "positionAbsolute": {
+            "x": 100,
+            "y": 100
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "bluetooth_wifi_stacks",
+          "type": "default",
+          "parentId": "infotainment_ecu_group",
+          "isAsset": true,
+          "data": {
+            "label": "Bluetooth/Wi-Fi stacks",
+            "description": "Software modules managing Bluetooth and Wi-Fi communication.",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "purple",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 100,
+            "y": 200
+          },
+          "positionAbsolute": {
+            "x": 100,
+            "y": 200
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "usb_driver_stack",
+          "type": "default",
+          "parentId": "infotainment_ecu_group",
+          "isAsset": true,
+          "data": {
+            "label": "USB driver stack",
+            "description": "Software module managing USB device interaction.",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "purple",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 100,
+            "y": 300
+          },
+          "positionAbsolute": {
+            "x": 100,
+            "y": 300
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "telephony_stacks",
+          "type": "default",
+          "parentId": "infotainment_ecu_group",
+          "isAsset": true,
+          "data": {
+            "label": "Telephony stacks",
+            "description": "Software modules for cellular communication.",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "purple",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 100,
+            "y": 400
+          },
+          "positionAbsolute": {
+            "x": 100,
+            "y": 400
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "application_layer_code",
+          "type": "default",
+          "parentId": "infotainment_ecu_group",
+          "isAsset": true,
+          "data": {
+            "label": "Application layer code",
+            "description": "User-facing applications running on the head unit.",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "purple",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 100,
+            "y": 500
+          },
+          "positionAbsolute": {
+            "x": 100,
+            "y": 500
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "navigation_data",
+          "type": "data",
+          "parentId": "infotainment_ecu_group",
+          "isAsset": true,
+          "data": {
+            "label": "Navigation data",
+            "description": "Data used for navigation services.",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "position": {
+            "x": 300,
+            "y": 100
+          },
+          "positionAbsolute": {
+            "x": 300,
+            "y": 100
+          },
+          "width": 50,
+          "height": 30
+        },
+        {
+          "id": "pii_user_profiles",
+          "type": "data",
+          "parentId": "infotainment_ecu_group",
+          "isAsset": true,
+          "data": {
+            "label": "PII (User profiles)",
+            "description": "Personally Identifiable Information stored in user profiles.",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "position": {
+            "x": 300,
+            "y": 150
+          },
+          "positionAbsolute": {
+            "x": 300,
+            "y": 150
+          },
+          "width": 50,
+          "height": 30
+        },
+        {
+          "id": "can_gateway",
+          "type": "default",
+          "parentId": "infotainment_ecu_group",
+          "isAsset": true,
+          "data": {
+            "label": "CAN gateway",
+            "description": "Module responsible for routing CAN messages to/from the infotainment system.",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "#BCAAA4",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 500,
+            "y": 100
+          },
+          "positionAbsolute": {
+            "x": 500,
+            "y": 100
+          },
+          "width": 150,
+          "height": 50
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge_os_app",
+          "source": "head_unit_os",
+          "target": "application_layer_code",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": null,
+          "style": {
+            "end": true,
+            "start": false,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "executes",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge_bt_wifi_os",
+          "source": "bluetooth_wifi_stacks",
+          "target": "head_unit_os",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": null,
+          "style": {
+            "end": true,
+            "start": false,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "uses",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge_usb_os",
+          "source": "usb_driver_stack",
+          "target": "head_unit_os",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": null,
+          "style": {
+            "end": true,
+            "start": false,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "uses",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge_telephony_os",
+          "source": "telephony_stacks",
+          "target": "head_unit_os",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": null,
+          "style": {
+            "end": true,
+            "start": false,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "uses",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge_nav_data_app",
+          "source": "navigation_data",
+          "target": "application_layer_code",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": null,
+          "style": {
+            "end": true,
+            "start": false,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "provides",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge_pii_app",
+          "source": "pii_user_profiles",
+          "target": "application_layer_code",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": null,
+          "style": {
+            "end": true,
+            "start": false,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "uses",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge_can_gw_os",
+          "source": "can_gateway",
+          "target": "head_unit_os",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": null,
+          "style": {
+            "end": true,
+            "start": false,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "interfaces",
+            "offset": 0,
+            "t": 0.5
+          }
+        }
+      ]
+    }
+  },
+  "damage_scenarios": {
+    "_id": "damage_scenario_infotainment",
+    "model_id": "model_id_infotainment_head_unit",
+    "type": "damage",
+    "Derivations": [
+      {
+        "id": "derivation_1",
+        "nodeId": "head_unit_os",
+        "task": "Threat Analysis",
+        "name": "Unauthorized OS modification",
+        "loss": "Compromise of system integrity and availability",
+        "asset": "Head unit OS",
+        "damage_scene": "An attacker exploits vulnerabilities in the OS to gain root access, allowing for modification of system files, installation of malicious software, or disabling of security features.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_2",
+        "nodeId": "application_layer_code",
+        "task": "Threat Analysis",
+        "name": "Malicious application injection",
+        "loss": "Execution of unauthorized code, potential data exfiltration, or manipulation of user interface.",
+        "asset": "Application layer code",
+        "damage_scene": "Attacker injects a malicious application that mimics legitimate functionality but performs unauthorized actions, such as intercepting user input or displaying fake information.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_3",
+        "nodeId": "pii_user_profiles",
+        "task": "Threat Analysis",
+        "name": "PII data exfiltration",
+        "loss": "Privacy breach, identity theft, and potential legal repercussions.",
+        "asset": "PII (User profiles)",
+        "damage_scene": "An attacker gains unauthorized access to user profiles and extracts sensitive PII, such as login credentials, personal preferences, or contact information.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_4",
+        "nodeId": "can_gateway",
+        "task": "Threat Analysis",
+        "name": "CAN bus message tampering",
+        "loss": "Disruption of vehicle functions, manipulation of safety-critical information, or unauthorized control of vehicle systems.",
+        "asset": "CAN gateway",
+        "damage_scene": "An attacker compromises the CAN gateway to inject malicious CAN messages or alter legitimate ones, potentially affecting other ECUs in the vehicle.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_5",
+        "nodeId": "bluetooth_wifi_stacks",
+        "task": "Threat Analysis",
+        "name": "Unauthorized network access",
+        "loss": "Access to vehicle network, potential system compromise, or denial of service.",
+        "asset": "Bluetooth/Wi-Fi stacks",
+        "damage_scene": "Exploiting vulnerabilities in the Bluetooth or Wi-Fi stacks to gain unauthorized access to the vehicle's infotainment system and potentially other connected networks.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_6",
+        "nodeId": "usb_driver_stack",
+        "task": "Threat Analysis",
+        "name": "Malware via USB",
+        "loss": "System compromise, data theft, or disruption of functionality.",
+        "asset": "USB driver stack",
+        "damage_scene": "An attacker introduces malware through a compromised USB device, exploiting vulnerabilities in the USB driver stack to gain control of the head unit.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_7",
+        "nodeId": "telephony_stacks",
+        "task": "Threat Analysis",
+        "name": "Telephony service abuse",
+        "loss": "Unauthorized communication, denial of service, or exposure of call logs/contacts.",
+        "asset": "Telephony stacks",
+        "damage_scene": "An attacker exploits vulnerabilities in the telephony stacks to make unauthorized calls, intercept communications, or disrupt normal phone services.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_8",
+        "nodeId": "navigation_data",
+        "task": "Threat Analysis",
+        "name": "Navigation data manipulation",
+        "loss": "Incorrect routing, potential safety hazards, or diversion of the vehicle.",
+        "asset": "Navigation data",
+        "damage_scene": "An attacker modifies navigation data, causing the system to provide incorrect directions, potentially leading the driver to unsafe locations or situations.",
+        "isChecked": false
+      }
+    ],
+    "Details": [
+      {
+        "Name": "Unauthorized OS modification",
+        "Description": "An attacker exploits vulnerabilities in the Head unit OS to gain root access, allowing for modification of system files, installation of malicious software, or disabling of security features.",
+        "cyberLosses": [
+          {
+            "id": "cl_1",
+            "name": "Compromise of system integrity and availability",
+            "node": "Head unit OS",
+            "nodeId": "head_unit_os",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 1,
+        "_id": "ds_1"
+      },
+      {
+        "Name": "Malicious application injection",
+        "Description": "Attacker injects a malicious application that mimics legitimate functionality but performs unauthorized actions, such as intercepting user input or displaying fake information.",
+        "cyberLosses": [
+          {
+            "id": "cl_2",
+            "name": "Execution of unauthorized code, potential data exfiltration, or manipulation of user interface.",
+            "node": "Application layer code",
+            "nodeId": "application_layer_code",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Major"
+        },
+        "key": 2,
+        "_id": "ds_2"
+      },
+      {
+        "Name": "PII data exfiltration",
+        "Description": "An attacker gains unauthorized access to user profiles and extracts sensitive PII, such as login credentials, personal preferences, or contact information.",
+        "cyberLosses": [
+          {
+            "id": "cl_3",
+            "name": "Privacy breach, identity theft, and potential legal repercussions.",
+            "node": "PII (User profiles)",
+            "nodeId": "pii_user_profiles",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Severe"
+        },
+        "key": 3,
+        "_id": "ds_3"
+      },
+      {
+        "Name": "CAN bus message tampering",
+        "Description": "An attacker compromises the CAN gateway to inject malicious CAN messages or alter legitimate ones, potentially affecting other ECUs in the vehicle.",
+        "cyberLosses": [
+          {
+            "id": "cl_4",
+            "name": "Disruption of vehicle functions, manipulation of safety-critical information, or unauthorized control of vehicle systems.",
+            "node": "CAN gateway",
+            "nodeId": "can_gateway",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Severe",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Minor"
+        },
+        "key": 4,
+        "_id": "ds_4"
+      },
+      {
+        "Name": "Unauthorized network access",
+        "Description": "Exploiting vulnerabilities in the Bluetooth or Wi-Fi stacks to gain unauthorized access to the vehicle's infotainment system and potentially other connected networks.",
+        "cyberLosses": [
+          {
+            "id": "cl_5",
+            "name": "Access to vehicle network, potential system compromise, or denial of service.",
+            "node": "Bluetooth/Wi-Fi stacks",
+            "nodeId": "bluetooth_wifi_stacks",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Moderate",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 5,
+        "_id": "ds_5"
+      },
+      {
+        "Name": "Malware via USB",
+        "Description": "An attacker introduces malware through a compromised USB device, exploiting vulnerabilities in the USB driver stack to gain control of the head unit.",
+        "cyberLosses": [
+          {
+            "id": "cl_6",
+            "name": "System compromise, data theft, or disruption of functionality.",
+            "node": "USB driver stack",
+            "nodeId": "usb_driver_stack",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 6,
+        "_id": "ds_6"
+      },
+      {
+        "Name": "Telephony service abuse",
+        "Description": "An attacker exploits vulnerabilities in the telephony stacks to make unauthorized calls, intercept communications, or disrupt normal phone services.",
+        "cyberLosses": [
+          {
+            "id": "cl_7",
+            "name": "Unauthorized communication, denial of service, or exposure of call logs/contacts.",
+            "node": "Telephony stacks",
+            "nodeId": "telephony_stacks",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Major"
+        },
+        "key": 7,
+        "_id": "ds_7"
+      },
+      {
+        "Name": "Navigation data manipulation",
+        "Description": "An attacker modifies navigation data, causing the system to provide incorrect directions, potentially leading the driver to unsafe locations or situations.",
+        "cyberLosses": [
+          {
+            "id": "cl_8",
+            "name": "Incorrect routing, potential safety hazards, or diversion of the vehicle.",
+            "node": "Navigation data",
+            "nodeId": "navigation_data",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Major",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 8,
+        "_id": "ds_8"
+      }
+    ]
+  }
+}

@@ -6,6 +6,7 @@ import json
 import os
 import re
 import uuid as _uuid
+from collections import Counter
 from pathlib import Path
 
 from haystack.components.embedders import (
@@ -36,6 +37,13 @@ EMBED_MODEL      = "BAAI/bge-small-en-v1.5"
 MAX_CHARS        = 1500
 GEMINI_MODEL     = "gemini-2.5-flash-lite"
 RETRIEVER_TOP_K  = 20
+
+# Two-phase retrieval: threat docs go through semantic retriever,
+# ECU/arch docs are pinned directly into the prompt.
+THREAT_SOURCES = {
+    "MITRE_MOBILE", "MITRE_ICS", "ATM", "CAPEC", "CWE", "ISO_21434", "ANNEX_F"
+}
+PINNED_SOURCES = {"ECU", "REPORTS_DB"}
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -218,23 +226,121 @@ def print_summary(tara_json: dict) -> None:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# TWO-PHASE CONTEXT ASSEMBLY HELPERS
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _find_reports_db_model_name(all_docs: list, ecu_entry: dict | None) -> str | None:
+    """
+    Scan REPORTS_DB docs to find which model name best matches the resolved
+    ECU entry. E.g. 'BMS (Battery Management System)' → 'BatteryManagement'.
+    Uses significant word overlap between the ECU name and the camelCase model.
+    """
+    if not ecu_entry:
+        return None
+    ecu_name = ecu_entry.get("name", "").lower()
+    # Collect unique model names present in the REPORTS_DB
+    model_names = set(
+        d.meta.get("model", "")
+        for d in all_docs
+        if d.meta.get("source") == "REPORTS_DB" and d.meta.get("model")
+    )
+    for model in model_names:
+        # Split camelCase (BatteryManagement → ['battery', 'management'])
+        words = re.sub(r'(?<=[a-z])(?=[A-Z])', ' ', model).lower().split()
+        significant = [w for w in words if len(w) > 3]
+        if any(w in ecu_name for w in significant):
+            return model
+    return None
+
+
+def build_pinned_docs(all_docs: list, ecu_entry: dict | None) -> tuple[list, str | None]:
+    """
+    Extract docs that must always appear in the prompt, regardless of retrieval.
+
+    Pinning order (most important first):
+      1. full_file chunk  — entire semantic architecture of the matched system
+      2. ECU entry        — dataecu.json hint with authoritative asset list
+      3. Other REPORTS_DB chunks — individual nodes, edges, derivations, details
+
+    Returns:
+        (pinned_docs, matched_model_name)
+        matched_model_name is None when no REPORTS_DB reference exists for this system.
+    """
+    model_name = _find_reports_db_model_name(all_docs, ecu_entry)
+
+    full_file_docs    = []
+    ecu_doc           = []
+    other_report_docs = []
+
+    if model_name:
+        for doc in all_docs:
+            if (doc.meta.get("source") == "REPORTS_DB"
+                    and doc.meta.get("model", "").lower() == model_name.lower()):
+                if doc.meta.get("type") == "full_file":
+                    full_file_docs.append(doc)
+                else:
+                    other_report_docs.append(doc)
+
+    if ecu_entry:
+        ecu_name = ecu_entry.get("name", "").lower()
+        for doc in all_docs:
+            if doc.meta.get("source") == "ECU" and ecu_name in doc.content.lower():
+                ecu_doc.append(doc)
+                break
+
+    # full architecture first so LLM sees the complete picture before anything else
+    pinned = full_file_docs + ecu_doc + other_report_docs
+
+    if full_file_docs:
+        print(f"  ✅ Full-file architecture chunk pinned for model: {model_name}")
+    elif not pinned and ecu_entry:
+        print("  ⚠️  No REPORTS_DB match — only ECU hint will be pinned")
+
+    return pinned, model_name
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # HAYSTACK COMPONENT BUILDERS
 # ─────────────────────────────────────────────────────────────────────────────
 
-def build_store(all_docs):
-    """Embed all_docs, load into InMemoryDocumentStore. Returns (store, text_embedder)."""
-    store         = InMemoryDocumentStore()
-    doc_embedder  = SentenceTransformersDocumentEmbedder(model=EMBED_MODEL)
-    text_embedder = SentenceTransformersTextEmbedder(model=EMBED_MODEL)
+def build_store(docs_subset: list, text_embedder=None):
+    """
+    Embed a list of documents and load into InMemoryDocumentStore.
+    Optionally accepts an already-warmed text_embedder to reuse.
+    Returns (store, text_embedder).
+    """
+    store        = InMemoryDocumentStore()
+    doc_embedder = SentenceTransformersDocumentEmbedder(model=EMBED_MODEL)
+    if text_embedder is None:
+        text_embedder = SentenceTransformersTextEmbedder(model=EMBED_MODEL)
+        text_embedder.warm_up()
     doc_embedder.warm_up()
-    text_embedder.warm_up()
-    print(f"✅ Embedders ready  [{EMBED_MODEL}]")
 
-    print(f"🔄 Embedding {len(all_docs)} documents...")
-    embedded_docs = doc_embedder.run(documents=all_docs)["documents"]
-    store.write_documents(embedded_docs)
-    print(f"✅ {store.count_documents()} documents embedded and stored.")
+    print(f"🔄 Embedding {len(docs_subset)} documents...")
+    embedded = doc_embedder.run(documents=docs_subset)["documents"]
+    store.write_documents(embedded)
+    print(f"✅ {store.count_documents()} documents stored.")
     return store, text_embedder
+
+
+def build_threat_store(all_docs: list, text_embedder=None):
+    """
+    Build a document store that contains ONLY threat-framework documents
+    (MITRE, ATM, CAPEC, CWE, ISO 21434, Annex F).
+    These are semantically distant from ECU architecture queries, so they
+    need dedicated retrieval slots — isolated from ECU/REPORTS_DB docs.
+    Returns (store, text_embedder).
+    """
+    threat_docs = [
+        d for d in all_docs
+        if d.meta.get("source") in THREAT_SOURCES
+    ]
+    print(f"\n📚 Threat-framework docs for retriever: {len(threat_docs)}")
+    from collections import Counter
+    dist = Counter(d.meta.get("source") for d in threat_docs)
+    for src, cnt in sorted(dist.items()):
+        print(f"   {src:<20}: {cnt}")
+    return build_store(threat_docs, text_embedder)
 
 
 def build_retriever(store):

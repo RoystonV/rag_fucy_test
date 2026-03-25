@@ -40,3 +40,12 @@ GEMINI_MODEL = "gemini-2.5-flash-lite"
 # Retrieval
 # ---------------------------------------------------------------------------
 RETRIEVER_TOP_K = 20
+
+# Sources that go into the semantic retriever (threat intelligence only)
+# These are semantically distant from ECU arch queries → need dedicated slots
+THREAT_SOURCES = {
+    "MITRE_MOBILE", "MITRE_ICS", "ATM", "CAPEC", "CWE", "ISO_21434", "ANNEX_F"
+}
+
+# Sources that are always pinned directly into the prompt (bypass retriever)
+PINNED_SOURCES = {"ECU", "REPORTS_DB"}

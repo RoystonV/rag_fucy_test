@@ -1,0 +1,2010 @@
+
+You are an automotive cybersecurity analyst performing Threat Analysis and Risk Assessment (TARA)
+according to ISO/SAE 21434 Clause 15.
+
+Your task is to generate a system architecture model and cybersecurity damage scenarios
+for the requested automotive ECU or system.
+
+STRICT KNOWLEDGE RULES
+
+- Use ONLY information relevant to the TARGET SYSTEM specified in the SYSTEM REQUEST below.
+- Do NOT invent assets or components that are not part of the targeted system.
+- If an AUTHORITATIVE ASSET LIST is provided in the request, generate EXACTLY those assets — no additions, no omissions.
+  All damage scenarios, derivations, and edges must reference ONLY those listed assets.
+- REPORTS_DB entries show real reference architectures. If the TARGET SYSTEM matches a REPORTS_DB system
+  (e.g. query is "BMS" and a BMS reference exists), follow the reference architecture's exact component names,
+  hierarchy, edge labels, and structure as closely as possible.
+- CRITICAL — FULL REFERENCE ARCHITECTURE BLOCK: If the context contains a block starting with
+  "=== FULL REFERENCE ARCHITECTURE: <ModelName> ===" this is the COMPLETE authoritative architecture for
+  that system. You MUST reproduce ALL nodes (with their exact labels, types, parentId relationships, colors
+  and sizes), ALL edges (with their exact protocol labels, source/target relationships), ALL damage
+  derivations, and ALL damage details exactly as specified in that block. Do NOT omit any component,
+  edge, or damage scenario listed there. This block takes precedence over all other instructions.
+- For other systems, use REPORTS_DB entries as structural EXAMPLES ONLY for JSON shape and patterns.
+- Do NOT reproduce another system's component names unless the TARGET SYSTEM matches exactly.
+- Use realistic automotive architecture relevant to the TARGET SYSTEM only.
+- Prefer knowledge retrieved from cybersecurity context (ISO 21434, CWE, CAPEC, MITRE, ATM).
+- If information is missing, infer only common industry-standard components for the specified system.
+
+NO UNNECESSARY COMPONENTS RULE (CRITICAL for automotive systems):
+- Every node you generate must have a clear justification — it must appear in the AUTHORITATIVE ASSET LIST,
+  the REPORTS_DB reference, or be a universally standard component for that specific automotive ECU type.
+- Do NOT add speculative sub-modules, buses, protocols, or external entities that are not explicitly called
+  out in the asset list or reference architecture.
+- Fewer, accurate components are ALWAYS better than many uncertain ones.
+- This rule is especially important for systems with NO REPORTS_DB reference: in that case, DO NOT
+  invent architecture beyond what is explicitly stated in the AUTHORITATIVE ASSET LIST.
+
+
+Threat reasoning must follow:
+CWE (root weakness) → CAPEC (attack pattern) → MITRE ATT&CK technique → ATM relevance → Damage Scenario
+
+-------------------------------------------------
+
+SYSTEM REQUEST:
+Infotainment Head Unit
+
+AUTHORITATIVE ASSET LIST (from system dataecu specification) — generate ONLY these assets, no others:
+Assets: Infotainment ECU (root group container, default), Display Unit (default, child of Infotainment Head Unit — touchscreen HMI, I2C/MIPI-DSI), Audio Amplifier (default, child of Infotainment Head Unit — I2S digital audio), Bluetooth Module (default, child of Infotainment Head Unit — HCI UART link, BT/BLE stack), Wi-Fi Module (default, child of Infotainment Head Unit — SDIO link, 802.11ac), USB Interface (default, child of Infotainment Head Unit — USB 2.0 host, CarPlay/Android Auto), Microphone (default, child of Infotainment Head Unit — ADC line-in, voice capture), Rear Camera Input (default, child of Infotainment Head Unit — MIPI-CSI2 video), CAN Transceiver (default, child of Infotainment Head Unit — vehicle network gateway), Code Flash (default, inside MCU group — IVI OS firmware and application code), Data Flash (default, inside MCU group — calibration, config NVM, user settings), Keys (default, inside MCU group — TLS/OTA signing keys, Bluetooth link keys), Certificates (default, inside MCU group — X.509 TLS client cert, secure boot cert), Debug Port (default, inside MCU group — JTAG/UART, must be disabled in production), User Profiles (data node, child of Infotainment Head Unit — PII: driver preferences, contacts, call history), Navigation Data (data node, child of Infotainment Head Unit — GPS routes, POI history, location logs), Vehicle CAN Bus (external, default), Smartphone (external, default), Cloud Backend (external, default), OBD-II Port (external, default). The 'Infotainment Head Unit' is the root group container; inside it are Display Unit, Audio Amplifier, Bluetooth Module, Wi-Fi Module, USB Interface, Microphone, Rear Camera Input, CAN Transceiver, User Profiles (data), Navigation Data (data), and an unnamed MCU subgroup containing Code Flash, Data Flash, Keys, Certificates, and Debug Port. Edges: I2C (MCU group↔Display Unit), I2S (MCU group↔Audio Amplifier), HCI (MCU group↔Bluetooth Module), SDIO (MCU group↔Wi-Fi Module), USB2 (MCU group↔USB Interface), ADC_MIC (MCU group↔Microphone), MIPI_CSI (MCU group↔Rear Camera Input), CAN_IVI (MCU group↔CAN Transceiver), Vehicle_CAN (CAN Transceiver↔Vehicle CAN Bus), HTTPS (Wi-Fi Module↔Cloud Backend), BT_Profile (Bluetooth Module↔Smartphone), OBD_UDS (OBD-II Port↔CAN Transceiver).
+
+All threat analysis, damage scenarios, and edges must reference ONLY the assets listed above. Do NOT add any other components.
+
+CYBERSECURITY KNOWLEDGE CONTEXT:
+
+[REPORTS_DB | full_file]
+=== FULL REFERENCE ARCHITECTURE: InfHead ===
+{
+  "model": "InfHead",
+  "nodes": [
+    {
+      "id": "infh_root_group",
+      "type": "group",
+      "parentId": null,
+      "isAsset": false,
+      "label": "Infotainment Head Unit",
+      "properties": [
+        "Integrity",
+        "Authenticity",
+        "Availability"
+      ],
+      "height": 560,
+      "width": 1200
+    },
+    {
+      "id": "infh_display",
+      "type": "default",
+      "parentId": "infh_root_group",
+      "isAsset": false,
+      "label": "Display Unit",
+      "properties": [
+        "Integrity",
+        "Availability"
+      ],
+      "description": "Touchscreen HMI connected to MCU via I2C/MIPI-DSI. Renders navigation, media, and system UI.",
+      "backgroundColor": "#b3d9ff",
+      "height": 50,
+      "width": 150
+    },
+    {
+      "id": "infh_audio",
+      "type": "default",
+      "parentId": "infh_root_group",
+      "isAsset": false,
+      "label": "Audio Amplifier",
+      "properties": [
+        "Integrity",
+        "Availability"
+      ],
+      "description": "Digital audio amplifier linked via I2S. Drives cabin speakers for media and navigation voice.",
+      "backgroundColor": "#ffd580",
+      "height": 50,
+      "width": 150
+    },
+    {
+      "id": "infh_bt",
+      "type": "default",
+      "parentId": "infh_root_group",
+      "isAsset": false,
+      "label": "Bluetooth Module",
+      "properties": [
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Authenticity"
+      ],
+      "description": "BT 5.x / BLE module linked via HCI UART. Handles phone pairing, A2DP audio, HFP calls, PBAP contacts.",
+      "backgroundColor": "#c8aff0",
+      "height": 50,
+      "width": 155
+    },
+    {
+      "id": "infh_wifi",
+      "type": "default",
+      "parentId": "infh_root_group",
+      "isAsset": false,
+      "label": "Wi-Fi Module",
+      "properties": [
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Authenticity"
+      ],
+      "description": "802.11ac Wi-Fi connected via SDIO. Used for OTA updates, cloud API, and hotspot.",
+      "backgroundColor": "#a8e6cf",
+      "height": 50,
+      "width": 140
+    },
+    {
+      "id": "infh_usb",
+      "type": "default",
+      "parentId": "infh_root_group",
+      "isAsset": false,
+      "label": "USB Interface",
+      "properties": [
+        "Confidentiality",
+        "Integrity",
+        "Availability"
+      ],
+      "description": "USB 2.0 host port (USB2). Supports CarPlay, Android Auto, media playback, and firmware flashing.",
+      "backgroundColor": "#f7c6a0",
+      "height": 50,
+      "width": 140
+    },
+    {
+      "id": "infh_mic",
+      "type": "default",
+      "parentId": "infh_root_group",
+      "isAsset": false,
+      "label": "Microphone",
+      "properties": [
+        "Confidentiality",
+        "Availability"
+      ],
+      "description": "Cabin microphone for voice commands and hands-free calls. Connects via ADC line-in.",
+      "backgroundColor": "#e2dfc1",
+      "height": 50,
+      "width": 130
+    },
+    {
+      "id": "infh_camera",
+      "type": "default",
+      "parentId": "infh_root_group",
+      "isAsset": false,
+      "label": "Rear Camera Input",
+      "properties": [
+        "Integrity",
+        "Availability"
+      ],
+      "description": "Rear-view camera video feed received via MIPI-CSI2. Rendered on display during reverse.",
+      "backgroundColor": "#dadada",
+      "height": 50,
+      "width": 160
+    },
+    {
+      "id": "infh_can_trx",
+      "type": "default",
+      "parentId": "infh_root_group",
+      "isAsset": false,
+      "label": "CAN Transceiver",
+      "properties": [
+        "Integrity",
+        "Availability"
+      ],
+      "description": "CAN FD transceiver bridging the IVI MCU to the vehicle CAN bus for vehicle speed, warning signals.",
+      "backgroundColor": "#accd32",
+      "height": 50,
+      "width": 155
+    },
+    {
+      "id": "infh_user_profiles",
+      "type": "data",
+      "parentId": "infh_root_group",
+      "isAsset": false,
+      "label": "User Profiles",
+      "properties": [
+        "Confidentiality",
+        "Integrity",
+        "Non-repudiation"
+      ],
+      "description": "PII data: driver preferences, paired device list, call/contact history, seat/mirror settings.",
+      "backgroundColor": "#f9e4b7",
+      "height": 30,
+      "width": 120
+    },
+    {
+      "id": "infh_nav_data",
+      "type": "data",
+      "parentId": "infh_root_group",
+      "isAsset": false,
+      "label": "Navigation Data",
+      "properties": [
+        "Confidentiality",
+        "Integrity",
+        "Authenticity"
+      ],
+      "description": "GPS route history, saved POIs, destination logs. High-privacy sensitivity per ISO 21434.",
+      "backgroundColor": "#e3e896",
+      "height": 30,
+      "width": 130
+    },
+    {
+      "id": "infh_mcu_group",
+      "type": "group",
+      "parentId": "infh_root_group",
+      "isAsset": false,
+      "label": "(MCU)",
+      "properties": [],
+      "height": 239,
+      "width": 310
+    },
+    {
+      "id": "infh_code_flash",
+      "type": "default",
+      "parentId": "infh_mcu_group",
+      "isAsset": false,
+      "label": "Code Flash",
+      "properties": [
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Authenticity"
+      ],
+      "description": "IVI OS firmware (Linux/QNX) and application stack. Tamper causes compromised behaviour or bricking.",
+      "backgroundColor": "#ccc8ea",
+      "height": 39,
+      "width": 104
+    },
+    {
+      "id": "infh_data_flash",
+      "type": "default",
+      "parentId": "infh_mcu_group",
+      "isAsset": false,
+      "label": "Data Flash",
+      "properties": [
+        "Integrity",
+        "Availability",
+        "Non-repudiation"
+      ],
+      "description": "Non-volatile memory for calibration tables, variant coding, and persistent configuration.",
+      "backgroundColor": "#f0b2b2",
+      "height": 39,
+      "width": 104
+    },
+    {
+      "id": "infh_keys",
+      "type": "default",
+      "parentId": "infh_mcu_group",
+      "isAsset": false,
+      "label": "Keys",
+      "properties": [
+        "Confidentiality"
+      ],
+      "description": "TLS private key, OTA package signing verification key, Bluetooth link keys. Stored in secure element / HSM.",
+      "backgroundColor": "#51dc1e",
+      "height": 39,
+      "width": 104
+    },
+    {
+      "id": "infh_certs",
+      "type": "default",
+      "parentId": "infh_mcu_group",
+      "isAsset": false,
+      "label": "Certificates",
+      "properties": [
+        "Integrity",
+        "Authenticity",
+        "Availability"
+      ],
+      "description": "X.509 TLS client certificate and secure boot certificate chain. Required for cloud and OTA authentication.",
+      "backgroundColor": "#62c945",
+      "height": 39,
+      "width": 110
+    },
+    {
+      "id": "infh_debug",
+      "type": "default",
+      "parentId": "infh_mcu_group",
+      "isAsset": false,
+      "label": "Debug Port",
+      "properties": [
+        "Integrity",
+        "Availability",
+        "Authorization"
+      ],
+      "description": "JTAG/UART debug interface. Must be disabled in production. Exposure enables full MCU memory read.",
+      "backgroundColor": "#e26a6a",
+      "height": 39,
+      "width": 104
+    },
+    {
+      "id": "infh_vehicle_can",
+      "type": "default",
+      "parentId": null,
+      "isAsset": false,
+      "label": "Vehicle CAN Bus",
+      "properties": [
+        "Integrity",
+        "Availability"
+      ],
+      "description": "Vehicle-wide CAN FD backbone shared with other ECUs (BCM, ADAS, Cluster, etc.).",
+      "backgroundColor": "#dadada",
+      "height": 50,
+      "width": 150
+    },
+    {
+      "id": "infh_smartphone",
+      "type": "default",
+      "parentId": null,
+      "isAsset": false,
+      "label": "Smartphone",
+      "properties": [],
+      "description": "User's paired mobile device. Communicates over Bluetooth (HFP/A2DP/PBAP) and USB (CarPlay/Android Auto).",
+      "backgroundColor": "#dadada",
+      "height": 50,
+      "width": 130
+    },
+    {
+      "id": "infh_cloud",
+      "type": "default",
+      "parentId": null,
+      "isAsset": false,
+      "label": "Cloud Backend",
+      "properties": [],
+      "description": "OEM cloud services: OTA update server, telematics API, map updates, remote diagnostics.",
+      "backgroundColor": "#dadada",
+      "height": 50,
+      "width": 145
+    },
+    {
+      "id": "infh_obd",
+      "type": "default",
+      "parentId": null,
+      "isAsset": false,
+      "label": "OBD-II Port",
+      "properties": [],
+      "description": "Physical diagnostic access port. Exposes UDS services on CAN. Must be access-controlled.",
+      "backgroundColor": "#dadada",
+      "height": 50,
+      "width": 130
+    }
+  ],
+  "edges": [
+    {
+      "id": "infh_edge_mcu_display",
+      "source": "infh_mcu_group",
+      "target": "infh_display",
+      "sourceHandle": "b",
+      "targetHandle": "left",
+      "protocol": "I2C",
+      "properties": [
+        "Integrity"
+      ]
+    },
+    {
+      "id": "infh_edge_mcu_audio",
+      "source": "infh_mcu_group",
+      "target": "infh_audio",
+      "sourceHandle": "b",
+      "targetHandle": "left",
+      "protocol": "I2S",
+      "properties": [
+        "Integrity"
+      ]
+    },
+    {
+      "id": "infh_edge_mcu_bt",
+      "source": "infh_mcu_group",
+      "target": "infh_bt",
+      "sourceHandle": "d",
+      "targetHandle": "left",
+      "protocol": "HCI",
+      "properties": [
+        "Confidentiality",
+        "Integrity",
+        "Authenticity"
+      ]
+    },
+    {
+      "id": "infh_edge_mcu_wifi",
+      "source": "infh_mcu_group",
+      "target": "infh_wifi",
+      "sourceHandle": "d",
+      "targetHandle": "left",
+      "protocol": "SDIO",
+      "properties": [
+        "Confidentiality",
+        "Integrity",
+        "Authenticity"
+      ]
+    },
+    {
+      "id": "infh_edge_mcu_usb",
+      "source": "infh_mcu_group",
+      "target": "infh_usb",
+      "sourceHandle": "c",
+      "targetHandle": "left",
+      "protocol": "USB2",
+      "properties": [
+        "Confidentiality",
+        "Integrity"
+      ]
+    },
+    {
+      "id": "infh_edge_mcu_mic",
+      "source": "infh_mcu_group",
+      "target": "infh_mic",
+      "sourceHandle": "c",
+      "targetHandle": "left",
+      "protocol": "ADC_MIC",
+      "properties": [
+        "Confidentiality"
+      ]
+    },
+    {
+      "id": "infh_edge_mcu_camera",
+      "source": "infh_mcu_group",
+      "target": "infh_camera",
+      "sourceHandle": "a",
+      "targetHandle": "left",
+      "protocol": "MIPI_CSI",
+      "properties": [
+        "Integrity"
+      ]
+    },
+    {
+      "id": "infh_edge_mcu_can",
+      "source": "infh_mcu_group",
+      "target": "infh_can_trx",
+      "sourceHandle": "a",
+      "targetHandle": "left",
+      "protocol": "CAN_IVI",
+      "properties": [
+        "Integrity",
+        "Authenticity"
+      ]
+    },
+    {
+      "id": "infh_edge_can_vcan",
+      "source": "infh_can_trx",
+      "target": "infh_vehicle_can",
+      "sourceHandle": "right",
+      "targetHandle": "left",
+      "protocol": "Vehicle_CAN",
+      "properties": [
+        "Integrity",
+        "Availability"
+      ]
+    },
+    {
+      "id": "infh_edge_wifi_cloud",
+      "source": "infh_wifi",
+      "target": "infh_cloud",
+      "sourceHandle": "right",
+      "targetHandle": "left",
+      "protocol": "HTTPS",
+      "properties": [
+        "Confidentiality",
+        "Integrity",
+        "Authenticity"
+      ]
+    },
+    {
+      "id": "infh_edge_bt_phone",
+      "source": "infh_bt",
+      "target": "infh_smartphone",
+      "sourceHandle": "right",
+      "targetHandle": "left",
+      "protocol": "BT_Profile",
+      "properties": [
+        "Confidentiality",
+        "Authenticity"
+      ]
+    },
+    {
+      "id": "infh_edge_obd_can",
+      "source": "infh_obd",
+      "target": "infh_can_trx",
+      "sourceHandle": "right",
+      "targetHandle": "bottom",
+      "protocol": "OBD_UDS",
+      "properties": [
+        "Integrity"
+      ]
+    }
+  ],
+  "damage_derivations": [
+    {
+      "name": "DS due to the loss of Integrity for Display Unit",
+      "asset": "Display Unit",
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for Display Unit",
+      "asset": "Display Unit",
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for Audio Amplifier",
+      "asset": "Audio Amplifier",
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for Audio Amplifier",
+      "asset": "Audio Amplifier",
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for Bluetooth Module",
+      "asset": "Bluetooth Module",
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for Bluetooth Module",
+      "asset": "Bluetooth Module",
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for Bluetooth Module",
+      "asset": "Bluetooth Module",
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authenticity for Bluetooth Module",
+      "asset": "Bluetooth Module",
+      "loss": "loss of Authenticity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for Wi-Fi Module",
+      "asset": "Wi-Fi Module",
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for Wi-Fi Module",
+      "asset": "Wi-Fi Module",
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for Wi-Fi Module",
+      "asset": "Wi-Fi Module",
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authenticity for Wi-Fi Module",
+      "asset": "Wi-Fi Module",
+      "loss": "loss of Authenticity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for USB Interface",
+      "asset": "USB Interface",
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for USB Interface",
+      "asset": "USB Interface",
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for USB Interface",
+      "asset": "USB Interface",
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for Microphone",
+      "asset": "Microphone",
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for Microphone",
+      "asset": "Microphone",
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for Rear Camera Input",
+      "asset": "Rear Camera Input",
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for Rear Camera Input",
+      "asset": "Rear Camera Input",
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for CAN Transceiver",
+      "asset": "CAN Transceiver",
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for CAN Transceiver",
+      "asset": "CAN Transceiver",
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for User Profiles",
+      "asset": "User Profiles",
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for User Profiles",
+      "asset": "User Profiles",
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Non-repudiation for User Profiles",
+      "asset": "User Profiles",
+      "loss": "loss of Non-repudiation",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for Navigation Data",
+      "asset": "Navigation Data",
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for Navigation Data",
+      "asset": "Navigation Data",
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authenticity for Navigation Data",
+      "asset": "Navigation Data",
+      "loss": "loss of Authenticity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for Code Flash",
+      "asset": "Code Flash",
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for Code Flash",
+      "asset": "Code Flash",
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for Code Flash",
+      "asset": "Code Flash",
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authenticity for Code Flash",
+      "asset": "Code Flash",
+      "loss": "loss of Authenticity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for Data Flash",
+      "asset": "Data Flash",
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for Data Flash",
+      "asset": "Data Flash",
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Non-repudiation for Data Flash",
+      "asset": "Data Flash",
+      "loss": "loss of Non-repudiation",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for Keys",
+      "asset": "Keys",
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for Certificates",
+      "asset": "Certificates",
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authenticity for Certificates",
+      "asset": "Certificates",
+      "loss": "loss of Authenticity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for Certificates",
+      "asset": "Certificates",
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for Debug Port",
+      "asset": "Debug Port",
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for Debug Port",
+      "asset": "Debug Port",
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authorization for Debug Port",
+      "asset": "Debug Port",
+      "loss": "loss of Authorization",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for I2C",
+      "asset": null,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for I2S",
+      "asset": null,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for HCI",
+      "asset": null,
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authenticity for HCI",
+      "asset": null,
+      "loss": "loss of Authenticity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for SDIO",
+      "asset": null,
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for USB2",
+      "asset": null,
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for CAN_IVI",
+      "asset": null,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for Vehicle_CAN",
+      "asset": null,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for HTTPS",
+      "asset": null,
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authenticity for HTTPS",
+      "asset": null,
+      "loss": "loss of Authenticity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for BT_Profile",
+      "asset": null,
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    }
+  ],
+  "damage_details": [
+    {
+      "Name": "Malicious OTA Firmware Update via Wi-Fi",
+      "Description": "An attacker performs a man-in-the-middle attack over the Wi-Fi link (HTTPS channel) and injects a malicious firmware image into Code Flash. Because code signing verification (Certificates) is bypassed or the signing key (Keys) is compromised, the IVI MCU executes attacker-controlled firmware, enabling persistent access to the vehicle CAN bus and full cabin sensor control.",
+      "cyberLosses": [
+        {
+          "name": "loss of Integrity",
+          "node": "Code Flash"
+        },
+        {
+          "name": "loss of Authenticity",
+          "node": "Certificates"
+        },
+        {
+          "name": "loss of Confidentiality",
+          "node": "Keys"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Major",
+        "Safety Impact": "Major",
+        "Operational Impact": "Major",
+        "Privacy Impact": "Moderate"
+      }
+    },
+    {
+      "Name": "User PII Exfiltration via Bluetooth",
+      "Description": "An attacker exploits a Bluetooth pairing vulnerability (e.g., BIAS or KNOB attack) to impersonate a trusted device. By gaining authenticated HCI-level access, the attacker reads PBAP contact list, call history, and User Profiles stored in Data Flash, exfiltrating sensitive PII over the BT_Profile link to the attacker's device.",
+      "cyberLosses": [
+        {
+          "name": "loss of Confidentiality",
+          "node": "User Profiles"
+        },
+        {
+          "name": "loss of Confidentiality",
+          "node": "Bluetooth Module"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Minor",
+        "Safety Impact": "Negligible",
+        "Operational Impact": "Minor",
+        "Privacy Impact": "Severe"
+      }
+    },
+    {
+      "Name": "GPS Navigation Data Spoofing",
+      "Description": "An attacker injects falsified GPS NMEA sentences through an SDR-based GPS spoofer, causing Navigation Data stored in Data Flash to record fictitious routes. The manipulated navigation data misleads the driver to wrong or dangerous destinations. Per ISO 21434 Clause 15, this constitutes a loss of Authenticity and Integrity for location-based assets.",
+      "cyberLosses": [
+        {
+          "name": "loss of Authenticity",
+          "node": "Navigation Data"
+        },
+        {
+          "name": "loss of Integrity",
+          "node": "Navigation Data"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Minor",
+        "Safety Impact": "Major",
+        "Operational Impact": "Moderate",
+        "Privacy Impact": "Moderate"
+      }
+    },
+    {
+      "Name": "Malware Injection via USB Interface",
+      "Description": "A malicious USB device presents as a trusted CarPlay/Android Auto accessory. It exploits a USB stack parsing vulnerability (CWE-119) to overflow a buffer in the IVI OS running from Code Flash, achieving arbitrary code execution. The malware persists in Data Flash and may open a reverse tunnel to the CAN bus via the CAN Transceiver.",
+      "cyberLosses": [
+        {
+          "name": "loss of Integrity",
+          "node": "USB Interface"
+        },
+        {
+          "name": "loss of Integrity",
+          "node": "Code Flash"
+        },
+        {
+          "name": "loss of Integrity",
+          "node": "Data Flash"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Moderate",
+        "Safety Impact": "Moderate",
+        "Operational Impact": "Major",
+        "Privacy Impact": "Moderate"
+      }
+    },
+    {
+      "Name": "Microphone Eavesdropping (Cabin Audio Intercept)",
+      "Description": "A compromised IVI application or a software implant delivered via OTA continuously streams Microphone ADC input to a remote attacker over the Wi-Fi/HTTPS channel. The driver's private conversations, phone calls, and voice commands are captured without consent — a severe privacy violation under GDPR and ISO 21434 impact categories.",
+      "cyberLosses": [
+        {
+          "name": "loss of Confidentiality",
+          "node": "Microphone"
+        },
+        {
+          "name": "loss of Confidentiality",
+          "node": "Wi-Fi Module"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Minor",
+        "Safety Impact": "Negligible",
+        "Operational Impact": "Minor",
+        "Privacy Impact": "Severe"
+      }
+    },
+    {
+      "Name": "CAN Bus Injection via IVI Gateway",
+      "Description": "The IVI's CAN Transceiver is connected to the vehicle CAN bus shared with safety-critical ECUs (BCM, ADAS, Cluster). An attacker who has compromised IVI Code Flash injects spoofed CAN frames (e.g., fake wheel speed messages, door lock commands) onto the Vehicle CAN Bus. This can manipulate other ECU behaviour and compromise vehicle safety — directly violating SFOP Safety and Operational impact categories.",
+      "cyberLosses": [
+        {
+          "name": "loss of Integrity",
+          "node": "CAN Transceiver"
+        },
+        {
+          "name": "loss of Integrity",
+          "node": "Vehicle CAN Bus"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Major",
+        "Safety Impact": "Severe",
+        "Operational Impact": "Severe",
+        "Privacy Impact": "Minor"
+      }
+    },
+    {
+      "Name": "Debug Port Exploitation for Key Extraction",
+      "Description": "An attacker with physical access connects a JTAG debugger to the exposed Debug Port. With the debug interface active (or improperly locked), full MCU memory can be read, exposing Keys (TLS private keys, OTA signing keys, Bluetooth link keys) and Certificates stored in the secure element / HSM. This enables offline decryption of past sessions and forging of OTA packages.",
+      "cyberLosses": [
+        {
+          "name": "loss of Authorization",
+          "node": "Debug Port"
+        },
+        {
+          "name": "loss of Confidentiality",
+          "node": "Keys"
+        },
+        {
+          "name": "loss of Integrity",
+          "node": "Certificates"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Major",
+        "Safety Impact": "Moderate",
+        "Operational Impact": "Major",
+        "Privacy Impact": "Major"
+      }
+    },
+    {
+      "Name": "Rear Camera Feed Substitution",
+      "Description": "An attacker injects a falsified MIPI-CSI2 video stream onto the Rear Camera Input using a hardware interposer or by exploiting an in-vehicle Ethernet/CSI bridge. The Display Unit shows a manipulated or frozen rear view during reversing, creating a dangerous blind spot. Loss of Integrity of the camera feed constitutes a Safety impact at Severe level.",
+      "cyberLosses": [
+        {
+          "name": "loss of Integrity",
+          "node": "Rear Camera Input"
+        },
+        {
+          "name": "loss of Availability",
+          "node": "Display Unit"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Minor",
+        "Safety Impact": "Severe",
+        "Operational Impact": "Major",
+        "Privacy Impact": "Negligible"
+      }
+    },
+    {
+      "Name": "Wi-Fi MITM — Cloud API Token Theft",
+      "Description": "An attacker sets up a rogue Wi-Fi access point with the same SSID as a known network. The IVI auto-connects and performs TLS certificate validation using stored Certificates; if certificate pinning is absent or Certificates are compromised, the attacker performs TLS termination and steals Cloud Backend API tokens and session credentials transmitted over HTTPS.",
+      "cyberLosses": [
+        {
+          "name": "loss of Confidentiality",
+          "node": "Wi-Fi Module"
+        },
+        {
+          "name": "loss of Authenticity",
+          "node": "Certificates"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Moderate",
+        "Safety Impact": "Negligible",
+        "Operational Impact": "Moderate",
+        "Privacy Impact": "Major"
+      }
+    },
+    {
+      "Name": "OBD-II Diagnostic Abuse — Unauthorised UDS Service Execution",
+      "Description": "An attacker connects to the physical OBD-II Port with a standard ELM327 adapter and issues UDS service 0x27 (Security Access) without a valid seed-key challenge. A weak or unprotected diagnostic session allows reading of Data Flash calibration tables, erasing diagnostic trouble codes (DTCs), or invoking ECU reset commands — violating Integrity and Authorization of the CAN Transceiver and Data Flash assets.",
+      "cyberLosses": [
+        {
+          "name": "loss of Integrity",
+          "node": "Data Flash"
+        },
+        {
+          "name": "loss of Integrity",
+          "node": "CAN Transceiver"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Moderate",
+        "Safety Impact": "Minor",
+        "Operational Impact": "Major",
+        "Privacy Impact": "Minor"
+      }
+    }
+  ]
+}
+=== END REFERENCE ARCHITECTURE: InfHead ===
+---
+
+[ECU]
+{
+  "name": "Infotainment Head Unit",
+  "type": "ECU",
+  "hint": "Assets: Infotainment ECU (root group container, default), Display Unit (default, child of Infotainment Head Unit \u2014 touchscreen HMI, I2C/MIPI-DSI), Audio Amplifier (default, child of Infotainment Head Unit \u2014 I2S digital audio), Bluetooth Module (default, child of Infotainment Head Unit \u2014 HCI UART link, BT/BLE stack), Wi-Fi Module (default, child of Infotainment Head Unit \u2014 SDIO link, 802.11ac), USB Interface (default, child of Infotainment Head Unit \u2014 USB 2.0 host, CarPlay/Android Auto), Microphone (default, child of Infotainment Head Unit \u2014 ADC line-in, voice capture), Rear Camera Input (default, child of Infotainment Head Unit \u2014 MIPI-CSI2 video), CAN Transceiver (default, child of Infotainment Head Unit \u2014 vehicle network gateway), Code Flash (default, inside MCU group \u2014 IVI OS firmware and application code), Data Flash (default, inside MCU group \u2014 calibration, config NVM, user settings), Keys (default, inside MCU group \u2014 TLS/OTA signing keys, Bluetooth link keys), Certificates (default, inside MCU group \u2014 X.509 TLS client cert, secure boot cert), Debug Port (default, inside MCU group \u2014 JTAG/UART, must be disabled in production), User Profiles (data node, child of Infotainment Head Unit \u2014 PII: driver preferences, contacts, call history), Navigation Data (data node, child of Infotainment Head Unit \u2014 GPS routes, POI history, location logs), Vehicle CAN Bus (external, default), Smartphone (external, default), Cloud Backend (external, default), OBD-II Port (external, default). The 'Infotainment Head Unit' is the root group container; inside it are Display Unit, Audio Amplifier, Bluetooth Module, Wi-Fi Module, USB Interface, Microphone, Rear Camera Input, CAN Transceiver, User Profiles (data), Navigation Data (data), and an unnamed MCU subgroup containing Code Flash, Data Flash, Keys, Certificates, and Debug Port. Edges: I2C (MCU group\u2194Display Unit), I2S (MCU group\u2194Audio Amplifier), HCI (MCU group\u2194Bluetooth Module), SDIO (MCU group\u2194Wi-Fi Module), USB2 (MCU group\u2194USB Interface), ADC_MIC (MCU group\u2194Microphone), MIPI_CSI (MCU group\u2194Rear Camera Input), CAN_IVI (MCU group\u2194CAN Transceiver), Vehicle_CAN (CAN Transceiver\u2194Vehicle CAN Bus), HTTPS (Wi-Fi Module\u2194Cloud Backend), BT_Profile (Bluetooth Module\u2194Smartphone), OBD_UDS (OBD-II Port\u2194CAN Transceiver)."
+}
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Infotainment Head Unit
+Type: group  IsAsset: False
+Description: 
+Security Properties: Integrity, Authenticity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Display Unit
+Type: default  IsAsset: False
+Description: Touchscreen HMI connected to MCU via I2C/MIPI-DSI. Renders navigation, media, and system UI.
+Security Properties: Integrity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Audio Amplifier
+Type: default  IsAsset: False
+Description: Digital audio amplifier linked via I2S. Drives cabin speakers for media and navigation voice.
+Security Properties: Integrity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Bluetooth Module
+Type: default  IsAsset: False
+Description: BT 5.x / BLE module linked via HCI UART. Handles phone pairing, A2DP audio, HFP calls, PBAP contacts.
+Security Properties: Confidentiality, Integrity, Availability, Authenticity
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Wi-Fi Module
+Type: default  IsAsset: False
+Description: 802.11ac Wi-Fi connected via SDIO. Used for OTA updates, cloud API, and hotspot.
+Security Properties: Confidentiality, Integrity, Availability, Authenticity
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: USB Interface
+Type: default  IsAsset: False
+Description: USB 2.0 host port (USB2). Supports CarPlay, Android Auto, media playback, and firmware flashing.
+Security Properties: Confidentiality, Integrity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Microphone
+Type: default  IsAsset: False
+Description: Cabin microphone for voice commands and hands-free calls. Connects via ADC line-in.
+Security Properties: Confidentiality, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Rear Camera Input
+Type: default  IsAsset: False
+Description: Rear-view camera video feed received via MIPI-CSI2. Rendered on display during reverse.
+Security Properties: Integrity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: CAN Transceiver
+Type: default  IsAsset: False
+Description: CAN FD transceiver bridging the IVI MCU to the vehicle CAN bus for vehicle speed, warning signals.
+Security Properties: Integrity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: User Profiles
+Type: data  IsAsset: False
+Description: PII data: driver preferences, paired device list, call/contact history, seat/mirror settings.
+Security Properties: Confidentiality, Integrity, Non-repudiation
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Navigation Data
+Type: data  IsAsset: False
+Description: GPS route history, saved POIs, destination logs. High-privacy sensitivity per ISO 21434.
+Security Properties: Confidentiality, Integrity, Authenticity
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: (MCU)
+Type: group  IsAsset: False
+Description: 
+Security Properties: N/A
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Code Flash
+Type: default  IsAsset: False
+Description: IVI OS firmware (Linux/QNX) and application stack. Tamper causes compromised behaviour or bricking.
+Security Properties: Confidentiality, Integrity, Availability, Authenticity
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Data Flash
+Type: default  IsAsset: False
+Description: Non-volatile memory for calibration tables, variant coding, and persistent configuration.
+Security Properties: Integrity, Availability, Non-repudiation
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Keys
+Type: default  IsAsset: False
+Description: TLS private key, OTA package signing verification key, Bluetooth link keys. Stored in secure element / HSM.
+Security Properties: Confidentiality
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Certificates
+Type: default  IsAsset: False
+Description: X.509 TLS client certificate and secure boot certificate chain. Required for cloud and OTA authentication.
+Security Properties: Integrity, Authenticity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Debug Port
+Type: default  IsAsset: False
+Description: JTAG/UART debug interface. Must be disabled in production. Exposure enables full MCU memory read.
+Security Properties: Integrity, Availability, Authorization
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Vehicle CAN Bus
+Type: default  IsAsset: False
+Description: Vehicle-wide CAN FD backbone shared with other ECUs (BCM, ADAS, Cluster, etc.).
+Security Properties: Integrity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Smartphone
+Type: default  IsAsset: False
+Description: User's paired mobile device. Communicates over Bluetooth (HFP/A2DP/PBAP) and USB (CarPlay/Android Auto).
+Security Properties: N/A
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: Cloud Backend
+Type: default  IsAsset: False
+Description: OEM cloud services: OTA update server, telematics API, map updates, remote diagnostics.
+Security Properties: N/A
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfHead]: OBD-II Port
+Type: default  IsAsset: False
+Description: Physical diagnostic access port. Exposes UDS services on CAN. Must be access-controlled.
+Security Properties: N/A
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for Display Unit
+Affected Asset: Display Unit
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Availability for Display Unit
+Affected Asset: Display Unit
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for Audio Amplifier
+Affected Asset: Audio Amplifier
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Availability for Audio Amplifier
+Affected Asset: Audio Amplifier
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Confidentiality for Bluetooth Module
+Affected Asset: Bluetooth Module
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for Bluetooth Module
+Affected Asset: Bluetooth Module
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Availability for Bluetooth Module
+Affected Asset: Bluetooth Module
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Authenticity for Bluetooth Module
+Affected Asset: Bluetooth Module
+Cyber Loss: loss of Authenticity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Confidentiality for Wi-Fi Module
+Affected Asset: Wi-Fi Module
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for Wi-Fi Module
+Affected Asset: Wi-Fi Module
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Availability for Wi-Fi Module
+Affected Asset: Wi-Fi Module
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Authenticity for Wi-Fi Module
+Affected Asset: Wi-Fi Module
+Cyber Loss: loss of Authenticity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Confidentiality for USB Interface
+Affected Asset: USB Interface
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for USB Interface
+Affected Asset: USB Interface
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Availability for USB Interface
+Affected Asset: USB Interface
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Confidentiality for Microphone
+Affected Asset: Microphone
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Availability for Microphone
+Affected Asset: Microphone
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for Rear Camera Input
+Affected Asset: Rear Camera Input
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Availability for Rear Camera Input
+Affected Asset: Rear Camera Input
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for CAN Transceiver
+Affected Asset: CAN Transceiver
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Availability for CAN Transceiver
+Affected Asset: CAN Transceiver
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Confidentiality for User Profiles
+Affected Asset: User Profiles
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for User Profiles
+Affected Asset: User Profiles
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Non-repudiation for User Profiles
+Affected Asset: User Profiles
+Cyber Loss: loss of Non-repudiation
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Confidentiality for Navigation Data
+Affected Asset: Navigation Data
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for Navigation Data
+Affected Asset: Navigation Data
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Authenticity for Navigation Data
+Affected Asset: Navigation Data
+Cyber Loss: loss of Authenticity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Confidentiality for Code Flash
+Affected Asset: Code Flash
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for Code Flash
+Affected Asset: Code Flash
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Availability for Code Flash
+Affected Asset: Code Flash
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Authenticity for Code Flash
+Affected Asset: Code Flash
+Cyber Loss: loss of Authenticity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for Data Flash
+Affected Asset: Data Flash
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Availability for Data Flash
+Affected Asset: Data Flash
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Non-repudiation for Data Flash
+Affected Asset: Data Flash
+Cyber Loss: loss of Non-repudiation
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Confidentiality for Keys
+Affected Asset: Keys
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for Certificates
+Affected Asset: Certificates
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Authenticity for Certificates
+Affected Asset: Certificates
+Cyber Loss: loss of Authenticity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Availability for Certificates
+Affected Asset: Certificates
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for Debug Port
+Affected Asset: Debug Port
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Availability for Debug Port
+Affected Asset: Debug Port
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Authorization for Debug Port
+Affected Asset: Debug Port
+Cyber Loss: loss of Authorization
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for I2C
+Affected Asset: None
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for I2S
+Affected Asset: None
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Confidentiality for HCI
+Affected Asset: None
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Authenticity for HCI
+Affected Asset: None
+Cyber Loss: loss of Authenticity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Confidentiality for SDIO
+Affected Asset: None
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Confidentiality for USB2
+Affected Asset: None
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for CAN_IVI
+Affected Asset: None
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Integrity for Vehicle_CAN
+Affected Asset: None
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Confidentiality for HTTPS
+Affected Asset: None
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Authenticity for HTTPS
+Affected Asset: None
+Cyber Loss: loss of Authenticity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfHead]:
+Threat/Weakness: DS due to the loss of Confidentiality for BT_Profile
+Affected Asset: None
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfHead]: Malicious OTA Firmware Update via Wi-Fi
+Description: An attacker performs a man-in-the-middle attack over the Wi-Fi link (HTTPS channel) and injects a malicious firmware image into Code Flash. Because code signing verification (Certificates) is bypassed or the signing key (Keys) is compromised, the IVI MCU executes attacker-controlled firmware, enabling persistent access to the vehicle CAN bus and full cabin sensor control.
+Cyber Losses: loss of Integrity (Code Flash), loss of Authenticity (Certificates), loss of Confidentiality (Keys)
+Impact Ratings: Financial Impact: Major  Safety Impact: Major  Operational Impact: Major  Privacy Impact: Moderate
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfHead]: User PII Exfiltration via Bluetooth
+Description: An attacker exploits a Bluetooth pairing vulnerability (e.g., BIAS or KNOB attack) to impersonate a trusted device. By gaining authenticated HCI-level access, the attacker reads PBAP contact list, call history, and User Profiles stored in Data Flash, exfiltrating sensitive PII over the BT_Profile link to the attacker's device.
+Cyber Losses: loss of Confidentiality (User Profiles), loss of Confidentiality (Bluetooth Module)
+Impact Ratings: Financial Impact: Minor  Safety Impact: Negligible  Operational Impact: Minor  Privacy Impact: Severe
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfHead]: GPS Navigation Data Spoofing
+Description: An attacker injects falsified GPS NMEA sentences through an SDR-based GPS spoofer, causing Navigation Data stored in Data Flash to record fictitious routes. The manipulated navigation data misleads the driver to wrong or dangerous destinations. Per ISO 21434 Clause 15, this constitutes a loss of Authenticity and Integrity for location-based assets.
+Cyber Losses: loss of Authenticity (Navigation Data), loss of Integrity (Navigation Data)
+Impact Ratings: Financial Impact: Minor  Safety Impact: Major  Operational Impact: Moderate  Privacy Impact: Moderate
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfHead]: Malware Injection via USB Interface
+Description: A malicious USB device presents as a trusted CarPlay/Android Auto accessory. It exploits a USB stack parsing vulnerability (CWE-119) to overflow a buffer in the IVI OS running from Code Flash, achieving arbitrary code execution. The malware persists in Data Flash and may open a reverse tunnel to the CAN bus via the CAN Transceiver.
+Cyber Losses: loss of Integrity (USB Interface), loss of Integrity (Code Flash), loss of Integrity (Data Flash)
+Impact Ratings: Financial Impact: Moderate  Safety Impact: Moderate  Operational Impact: Major  Privacy Impact: Moderate
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfHead]: Microphone Eavesdropping (Cabin Audio Intercept)
+Description: A compromised IVI application or a software implant delivered via OTA continuously streams Microphone ADC input to a remote attacker over the Wi-Fi/HTTPS channel. The driver's private conversations, phone calls, and voice commands are captured without consent — a severe privacy violation under GDPR and ISO 21434 impact categories.
+Cyber Losses: loss of Confidentiality (Microphone), loss of Confidentiality (Wi-Fi Module)
+Impact Ratings: Financial Impact: Minor  Safety Impact: Negligible  Operational Impact: Minor  Privacy Impact: Severe
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfHead]: CAN Bus Injection via IVI Gateway
+Description: The IVI's CAN Transceiver is connected to the vehicle CAN bus shared with safety-critical ECUs (BCM, ADAS, Cluster). An attacker who has compromised IVI Code Flash injects spoofed CAN frames (e.g., fake wheel speed messages, door lock commands) onto the Vehicle CAN Bus. This can manipulate other ECU behaviour and compromise vehicle safety — directly violating SFOP Safety and Operational impact categories.
+Cyber Losses: loss of Integrity (CAN Transceiver), loss of Integrity (Vehicle CAN Bus)
+Impact Ratings: Financial Impact: Major  Safety Impact: Severe  Operational Impact: Severe  Privacy Impact: Minor
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfHead]: Debug Port Exploitation for Key Extraction
+Description: An attacker with physical access connects a JTAG debugger to the exposed Debug Port. With the debug interface active (or improperly locked), full MCU memory can be read, exposing Keys (TLS private keys, OTA signing keys, Bluetooth link keys) and Certificates stored in the secure element / HSM. This enables offline decryption of past sessions and forging of OTA packages.
+Cyber Losses: loss of Authorization (Debug Port), loss of Confidentiality (Keys), loss of Integrity (Certificates)
+Impact Ratings: Financial Impact: Major  Safety Impact: Moderate  Operational Impact: Major  Privacy Impact: Major
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfHead]: Rear Camera Feed Substitution
+Description: An attacker injects a falsified MIPI-CSI2 video stream onto the Rear Camera Input using a hardware interposer or by exploiting an in-vehicle Ethernet/CSI bridge. The Display Unit shows a manipulated or frozen rear view during reversing, creating a dangerous blind spot. Loss of Integrity of the camera feed constitutes a Safety impact at Severe level.
+Cyber Losses: loss of Integrity (Rear Camera Input), loss of Availability (Display Unit)
+Impact Ratings: Financial Impact: Minor  Safety Impact: Severe  Operational Impact: Major  Privacy Impact: Negligible
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfHead]: Wi-Fi MITM — Cloud API Token Theft
+Description: An attacker sets up a rogue Wi-Fi access point with the same SSID as a known network. The IVI auto-connects and performs TLS certificate validation using stored Certificates; if certificate pinning is absent or Certificates are compromised, the attacker performs TLS termination and steals Cloud Backend API tokens and session credentials transmitted over HTTPS.
+Cyber Losses: loss of Confidentiality (Wi-Fi Module), loss of Authenticity (Certificates)
+Impact Ratings: Financial Impact: Moderate  Safety Impact: Negligible  Operational Impact: Moderate  Privacy Impact: Major
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfHead]: OBD-II Diagnostic Abuse — Unauthorised UDS Service Execution
+Description: An attacker connects to the physical OBD-II Port with a standard ELM327 adapter and issues UDS service 0x27 (Security Access) without a valid seed-key challenge. A weak or unprotected diagnostic session allows reading of Data Flash calibration tables, erasing diagnostic trouble codes (DTCs), or invoking ECU reset commands — violating Integrity and Authorization of the CAN Transceiver and Data Flash assets.
+Cyber Losses: loss of Integrity (Data Flash), loss of Integrity (CAN Transceiver)
+Impact Ratings: Financial Impact: Moderate  Safety Impact: Minor  Operational Impact: Major  Privacy Impact: Minor
+---
+
+[REPORTS_DB | hierarchy_summary]
+Architecture Hierarchy for [InfHead]:
+  TOP: Infotainment Head Unit (type:group)
+  TOP: Vehicle CAN Bus (type:default)
+  TOP: Smartphone (type:default)
+  TOP: Cloud Backend (type:default)
+  TOP: OBD-II Port (type:default)
+  Infotainment Head Unit contains: Display Unit (type:default), Audio Amplifier (type:default), Bluetooth Module (type:default), Wi-Fi Module (type:default), USB Interface (type:default), Microphone (type:default), Rear Camera Input (type:default), CAN Transceiver (type:default), User Profiles (type:data), Navigation Data (type:data), (MCU) (type:group)
+  (MCU) contains: Code Flash (type:default), Data Flash (type:default), Keys (type:default), Certificates (type:default), Debug Port (type:default)
+---
+
+[REPORTS_DB | edge_summary]
+Edge connections for [InfHead]:
+  I2C: (MCU) ↔ Display Unit (properties: Integrity)
+  I2S: (MCU) ↔ Audio Amplifier (properties: Integrity)
+  HCI: (MCU) ↔ Bluetooth Module (properties: Confidentiality, Integrity, Authenticity)
+  SDIO: (MCU) ↔ Wi-Fi Module (properties: Confidentiality, Integrity, Authenticity)
+  USB2: (MCU) ↔ USB Interface (properties: Confidentiality, Integrity)
+  ADC_MIC: (MCU) ↔ Microphone (properties: Confidentiality)
+  MIPI_CSI: (MCU) ↔ Rear Camera Input (properties: Integrity)
+  CAN_IVI: (MCU) ↔ CAN Transceiver (properties: Integrity, Authenticity)
+  Vehicle_CAN: CAN Transceiver ↔ Vehicle CAN Bus (properties: Integrity, Availability)
+  HTTPS: Wi-Fi Module ↔ Cloud Backend (properties: Confidentiality, Integrity, Authenticity)
+  BT_Profile: Bluetooth Module ↔ Smartphone (properties: Confidentiality, Authenticity)
+  OBD_UDS: OBD-II Port ↔ CAN Transceiver (properties: Integrity)
+---
+
+[ATM]
+ATM Technique: Gather Target Information – from Vehicle
+Description: The adversary gathers information by targeting a vehicle’s hardware and/or communication environment. Hardware includes physical components, such as Electronic Control Units (ECUs), sensors, FPGAs, microcontrollers, or SoCs. The communication environment involves any physical communication and wireless communication involving the vehicle. Examples include CAN, LIN, Bluetooth, RF, Cellular, etc. Communications with external infrastructure are included, such as Over-The-Air (OTA), cloud services, back-end infrastructure, charging stations, fleet management systems, and telematics platforms. Specific information might include hardware details such as firmware details, communication interfaces, and hardware vulnerabilities. communication details such as network details, protocols used, internal vehicle services, communication to external services interacting with the vehicle, and vulnerabilities within services.
+---
+
+[ATM]
+ATM Technique: Aftermarket, Customer, or Dealer Equipment
+Description: Adversaries may take use aftermarket, customer, or dealer equipment as an initial access point into the vehicle.&nbsp;Paired devices, such as a customer's smart phone, often possess valid credentials for the vehicle’s Bluetooth and Wi-Fi networks, access to phone projection technologies, and may be connected to USB ports. Dealer test and diagnostic tools are typically connected to a vehicle's OBD-II port, which may provide direct access to a vehicle network; these tools may also have access to credentials for running diagnostic procedures. Third-party OBD-II accessories, such as insurance dongles and fleet management dongles, may introduce a wireless ingress points to the vehicle through its OBD-II port.  These devices may also be used as a post-exploitation command-and-control mechanism, and to exfiltrate data from a vehicle.
+---
+
+[MITRE_ICS]
+MITRE Technique: I/O Module Discovery
+Description: Adversaries may use input/output (I/O) module discovery to gather key information about a control system device. An I/O module is a device that allows the control system device to either receive or send signals to other devices. These signals can be analog or digital, and may support a number of different protocols. Devices are often able to use attachable I/O modules to increase the number of inputs and outputs that it can utilize. An adversary with access to a device can use native device functions to enumerate I/O modules that are connected to the device. Information regarding the I/O modules can aid the adversary in understanding related control processes.
+---
+
+[CWE]
+CWE-451: User Interface (UI) Misrepresentation of Critical Information
+Description: The user interface (UI) does not properly represent critical information to the user, allowing the information - or its source - to be obscured or spoofed. This is often a component in phishing attacks.
+---
+
+[CWE]
+CWE-1111: Incomplete I/O Documentation
+Description: The product's documentation does not adequately define inputs,
+					outputs, or system/software interfaces.
+---
+
+[CWE]
+CWE-1097: Persistent Storable Data Element without Associated Comparison Control Element
+Description: The product uses a storable data element that does not have
+					all of the associated functions or methods that are necessary to support
+					comparison.
+---
+
+[CWE]
+CWE-1256: Improper Restriction of Software Interfaces to Hardware Features
+Description: The product provides software-controllable
+			device functionality for capabilities such as power and
+			clock management, but it does not properly limit
+			functionality that can lead to modification of
+			hardware memory or register bits, or the ability to
+			observe physical side channels.
+---
+
+[ATM]
+ATM Technique: Access personal data
+Description: An adversary could attempt to access the vehicle occupants' personal data. This could include calendar entries, call logs, contact lists, media playlists, or notifications (including SMS messages, emails, etc.).  An adversary could also attempt to access occupants' personal data via an ECU’s application data for apps such as Facebook or Gmail.  The specific methods for accessing this information can vary from ECU to ECU, but generally include the use of the standard operating system APIs, or by directly accessing application files. Some of these approaches may require elevated privileges.  This technique’s description was adapted from 5 techniques from the MITRE ATT&amp;CK for Mobile Matrix:  Access Calendar Entries ,  Access Call Log ,  Access Contact List , and  Access Notifications .
+---
+
+[MITRE_ICS]
+MITRE Technique: Graphical User Interface
+Description: Adversaries may attempt to gain access to a machine via a Graphical User Interface (GUI) to enhance execution capabilities. Access to a GUI allows a user to interact with a computer in a more visual manner than a CLI. A GUI allows users to move a cursor and click on interface objects, with a mouse and keyboard as the main input devices, as opposed to just using the keyboard.
+
+If physical access is not an option, then access might be possible via protocols such as VNC on Linux-based and Unix-based operating systems, and RDP on Windows operating systems. An adversary can use this access to execute programs and applications on the target machine.
+---
+
+[CWE]
+CWE-317: Cleartext Storage of Sensitive Information in GUI
+Description: The product stores sensitive information in cleartext within the GUI.
+---
+
+[ATM]
+ATM Technique: Physical Modification
+Description: The adversary can make physical modifications to the vehicle’s ECUs, wiring harnesses, and can replace ECUs.  Some ECUs possess physical debug interfaces that are not exposed outside their enclosures. With sufficient time, an adversary can partially disassemble the vehicle to obtain physical access to these ECUs, remove their enclosures, and connect or solder cables to access these debug interfaces.  Direct physical access can also be used by an adversary to attempt different types of glitching attacks, side channel attacks, memory removal, reprogramming, and replacement, as well as others.  To gain access to a vehicle an adversary could replace an ECU with one they have modified ahead of time (e.g., a modified service or junkyard part).
+---
+
+[CWE]
+CWE-448: Obsolete Feature in UI
+Description: A UI function is obsolete and the product does not warn the user.
+---
+
+[ATM]
+ATM Technique: Gather Target Information – from Other
+Description: The adversary gathers information by directly targeting sources that do not involve the vehicle and its services. Targeting organizations are included, such OEMs, suppliers, service providers, and dealerships. This may involve physically breaching an organization’s premises, infiltrating networks, or exploiting personnel with privileged access. Other accessible sources include anything in the surface web and dark web. Specific information might include manuals, breach reports, engineering data (e.g., architecture, design, and schematics), and technical data sheets related to vehicles.
+---
+
+[ATM]
+ATM Technique: Exploit Co-Located Computing Device for Privilege Escalation
+Description: Adversaries may be able to leverage their access on one of an ECU’s computing devices to gain control of another computing device on the same ECU. For example, it may be possible for a compromised USB controller or Wi-Fi/Bluetooth chip to gain control of the operating system running on a separate chip but still part of the same ECU.
+---
+
+[CAPEC]
+CAPEC-634: Probe Audio and Video Peripherals
+Description: The adversary exploits the target system's audio and video functionalities through malware or scheduled tasks. The goal is to capture sensitive information about the target for financial, personal, political, or other gains which is accomplished by collecting communication data between two parties via the use of peripheral devices (e.g. microphones and webcams) or applications with audio and video capabilities (e.g. Skype) on a system.
+---
+
+[CWE]
+CWE-1057: Data Access Operations Outside of Expected Data Manager Component
+Description: The product uses a dedicated, central data manager component as required by design, but it contains code that performs data-access operations that do not use this data manager.
+---
+
+[CWE]
+CWE-915: Improperly Controlled Modification of Dynamically-Determined Object Attributes
+Description: The product receives input from an upstream component that specifies multiple attributes, properties, or fields that are to be initialized or updated in an object, but it does not properly control which attributes can be modified.
+---
+
+[CWE]
+CWE-797: Only Filtering Special Elements at an Absolute Position
+Description: The product receives data from an upstream component, but only accounts for special elements at an absolute position (e.g. "byte number 10"), thereby missing remaining special elements that may exist before sending it to a downstream component.
+---
+
+[CAPEC]
+CAPEC-646: Peripheral Footprinting
+Description: Adversaries may attempt to obtain information about attached peripheral devices and components connected to a computer system. Examples may include discovering the presence of iOS devices by searching for backups, analyzing the Windows registry to determine what USB devices have been connected, or infecting a victim system with malware to report when a USB device has been connected. This may allow the adversary to gain additional insight about the system or network environment, which may be useful in constructing further attacks.
+---
+
+[CWE]
+CWE-1061: Insufficient Encapsulation
+Description: The product does not sufficiently hide the internal representation and implementation details of data or methods, which might allow external components or modules to modify data unexpectedly, invoke unexpected functionality, or introduce dependencies that the programmer did not intend.
+---
+
+
+-------------------------------------------------
+
+ARCHITECTURE RULES
+
+The architecture uses a nested group/container hierarchy:
+
+1. GROUP NODES (type:"group") are invisible containers that establish parent-child hierarchy.
+   - The top-level system (e.g. "Battery Management System") is a group with parentId:null.
+   - Sub-systems (e.g. MCU block) are groups nested inside the top-level group.
+   - Group nodes have a dashed-border style, NOT a solid backgroundColor.
+
+2. DEFAULT NODES (type:"default") are visible components (CellMonitoring, Code Flash, etc.).
+   - Each default node has a parentId pointing to its containing group.
+   - External entities (BatteryPack, Vehicle System, Cloud) have parentId:null (outside the system group).
+
+3. DATA NODES (type:"data") are small circular data items (SoC, SoH).
+   - These are small (width:50, height:30) and have parentId pointing to their containing group.
+
+4. PARENTID HIERARCHY: Every node must have a parentId.
+   - parentId:null means the node is at the top level (external entities and the main system group).
+   - Components inside the system group have parentId = the system group's id.
+   - Components inside a sub-group (e.g. MCU) have parentId = the sub-group's id.
+
+5. EDGES: Each edge must have a "data.label" that is a SHORT protocol/interface name:
+   - CORRECT: "SPI", "CAN1", "CAN2", "IO_PINS", "Vehicle CAN", "Internet", "ICD_Data"
+   - WRONG: "Measurements", "CAN Communication", "Controls Power Flow", "Sends data to"
+
+6. COLOR CODING: Assign distinct backgroundColor values by component role:
+   - Monitoring/sensing: yellow shades (#e6df19, #accd32)
+   - I/O interfaces: beige/tan (#e2dfc1)
+   - Flash/storage: purple (#ccc8ea)
+   - Security (Keys, Certificates): green (#51dc1e, #62c945)
+   - Debug: red/orange (#e26a6a)
+   - Data items (SoC, SoH): light yellow (#e3e896)
+   - External/generic: gray (#dadada)
+
+-------------------------------------------------
+
+TASK
+
+1. Identify the architecture of the requested system (use the AUTHORITATIVE ASSET LIST if provided).
+2. Generate assets that belong strictly to the TARGET SYSTEM — no others.
+3. Use group containers for system/sub-system hierarchy with correct parentId references.
+4. Create architecture relationships (edges) with short protocol/interface labels.
+5. Generate realistic cybersecurity damage scenarios referencing only the generated assets.
+6. For each damage scenario derive an Impact Rating using SFOP categories.
+
+-------------------------------------------------
+
+IMPACT RATING SCALE
+
+For every damage scenario derive cyber losses using SFOP categories:
+Safety | Financial | Operational | Privacy
+
+For each cyber loss assign: Negligible | Minor | Moderate | Major | Severe
+Then derive an overall impact rating based on the highest impact.
+
+-------------------------------------------------
+
+STRICT OUTPUT FORMAT
+
+Return ONLY valid JSON. Do not include explanations, markdown fences, or prose.
+Start the response with '{'.
+
+Return JSON exactly in this structure (showing all three node types):
+
+{
+ "assets":{
+   "_id":"",
+   "user_id":"",
+   "model_id":"",
+   "template":{
+      "nodes":[
+         {
+           "id":"<system-group-uuid>",
+           "type":"group",
+           "parentId":null,
+           "data":{
+             "label":"System Name",
+             "nodeCount":7,
+             "style":{"background":"rgba(33,150,243,0.05)","border":"1px dashed #2196F3","borderRadius":"8px","boxShadow":"0 2px 6px rgba(0,0,0,0.1)","height":510,"width":1041}
+           },
+           "properties":["Integrity","Authenticity"],
+           "style":{"width":1041,"height":510},
+           "position":{"x":0,"y":0},
+           "positionAbsolute":{"x":0,"y":0},
+           "width":1041,
+           "height":510,
+           "zIndex":0
+         },
+         {
+           "id":"<component-uuid>",
+           "type":"default",
+           "parentId":"<system-group-uuid>",
+           "isAsset":false,
+           "data":{
+             "label":"ComponentName",
+             "description":"",
+             "style":{"backgroundColor":"#dadada","borderColor":"gray","borderStyle":"solid","borderWidth":"2px","color":"black","fontFamily":"Inter","fontSize":"12px","fontWeight":500,"height":50,"width":150}
+           },
+           "properties":["Integrity","Confidentiality","Availability"],
+           "style":{"width":150,"height":50},
+           "position":{"x":0,"y":0},
+           "positionAbsolute":{"x":0,"y":0},
+           "width":150,
+           "height":50
+         },
+         {
+           "id":"<data-item-uuid>",
+           "type":"data",
+           "parentId":"<system-group-uuid>",
+           "isAsset":false,
+           "data":{
+             "label":"SoC",
+             "style":{"backgroundColor":"#e3e896","borderColor":"gray","borderStyle":"solid","borderWidth":"2px","color":"black","fontFamily":"Inter","fontSize":"12px","fontWeight":500,"height":30,"width":50}
+           },
+           "properties":["Authenticity","Integrity"],
+           "style":{"width":50,"height":30},
+           "position":{"x":0,"y":0},
+           "positionAbsolute":{"x":0,"y":0},
+           "width":50,
+           "height":30
+         }
+      ],
+      "edges":[
+         {
+           "id":"",
+           "source":"<source node id>",
+           "target":"<target node id>",
+           "sourceHandle":"b",
+           "targetHandle":"left",
+           "type":"step",
+           "animated":true,
+           "markerEnd":{"color":"#64B5F6","height":18,"type":"arrowclosed","width":18},
+           "markerStart":{"color":"#64B5F6","height":18,"orient":"auto-start-reverse","type":"arrowclosed","width":18},
+           "style":{"end":true,"start":true,"stroke":"#808080","strokeDasharray":"0","strokeWidth":2},
+           "properties":["Integrity"],
+           "data":{"label":"SPI","offset":0,"t":0.5}
+         }
+      ]
+   }
+ },
+ "damage_scenarios":{
+   "_id":"",
+   "model_id":"",
+   "type":"damage",
+   "Derivations":[
+      {
+        "id":"","nodeId":"","task":"Threat Analysis",
+        "name":"","loss":"","asset":"",
+        "damage_scene":"","isChecked":false
+      }
+   ],
+   "Details":[
+      {
+        "Name":"",
+        "Description":"",
+        "cyberLosses":[{"id":"","name":"","node":"","nodeId":"","isSelected":true,"is_risk_added":false}],
+        "impacts":{"Financial Impact":"","Safety Impact":"","Operational Impact":"","Privacy Impact":""},
+        "key":1,
+        "_id":""
+      }
+   ]
+ }
+}
+
+-------------------------------------------------
+
+CONSTRAINTS
+
+- Generate ONLY the assets listed in the AUTHORITATIVE ASSET LIST (if provided), or assets strictly belonging to the TARGET SYSTEM.
+- Do NOT add components from other ECU systems.
+- Do NOT fabricate sub-modules, protocols, or external entities unless they appear in the AUTHORITATIVE ASSET LIST or REPORTS_DB reference.
+- Use group containers (type:"group") for system and sub-system boundaries. Use type:"data" for small data nodes.
+- Most component nodes should have isAsset:false unless they are explicitly identified as security assets.
+- Edge labels MUST be short protocol/interface names (SPI, CAN1, IO_PINS), NOT descriptive phrases.
+- Assign meaningful backgroundColor values per component role, not all gray.
+- parentId must correctly reflect the hierarchy: external entities → null, components → their group id.
+- Damage scenarios must reference valid nodeId values from the nodes above.
+- Impact rating must be derived from the damage scenario context.
+- Use threat reasoning from CWE, MITRE, CAPEC, ATM — not from REPORTS_DB examples.
+- Fewer correct components are better than many speculative ones.
+- Do NOT include "position" or "positionAbsolute" fields in any node — these are computed automatically after generation.
+
+Return JSON only. Start the response with '{'.
