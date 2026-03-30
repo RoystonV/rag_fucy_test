@@ -1,0 +1,931 @@
+
+You are an automotive cybersecurity analyst performing Threat Analysis and Risk Assessment (TARA)
+according to ISO/SAE 21434 Clause 15.
+
+Your task is to generate a system architecture model and cybersecurity damage scenarios
+for the requested automotive ECU or system.
+
+STRICT KNOWLEDGE RULES
+
+- Use ONLY information relevant to the TARGET SYSTEM specified in the SYSTEM REQUEST below.
+- Do NOT invent assets or components that are not part of the targeted system.
+- If an AUTHORITATIVE ASSET LIST is provided in the request, generate EXACTLY those assets — no additions, no omissions.
+  All damage scenarios, derivations, and edges must reference ONLY those listed assets.
+- REPORTS_DB entries show real reference architectures. If the TARGET SYSTEM matches a REPORTS_DB system
+  (e.g. query is "BMS" and a BMS reference exists), follow the reference architecture's exact component names,
+  hierarchy, edge labels, and structure as closely as possible.
+- CRITICAL — FULL REFERENCE ARCHITECTURE BLOCK: If the context contains a block starting with
+  "=== FULL REFERENCE ARCHITECTURE: <ModelName> ===" this is the COMPLETE authoritative architecture for
+  that system. You MUST reproduce ALL nodes (with their exact labels, types, parentId relationships, colors
+  and sizes), ALL edges (with their exact protocol labels, source/target relationships), ALL damage
+  derivations, and ALL damage details exactly as specified in that block. Do NOT omit any component,
+  edge, or damage scenario listed there. This block takes precedence over all other instructions.
+- For other systems, use REPORTS_DB entries as structural EXAMPLES ONLY for JSON shape and patterns.
+- Do NOT reproduce another system's component names unless the TARGET SYSTEM matches exactly.
+- Use realistic automotive architecture relevant to the TARGET SYSTEM only.
+- Prefer knowledge retrieved from cybersecurity context (ISO 21434, CWE, CAPEC, MITRE, ATM).
+- If information is missing, infer only common industry-standard components for the specified system.
+
+NO UNNECESSARY COMPONENTS RULE (CRITICAL for automotive systems):
+- Every node you generate must have a clear justification — it must appear in the AUTHORITATIVE ASSET LIST,
+  the REPORTS_DB reference, or be a universally standard component for that specific automotive ECU type.
+- Do NOT add speculative sub-modules, buses, protocols, or external entities that are not explicitly called
+  out in the asset list or reference architecture.
+- Fewer, accurate components are ALWAYS better than many uncertain ones.
+- This rule is especially important for systems with NO REPORTS_DB reference: in that case, DO NOT
+  invent architecture beyond what is explicitly stated in the AUTHORITATIVE ASSET LIST.
+
+
+Threat reasoning must follow:
+CWE (root weakness) → CAPEC (attack pattern) → MITRE ATT&CK technique → ATM relevance → Damage Scenario
+
+-------------------------------------------------
+
+SYSTEM REQUEST:
+Infotainment Head Unit
+
+AUTHORITATIVE ASSET LIST (from system dataecu specification) — generate ONLY these assets, no others:
+Assets: Head Unit (external, default), Touch Display (default), Audio System (default), USB Port (external, default), Bluetooth Module (external, default), WiFi Module (external, default), GPS Module (default), Telematics Control Unit (external, default), Smartphone (external, default), Cloud Backend (external, default), Vehicle Network (external, default), CAN Transceiver (default), Ethernet Interface (default), Storage (default), SoC (default), Code Flash (default, inside SoC group), Data Flash (default, inside SoC group), Secure Storage (default, inside SoC group), Keys (default, inside SoC group), Certificates (default, inside SoC group), Bootloader (default, inside SoC group), Debug Port (default, inside SoC group), User Profiles (data node), Credentials (data node), Navigation Data (data node), Media Data (data node), App Data (data node), OTA Package (data node). The 'Infotainment ECU' is a group container; inside it is an SoC subgroup containing Code Flash, Data Flash, Secure Storage, Keys, Certificates, Bootloader, and Debug Port. Edges: Display Interface (Head Unit↔Touch Display), Audio Output (Head Unit↔Audio System), USB Data (USB Port↔Head Unit), Bluetooth Link (Bluetooth Module↔Smartphone), WiFi Internet (WiFi Module↔Cloud Backend), Telematics Link (Head Unit↔Telematics Control Unit), Internet Access (Telematics Control Unit↔Cloud Backend), Ethernet (Head Unit↔Ethernet Interface), CAN Internal (Head Unit↔CAN Transceiver), Vehicle CAN (CAN Transceiver↔Vehicle Network), GPS Signal (GPS Module↔Head Unit), App Projection (Smartphone↔Head Unit), Storage Access (SoC↔Storage), OTA Update (Cloud Backend↔Head Unit).
+
+All threat analysis, damage scenarios, and edges must reference ONLY the assets listed above. Do NOT add any other components.
+
+CYBERSECURITY KNOWLEDGE CONTEXT:
+
+[REPORTS_DB | full_file]
+=== FULL REFERENCE ARCHITECTURE: InfotainmentHeadUnit ===
+{
+  "model": "InfotainmentHeadUnit",
+  "nodes": [
+    {
+      "id": "infotainment-ecu-group",
+      "type": "group",
+      "parentId": null,
+      "isAsset": false,
+      "label": "Infotainment Head Unit",
+      "properties": [
+        "Integrity",
+        "Authenticity"
+      ],
+      "height": 510,
+      "width": 1041
+    },
+    {
+      "id": "head-unit-os",
+      "type": "default",
+      "parentId": "infotainment-ecu-group",
+      "isAsset": false,
+      "label": "Head unit OS",
+      "properties": [
+        "Integrity",
+        "Confidentiality",
+        "Availability"
+      ],
+      "description": "The operating system of the infotainment head unit.",
+      "backgroundColor": "#dadada",
+      "height": 50,
+      "width": 150
+    },
+    {
+      "id": "bluetooth-wifi-stacks",
+      "type": "default",
+      "parentId": "infotainment-ecu-group",
+      "isAsset": false,
+      "label": "Bluetooth/Wi-Fi stacks",
+      "properties": [
+        "Integrity",
+        "Confidentiality",
+        "Availability"
+      ],
+      "description": "Software stacks for Bluetooth and Wi-Fi communication.",
+      "backgroundColor": "#dadada",
+      "height": 50,
+      "width": 150
+    },
+    {
+      "id": "usb-driver-stack",
+      "type": "default",
+      "parentId": "infotainment-ecu-group",
+      "isAsset": false,
+      "label": "USB driver stack",
+      "properties": [
+        "Integrity",
+        "Confidentiality",
+        "Availability"
+      ],
+      "description": "Driver stack for USB interface.",
+      "backgroundColor": "#dadada",
+      "height": 50,
+      "width": 150
+    },
+    {
+      "id": "telephony-stacks",
+      "type": "default",
+      "parentId": "infotainment-ecu-group",
+      "isAsset": false,
+      "label": "Telephony stacks",
+      "properties": [
+        "Integrity",
+        "Confidentiality",
+        "Availability"
+      ],
+      "description": "Software stacks for telephony communication.",
+      "backgroundColor": "#dadada",
+      "height": 50,
+      "width": 150
+    },
+    {
+      "id": "application-layer-code",
+      "type": "default",
+      "parentId": "infotainment-ecu-group",
+      "isAsset": false,
+      "label": "Application layer code",
+      "properties": [
+        "Integrity",
+        "Confidentiality",
+        "Availability"
+      ],
+      "description": "The application software running on the head unit.",
+      "backgroundColor": "#dadada",
+      "height": 50,
+      "width": 150
+    },
+    {
+      "id": "navigation-data",
+      "type": "data",
+      "parentId": "infotainment-ecu-group",
+      "isAsset": true,
+      "label": "Navigation data",
+      "properties": [
+        "Authenticity",
+        "Integrity",
+        "Confidentiality"
+      ],
+      "backgroundColor": "#e3e896",
+      "height": 30,
+      "width": 50
+    },
+    {
+      "id": "pii-user-profiles",
+      "type": "data",
+      "parentId": "infotainment-ecu-group",
+      "isAsset": true,
+      "label": "PII (User profiles)",
+      "properties": [
+        "Authenticity",
+        "Integrity",
+        "Confidentiality"
+      ],
+      "backgroundColor": "#e3e896",
+      "height": 30,
+      "width": 50
+    },
+    {
+      "id": "can-gateway",
+      "type": "default",
+      "parentId": "infotainment-ecu-group",
+      "isAsset": false,
+      "label": "CAN gateway",
+      "properties": [
+        "Integrity",
+        "Confidentiality",
+        "Availability"
+      ],
+      "description": "Gateway for CAN bus communication.",
+      "backgroundColor": "#dadada",
+      "height": 50,
+      "width": 150
+    },
+    {
+      "id": "audio-amplifier",
+      "type": "default",
+      "parentId": "infotainment-ecu-group",
+      "isAsset": true,
+      "label": "Audio Amplifier",
+      "properties": [
+        "Integrity",
+        "Availability"
+      ],
+      "description": "Amplifies audio signals for speakers.",
+      "backgroundColor": "#e2dfc1",
+      "height": 50,
+      "width": 150
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "source": "head-unit-os",
+      "target": "infotainment-ecu-group",
+      "sourceHandle": "b",
+      "targetHandle": "left",
+      "protocol": "OS Interface",
+      "properties": [
+        "Integrity"
+      ]
+    },
+    {
+      "id": "edge-2",
+      "source": "bluetooth-wifi-stacks",
+      "target": "infotainment-ecu-group",
+      "sourceHandle": "b",
+      "targetHandle": "left",
+      "protocol": "COM Protocol",
+      "properties": [
+        "Integrity"
+      ]
+    },
+    {
+      "id": "edge-3",
+      "source": "usb-driver-stack",
+      "target": "infotainment-ecu-group",
+      "sourceHandle": "b",
+      "targetHandle": "left",
+      "protocol": "USB",
+      "properties": [
+        "Integrity"
+      ]
+    },
+    {
+      "id": "edge-4",
+      "source": "telephony-stacks",
+      "target": "infotainment-ecu-group",
+      "sourceHandle": "b",
+      "targetHandle": "left",
+      "protocol": "Cellular",
+      "properties": [
+        "Integrity"
+      ]
+    },
+    {
+      "id": "edge-5",
+      "source": "application-layer-code",
+      "target": "infotainment-ecu-group",
+      "sourceHandle": "b",
+      "targetHandle": "left",
+      "protocol": "App Interface",
+      "properties": [
+        "Integrity"
+      ]
+    },
+    {
+      "id": "edge-6",
+      "source": "navigation-data",
+      "target": "infotainment-ecu-group",
+      "sourceHandle": "b",
+      "targetHandle": "left",
+      "protocol": "NVM Access",
+      "properties": [
+        "Integrity"
+      ]
+    },
+    {
+      "id": "edge-7",
+      "source": "pii-user-profiles",
+      "target": "infotainment-ecu-group",
+      "sourceHandle": "b",
+      "targetHandle": "left",
+      "protocol": "NVM Access",
+      "properties": [
+        "Integrity"
+      ]
+    },
+    {
+      "id": "edge-8",
+      "source": "can-gateway",
+      "target": "infotainment-ecu-group",
+      "sourceHandle": "b",
+      "targetHandle": "left",
+      "protocol": "CAN",
+      "properties": [
+        "Integrity"
+      ]
+    },
+    {
+      "id": "edge-9",
+      "source": "audio-amplifier",
+      "target": "infotainment-ecu-group",
+      "sourceHandle": "b",
+      "targetHandle": "left",
+      "protocol": "Audio Out",
+      "properties": [
+        "Integrity"
+      ]
+    }
+  ],
+  "damage_derivations": [
+    {
+      "name": "CWE-225: General Information Management Problems -> CAPEC-27: Malicious File Loading -> MITRE ATT&CK T1018: Remote System Information Discovery -> ATM: Gather Target Information",
+      "asset": "USB driver stack",
+      "loss": "Malware propagation or data exfiltration via USB",
+      "damage_scene": "An attacker uses the USB interface to introduce malware or exfiltrate data from the infotainment system."
+    },
+    {
+      "name": "CWE-15: External Control of System or Configuration Setting -> CAPEC-28: Privilege Escalation -> MITRE ATT&CK T1548.003: Abuse Elevation Control Mechanism: Sudo and Operating System Specific Transfer Utilities -> ATM: Control of System",
+      "asset": "Head unit OS",
+      "loss": "Unauthorized modification of system settings",
+      "damage_scene": "An attacker exploits a vulnerability to gain external control over the infotainment system's configuration settings, potentially disabling safety features or altering critical parameters."
+    },
+    {
+      "name": "MITRE ATT&CK T1590.001: Research Attack Surface: Vulnerabilities -> ATM: Gather Target Information",
+      "asset": "Bluetooth/Wi-Fi stacks",
+      "loss": "Unauthorized information disclosure via Bluetooth",
+      "damage_scene": "An attacker uses Bluetooth to discover and gather information from connected devices or the infotainment system itself."
+    },
+    {
+      "name": "CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer -> CAPEC-13: Input Validation Deception -> MITRE ATT&CK T1190: Exploit Public-Facing Application -> ATM: Exploit Application",
+      "asset": "Application layer code",
+      "loss": "Application compromise leading to unauthorized access",
+      "damage_scene": "An attacker exploits a vulnerability in the application layer code to gain unauthorized access to system resources or data."
+    },
+    {
+      "name": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> CAPEC-29: Data Leakage -> MITRE ATT&CK T1552.001: Steal or Substitute Credentials: Plaintext Accesses and Information -> ATM: Data Exfiltration",
+      "asset": "PII (User profiles)",
+      "loss": "Disclosure of PII and user profiles",
+      "damage_scene": "An attacker accesses and exfiltrates sensitive user profile data, including personal identifiable information."
+    },
+    {
+      "name": "CWE-15: External Control of System or Configuration Setting -> CAPEC-28: Privilege Escalation -> MITRE ATT&CK T1071.001: Application Layer Protocol: Web Protocols -> ATM: Control of System",
+      "asset": "CAN gateway",
+      "loss": "Unauthorized CAN bus message injection",
+      "damage_scene": "An attacker exploits the CAN gateway to inject malicious CAN messages, potentially affecting vehicle control systems."
+    }
+  ],
+  "damage_details": [
+    {
+      "Name": "Malware Propagation via USB",
+      "Description": "An attacker uses the USB interface to introduce malware into the infotainment system, potentially spreading to other connected ECUs or exfiltrating data.",
+      "cyberLosses": [
+        {
+          "name": "Malware propagation or data exfiltration via USB",
+          "node": "USB driver stack"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Moderate",
+        "Safety Impact": "Minor",
+        "Operational Impact": "Moderate",
+        "Privacy Impact": "Moderate"
+      }
+    },
+    {
+      "Name": "Unauthorized Configuration Modification",
+      "Description": "An attacker exploits a vulnerability in the Head Unit OS to gain external control over the infotainment system's configuration settings, potentially altering critical parameters or disabling safety features.",
+      "cyberLosses": [
+        {
+          "name": "Unauthorized modification of system settings",
+          "node": "Head unit OS"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Major",
+        "Safety Impact": "Major",
+        "Operational Impact": "Major",
+        "Privacy Impact": "Minor"
+      }
+    },
+    {
+      "Name": "Bluetooth Information Disclosure",
+      "Description": "An attacker uses Bluetooth to discover and gather sensitive information from connected devices or the infotainment system, leading to unauthorized information disclosure.",
+      "cyberLosses": [
+        {
+          "name": "Unauthorized information disclosure via Bluetooth",
+          "node": "Bluetooth/Wi-Fi stacks"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Minor",
+        "Safety Impact": "Negligible",
+        "Operational Impact": "Minor",
+        "Privacy Impact": "Moderate"
+      }
+    },
+    {
+      "Name": "Application Compromise",
+      "Description": "An attacker exploits a vulnerability in the application layer code, gaining unauthorized access to system resources, data, or functionality.",
+      "cyberLosses": [
+        {
+          "name": "Application compromise leading to unauthorized access",
+          "node": "Application layer code"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Moderate",
+        "Safety Impact": "Minor",
+        "Operational Impact": "Moderate",
+        "Privacy Impact": "Moderate"
+      }
+    },
+    {
+      "Name": "PII and User Profile Disclosure",
+      "Description": "An attacker accesses and exfiltrates sensitive user profile data, including personal identifiable information, leading to privacy breaches.",
+      "cyberLosses": [
+        {
+          "name": "Disclosure of PII and user profiles",
+          "node": "PII (User profiles)"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Moderate",
+        "Safety Impact": "Negligible",
+        "Operational Impact": "Minor",
+        "Privacy Impact": "Major"
+      }
+    },
+    {
+      "Name": "CAN Bus Message Injection",
+      "Description": "An attacker exploits the CAN gateway to inject malicious CAN messages, potentially compromising vehicle control systems and leading to safety hazards.",
+      "cyberLosses": [
+        {
+          "name": "Unauthorized CAN bus message injection",
+          "node": "CAN gateway"
+        }
+      ],
+      "impacts": {
+        "Financial Impact": "Moderate",
+        "Safety Impact": "Major",
+        "Operational Impact": "Major",
+        "Privacy Impact": "Negligible"
+      }
+    }
+  ]
+}
+=== END REFERENCE ARCHITECTURE: InfotainmentHeadUnit ===
+---
+
+[ECU]
+{
+  "name": "Infotainment Head Unit",
+  "type": "ECU",
+  "hint": "Assets: Head Unit (external, default), Touch Display (default), Audio System (default), USB Port (external, default), Bluetooth Module (external, default), WiFi Module (external, default), GPS Module (default), Telematics Control Unit (external, default), Smartphone (external, default), Cloud Backend (external, default), Vehicle Network (external, default), CAN Transceiver (default), Ethernet Interface (default), Storage (default), SoC (default), Code Flash (default, inside SoC group), Data Flash (default, inside SoC group), Secure Storage (default, inside SoC group), Keys (default, inside SoC group), Certificates (default, inside SoC group), Bootloader (default, inside SoC group), Debug Port (default, inside SoC group), User Profiles (data node), Credentials (data node), Navigation Data (data node), Media Data (data node), App Data (data node), OTA Package (data node). The 'Infotainment ECU' is a group container; inside it is an SoC subgroup containing Code Flash, Data Flash, Secure Storage, Keys, Certificates, Bootloader, and Debug Port. Edges: Display Interface (Head Unit\u2194Touch Display), Audio Output (Head Unit\u2194Audio System), USB Data (USB Port\u2194Head Unit), Bluetooth Link (Bluetooth Module\u2194Smartphone), WiFi Internet (WiFi Module\u2194Cloud Backend), Telematics Link (Head Unit\u2194Telematics Control Unit), Internet Access (Telematics Control Unit\u2194Cloud Backend), Ethernet (Head Unit\u2194Ethernet Interface), CAN Internal (Head Unit\u2194CAN Transceiver), Vehicle CAN (CAN Transceiver\u2194Vehicle Network), GPS Signal (GPS Module\u2194Head Unit), App Projection (Smartphone\u2194Head Unit), Storage Access (SoC\u2194Storage), OTA Update (Cloud Backend\u2194Head Unit)."
+}
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfotainmentHeadUnit]: Infotainment Head Unit
+Type: group  IsAsset: False
+Description: 
+Security Properties: Integrity, Authenticity
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfotainmentHeadUnit]: Head unit OS
+Type: default  IsAsset: False
+Description: The operating system of the infotainment head unit.
+Security Properties: Integrity, Confidentiality, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfotainmentHeadUnit]: Bluetooth/Wi-Fi stacks
+Type: default  IsAsset: False
+Description: Software stacks for Bluetooth and Wi-Fi communication.
+Security Properties: Integrity, Confidentiality, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfotainmentHeadUnit]: USB driver stack
+Type: default  IsAsset: False
+Description: Driver stack for USB interface.
+Security Properties: Integrity, Confidentiality, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfotainmentHeadUnit]: Telephony stacks
+Type: default  IsAsset: False
+Description: Software stacks for telephony communication.
+Security Properties: Integrity, Confidentiality, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfotainmentHeadUnit]: Application layer code
+Type: default  IsAsset: False
+Description: The application software running on the head unit.
+Security Properties: Integrity, Confidentiality, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfotainmentHeadUnit]: Navigation data
+Type: data  IsAsset: True
+Description: 
+Security Properties: Authenticity, Integrity, Confidentiality
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfotainmentHeadUnit]: PII (User profiles)
+Type: data  IsAsset: True
+Description: 
+Security Properties: Authenticity, Integrity, Confidentiality
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfotainmentHeadUnit]: CAN gateway
+Type: default  IsAsset: False
+Description: Gateway for CAN bus communication.
+Security Properties: Integrity, Confidentiality, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [InfotainmentHeadUnit]: Audio Amplifier
+Type: default  IsAsset: True
+Description: Amplifies audio signals for speakers.
+Security Properties: Integrity, Availability
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfotainmentHeadUnit]:
+Threat/Weakness: CWE-225: General Information Management Problems -> CAPEC-27: Malicious File Loading -> MITRE ATT&CK T1018: Remote System Information Discovery -> ATM: Gather Target Information
+Affected Asset: USB driver stack
+Cyber Loss: Malware propagation or data exfiltration via USB
+Damage Scene: An attacker uses the USB interface to introduce malware or exfiltrate data from the infotainment system.
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfotainmentHeadUnit]:
+Threat/Weakness: CWE-15: External Control of System or Configuration Setting -> CAPEC-28: Privilege Escalation -> MITRE ATT&CK T1548.003: Abuse Elevation Control Mechanism: Sudo and Operating System Specific Transfer Utilities -> ATM: Control of System
+Affected Asset: Head unit OS
+Cyber Loss: Unauthorized modification of system settings
+Damage Scene: An attacker exploits a vulnerability to gain external control over the infotainment system's configuration settings, potentially disabling safety features or altering critical parameters.
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfotainmentHeadUnit]:
+Threat/Weakness: MITRE ATT&CK T1590.001: Research Attack Surface: Vulnerabilities -> ATM: Gather Target Information
+Affected Asset: Bluetooth/Wi-Fi stacks
+Cyber Loss: Unauthorized information disclosure via Bluetooth
+Damage Scene: An attacker uses Bluetooth to discover and gather information from connected devices or the infotainment system itself.
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfotainmentHeadUnit]:
+Threat/Weakness: CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer -> CAPEC-13: Input Validation Deception -> MITRE ATT&CK T1190: Exploit Public-Facing Application -> ATM: Exploit Application
+Affected Asset: Application layer code
+Cyber Loss: Application compromise leading to unauthorized access
+Damage Scene: An attacker exploits a vulnerability in the application layer code to gain unauthorized access to system resources or data.
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfotainmentHeadUnit]:
+Threat/Weakness: CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> CAPEC-29: Data Leakage -> MITRE ATT&CK T1552.001: Steal or Substitute Credentials: Plaintext Accesses and Information -> ATM: Data Exfiltration
+Affected Asset: PII (User profiles)
+Cyber Loss: Disclosure of PII and user profiles
+Damage Scene: An attacker accesses and exfiltrates sensitive user profile data, including personal identifiable information.
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [InfotainmentHeadUnit]:
+Threat/Weakness: CWE-15: External Control of System or Configuration Setting -> CAPEC-28: Privilege Escalation -> MITRE ATT&CK T1071.001: Application Layer Protocol: Web Protocols -> ATM: Control of System
+Affected Asset: CAN gateway
+Cyber Loss: Unauthorized CAN bus message injection
+Damage Scene: An attacker exploits the CAN gateway to inject malicious CAN messages, potentially affecting vehicle control systems.
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfotainmentHeadUnit]: Malware Propagation via USB
+Description: An attacker uses the USB interface to introduce malware into the infotainment system, potentially spreading to other connected ECUs or exfiltrating data.
+Cyber Losses: Malware propagation or data exfiltration via USB (USB driver stack)
+Impact Ratings: Financial Impact: Moderate  Safety Impact: Minor  Operational Impact: Moderate  Privacy Impact: Moderate
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfotainmentHeadUnit]: Unauthorized Configuration Modification
+Description: An attacker exploits a vulnerability in the Head Unit OS to gain external control over the infotainment system's configuration settings, potentially altering critical parameters or disabling safety features.
+Cyber Losses: Unauthorized modification of system settings (Head unit OS)
+Impact Ratings: Financial Impact: Major  Safety Impact: Major  Operational Impact: Major  Privacy Impact: Minor
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfotainmentHeadUnit]: Bluetooth Information Disclosure
+Description: An attacker uses Bluetooth to discover and gather sensitive information from connected devices or the infotainment system, leading to unauthorized information disclosure.
+Cyber Losses: Unauthorized information disclosure via Bluetooth (Bluetooth/Wi-Fi stacks)
+Impact Ratings: Financial Impact: Minor  Safety Impact: Negligible  Operational Impact: Minor  Privacy Impact: Moderate
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfotainmentHeadUnit]: Application Compromise
+Description: An attacker exploits a vulnerability in the application layer code, gaining unauthorized access to system resources, data, or functionality.
+Cyber Losses: Application compromise leading to unauthorized access (Application layer code)
+Impact Ratings: Financial Impact: Moderate  Safety Impact: Minor  Operational Impact: Moderate  Privacy Impact: Moderate
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfotainmentHeadUnit]: PII and User Profile Disclosure
+Description: An attacker accesses and exfiltrates sensitive user profile data, including personal identifiable information, leading to privacy breaches.
+Cyber Losses: Disclosure of PII and user profiles (PII (User profiles))
+Impact Ratings: Financial Impact: Moderate  Safety Impact: Negligible  Operational Impact: Minor  Privacy Impact: Major
+---
+
+[REPORTS_DB | damage_detail]
+Reference Damage Scenario [InfotainmentHeadUnit]: CAN Bus Message Injection
+Description: An attacker exploits the CAN gateway to inject malicious CAN messages, potentially compromising vehicle control systems and leading to safety hazards.
+Cyber Losses: Unauthorized CAN bus message injection (CAN gateway)
+Impact Ratings: Financial Impact: Moderate  Safety Impact: Major  Operational Impact: Major  Privacy Impact: Negligible
+---
+
+[REPORTS_DB | hierarchy_summary]
+Architecture Hierarchy for [InfotainmentHeadUnit]:
+  TOP: Infotainment Head Unit (type:group)
+  Infotainment Head Unit contains: Head unit OS (type:default), Bluetooth/Wi-Fi stacks (type:default), USB driver stack (type:default), Telephony stacks (type:default), Application layer code (type:default), Navigation data (type:data), PII (User profiles) (type:data), CAN gateway (type:default), Audio Amplifier (type:default)
+---
+
+[REPORTS_DB | edge_summary]
+Edge connections for [InfotainmentHeadUnit]:
+  OS Interface: Head unit OS ↔ Infotainment Head Unit (properties: Integrity)
+  COM Protocol: Bluetooth/Wi-Fi stacks ↔ Infotainment Head Unit (properties: Integrity)
+  USB: USB driver stack ↔ Infotainment Head Unit (properties: Integrity)
+  Cellular: Telephony stacks ↔ Infotainment Head Unit (properties: Integrity)
+  App Interface: Application layer code ↔ Infotainment Head Unit (properties: Integrity)
+  NVM Access: Navigation data ↔ Infotainment Head Unit (properties: Integrity)
+  NVM Access: PII (User profiles) ↔ Infotainment Head Unit (properties: Integrity)
+  CAN: CAN gateway ↔ Infotainment Head Unit (properties: Integrity)
+  Audio Out: Audio Amplifier ↔ Infotainment Head Unit (properties: Integrity)
+---
+
+[ATM]
+ATM Technique: Gather Target Information – from Vehicle
+Description: The adversary gathers information by targeting a vehicle’s hardware and/or communication environment. Hardware includes physical components, such as Electronic Control Units (ECUs), sensors, FPGAs, microcontrollers, or SoCs. The communication environment involves any physical communication and wireless communication involving the vehicle. Examples include CAN, LIN, Bluetooth, RF, Cellular, etc. Communications with external infrastructure are included, such as Over-The-Air (OTA), cloud services, back-end infrastructure, charging stations, fleet management systems, and telematics platforms. Specific information might include hardware details such as firmware details, communication interfaces, and hardware vulnerabilities. communication details such as network details, protocols used, internal vehicle services, communication to external services interacting with the vehicle, and vulnerabilities within services.
+---
+
+[CWE]
+CWE-1097: Persistent Storable Data Element without Associated Comparison Control Element
+Description: The product uses a storable data element that does not have
+					all of the associated functions or methods that are necessary to support
+					comparison.
+---
+
+[ATM]
+ATM Technique: Gather Target Information – from Other
+Description: The adversary gathers information by directly targeting sources that do not involve the vehicle and its services. Targeting organizations are included, such OEMs, suppliers, service providers, and dealerships. This may involve physically breaching an organization’s premises, infiltrating networks, or exploiting personnel with privileged access. Other accessible sources include anything in the surface web and dark web. Specific information might include manuals, breach reports, engineering data (e.g., architecture, design, and schematics), and technical data sheets related to vehicles.
+---
+
+[CWE]
+CWE-317: Cleartext Storage of Sensitive Information in GUI
+Description: The product stores sensitive information in cleartext within the GUI.
+---
+
+[CWE]
+CWE-1061: Insufficient Encapsulation
+Description: The product does not sufficiently hide the internal representation and implementation details of data or methods, which might allow external components or modules to modify data unexpectedly, invoke unexpected functionality, or introduce dependencies that the programmer did not intend.
+---
+
+[ATM]
+ATM Technique: Removable Media
+Description: Adversaries may attempt to exfiltrate data via a physical medium, such as a removable drive. Such media could be an external hard drive, USB drive, cellular phone, MP3 player, or other removable storage and processing device.  This technique’s description was adapted from  MITRE ATT&amp;CK .
+---
+
+[CWE]
+CWE-1295: Debug Messages Revealing Unnecessary Information
+Description: The product fails to adequately prevent the revealing of unnecessary and potentially sensitive system information within debugging messages.
+---
+
+[CWE]
+CWE-1230: Exposure of Sensitive Information Through Metadata
+Description: The product prevents direct access to a resource containing sensitive information, but it does not sufficiently limit access to metadata that is derived from the original, sensitive information.
+---
+
+[CAPEC]
+CAPEC-548: Contaminate Resource
+Description: An adversary contaminates organizational information systems (including devices and networks) by causing them to handle information of a classification/sensitivity for which they have not been authorized. When this happens, the contaminated information system, device, or network must be brought offline to investigate and mitigate the data spill, which denies availability of the system until the investigation is complete.
+---
+
+[CWE]
+CWE-1070: Serializable Data Element Containing non-Serializable Item Elements
+Description: The product contains a serializable, storable data element such as a field or member,
+					but the data element contains member elements that are not
+					serializable.
+---
+
+[ATM]
+ATM Technique: Aftermarket, Customer, or Dealer Equipment
+Description: Adversaries may take use aftermarket, customer, or dealer equipment as an initial access point into the vehicle.&nbsp;Paired devices, such as a customer's smart phone, often possess valid credentials for the vehicle’s Bluetooth and Wi-Fi networks, access to phone projection technologies, and may be connected to USB ports. Dealer test and diagnostic tools are typically connected to a vehicle's OBD-II port, which may provide direct access to a vehicle network; these tools may also have access to credentials for running diagnostic procedures. Third-party OBD-II accessories, such as insurance dongles and fleet management dongles, may introduce a wireless ingress points to the vehicle through its OBD-II port.  These devices may also be used as a post-exploitation command-and-control mechanism, and to exfiltrate data from a vehicle.
+---
+
+[CAPEC]
+CAPEC-634: Probe Audio and Video Peripherals
+Description: The adversary exploits the target system's audio and video functionalities through malware or scheduled tasks. The goal is to capture sensitive information about the target for financial, personal, political, or other gains which is accomplished by collecting communication data between two parties via the use of peripheral devices (e.g. microphones and webcams) or applications with audio and video capabilities (e.g. Skype) on a system.
+---
+
+[CWE]
+CWE-316: Cleartext Storage of Sensitive Information in Memory
+Description: The product stores sensitive information in cleartext in memory.
+---
+
+[CWE]
+CWE-312: Cleartext Storage of Sensitive Information
+Description: The product stores sensitive information in cleartext within a resource that might be accessible to another control sphere.
+---
+
+[CWE]
+CWE-451: User Interface (UI) Misrepresentation of Critical Information
+Description: The user interface (UI) does not properly represent critical information to the user, allowing the information - or its source - to be obscured or spoofed. This is often a component in phishing attacks.
+---
+
+[CWE]
+CWE-829: Inclusion of Functionality from Untrusted Control Sphere
+Description: The product imports, requires, or includes executable functionality (such as a library) from a source that is outside of the intended control sphere.
+---
+
+[CWE]
+CWE-526: Cleartext Storage of Sensitive Information in an Environment Variable
+Description: The product uses an environment variable to store unencrypted sensitive information.
+---
+
+[ATM]
+ATM Technique: Access personal data
+Description: An adversary could attempt to access the vehicle occupants' personal data. This could include calendar entries, call logs, contact lists, media playlists, or notifications (including SMS messages, emails, etc.).  An adversary could also attempt to access occupants' personal data via an ECU’s application data for apps such as Facebook or Gmail.  The specific methods for accessing this information can vary from ECU to ECU, but generally include the use of the standard operating system APIs, or by directly accessing application files. Some of these approaches may require elevated privileges.  This technique’s description was adapted from 5 techniques from the MITRE ATT&amp;CK for Mobile Matrix:  Access Calendar Entries ,  Access Call Log ,  Access Contact List , and  Access Notifications .
+---
+
+[CWE]
+CWE-318: Cleartext Storage of Sensitive Information in Executable
+Description: The product stores sensitive information in cleartext in an executable.
+---
+
+[CWE]
+CWE-216: DEPRECATED: Containment Errors (Container Errors)
+Description: This entry has been deprecated, as it was not effective as a weakness and was structured more like a category. In addition, the name is inappropriate, since the "container" term is widely understood by developers in different ways than originally intended by PLOVER, the original source for this entry.
+---
+
+
+-------------------------------------------------
+
+ARCHITECTURE RULES
+
+The architecture uses a nested group/container hierarchy:
+
+1. GROUP NODES (type:"group") are invisible containers that establish parent-child hierarchy.
+   - The top-level system (e.g. "Battery Management System") is a group with parentId:null.
+   - Sub-systems (e.g. MCU block) are groups nested inside the top-level group.
+   - Group nodes have a dashed-border style, NOT a solid backgroundColor.
+
+2. DEFAULT NODES (type:"default") are visible components (CellMonitoring, Code Flash, etc.).
+   - Each default node has a parentId pointing to its containing group.
+   - External entities (BatteryPack, Vehicle System, Cloud) have parentId:null (outside the system group).
+
+3. DATA NODES (type:"data") are small circular data items (SoC, SoH).
+   - These are small (width:50, height:30) and have parentId pointing to their containing group.
+
+4. PARENTID HIERARCHY: Every node must have a parentId.
+   - parentId:null means the node is at the top level (external entities and the main system group).
+   - Components inside the system group have parentId = the system group's id.
+   - Components inside a sub-group (e.g. MCU) have parentId = the sub-group's id.
+
+5. EDGES: Each edge must have a "data.label" that is a SHORT protocol/interface name:
+   - CORRECT: "SPI", "CAN1", "CAN2", "IO_PINS", "Vehicle CAN", "Internet", "ICD_Data"
+   - WRONG: "Measurements", "CAN Communication", "Controls Power Flow", "Sends data to"
+
+6. COLOR CODING: Assign distinct backgroundColor values by component role:
+   - Monitoring/sensing: yellow shades (#e6df19, #accd32)
+   - I/O interfaces: beige/tan (#e2dfc1)
+   - Flash/storage: purple (#ccc8ea)
+   - Security (Keys, Certificates): green (#51dc1e, #62c945)
+   - Debug: red/orange (#e26a6a)
+   - Data items (SoC, SoH): light yellow (#e3e896)
+   - External/generic: gray (#dadada)
+
+-------------------------------------------------
+
+TASK
+
+1. Identify the architecture of the requested system (use the AUTHORITATIVE ASSET LIST if provided).
+2. Generate assets that belong strictly to the TARGET SYSTEM — no others.
+3. Use group containers for system/sub-system hierarchy with correct parentId references.
+4. Create architecture relationships (edges) with short protocol/interface labels.
+5. Generate realistic cybersecurity damage scenarios referencing only the generated assets.
+6. For each damage scenario derive an Impact Rating using SFOP categories.
+
+-------------------------------------------------
+
+IMPACT RATING SCALE
+
+For every damage scenario derive cyber losses using SFOP categories:
+Safety | Financial | Operational | Privacy
+
+For each cyber loss assign: Negligible | Minor | Moderate | Major | Severe
+Then derive an overall impact rating based on the highest impact.
+
+-------------------------------------------------
+
+STRICT OUTPUT FORMAT
+
+Return ONLY valid JSON. Do not include explanations, markdown fences, or prose.
+Start the response with '{'.
+
+Return JSON exactly in this structure (showing all three node types):
+
+{
+ "assets":{
+   "_id":"",
+   "user_id":"",
+   "model_id":"",
+   "template":{
+      "nodes":[
+         {
+           "id":"<system-group-uuid>",
+           "type":"group",
+           "parentId":null,
+           "data":{
+             "label":"System Name",
+             "nodeCount":7,
+             "style":{"background":"rgba(33,150,243,0.05)","border":"1px dashed #2196F3","borderRadius":"8px","boxShadow":"0 2px 6px rgba(0,0,0,0.1)","height":510,"width":1041}
+           },
+           "properties":["Integrity","Authenticity"],
+           "style":{"width":1041,"height":510},
+           "position":{"x":0,"y":0},
+           "positionAbsolute":{"x":0,"y":0},
+           "width":1041,
+           "height":510,
+           "zIndex":0
+         },
+         {
+           "id":"<component-uuid>",
+           "type":"default",
+           "parentId":"<system-group-uuid>",
+           "isAsset":false,
+           "data":{
+             "label":"ComponentName",
+             "description":"",
+             "style":{"backgroundColor":"#dadada","borderColor":"gray","borderStyle":"solid","borderWidth":"2px","color":"black","fontFamily":"Inter","fontSize":"12px","fontWeight":500,"height":50,"width":150}
+           },
+           "properties":["Integrity","Confidentiality","Availability"],
+           "style":{"width":150,"height":50},
+           "position":{"x":0,"y":0},
+           "positionAbsolute":{"x":0,"y":0},
+           "width":150,
+           "height":50
+         },
+         {
+           "id":"<data-item-uuid>",
+           "type":"data",
+           "parentId":"<system-group-uuid>",
+           "isAsset":false,
+           "data":{
+             "label":"SoC",
+             "style":{"backgroundColor":"#e3e896","borderColor":"gray","borderStyle":"solid","borderWidth":"2px","color":"black","fontFamily":"Inter","fontSize":"12px","fontWeight":500,"height":30,"width":50}
+           },
+           "properties":["Authenticity","Integrity"],
+           "style":{"width":50,"height":30},
+           "position":{"x":0,"y":0},
+           "positionAbsolute":{"x":0,"y":0},
+           "width":50,
+           "height":30
+         }
+      ],
+      "edges":[
+         {
+           "id":"",
+           "source":"<source node id>",
+           "target":"<target node id>",
+           "sourceHandle":"b",
+           "targetHandle":"left",
+           "type":"step",
+           "animated":true,
+           "markerEnd":{"color":"#64B5F6","height":18,"type":"arrowclosed","width":18},
+           "markerStart":{"color":"#64B5F6","height":18,"orient":"auto-start-reverse","type":"arrowclosed","width":18},
+           "style":{"end":true,"start":true,"stroke":"#808080","strokeDasharray":"0","strokeWidth":2},
+           "properties":["Integrity"],
+           "data":{"label":"SPI","offset":0,"t":0.5}
+         }
+      ]
+   }
+ },
+ "damage_scenarios":{
+   "_id":"",
+   "model_id":"",
+   "type":"damage",
+   "Derivations":[
+      {
+        "id":"","nodeId":"","task":"Threat Analysis",
+        "name":"","loss":"","asset":"",
+        "damage_scene":"","isChecked":false
+      }
+   ],
+   "Details":[
+      {
+        "Name":"",
+        "Description":"",
+        "cyberLosses":[{"id":"","name":"","node":"","nodeId":"","isSelected":true,"is_risk_added":false}],
+        "impacts":{"Financial Impact":"","Safety Impact":"","Operational Impact":"","Privacy Impact":""},
+        "key":1,
+        "_id":""
+      }
+   ]
+ }
+}
+
+-------------------------------------------------
+
+CONSTRAINTS
+
+- Generate ONLY the assets listed in the AUTHORITATIVE ASSET LIST (if provided), or assets strictly belonging to the TARGET SYSTEM.
+- Do NOT add components from other ECU systems.
+- Do NOT fabricate sub-modules, protocols, or external entities unless they appear in the AUTHORITATIVE ASSET LIST or REPORTS_DB reference.
+- Use group containers (type:"group") for system and sub-system boundaries. Use type:"data" for small data nodes.
+- Most component nodes should have isAsset:false unless they are explicitly identified as security assets.
+- Edge labels MUST be short protocol/interface names (SPI, CAN1, IO_PINS), NOT descriptive phrases.
+- Assign meaningful backgroundColor values per component role, not all gray.
+- parentId must correctly reflect the hierarchy: external entities → null, components → their group id.
+- Damage scenarios must reference valid nodeId values from the nodes above.
+- Impact rating must be derived from the damage scenario context.
+- Use threat reasoning from CWE, MITRE, CAPEC, ATM — not from REPORTS_DB examples.
+- Fewer correct components are better than many speculative ones.
+- Do NOT include "position" or "positionAbsolute" fields in any node — these are computed automatically after generation.
+
+Return JSON only. Start the response with '{'.

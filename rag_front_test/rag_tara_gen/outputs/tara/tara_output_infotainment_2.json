@@ -1,0 +1,2987 @@
+{
+  "assets": {
+    "_id": "infotainment-head-unit-assets",
+    "user_id": "user-id-placeholder",
+    "model_id": "infotainment-head-unit-model-id",
+    "template": {
+      "nodes": [
+        {
+          "id": "infotainment-ecu-group",
+          "type": "group",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Infotainment Head Unit",
+            "nodeCount": 19,
+            "style": {
+              "background": "rgba(33,150,243,0.05)",
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 510,
+              "width": 1041
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 1041,
+            "height": 510
+          },
+          "width": 1041,
+          "height": 510,
+          "zIndex": 0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "positionAbsolute": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        {
+          "id": "head-unit",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Head Unit",
+            "description": "The main processing unit of the infotainment system.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 24,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 24.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "touch-display",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Touch Display",
+            "description": "The primary user interface for the infotainment system.",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 194.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 194.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "audio-system",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Audio System",
+            "description": "Handles audio output for the infotainment system.",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 364.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 364.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "usb-port",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "USB Port",
+            "description": "Interface for external USB devices.",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 534.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 534.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "bluetooth-module",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Bluetooth Module",
+            "description": "Handles Bluetooth connectivity.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 704.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 704.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "wifi-module",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "WiFi Module",
+            "description": "Handles WiFi connectivity.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 24,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 24.0,
+            "y": 130.0
+          }
+        },
+        {
+          "id": "gps-module",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "GPS Module",
+            "description": "Provides GPS signals for navigation.",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 194.0,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 194.0,
+            "y": 130.0
+          }
+        },
+        {
+          "id": "telematics-control-unit",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Telematics Control Unit",
+            "description": "Handles telematics communication.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 364.0,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 364.0,
+            "y": 130.0
+          }
+        },
+        {
+          "id": "smartphone",
+          "type": "default",
+          "parentId": null,
+          "isAsset": true,
+          "data": {
+            "label": "Smartphone",
+            "description": "External device for app projection and Bluetooth.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 1101.0,
+            "y": 40.0
+          },
+          "positionAbsolute": {
+            "x": 1101.0,
+            "y": 40.0
+          }
+        },
+        {
+          "id": "cloud-backend",
+          "type": "default",
+          "parentId": null,
+          "isAsset": true,
+          "data": {
+            "label": "Cloud Backend",
+            "description": "External cloud services for infotainment.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 1101.0,
+            "y": 120.0
+          },
+          "positionAbsolute": {
+            "x": 1101.0,
+            "y": 120.0
+          }
+        },
+        {
+          "id": "vehicle-network",
+          "type": "default",
+          "parentId": null,
+          "isAsset": true,
+          "data": {
+            "label": "Vehicle Network",
+            "description": "The vehicle's internal network bus.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 1101.0,
+            "y": 200.0
+          },
+          "positionAbsolute": {
+            "x": 1101.0,
+            "y": 200.0
+          }
+        },
+        {
+          "id": "can-transceiver",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "CAN Transceiver",
+            "description": "Interface for CAN bus communication.",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 534.0,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 534.0,
+            "y": 130.0
+          }
+        },
+        {
+          "id": "ethernet-interface",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Ethernet Interface",
+            "description": "Interface for Ethernet communication.",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 704.0,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 704.0,
+            "y": 130.0
+          }
+        },
+        {
+          "id": "storage",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Storage",
+            "description": "Main storage for the infotainment system.",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 24,
+            "y": 200.0
+          },
+          "positionAbsolute": {
+            "x": 24.0,
+            "y": 200.0
+          }
+        },
+        {
+          "id": "soc",
+          "type": "group",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": false,
+          "data": {
+            "label": "SoC",
+            "style": {
+              "background": "rgba(218, 218, 218, 0.2)",
+              "border": "1px dashed #dadada",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 200,
+              "width": 400
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 400,
+            "height": 200
+          },
+          "width": 400,
+          "height": 200,
+          "zIndex": 1,
+          "position": {
+            "x": 24,
+            "y": 270.0
+          },
+          "positionAbsolute": {
+            "x": 24.0,
+            "y": 270.0
+          }
+        },
+        {
+          "id": "code-flash",
+          "type": "default",
+          "parentId": "soc",
+          "isAsset": true,
+          "data": {
+            "label": "Code Flash",
+            "description": "Stores the system's executable code.",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 24,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 330.0
+          }
+        },
+        {
+          "id": "data-flash",
+          "type": "default",
+          "parentId": "soc",
+          "isAsset": true,
+          "data": {
+            "label": "Data Flash",
+            "description": "Stores persistent data.",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 194.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 218.0,
+            "y": 330.0
+          }
+        },
+        {
+          "id": "secure-storage",
+          "type": "default",
+          "parentId": "soc",
+          "isAsset": true,
+          "data": {
+            "label": "Secure Storage",
+            "description": "Area for storing sensitive data securely.",
+            "style": {
+              "backgroundColor": "#62c945",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 24,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 400.0
+          }
+        },
+        {
+          "id": "keys",
+          "type": "data",
+          "parentId": "soc",
+          "isAsset": true,
+          "data": {
+            "label": "Keys",
+            "style": {
+              "backgroundColor": "#51dc1e",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "width": 50,
+          "height": 30,
+          "position": {
+            "x": 194.0,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 218.0,
+            "y": 400.0
+          }
+        },
+        {
+          "id": "certificates",
+          "type": "data",
+          "parentId": "soc",
+          "isAsset": true,
+          "data": {
+            "label": "Certificates",
+            "style": {
+              "backgroundColor": "#51dc1e",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "width": 50,
+          "height": 30,
+          "position": {
+            "x": 264.0,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 288.0,
+            "y": 400.0
+          }
+        },
+        {
+          "id": "bootloader",
+          "type": "default",
+          "parentId": "soc",
+          "isAsset": true,
+          "data": {
+            "label": "Bootloader",
+            "description": "The initial program that runs when the system powers on.",
+            "style": {
+              "backgroundColor": "#e26a6a",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 24,
+            "y": 200.0
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 470.0
+          }
+        },
+        {
+          "id": "debug-port",
+          "type": "default",
+          "parentId": "soc",
+          "isAsset": true,
+          "data": {
+            "label": "Debug Port",
+            "description": "Interface for debugging and diagnostics.",
+            "style": {
+              "backgroundColor": "#e26a6a",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 194.0,
+            "y": 200.0
+          },
+          "positionAbsolute": {
+            "x": 218.0,
+            "y": 470.0
+          }
+        },
+        {
+          "id": "user-profiles",
+          "type": "data",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "User Profiles",
+            "description": "Stores user-specific settings and data.",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity",
+            "Confidentiality"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "width": 50,
+          "height": 30,
+          "position": {
+            "x": 194.0,
+            "y": 200.0
+          },
+          "positionAbsolute": {
+            "x": 194.0,
+            "y": 200.0
+          }
+        },
+        {
+          "id": "credentials",
+          "type": "data",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Credentials",
+            "description": "User authentication credentials.",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity",
+            "Confidentiality"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "width": 50,
+          "height": 30,
+          "position": {
+            "x": 264.0,
+            "y": 200.0
+          },
+          "positionAbsolute": {
+            "x": 264.0,
+            "y": 200.0
+          }
+        },
+        {
+          "id": "navigation-data",
+          "type": "data",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Navigation Data",
+            "description": "Stores navigation map data and routes.",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity",
+            "Confidentiality"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "width": 50,
+          "height": 30,
+          "position": {
+            "x": 334.0,
+            "y": 200.0
+          },
+          "positionAbsolute": {
+            "x": 334.0,
+            "y": 200.0
+          }
+        },
+        {
+          "id": "media-data",
+          "type": "data",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Media Data",
+            "description": "Stores media files (audio, video).",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "width": 50,
+          "height": 30,
+          "position": {
+            "x": 404.0,
+            "y": 200.0
+          },
+          "positionAbsolute": {
+            "x": 404.0,
+            "y": 200.0
+          }
+        },
+        {
+          "id": "app-data",
+          "type": "data",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "App Data",
+            "description": "Stores data for installed applications.",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "width": 50,
+          "height": 30,
+          "position": {
+            "x": 474.0,
+            "y": 200.0
+          },
+          "positionAbsolute": {
+            "x": 474.0,
+            "y": 200.0
+          }
+        },
+        {
+          "id": "ota-package",
+          "type": "data",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "OTA Package",
+            "description": "Data package for Over-The-Air updates.",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "width": 50,
+          "height": 30,
+          "position": {
+            "x": 544.0,
+            "y": 200.0
+          },
+          "positionAbsolute": {
+            "x": 544.0,
+            "y": 200.0
+          }
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-display-interface",
+          "source": "head-unit",
+          "target": "touch-display",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Display Interface",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-audio-output",
+          "source": "head-unit",
+          "target": "audio-system",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Audio Output",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-usb-data",
+          "source": "usb-port",
+          "target": "head-unit",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "USB Data",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-bluetooth-link",
+          "source": "bluetooth-module",
+          "target": "smartphone",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Bluetooth Link",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-wifi-internet",
+          "source": "wifi-module",
+          "target": "cloud-backend",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "WiFi Internet",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-telematics-link",
+          "source": "head-unit",
+          "target": "telematics-control-unit",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Telematics Link",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-internet-access",
+          "source": "telematics-control-unit",
+          "target": "cloud-backend",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Internet Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-ethernet",
+          "source": "head-unit",
+          "target": "ethernet-interface",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Ethernet",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-can-internal",
+          "source": "head-unit",
+          "target": "can-transceiver",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "CAN Internal",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-vehicle-can",
+          "source": "can-transceiver",
+          "target": "vehicle-network",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Vehicle CAN",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-gps-signal",
+          "source": "gps-module",
+          "target": "head-unit",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "GPS Signal",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-app-projection",
+          "source": "smartphone",
+          "target": "head-unit",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "App Projection",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-storage-access",
+          "source": "soc",
+          "target": "storage",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Storage Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-ota-update",
+          "source": "cloud-backend",
+          "target": "head-unit",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "OTA Update",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-soc-codeflash",
+          "source": "soc",
+          "target": "code-flash",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-soc-dataflash",
+          "source": "soc",
+          "target": "data-flash",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-soc-securestorage",
+          "source": "soc",
+          "target": "secure-storage",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-soc-keys",
+          "source": "soc",
+          "target": "keys",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-soc-certificates",
+          "source": "soc",
+          "target": "certificates",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-soc-bootloader",
+          "source": "soc",
+          "target": "bootloader",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-soc-debugport",
+          "source": "soc",
+          "target": "debug-port",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-storage-userprofiles",
+          "source": "storage",
+          "target": "user-profiles",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Read/Write",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-storage-credentials",
+          "source": "storage",
+          "target": "credentials",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Read/Write",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-storage-navigation",
+          "source": "storage",
+          "target": "navigation-data",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Read/Write",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-storage-media",
+          "source": "storage",
+          "target": "media-data",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Read/Write",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-storage-appdata",
+          "source": "storage",
+          "target": "app-data",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Read/Write",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-headunit-ota",
+          "source": "head-unit",
+          "target": "ota-package",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Install OTA",
+            "offset": 0,
+            "t": 0.5
+          }
+        }
+      ]
+    }
+  },
+  "damage_scenarios": {
+    "_id": "infotainment-head-unit-scenarios",
+    "model_id": "infotainment-head-unit-model-id",
+    "type": "damage",
+    "Derivations": [
+      {
+        "id": "derivation-1",
+        "nodeId": "usb-port",
+        "task": "Threat Analysis",
+        "name": "CWE-306: Authentication in Security Decision -> CAPEC-27: Malicious File Loading -> MITRE ATT&CK T1059.001: Command and Scripting Interpreter: PowerShell -> ATM: Removable Media",
+        "loss": "Execution of unauthorized code via USB storage",
+        "asset": "USB Port",
+        "damage_scene": "An attacker inserts a malicious USB drive, leveraging vulnerabilities in the USB driver stack to execute arbitrary code on the Head Unit.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-2",
+        "nodeId": "head-unit",
+        "task": "Threat Analysis",
+        "name": "CWE-269: Improper Privilege Management -> CAPEC-28: Privilege Escalation -> MITRE ATT&CK T1548.002: Abuse Elevation Control Mechanism: Via Setuid and Setgid -> ATM: Control of System",
+        "loss": "Unauthorized modification of system settings",
+        "asset": "Head Unit",
+        "damage_scene": "An attacker exploits a privilege escalation vulnerability in the Head Unit's operating system to gain administrative control and modify critical system settings.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-3",
+        "nodeId": "bluetooth-module",
+        "task": "Threat Analysis",
+        "name": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> CAPEC-29: Data Leakage -> MITRE ATT&CK T1071.001: Application Layer Protocol: Web Protocols -> ATM: Gather Target Information",
+        "loss": "Unauthorized information disclosure via Bluetooth",
+        "asset": "Bluetooth Module",
+        "damage_scene": "An attacker uses Bluetooth to scan for and exfiltrate sensitive data from connected devices or the infotainment system.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-4",
+        "nodeId": "wifi-module",
+        "task": "Threat Analysis",
+        "name": "CWE-306: Authentication in Security Decision -> CAPEC-28: Privilege Escalation -> MITRE ATT&CK T1071.001: Application Layer Protocol: Web Protocols -> ATM: Network Sniffing",
+        "loss": "Interception of unencrypted network traffic",
+        "asset": "WiFi Module",
+        "damage_scene": "An attacker exploits a vulnerability in the WiFi stack to intercept and analyze unencrypted traffic, potentially capturing sensitive data like credentials.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-5",
+        "nodeId": "gps-module",
+        "task": "Threat Analysis",
+        "name": "CWE-798: Use of Hard-coded Credentials -> CAPEC-15: Logic Bomb -> MITRE ATT&CK T1078: Valid Accounts -> ATM: Spoofing Location",
+        "loss": "Incorrect navigation and location tracking",
+        "asset": "GPS Module",
+        "damage_scene": "An attacker manipulates the GPS signal, providing false location data to the navigation system, leading to incorrect routing or tracking.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-6",
+        "nodeId": "telematics-control-unit",
+        "task": "Threat Analysis",
+        "name": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> CAPEC-29: Data Leakage -> MITRE ATT&CK T1572: Protocol Tunneling -> ATM: Telematics Data Exfiltration",
+        "loss": "Exfiltration of telematics data",
+        "asset": "Telematics Control Unit",
+        "damage_scene": "An attacker compromises the Telematics Control Unit to exfiltrate sensitive vehicle or user data transmitted through the telematics channel.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-7",
+        "nodeId": "smartphone",
+        "task": "Threat Analysis",
+        "name": "CWE-434: Unrestricted Upload of File with Dangerous Type -> CAPEC-28: Privilege Escalation -> MITRE ATT&CK T1190: Exploit Public-Facing Application -> ATM: App Projection Manipulation",
+        "loss": "Unauthorized control of vehicle functions via app projection",
+        "asset": "Smartphone",
+        "damage_scene": "An attacker manipulates the app projection from a compromised smartphone to gain unauthorized control over infotainment features or potentially other vehicle systems.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-8",
+        "nodeId": "cloud-backend",
+        "task": "Threat Analysis",
+        "name": "CWE-798: Use of Hard-coded Credentials -> CAPEC-15: Logic Bomb -> MITRE ATT&CK T1555.003: Credentials from Web Browsers -> ATM: OTA Package Tampering",
+        "loss": "Installation of malicious OTA updates",
+        "asset": "Cloud Backend",
+        "damage_scene": "An attacker compromises the cloud backend to distribute a tampered OTA update package, leading to the installation of malware on the Head Unit.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-9",
+        "nodeId": "vehicle-network",
+        "task": "Threat Analysis",
+        "name": "CWE-15: External Control of System or Configuration Setting -> CAPEC-64: Bus Spoofer -> MITRE ATT&CK T1071.004: Application Layer Protocol: DNS -> ATM: CAN Bus Injection",
+        "loss": "Manipulation of vehicle network communication",
+        "asset": "Vehicle Network",
+        "damage_scene": "An attacker injects malicious messages into the vehicle's CAN bus network, potentially affecting safety-critical systems.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-10",
+        "nodeId": "can-transceiver",
+        "task": "Threat Analysis",
+        "name": "CWE-284: Improper Access Control -> CAPEC-64: Bus Spoofer -> MITRE ATT&CK T1071.004: Application Layer Protocol: DNS -> ATM: CAN Bus Injection",
+        "loss": "Unauthorized CAN bus message injection",
+        "asset": "CAN Transceiver",
+        "damage_scene": "An attacker exploits vulnerabilities in the CAN transceiver to inject unauthorized CAN messages, disrupting vehicle operation.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-11",
+        "nodeId": "ethernet-interface",
+        "task": "Threat Analysis",
+        "name": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') -> CAPEC-20: Cross-Site Scripting -> MITRE ATT&CK T1190: Exploit Public-Facing Application -> ATM: Network Intrusion",
+        "loss": "Network intrusion via Ethernet",
+        "asset": "Ethernet Interface",
+        "damage_scene": "An attacker exploits vulnerabilities in the Ethernet interface to gain unauthorized access to the infotainment system's network.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-12",
+        "nodeId": "storage",
+        "task": "Threat Analysis",
+        "name": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> CAPEC-29: Data Leakage -> MITRE ATT&CK T1081: Credentials In Files -> ATM: Data Exfiltration from Storage",
+        "loss": "Exfiltration of stored sensitive data",
+        "asset": "Storage",
+        "damage_scene": "An attacker gains unauthorized access to the infotainment system's storage and exfiltrates sensitive data such as user profiles or media files.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-13",
+        "nodeId": "code-flash",
+        "task": "Threat Analysis",
+        "name": "CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer -> CAPEC-13: Input Validation Deception -> MITRE ATT&CK T1574.002: Hijack Execution Flow: DLL Side-Loading -> ATM: Firmware Tampering",
+        "loss": "Tampering with system firmware",
+        "asset": "Code Flash",
+        "damage_scene": "An attacker modifies the firmware stored in the Code Flash, potentially installing malicious code or altering system behavior.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-14",
+        "nodeId": "data-flash",
+        "task": "Threat Analysis",
+        "name": "CWE-312: Cleartext Storage of Sensitive Information -> CAPEC-29: Data Leakage -> MITRE ATT&CK T1081: Credentials In Files -> ATM: Sensitive Data Exposure",
+        "loss": "Exposure of sensitive data in Data Flash",
+        "asset": "Data Flash",
+        "damage_scene": "Sensitive information stored in the Data Flash is accessed and exposed due to weak security controls or cleartext storage.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-15",
+        "nodeId": "secure-storage",
+        "task": "Threat Analysis",
+        "name": "CWE-316: Cleartext Storage of Sensitive Information in Memory -> CAPEC-29: Data Leakage -> MITRE ATT&CK T1552.001: Steal or Substitute Credentials: Plaintext Accesses and Information -> ATM: Secure Storage Compromise",
+        "loss": "Compromise of secure storage",
+        "asset": "Secure Storage",
+        "damage_scene": "An attacker bypasses security mechanisms to access and extract sensitive data stored in the Secure Storage.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-16",
+        "nodeId": "keys",
+        "task": "Threat Analysis",
+        "name": "CWE-320: Key Management System Vulnerabilities -> CAPEC-16: Key Compromise -> MITRE ATT&CK T1552.001: Steal or Substitute Credentials: Plaintext Accesses and Information -> ATM: Key Theft",
+        "loss": "Theft of cryptographic keys",
+        "asset": "Keys",
+        "damage_scene": "An attacker steals cryptographic keys stored within the system, enabling decryption of sensitive data or impersonation.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-17",
+        "nodeId": "certificates",
+        "task": "Threat Analysis",
+        "name": "CWE-347: Improper Verification of Cryptographic Signature -> CAPEC-16: Key Compromise -> MITRE ATT&CK T1553.002: Subvert Trust Controls: Install Root Certificate -> ATM: Certificate Forgery",
+        "loss": "Forgery or misuse of digital certificates",
+        "asset": "Certificates",
+        "damage_scene": "An attacker compromises or forges digital certificates, allowing them to impersonate legitimate entities or bypass trust mechanisms.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-18",
+        "nodeId": "bootloader",
+        "task": "Threat Analysis",
+        "name": "CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') -> CAPEC-13: Input Validation Deception -> MITRE ATT&CK T1547.001: Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder -> ATM: Bootloader Tampering",
+        "loss": "Execution of unauthorized code during boot",
+        "asset": "Bootloader",
+        "damage_scene": "An attacker exploits a vulnerability in the bootloader to load and execute malicious code when the system powers on, compromising the entire system.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-19",
+        "nodeId": "debug-port",
+        "task": "Threat Analysis",
+        "name": "CWE-1295: Debug Messages Revealing Unnecessary Information -> CAPEC-15: Logic Bomb -> MITRE ATT&CK T1059.003: Command and Scripting Interpreter: Windows Command Shell -> ATM: Debug Port Abuse",
+        "loss": "Unauthorized access and control via debug port",
+        "asset": "Debug Port",
+        "damage_scene": "An attacker leverages the debug port to gain unauthorized access and execute commands, potentially controlling the system or exfiltrating data.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-20",
+        "nodeId": "user-profiles",
+        "task": "Threat Analysis",
+        "name": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> CAPEC-29: Data Leakage -> MITRE ATT&CK T1081: Credentials In Files -> ATM: User Profile Theft",
+        "loss": "Theft of user profile data",
+        "asset": "User Profiles",
+        "damage_scene": "An attacker accesses and steals user profile data, including personal information and preferences, leading to privacy violations.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-21",
+        "nodeId": "credentials",
+        "task": "Threat Analysis",
+        "name": "CWE-522: Insufficiently Protected Credentials -> CAPEC-16: Key Compromise -> MITRE ATT&CK T1552.001: Steal or Substitute Credentials: Plaintext Accesses and Information -> ATM: Credential Harvesting",
+        "loss": "Harvesting of user credentials",
+        "asset": "Credentials",
+        "damage_scene": "An attacker obtains user credentials stored within the system, enabling them to impersonate users or gain unauthorized access to accounts.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-22",
+        "nodeId": "navigation-data",
+        "task": "Threat Analysis",
+        "name": "CWE-1097: Persistent Storable Data Element without Associated Comparison Control Element -> CAPEC-15: Logic Bomb -> MITRE ATT&CK T1218.011: Signed Binary Proxy Execution: Rundll32 -> ATM: Navigation Data Tampering",
+        "loss": "Tampering with navigation data",
+        "asset": "Navigation Data",
+        "damage_scene": "An attacker modifies navigation data, causing incorrect routing, location spoofing, or denial of navigation services.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-23",
+        "nodeId": "media-data",
+        "task": "Threat Analysis",
+        "name": "CWE-434: Unrestricted Upload of File with Dangerous Type -> CAPEC-20: Cross-Site Scripting -> MITRE ATT&CK T1083: File and Directory Discovery -> ATM: Media File Corruption",
+        "loss": "Corruption or manipulation of media files",
+        "asset": "Media Data",
+        "damage_scene": "An attacker corrupts or manipulates media files stored in the infotainment system, leading to playback issues or potential execution of malicious code.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-24",
+        "nodeId": "app-data",
+        "task": "Threat Analysis",
+        "name": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> CAPEC-29: Data Leakage -> MITRE ATT&CK T1081: Credentials In Files -> ATM: Application Data Exfiltration",
+        "loss": "Exfiltration of application-specific data",
+        "asset": "App Data",
+        "damage_scene": "An attacker accesses and exfiltrates sensitive data associated with installed applications, potentially revealing user activity or configuration details.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-25",
+        "nodeId": "ota-package",
+        "task": "Threat Analysis",
+        "name": "CWE-347: Improper Verification of Cryptographic Signature -> CAPEC-16: Key Compromise -> MITRE ATT&CK T1554: Compromise Infrastructure -> ATM: Malicious OTA Package Installation",
+        "loss": "Installation of malicious OTA package",
+        "asset": "OTA Package",
+        "damage_scene": "An attacker crafts a malicious OTA package with a forged signature and tricks the system into installing it, leading to system compromise.",
+        "isChecked": false
+      }
+    ],
+    "Details": [
+      {
+        "Name": "Unauthorized Code Execution via USB",
+        "Description": "An attacker inserts a malicious USB drive, leveraging vulnerabilities in the USB driver stack to execute arbitrary code on the Head Unit.",
+        "cyberLosses": [
+          {
+            "id": "loss-1",
+            "name": "Execution of unauthorized code via USB storage",
+            "node": "USB Port",
+            "nodeId": "usb-port",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 1,
+        "_id": "detail-1"
+      },
+      {
+        "Name": "System Settings Modification",
+        "Description": "An attacker exploits a privilege escalation vulnerability in the Head Unit's operating system to gain administrative control and modify critical system settings.",
+        "cyberLosses": [
+          {
+            "id": "loss-2",
+            "name": "Unauthorized modification of system settings",
+            "node": "Head Unit",
+            "nodeId": "head-unit",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Minor"
+        },
+        "key": 2,
+        "_id": "detail-2"
+      },
+      {
+        "Name": "Bluetooth Data Exfiltration",
+        "Description": "An attacker uses Bluetooth to scan for and exfiltrate sensitive data from connected devices or the infotainment system.",
+        "cyberLosses": [
+          {
+            "id": "loss-3",
+            "name": "Unauthorized information disclosure via Bluetooth",
+            "node": "Bluetooth Module",
+            "nodeId": "bluetooth-module",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 3,
+        "_id": "detail-3"
+      },
+      {
+        "Name": "WiFi Network Intrusion",
+        "Description": "An attacker exploits a vulnerability in the WiFi stack to intercept and analyze unencrypted traffic, potentially capturing sensitive data like credentials.",
+        "cyberLosses": [
+          {
+            "id": "loss-4",
+            "name": "Interception of unencrypted network traffic",
+            "node": "WiFi Module",
+            "nodeId": "wifi-module",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 4,
+        "_id": "detail-4"
+      },
+      {
+        "Name": "GPS Spoofing",
+        "Description": "An attacker manipulates the GPS signal, providing false location data to the navigation system, leading to incorrect routing or tracking.",
+        "cyberLosses": [
+          {
+            "id": "loss-5",
+            "name": "Incorrect navigation and location tracking",
+            "node": "GPS Module",
+            "nodeId": "gps-module",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Major",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Minor"
+        },
+        "key": 5,
+        "_id": "detail-5"
+      },
+      {
+        "Name": "Telematics Data Exfiltration",
+        "Description": "An attacker compromises the Telematics Control Unit to exfiltrate sensitive vehicle or user data transmitted through the telematics channel.",
+        "cyberLosses": [
+          {
+            "id": "loss-6",
+            "name": "Exfiltration of telematics data",
+            "node": "Telematics Control Unit",
+            "nodeId": "telematics-control-unit",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Major"
+        },
+        "key": 6,
+        "_id": "detail-6"
+      },
+      {
+        "Name": "App Projection Control",
+        "Description": "An attacker manipulates the app projection from a compromised smartphone to gain unauthorized control over infotainment features or potentially other vehicle systems.",
+        "cyberLosses": [
+          {
+            "id": "loss-7",
+            "name": "Unauthorized control of vehicle functions via app projection",
+            "node": "Smartphone",
+            "nodeId": "smartphone",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Moderate",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Minor"
+        },
+        "key": 7,
+        "_id": "detail-7"
+      },
+      {
+        "Name": "Malicious OTA Update",
+        "Description": "An attacker compromises the cloud backend to distribute a tampered OTA update package, leading to the installation of malware on the Head Unit.",
+        "cyberLosses": [
+          {
+            "id": "loss-8",
+            "name": "Installation of malicious OTA updates",
+            "node": "Cloud Backend",
+            "nodeId": "cloud-backend",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 8,
+        "_id": "detail-8"
+      },
+      {
+        "Name": "CAN Bus Injection",
+        "Description": "An attacker injects malicious messages into the vehicle's CAN bus network, potentially affecting safety-critical systems.",
+        "cyberLosses": [
+          {
+            "id": "loss-9",
+            "name": "Manipulation of vehicle network communication",
+            "node": "Vehicle Network",
+            "nodeId": "vehicle-network",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Severe",
+          "Operational Impact": "Severe",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 9,
+        "_id": "detail-9"
+      },
+      {
+        "Name": "Unauthorized CAN Message Injection",
+        "Description": "An attacker exploits vulnerabilities in the CAN transceiver to inject unauthorized CAN messages, disrupting vehicle operation.",
+        "cyberLosses": [
+          {
+            "id": "loss-10",
+            "name": "Unauthorized CAN bus message injection",
+            "node": "CAN Transceiver",
+            "nodeId": "can-transceiver",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Severe",
+          "Operational Impact": "Severe",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 10,
+        "_id": "detail-10"
+      },
+      {
+        "Name": "Ethernet Network Intrusion",
+        "Description": "An attacker exploits vulnerabilities in the Ethernet interface to gain unauthorized access to the infotainment system's network.",
+        "cyberLosses": [
+          {
+            "id": "loss-11",
+            "name": "Network intrusion via Ethernet",
+            "node": "Ethernet Interface",
+            "nodeId": "ethernet-interface",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 11,
+        "_id": "detail-11"
+      },
+      {
+        "Name": "Storage Data Exfiltration",
+        "Description": "An attacker gains unauthorized access to the infotainment system's storage and exfiltrates sensitive data such as user profiles or media files.",
+        "cyberLosses": [
+          {
+            "id": "loss-12",
+            "name": "Exfiltration of stored sensitive data",
+            "node": "Storage",
+            "nodeId": "storage",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Major"
+        },
+        "key": 12,
+        "_id": "detail-12"
+      },
+      {
+        "Name": "Firmware Tampering",
+        "Description": "An attacker modifies the firmware stored in the Code Flash, potentially installing malicious code or altering system behavior.",
+        "cyberLosses": [
+          {
+            "id": "loss-13",
+            "name": "Tampering with system firmware",
+            "node": "Code Flash",
+            "nodeId": "code-flash",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Minor"
+        },
+        "key": 13,
+        "_id": "detail-13"
+      },
+      {
+        "Name": "Sensitive Data Exposure from Data Flash",
+        "Description": "Sensitive information stored in the Data Flash is accessed and exposed due to weak security controls or cleartext storage.",
+        "cyberLosses": [
+          {
+            "id": "loss-14",
+            "name": "Exposure of sensitive data in Data Flash",
+            "node": "Data Flash",
+            "nodeId": "data-flash",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Major"
+        },
+        "key": 14,
+        "_id": "detail-14"
+      },
+      {
+        "Name": "Secure Storage Compromise",
+        "Description": "An attacker bypasses security mechanisms to access and extract sensitive data stored in the Secure Storage.",
+        "cyberLosses": [
+          {
+            "id": "loss-15",
+            "name": "Compromise of secure storage",
+            "node": "Secure Storage",
+            "nodeId": "secure-storage",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Major"
+        },
+        "key": 15,
+        "_id": "detail-15"
+      },
+      {
+        "Name": "Key Theft",
+        "Description": "An attacker steals cryptographic keys stored within the system, enabling decryption of sensitive data or impersonation.",
+        "cyberLosses": [
+          {
+            "id": "loss-16",
+            "name": "Theft of cryptographic keys",
+            "node": "Keys",
+            "nodeId": "keys",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Major"
+        },
+        "key": 16,
+        "_id": "detail-16"
+      },
+      {
+        "Name": "Certificate Forgery",
+        "Description": "An attacker compromises or forges digital certificates, allowing them to impersonate legitimate entities or bypass trust mechanisms.",
+        "cyberLosses": [
+          {
+            "id": "loss-17",
+            "name": "Forgery or misuse of digital certificates",
+            "node": "Certificates",
+            "nodeId": "certificates",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Major"
+        },
+        "key": 17,
+        "_id": "detail-17"
+      },
+      {
+        "Name": "Bootloader Tampering",
+        "Description": "An attacker exploits a vulnerability in the bootloader to load and execute malicious code when the system powers on, compromising the entire system.",
+        "cyberLosses": [
+          {
+            "id": "loss-18",
+            "name": "Execution of unauthorized code during boot",
+            "node": "Bootloader",
+            "nodeId": "bootloader",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Minor"
+        },
+        "key": 18,
+        "_id": "detail-18"
+      },
+      {
+        "Name": "Debug Port Abuse",
+        "Description": "An attacker leverages the debug port to gain unauthorized access and execute commands, potentially controlling the system or exfiltrating data.",
+        "cyberLosses": [
+          {
+            "id": "loss-19",
+            "name": "Unauthorized access and control via debug port",
+            "node": "Debug Port",
+            "nodeId": "debug-port",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 19,
+        "_id": "detail-19"
+      },
+      {
+        "Name": "User Profile Theft",
+        "Description": "An attacker accesses and steals user profile data, including personal information and preferences, leading to privacy violations.",
+        "cyberLosses": [
+          {
+            "id": "loss-20",
+            "name": "Theft of user profile data",
+            "node": "User Profiles",
+            "nodeId": "user-profiles",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Major"
+        },
+        "key": 20,
+        "_id": "detail-20"
+      },
+      {
+        "Name": "Credential Harvesting",
+        "Description": "An attacker obtains user credentials stored within the system, enabling them to impersonate users or gain unauthorized access to accounts.",
+        "cyberLosses": [
+          {
+            "id": "loss-21",
+            "name": "Harvesting of user credentials",
+            "node": "Credentials",
+            "nodeId": "credentials",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Major"
+        },
+        "key": 21,
+        "_id": "detail-21"
+      },
+      {
+        "Name": "Navigation Data Tampering",
+        "Description": "An attacker modifies navigation data, causing incorrect routing, location spoofing, or denial of navigation services.",
+        "cyberLosses": [
+          {
+            "id": "loss-22",
+            "name": "Tampering with navigation data",
+            "node": "Navigation Data",
+            "nodeId": "navigation-data",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Major",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Minor"
+        },
+        "key": 22,
+        "_id": "detail-22"
+      },
+      {
+        "Name": "Media File Corruption",
+        "Description": "An attacker corrupts or manipulates media files stored in the infotainment system, leading to playback issues or potential execution of malicious code.",
+        "cyberLosses": [
+          {
+            "id": "loss-23",
+            "name": "Corruption or manipulation of media files",
+            "node": "Media Data",
+            "nodeId": "media-data",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Minor"
+        },
+        "key": 23,
+        "_id": "detail-23"
+      },
+      {
+        "Name": "Application Data Exfiltration",
+        "Description": "An attacker accesses and exfiltrates sensitive data associated with installed applications, potentially revealing user activity or configuration details.",
+        "cyberLosses": [
+          {
+            "id": "loss-24",
+            "name": "Exfiltration of application-specific data",
+            "node": "App Data",
+            "nodeId": "app-data",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Major"
+        },
+        "key": 24,
+        "_id": "detail-24"
+      },
+      {
+        "Name": "Malicious OTA Package Installation",
+        "Description": "An attacker crafts a malicious OTA package with a forged signature and tricks the system into installing it, leading to system compromise.",
+        "cyberLosses": [
+          {
+            "id": "loss-25",
+            "name": "Installation of malicious OTA package",
+            "node": "OTA Package",
+            "nodeId": "ota-package",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Minor"
+        },
+        "key": 25,
+        "_id": "detail-25"
+      }
+    ]
+  }
+}

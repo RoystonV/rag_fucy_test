@@ -1,0 +1,1814 @@
+{
+  "assets": {
+    "_id": "6593112f3f4080788a1d9667",
+    "user_id": "user_1",
+    "model_id": "InfotainmentHeadUnit",
+    "template": {
+      "nodes": [
+        {
+          "id": "infotainment-head-unit-group",
+          "type": "group",
+          "parentId": null,
+          "data": {
+            "label": "Infotainment Head Unit",
+            "nodeCount": 13,
+            "style": {
+              "background": "rgba(33,150,243,0.05)",
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 510,
+              "width": 1041
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 1041,
+            "height": 510
+          },
+          "zIndex": 0,
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "positionAbsolute": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        {
+          "id": "display-unit",
+          "type": "default",
+          "parentId": "infotainment-head-unit-group",
+          "isAsset": true,
+          "data": {
+            "label": "Display Unit",
+            "description": "Touchscreen HMI",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 1,
+          "position": {
+            "x": 24,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 24.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "audio-amplifier",
+          "type": "default",
+          "parentId": "infotainment-head-unit-group",
+          "isAsset": true,
+          "data": {
+            "label": "Audio Amplifier",
+            "description": "I2S digital audio",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 2,
+          "position": {
+            "x": 194.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 194.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "bluetooth-module",
+          "type": "default",
+          "parentId": "infotainment-head-unit-group",
+          "isAsset": true,
+          "data": {
+            "label": "Bluetooth Module",
+            "description": "HCI UART link, BT/BLE stack",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 3,
+          "position": {
+            "x": 364.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 364.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "wi-fi-module",
+          "type": "default",
+          "parentId": "infotainment-head-unit-group",
+          "isAsset": true,
+          "data": {
+            "label": "Wi-Fi Module",
+            "description": "SDIO link, 802.11ac",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 4,
+          "position": {
+            "x": 534.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 534.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "usb-interface",
+          "type": "default",
+          "parentId": "infotainment-head-unit-group",
+          "isAsset": true,
+          "data": {
+            "label": "USB Interface",
+            "description": "USB 2.0 host, CarPlay/Android Auto",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 5,
+          "position": {
+            "x": 704.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 704.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "microphone",
+          "type": "default",
+          "parentId": "infotainment-head-unit-group",
+          "isAsset": true,
+          "data": {
+            "label": "Microphone",
+            "description": "ADC line-in, voice capture",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 6,
+          "position": {
+            "x": 24,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 24.0,
+            "y": 130.0
+          }
+        },
+        {
+          "id": "rear-camera-input",
+          "type": "default",
+          "parentId": "infotainment-head-unit-group",
+          "isAsset": true,
+          "data": {
+            "label": "Rear Camera Input",
+            "description": "MIPI-CSI2 video",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 7,
+          "position": {
+            "x": 194.0,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 194.0,
+            "y": 130.0
+          }
+        },
+        {
+          "id": "can-transceiver",
+          "type": "default",
+          "parentId": "infotainment-head-unit-group",
+          "isAsset": true,
+          "data": {
+            "label": "CAN Transceiver",
+            "description": "vehicle network gateway",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 8,
+          "position": {
+            "x": 364.0,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 364.0,
+            "y": 130.0
+          }
+        },
+        {
+          "id": "mcu-group",
+          "type": "group",
+          "parentId": "infotainment-head-unit-group",
+          "data": {
+            "label": "MCU Group",
+            "nodeCount": 4,
+            "style": {
+              "background": "rgba(33,150,243,0.05)",
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 300,
+              "width": 350
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 350,
+            "height": 300
+          },
+          "zIndex": 9,
+          "position": {
+            "x": 24,
+            "y": 200.0
+          },
+          "positionAbsolute": {
+            "x": 24.0,
+            "y": 200.0
+          }
+        },
+        {
+          "id": "code-flash",
+          "type": "default",
+          "parentId": "mcu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Code Flash",
+            "description": "IVI OS firmware and application code",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 10,
+          "position": {
+            "x": 24,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 260.0
+          }
+        },
+        {
+          "id": "data-flash",
+          "type": "default",
+          "parentId": "mcu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Data Flash",
+            "description": "calibration, config NVM, user settings",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 11,
+          "position": {
+            "x": 24,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 330.0
+          }
+        },
+        {
+          "id": "keys",
+          "type": "default",
+          "parentId": "mcu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Keys",
+            "description": "TLS/OTA signing keys, Bluetooth link keys",
+            "style": {
+              "backgroundColor": "#51dc1e",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 12,
+          "position": {
+            "x": 24,
+            "y": 200.0
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 400.0
+          }
+        },
+        {
+          "id": "certificates",
+          "type": "default",
+          "parentId": "mcu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Certificates",
+            "description": "X.509 TLS client cert, secure boot cert",
+            "style": {
+              "backgroundColor": "#51dc1e",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 13,
+          "position": {
+            "x": 24,
+            "y": 270.0
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 470.0
+          }
+        },
+        {
+          "id": "debug-port",
+          "type": "default",
+          "parentId": "mcu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Debug Port",
+            "description": "JTAG/UART, must be disabled in production",
+            "style": {
+              "backgroundColor": "#e26a6a",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 14,
+          "position": {
+            "x": 24,
+            "y": 340.0
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 540.0
+          }
+        },
+        {
+          "id": "user-profiles",
+          "type": "data",
+          "parentId": "infotainment-head-unit-group",
+          "isAsset": true,
+          "data": {
+            "label": "User Profiles",
+            "description": "PII: driver preferences, contacts, call history",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity",
+            "Confidentiality"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "zIndex": 15,
+          "position": {
+            "x": 534.0,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 534.0,
+            "y": 130.0
+          }
+        },
+        {
+          "id": "navigation-data",
+          "type": "data",
+          "parentId": "infotainment-head-unit-group",
+          "isAsset": true,
+          "data": {
+            "label": "Navigation Data",
+            "description": "GPS routes, POI history, location logs",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity",
+            "Confidentiality"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "zIndex": 16,
+          "position": {
+            "x": 604.0,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 604.0,
+            "y": 130.0
+          }
+        },
+        {
+          "id": "vehicle-can-bus",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Vehicle CAN Bus",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 17,
+          "position": {
+            "x": 1101.0,
+            "y": 40.0
+          },
+          "positionAbsolute": {
+            "x": 1101.0,
+            "y": 40.0
+          }
+        },
+        {
+          "id": "smartphone",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Smartphone",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 18,
+          "position": {
+            "x": 1101.0,
+            "y": 120.0
+          },
+          "positionAbsolute": {
+            "x": 1101.0,
+            "y": 120.0
+          }
+        },
+        {
+          "id": "cloud-backend",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Cloud Backend",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 19,
+          "position": {
+            "x": 1101.0,
+            "y": 200.0
+          },
+          "positionAbsolute": {
+            "x": 1101.0,
+            "y": 200.0
+          }
+        },
+        {
+          "id": "obd-ii-port",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "OBD-II Port",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "zIndex": 20,
+          "position": {
+            "x": 1101.0,
+            "y": 280.0
+          },
+          "positionAbsolute": {
+            "x": 1101.0,
+            "y": 280.0
+          }
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-display",
+          "source": "mcu-group",
+          "target": "display-unit",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "I2C/MIPI-DSI",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-audio",
+          "source": "mcu-group",
+          "target": "audio-amplifier",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "I2S",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-bluetooth",
+          "source": "mcu-group",
+          "target": "bluetooth-module",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "HCI UART",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-wifi",
+          "source": "mcu-group",
+          "target": "wi-fi-module",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "SDIO",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-usb",
+          "source": "mcu-group",
+          "target": "usb-interface",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "USB2",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-mic",
+          "source": "mcu-group",
+          "target": "microphone",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "ADC_MIC",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-camera",
+          "source": "mcu-group",
+          "target": "rear-camera-input",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "MIPI_CSI",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-can-ivi",
+          "source": "mcu-group",
+          "target": "can-transceiver",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "CAN_IVI",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-vehicle-can",
+          "source": "can-transceiver",
+          "target": "vehicle-can-bus",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Vehicle_CAN",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-https",
+          "source": "wi-fi-module",
+          "target": "cloud-backend",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "HTTPS",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-bt-profile",
+          "source": "bluetooth-module",
+          "target": "smartphone",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "BT_Profile",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-obd-uds",
+          "source": "obd-ii-port",
+          "target": "can-transceiver",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "OBD_UDS",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-code-flash",
+          "source": "mcu-group",
+          "target": "code-flash",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Firmware Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-data-flash",
+          "source": "mcu-group",
+          "target": "data-flash",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "NVM Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-keys",
+          "source": "mcu-group",
+          "target": "keys",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Key Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-certificates",
+          "source": "mcu-group",
+          "target": "certificates",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Cert Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-debug",
+          "source": "mcu-group",
+          "target": "debug-port",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "JTAG/UART",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-user-profiles",
+          "source": "infotainment-head-unit-group",
+          "target": "user-profiles",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "NVM Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-navigation-data",
+          "source": "infotainment-head-unit-group",
+          "target": "navigation-data",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "NVM Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        }
+      ]
+    }
+  },
+  "damage_scenarios": {
+    "_id": "6593112f3f4080788a1d9668",
+    "model_id": "InfotainmentHeadUnit",
+    "type": "damage",
+    "Derivations": [
+      {
+        "id": "derivation-1",
+        "nodeId": "usb-interface",
+        "task": "Threat Analysis",
+        "name": "CWE-1061: Insufficient Encapsulation -> CAPEC-13: Input Validation Deception -> MITRE ATT&CK T1048: Exfiltration Over Alternative Protocol -> ATM: Removable Media",
+        "loss": "Data exfiltration via USB",
+        "asset": "USB Interface",
+        "damage_scene": "An attacker exploits vulnerabilities in the USB interface to exfiltrate sensitive data such as user profiles or navigation data.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-2",
+        "nodeId": "bluetooth-module",
+        "task": "Threat Analysis",
+        "name": "CWE-312: Cleartext Storage of Sensitive Information -> CAPEC-28: Privilege Escalation -> MITRE ATT&CK T1106: Exploit Public-Facing Application -> ATM: Aftermarket, Customer, or Dealer Equipment",
+        "loss": "Unauthorized access to smartphone data",
+        "asset": "Bluetooth Module",
+        "damage_scene": "An attacker leverages a compromised smartphone connected via Bluetooth to access user profiles and other sensitive data on the infotainment system.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-3",
+        "nodeId": "wi-fi-module",
+        "task": "Threat Analysis",
+        "name": "CWE-15: External Control of System or Configuration Setting -> CAPEC-16: Attack on Confidentiality -> MITRE ATT&CK T1021.001: Remote Desktop Protocol -> ATM: Gather Target Information – from Vehicle",
+        "loss": "Unauthorized access to cloud services",
+        "asset": "Wi-Fi Module",
+        "damage_scene": "An attacker compromises the Wi-Fi module to gain access to the cloud backend, potentially leading to data breaches or manipulation of connected services.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-4",
+        "nodeId": "can-transceiver",
+        "task": "Threat Analysis",
+        "name": "CWE-829: Inclusion of Functionality from Untrusted Control Sphere -> CAPEC-12: Supply Chain Compromise -> MITRE ATT&CK T1572: Protocol Tunneling -> ATM: Control of System",
+        "loss": "Manipulation of vehicle network",
+        "asset": "CAN Transceiver",
+        "damage_scene": "An attacker injects malicious CAN messages through the CAN transceiver, potentially affecting vehicle operations or safety systems.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-5",
+        "nodeId": "code-flash",
+        "task": "Threat Analysis",
+        "name": "CWE-318: Cleartext Storage of Sensitive Information in Executable -> CAPEC-28: Privilege Escalation -> MITRE ATT&CK T1548.002: Abuse Elevation Control Mechanism: setuid and setgid -> ATM: Control of System",
+        "loss": "Firmware tampering",
+        "asset": "Code Flash",
+        "damage_scene": "An attacker modifies the infotainment system's firmware in the Code Flash, leading to persistent malicious behavior or denial of service.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-6",
+        "nodeId": "user-profiles",
+        "task": "Threat Analysis",
+        "name": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> CAPEC-29: Data Leakage -> MITRE ATT&CK T1552.001: Steal or Substitute Credentials: Plaintext Accesses and Information -> ATM: Access personal data",
+        "loss": "Disclosure of PII",
+        "asset": "User Profiles",
+        "damage_scene": "An attacker accesses and exfiltrates sensitive personal information stored in user profiles.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-7",
+        "nodeId": "keys",
+        "task": "Threat Analysis",
+        "name": "CWE-312: Cleartext Storage of Sensitive Information -> CAPEC-30: Credential Access -> MITRE ATT&CK T1552.001: Steal or Substitute Credentials: Plaintext Accesses and Information -> ATM: Gather Target Information – from Other",
+        "loss": "Compromise of cryptographic keys",
+        "asset": "Keys",
+        "damage_scene": "An attacker steals or compromises the cryptographic keys stored in the infotainment system, enabling further attacks like unauthorized communication or firmware manipulation.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-8",
+        "nodeId": "obd-ii-port",
+        "task": "Threat Analysis",
+        "name": "CWE-15: External Control of System or Configuration Setting -> CAPEC-12: Supply Chain Compromise -> MITRE ATT&CK T1071.004: Application Layer Protocol: DNS -> ATM: Aftermarket, Customer, or Dealer Equipment",
+        "loss": "Unauthorized diagnostic access",
+        "asset": "OBD-II Port",
+        "damage_scene": "An attacker uses the OBD-II port with a malicious tool to gain unauthorized access to the vehicle's diagnostic systems or control modules.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-9",
+        "nodeId": "microphone",
+        "task": "Threat Analysis",
+        "name": "CWE-668: Exposure of Resource to an Insecure Default Condition -> CAPEC-634: Probe Audio and Video Peripherals -> MITRE ATT&CK T1123: Audio Capture -> ATM: Access personal data",
+        "loss": "Eavesdropping",
+        "asset": "Microphone",
+        "damage_scene": "An attacker remotely activates the microphone to eavesdrop on conversations within the vehicle.",
+        "isChecked": false
+      }
+    ],
+    "Details": [
+      {
+        "Name": "Data Exfiltration via USB",
+        "Description": "An attacker exploits vulnerabilities in the USB interface to exfiltrate sensitive data such as user profiles or navigation data.",
+        "cyberLosses": [
+          {
+            "id": "cl-1",
+            "name": "Data exfiltration via USB",
+            "node": "USB Interface",
+            "nodeId": "usb-interface",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Major"
+        },
+        "key": 1,
+        "_id": "6593112f3f4080788a1d9669"
+      },
+      {
+        "Name": "Unauthorized Access to Smartphone Data",
+        "Description": "An attacker leverages a compromised smartphone connected via Bluetooth to access user profiles and other sensitive data on the infotainment system.",
+        "cyberLosses": [
+          {
+            "id": "cl-2",
+            "name": "Unauthorized access to smartphone data",
+            "node": "Bluetooth Module",
+            "nodeId": "bluetooth-module",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Major"
+        },
+        "key": 2,
+        "_id": "6593112f3f4080788a1d966a"
+      },
+      {
+        "Name": "Unauthorized Access to Cloud Services",
+        "Description": "An attacker compromises the Wi-Fi module to gain access to the cloud backend, potentially leading to data breaches or manipulation of connected services.",
+        "cyberLosses": [
+          {
+            "id": "cl-3",
+            "name": "Unauthorized access to cloud services",
+            "node": "Wi-Fi Module",
+            "nodeId": "wi-fi-module",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 3,
+        "_id": "6593112f3f4080788a1d966b"
+      },
+      {
+        "Name": "Manipulation of Vehicle Network",
+        "Description": "An attacker injects malicious CAN messages through the CAN transceiver, potentially affecting vehicle operations or safety systems.",
+        "cyberLosses": [
+          {
+            "id": "cl-4",
+            "name": "Manipulation of vehicle network",
+            "node": "CAN Transceiver",
+            "nodeId": "can-transceiver",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Severe",
+          "Operational Impact": "Severe",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 4,
+        "_id": "6593112f3f4080788a1d966c"
+      },
+      {
+        "Name": "Firmware Tampering",
+        "Description": "An attacker modifies the infotainment system's firmware in the Code Flash, leading to persistent malicious behavior or denial of service.",
+        "cyberLosses": [
+          {
+            "id": "cl-5",
+            "name": "Firmware tampering",
+            "node": "Code Flash",
+            "nodeId": "code-flash",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Moderate",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Minor"
+        },
+        "key": 5,
+        "_id": "6593112f3f4080788a1d966d"
+      },
+      {
+        "Name": "Disclosure of PII",
+        "Description": "An attacker accesses and exfiltrates sensitive personal information stored in user profiles.",
+        "cyberLosses": [
+          {
+            "id": "cl-6",
+            "name": "Disclosure of PII",
+            "node": "User Profiles",
+            "nodeId": "user-profiles",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Major"
+        },
+        "key": 6,
+        "_id": "6593112f3f4080788a1d966e"
+      },
+      {
+        "Name": "Compromise of Cryptographic Keys",
+        "Description": "An attacker steals or compromises the cryptographic keys stored in the infotainment system, enabling further attacks like unauthorized communication or firmware manipulation.",
+        "cyberLosses": [
+          {
+            "id": "cl-7",
+            "name": "Compromise of cryptographic keys",
+            "node": "Keys",
+            "nodeId": "keys",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Moderate",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 7,
+        "_id": "6593112f3f4080788a1d966f"
+      },
+      {
+        "Name": "Unauthorized Diagnostic Access",
+        "Description": "An attacker uses the OBD-II port with a malicious tool to gain unauthorized access to the vehicle's diagnostic systems or control modules.",
+        "cyberLosses": [
+          {
+            "id": "cl-8",
+            "name": "Unauthorized diagnostic access",
+            "node": "OBD-II Port",
+            "nodeId": "obd-ii-port",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Minor"
+        },
+        "key": 8,
+        "_id": "6593112f3f4080788a1d9670"
+      },
+      {
+        "Name": "Eavesdropping",
+        "Description": "An attacker remotely activates the microphone to eavesdrop on conversations within the vehicle.",
+        "cyberLosses": [
+          {
+            "id": "cl-9",
+            "name": "Eavesdropping",
+            "node": "Microphone",
+            "nodeId": "microphone",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Major"
+        },
+        "key": 9,
+        "_id": "6593112f3f4080788a1d9671"
+      }
+    ]
+  }
+}

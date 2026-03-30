@@ -1,0 +1,1924 @@
+{
+  "assets": {
+    "_id": "632a9f1b-3b1e-4d9f-8e8b-6c2e1d8e4a0c",
+    "user_id": "user_123",
+    "model_id": "bms_model_456",
+    "template": {
+      "nodes": [
+        {
+          "id": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+          "type": "default",
+          "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+          "isAsset": false,
+          "data": {
+            "label": "BatteryPack",
+            "description": "Description",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 261,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Authenticity",
+            "Authorization",
+            "Availability",
+            "Non-repudiation"
+          ],
+          "style": {
+            "width": 150,
+            "height": 261
+          },
+          "width": 150,
+          "height": 261,
+          "position": {
+            "x": 24,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 24.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "db4141e3-e094-4c4e-8e06-44e1b9e1aa94",
+          "type": "default",
+          "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+          "isAsset": false,
+          "data": {
+            "label": "CellMonitoring",
+            "description": "test desc",
+            "style": {
+              "backgroundColor": "#e6df19",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 194.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 194.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "05e9f5bd-d85a-468b-954a-5dddc69079f6",
+          "type": "default",
+          "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+          "isAsset": false,
+          "data": {
+            "label": "IO and Analog",
+            "description": "",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 364.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 364.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "6972d325-0c1e-4ff3-b900-707838d25c14",
+          "type": "default",
+          "parentId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "isAsset": false,
+          "data": {
+            "label": "Code Flash",
+            "description": "",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 90,
+              "width": 104
+            }
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity",
+            "Availability",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 104,
+            "height": 90
+          },
+          "width": 104,
+          "height": 90,
+          "position": {
+            "x": 24,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 401.0
+          }
+        },
+        {
+          "id": "1ea661cc-558d-4385-b53e-07e776965a4b",
+          "type": "default",
+          "parentId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "isAsset": false,
+          "data": {
+            "label": "Data Flash",
+            "description": "",
+            "style": {
+              "backgroundColor": "#f0b2b2",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 41,
+              "width": 103
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability",
+            "Non-repudiation"
+          ],
+          "style": {
+            "width": 103,
+            "height": 41
+          },
+          "width": 103,
+          "height": 41,
+          "position": {
+            "x": 148.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 172.0,
+            "y": 401.0
+          }
+        },
+        {
+          "id": "07f29908-e559-4899-b842-5f5e6bb31d3f",
+          "type": "default",
+          "parentId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "isAsset": false,
+          "data": {
+            "label": "Keys",
+            "description": "",
+            "style": {
+              "backgroundColor": "#51dc1e",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 39,
+              "width": 104
+            }
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "style": {
+            "width": 104,
+            "height": 39
+          },
+          "width": 104,
+          "height": 39,
+          "position": {
+            "x": 24,
+            "y": 170.0
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 511.0
+          }
+        },
+        {
+          "id": "588dd017-97a3-4e1a-a77e-91876c62c543",
+          "type": "default",
+          "parentId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "isAsset": false,
+          "data": {
+            "label": "Certificates",
+            "description": "",
+            "style": {
+              "backgroundColor": "#62c945",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 41,
+              "width": 107
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity",
+            "Availability"
+          ],
+          "style": {
+            "width": 107,
+            "height": 41
+          },
+          "width": 107,
+          "height": 41,
+          "position": {
+            "x": 148.0,
+            "y": 170.0
+          },
+          "positionAbsolute": {
+            "x": 172.0,
+            "y": 511.0
+          }
+        },
+        {
+          "id": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "type": "group",
+          "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+          "isAsset": false,
+          "data": {
+            "label": "MCU Group",
+            "style": {
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 239,
+              "width": 296
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 296,
+            "height": 239
+          },
+          "width": 296,
+          "height": 239,
+          "position": {
+            "x": 24,
+            "y": 341.0
+          },
+          "positionAbsolute": {
+            "x": 24.0,
+            "y": 341.0
+          }
+        },
+        {
+          "id": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+          "type": "default",
+          "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+          "isAsset": false,
+          "data": {
+            "label": "CAN Transceiver",
+            "description": "",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 534.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 534.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+          "type": "default",
+          "parentId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "isAsset": false,
+          "data": {
+            "label": "Debug Port",
+            "description": "",
+            "style": {
+              "backgroundColor": "#e26a6a",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 37,
+              "width": 99
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability",
+            "Authorization"
+          ],
+          "style": {
+            "width": 99,
+            "height": 37
+          },
+          "width": 99,
+          "height": 37,
+          "position": {
+            "x": 24,
+            "y": 231.0
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 572.0
+          }
+        },
+        {
+          "id": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+          "type": "default",
+          "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+          "isAsset": false,
+          "data": {
+            "label": "ICD Shunt CAN",
+            "description": "",
+            "style": {
+              "backgroundColor": "#accd32",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 152
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 152,
+            "height": 50
+          },
+          "width": 152,
+          "height": 50,
+          "position": {
+            "x": 704.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 704.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "8acc2cd9-a02e-4f92-8937-56ccd324444f",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Vehicle System",
+            "description": "",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 383,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 383
+          },
+          "width": 150,
+          "height": 383,
+          "position": {
+            "x": 1101.0,
+            "y": 40.0
+          },
+          "positionAbsolute": {
+            "x": 1101.0,
+            "y": 40.0
+          }
+        },
+        {
+          "id": "f910efcb-e9fb-4d3c-8927-4063902f576b",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Cloud",
+            "description": "",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "width": 150,
+          "height": 50,
+          "position": {
+            "x": 1101.0,
+            "y": 453.0
+          },
+          "positionAbsolute": {
+            "x": 1101.0,
+            "y": 453.0
+          }
+        },
+        {
+          "id": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+          "type": "group",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Battery Management System",
+            "nodeCount": 11,
+            "style": {
+              "background": "rgba(33,150,243,0.05)",
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 510,
+              "width": 1041
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 1041,
+            "height": 510
+          },
+          "width": 1041,
+          "height": 510,
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "positionAbsolute": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        {
+          "id": "8f364ae0-1de5-404b-831c-86daf0e24160",
+          "type": "data",
+          "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+          "isAsset": false,
+          "data": {
+            "label": "SoC",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "width": 50,
+          "height": 30,
+          "position": {
+            "x": 876.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 876.0,
+            "y": 60.0
+          }
+        },
+        {
+          "id": "389064d4-2770-4d34-9a05-c91a12d3559e",
+          "type": "data",
+          "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+          "isAsset": false,
+          "data": {
+            "label": "SoH",
+            "style": {
+              "backgroundColor": "#e6ed7d",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "width": 50,
+          "height": 30,
+          "position": {
+            "x": 946.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 946.0,
+            "y": 60.0
+          }
+        }
+      ],
+      "edges": [
+        {
+          "id": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bab-db4141e3-e094-4c4e-8e06-44e1b9e1aa94right",
+          "source": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "target": "db4141e3-e094-4c4e-8e06-44e1b9e1aa94",
+          "sourceHandle": "b",
+          "targetHandle": "right",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "SPI_CellMonitor",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bab-05e9f5bd-d85a-468b-954a-5dddc69079f6right",
+          "source": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "target": "05e9f5bd-d85a-468b-954a-5dddc69079f6",
+          "sourceHandle": "b",
+          "targetHandle": "right",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "data": {
+            "label": "IO_PINS",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bad-903c5635-ee0f-492d-8b4a-52106410cc8eleft",
+          "source": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "target": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+          "sourceHandle": "d",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity"
+          ],
+          "data": {
+            "label": "CAN2",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bac-6c2782e0-08da-42e8-bc9e-9f5bc3310526right",
+          "source": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "target": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+          "sourceHandle": "c",
+          "targetHandle": "right",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "CAN1",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "reactflow__edge-db4141e3-e094-4c4e-8e06-44e1b9e1aa94left-e2ee030f-e8e7-4ea7-9573-8a3e4339c137top",
+          "source": "db4141e3-e094-4c4e-8e06-44e1b9e1aa94",
+          "target": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+          "sourceHandle": "left",
+          "targetHandle": "top",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [],
+          "data": {
+            "label": "SPI",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "reactflow__edge-05e9f5bd-d85a-468b-954a-5dddc69079f6left-e2ee030f-e8e7-4ea7-9573-8a3e4339c137right",
+          "source": "05e9f5bd-d85a-468b-954a-5dddc69079f6",
+          "target": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+          "sourceHandle": "left",
+          "targetHandle": "right",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "data": {
+            "label": "IO",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "reactflow__edge-6c2782e0-08da-42e8-bc9e-9f5bc3310526left-e2ee030f-e8e7-4ea7-9573-8a3e4339c137bottom",
+          "source": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+          "target": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+          "sourceHandle": "left",
+          "targetHandle": "bottom",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "data": {
+            "label": "ICD_Data",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "reactflow__edge-8acc2cd9-a02e-4f92-8937-56ccd324444ftop-f910efcb-e9fb-4d3c-8927-4063902f576bbottom",
+          "source": "8acc2cd9-a02e-4f92-8937-56ccd324444f",
+          "target": "f910efcb-e9fb-4d3c-8927-4063902f576b",
+          "sourceHandle": "top",
+          "targetHandle": "bottom",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "data": {
+            "label": "Internet",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "reactflow__edge-8acc2cd9-a02e-4f92-8937-56ccd324444fleft-903c5635-ee0f-492d-8b4a-52106410cc8eright",
+          "source": "8acc2cd9-a02e-4f92-8937-56ccd324444f",
+          "target": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+          "sourceHandle": "left",
+          "targetHandle": "right",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity",
+            "Confidentiality"
+          ],
+          "data": {
+            "label": "Vehicle CAN",
+            "offset": 0,
+            "t": 0.5
+          }
+        }
+      ]
+    }
+  },
+  "damage_scenarios": {
+    "_id": "d1c2b3a4-5b6d-7c8e-9f0a-1b2c3d4e5f60",
+    "model_id": "bms_model_456",
+    "type": "damage",
+    "Derivations": [
+      {
+        "id": "deriv-1",
+        "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Integrity for BatteryPack",
+        "loss": "loss of Integrity",
+        "asset": "BatteryPack",
+        "damage_scene": "Unauthorized modification of BatteryPack charge/discharge parameters, leading to potential overcharging or deep discharge.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-2",
+        "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Confidentiality for BatteryPack",
+        "loss": "loss of Confidentiality",
+        "asset": "BatteryPack",
+        "damage_scene": "Exposure of sensitive battery pack data (e.g., individual cell voltages, temperatures) to unauthorized entities.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-3",
+        "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Authenticity for BatteryPack",
+        "loss": "loss of Authenticity",
+        "asset": "BatteryPack",
+        "damage_scene": "Introduction of a counterfeit or unauthorized battery pack into the system, potentially causing malfunction or safety hazards.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-4",
+        "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Authorization for BatteryPack",
+        "loss": "loss of Authorization",
+        "asset": "BatteryPack",
+        "damage_scene": "Unauthorized commands being issued to the BatteryPack, such as enabling or disabling charge/discharge cycles without proper permission.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-5",
+        "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Availability for BatteryPack",
+        "loss": "loss of Availability",
+        "asset": "BatteryPack",
+        "damage_scene": "The BatteryPack becoming unavailable for charging or discharging due to a denial-of-service attack or malfunction.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-6",
+        "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Non-repudiation for BatteryPack",
+        "loss": "loss of Non-repudiation",
+        "asset": "BatteryPack",
+        "damage_scene": "Inability to prove that a specific command or action was performed by the BatteryPack, leading to disputes or accountability issues.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-7",
+        "nodeId": "db4141e3-e094-4c4e-8e06-44e1b9e1aa94",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Integrity for CellMonitoring",
+        "loss": "loss of Integrity",
+        "asset": "CellMonitoring",
+        "damage_scene": "Incorrect cell voltage or temperature readings leading to faulty battery management decisions, potentially causing thermal runaway or damage.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-8",
+        "nodeId": "db4141e3-e094-4c4e-8e06-44e1b9e1aa94",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Availability for CellMonitoring",
+        "loss": "loss of Availability",
+        "asset": "CellMonitoring",
+        "damage_scene": "Cell monitoring data becomes unavailable, preventing the BMS from accurately assessing battery health and status.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-9",
+        "nodeId": "05e9f5bd-d85a-468b-954a-5dddc69079f6",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Integrity for IO and Analog",
+        "loss": "loss of Integrity",
+        "asset": "IO and Analog",
+        "damage_scene": "Corrupted readings from analog sensors (e.g., current sensors, voltage sensors) leading to incorrect battery state estimation.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-10",
+        "nodeId": "05e9f5bd-d85a-468b-954a-5dddc69079f6",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Availability for IO and Analog",
+        "loss": "loss of Availability",
+        "asset": "IO and Analog",
+        "damage_scene": "Loss of analog input signals, preventing the BMS from monitoring critical parameters.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-11",
+        "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Confidentiality for Code Flash",
+        "loss": "loss of Confidentiality",
+        "asset": "Code Flash",
+        "damage_scene": "Exposure of proprietary BMS algorithms and firmware, enabling reverse engineering and the development of exploits.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-12",
+        "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Integrity for Code Flash",
+        "loss": "loss of Integrity",
+        "asset": "Code Flash",
+        "damage_scene": "Malicious modification of BMS firmware, leading to incorrect operation, safety breaches, or disabling of security features.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-13",
+        "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Availability for Code Flash",
+        "loss": "loss of Availability",
+        "asset": "Code Flash",
+        "damage_scene": "The BMS firmware becomes corrupted or inaccessible, rendering the BMS inoperable.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-14",
+        "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Authenticity for Code Flash",
+        "loss": "loss of Authenticity",
+        "asset": "Code Flash",
+        "damage_scene": "Execution of unauthorized or tampered firmware due to a failure in signature verification during the boot process.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-15",
+        "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Integrity for Data Flash",
+        "loss": "loss of Integrity",
+        "asset": "Data Flash",
+        "damage_scene": "Tampering with stored calibration data, battery health logs, or charging history, leading to incorrect performance or warranty claims.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-16",
+        "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Availability for Data Flash",
+        "loss": "loss of Availability",
+        "asset": "Data Flash",
+        "damage_scene": "Inability to access critical configuration or logged data from Data Flash, potentially leading to BMS malfunction.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-17",
+        "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Non-repudiation for Data Flash",
+        "loss": "loss of Non-repudiation",
+        "asset": "Data Flash",
+        "damage_scene": "Inability to trace the origin or timestamp of data stored in Data Flash, complicating audits or dispute resolution.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-18",
+        "nodeId": "07f29908-e559-4899-b842-5f5e6bb31d3f",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Confidentiality for Keys",
+        "loss": "loss of Confidentiality",
+        "asset": "Keys",
+        "damage_scene": "Exposure of cryptographic keys used for secure communication or authentication, enabling impersonation or decryption of sensitive data.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-19",
+        "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Integrity for Certificates",
+        "loss": "loss of Integrity",
+        "asset": "Certificates",
+        "damage_scene": "Tampering with digital certificates, leading to authentication failures or the acceptance of untrusted identities.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-20",
+        "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Authenticity for Certificates",
+        "loss": "loss of Authenticity",
+        "asset": "Certificates",
+        "damage_scene": "Use of forged certificates to establish trust with other systems, enabling man-in-the-middle attacks.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-21",
+        "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Availability for Certificates",
+        "loss": "loss of Availability",
+        "asset": "Certificates",
+        "damage_scene": "Certificates become unavailable, preventing secure communication or authentication processes.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-22",
+        "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Integrity for Debug Port",
+        "loss": "loss of Integrity",
+        "asset": "Debug Port",
+        "damage_scene": "Unauthorized modification of debug settings or firmware through the debug interface, bypassing security controls.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-23",
+        "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Availability for Debug Port",
+        "loss": "loss of Availability",
+        "asset": "Debug Port",
+        "damage_scene": "The debug port becomes inaccessible, hindering necessary diagnostic or recovery operations.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-24",
+        "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Authorization for Debug Port",
+        "loss": "loss of Authorization",
+        "asset": "Debug Port",
+        "damage_scene": "Unauthorized access to the debug port, allowing attackers to execute arbitrary code or extract sensitive information.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-25",
+        "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Integrity for ICD Shunt CAN",
+        "loss": "loss of Integrity",
+        "asset": "ICD Shunt CAN",
+        "damage_scene": "Spoofed or corrupted current shunt data, leading to inaccurate battery state estimation and potentially unsafe charging/discharging.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-26",
+        "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Availability for ICD Shunt CAN",
+        "loss": "loss of Availability",
+        "asset": "ICD Shunt CAN",
+        "damage_scene": "Loss of current shunt data, preventing the BMS from accurately monitoring battery current.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-27",
+        "nodeId": "8f364ae0-1de5-404b-831c-86daf0e24160",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Authenticity for SoC",
+        "loss": "loss of Authenticity",
+        "asset": "SoC",
+        "damage_scene": "Inaccurate or falsified State of Charge (SoC) readings, leading to premature battery depletion warnings or overestimation of available range.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-28",
+        "nodeId": "8f364ae0-1de5-404b-831c-86daf0e24160",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Integrity for SoC",
+        "loss": "loss of Integrity",
+        "asset": "SoC",
+        "damage_scene": "Tampered SoC values leading to misleading battery status information for the driver or vehicle systems.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-29",
+        "nodeId": "389064d4-2770-4d34-9a05-c91a12d3559e",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Authenticity for SoH",
+        "loss": "loss of Authenticity",
+        "asset": "SoH",
+        "damage_scene": "Inaccurate or falsified State of Health (SoH) readings, leading to misjudgments of battery lifespan and warranty issues.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-30",
+        "nodeId": "389064d4-2770-4d34-9a05-c91a12d3559e",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Integrity for SoH",
+        "loss": "loss of Integrity",
+        "asset": "SoH",
+        "damage_scene": "Tampered SoH values potentially used to hide battery degradation or to falsely claim warranty service.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-31",
+        "nodeId": "db4141e3-e094-4c4e-8e06-44e1b9e1aa94",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Integrity for SPI_CellMonitor",
+        "loss": "loss of Integrity",
+        "asset": "CellMonitoring",
+        "damage_scene": "Data corruption during SPI communication from CellMonitoring, leading to incorrect cell voltage/temperature readings.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-32",
+        "nodeId": "05e9f5bd-d85a-468b-954a-5dddc69079f6",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Confidentiality for IO_PINS",
+        "loss": "loss of Confidentiality",
+        "asset": "IO and Analog",
+        "damage_scene": "Eavesdropping on analog sensor readings transmitted via IO_PINS, potentially revealing battery operating conditions.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-33",
+        "nodeId": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Integrity for CAN2",
+        "loss": "loss of Integrity",
+        "asset": "CAN Transceiver",
+        "damage_scene": "Modification of CAN messages passing through the CAN Transceiver, affecting communication with other ECUs.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-34",
+        "nodeId": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Authenticity for CAN2",
+        "loss": "loss of Authenticity",
+        "asset": "CAN Transceiver",
+        "damage_scene": "Impersonation of valid CAN nodes by injecting forged messages via the CAN Transceiver.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-35",
+        "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Integrity for CAN1",
+        "loss": "loss of Integrity",
+        "asset": "ICD Shunt CAN",
+        "damage_scene": "Modification of current shunt data messages sent over ICD Shunt CAN, leading to incorrect battery state estimations.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-36",
+        "nodeId": "05e9f5bd-d85a-468b-954a-5dddc69079f6",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Confidentiality for IO",
+        "loss": "loss of Confidentiality",
+        "asset": "IO and Analog",
+        "damage_scene": "Eavesdropping on analog sensor data transmitted via the IO interface, potentially revealing sensitive operational parameters.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-37",
+        "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Confidentiality for ICD_Data",
+        "loss": "loss of Confidentiality",
+        "asset": "ICD Shunt CAN",
+        "damage_scene": "Interception of current shunt data transmitted over ICD_Data, compromising battery performance insights.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-38",
+        "nodeId": "f910efcb-e9fb-4d3c-8927-4063902f576b",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Confidentiality for Internet",
+        "loss": "loss of Confidentiality",
+        "asset": "Cloud",
+        "damage_scene": "Exfiltration of sensitive battery data or BMS operational parameters from the Cloud service.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-39",
+        "nodeId": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Integrity for Vehicle CAN",
+        "loss": "loss of Integrity",
+        "asset": "CAN Transceiver",
+        "damage_scene": "Modification of vehicle CAN messages, impacting communication between BMS and other ECUs (e.g., powertrain, infotainment).",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-40",
+        "nodeId": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Authenticity for Vehicle CAN",
+        "loss": "loss of Authenticity",
+        "asset": "CAN Transceiver",
+        "damage_scene": "Injection of fraudulent CAN messages from non-authentic sources, potentially causing dangerous vehicle behavior.",
+        "isChecked": false
+      },
+      {
+        "id": "deriv-41",
+        "nodeId": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+        "task": "Threat Analysis",
+        "name": "DS due to loss of Confidentiality for Vehicle CAN",
+        "loss": "loss of Confidentiality",
+        "asset": "CAN Transceiver",
+        "damage_scene": "Eavesdropping on vehicle CAN bus traffic to gain insights into vehicle operation or to extract sensitive information.",
+        "isChecked": false
+      }
+    ],
+    "Details": [
+      {
+        "Name": "Compromise of Battery Pack Parameters",
+        "Description": "An attacker modifies critical parameters of the BatteryPack, such as charge/discharge limits or temperature thresholds, leading to unsafe operation, potential battery damage, or reduced lifespan. This can be achieved by exploiting vulnerabilities in the communication protocols or by unauthorized access to the BMS firmware.",
+        "cyberLosses": [
+          {
+            "id": "loss-1",
+            "name": "Safety",
+            "node": "BatteryPack",
+            "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-2",
+            "name": "Operational",
+            "node": "BatteryPack",
+            "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-3",
+            "name": "Financial",
+            "node": "BatteryPack",
+            "nodeId": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Severe",
+          "Safety Impact": "Severe",
+          "Operational Impact": "Severe",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 1,
+        "_id": "detail-1"
+      },
+      {
+        "Name": "Tampering with Cell Monitoring Data",
+        "Description": "An attacker injects false data into the CellMonitoring system, reporting incorrect cell voltages or temperatures. This can lead the BMS to make incorrect decisions regarding cell balancing, charging, or thermal management, potentially causing battery imbalance, overheating, or reduced performance.",
+        "cyberLosses": [
+          {
+            "id": "loss-4",
+            "name": "Safety",
+            "node": "CellMonitoring",
+            "nodeId": "db4141e3-e094-4c4e-8e06-44e1b9e1aa94",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-5",
+            "name": "Operational",
+            "node": "CellMonitoring",
+            "nodeId": "db4141e3-e094-4c4e-8e06-44e1b9e1aa94",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-6",
+            "name": "Financial",
+            "node": "CellMonitoring",
+            "nodeId": "db4141e3-e094-4c4e-8e06-44e1b9e1aa94",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 2,
+        "_id": "detail-2"
+      },
+      {
+        "Name": "Firmware Modification",
+        "Description": "An attacker gains unauthorized access to the Code Flash and modifies the BMS firmware. This could disable safety features, introduce malicious code for lateral movement, or cause complete system failure. This is often achieved by exploiting vulnerabilities in update mechanisms or by compromising debug interfaces.",
+        "cyberLosses": [
+          {
+            "id": "loss-7",
+            "name": "Safety",
+            "node": "Code Flash",
+            "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-8",
+            "name": "Operational",
+            "node": "Code Flash",
+            "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-9",
+            "name": "Financial",
+            "node": "Code Flash",
+            "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Severe",
+          "Safety Impact": "Severe",
+          "Operational Impact": "Severe",
+          "Privacy Impact": "Minor"
+        },
+        "key": 3,
+        "_id": "detail-3"
+      },
+      {
+        "Name": "Manipulation of Calibration Data",
+        "Description": "An attacker alters calibration data stored in Data Flash. This could include modifying parameters related to battery health assessment, charging profiles, or thermal management, leading to incorrect operation, reduced battery lifespan, or safety hazards.",
+        "cyberLosses": [
+          {
+            "id": "loss-10",
+            "name": "Operational",
+            "node": "Data Flash",
+            "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-11",
+            "name": "Financial",
+            "node": "Data Flash",
+            "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-12",
+            "name": "Safety",
+            "node": "Data Flash",
+            "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Moderate",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Minor"
+        },
+        "key": 4,
+        "_id": "detail-4"
+      },
+      {
+        "Name": "Key Exposure",
+        "Description": "Cryptographic keys stored in the Keys component are exfiltrated. This compromises the security of the entire system, allowing attackers to impersonate the BMS, decrypt sensitive communications, or bypass authentication mechanisms.",
+        "cyberLosses": [
+          {
+            "id": "loss-13",
+            "name": "Confidentiality",
+            "node": "Keys",
+            "nodeId": "07f29908-e559-4899-b842-5f5e6bb31d3f",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-14",
+            "name": "Integrity",
+            "node": "Keys",
+            "nodeId": "07f29908-e559-4899-b842-5f5e6bb31d3f",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-15",
+            "name": "Availability",
+            "node": "Keys",
+            "nodeId": "07f29908-e559-4899-b842-5f5e6bb31d3f",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Severe",
+          "Safety Impact": "Severe",
+          "Operational Impact": "Severe",
+          "Privacy Impact": "Severe"
+        },
+        "key": 5,
+        "_id": "detail-5"
+      },
+      {
+        "Name": "Debug Port Exploitation",
+        "Description": "An attacker gains unauthorized access to the Debug Port to manipulate firmware, extract sensitive data, or gain control of the BMS. This can lead to a complete compromise of the system and potentially influence vehicle behavior.",
+        "cyberLosses": [
+          {
+            "id": "loss-16",
+            "name": "Integrity",
+            "node": "Debug Port",
+            "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-17",
+            "name": "Authorization",
+            "node": "Debug Port",
+            "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-18",
+            "name": "Availability",
+            "node": "Debug Port",
+            "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Severe",
+          "Safety Impact": "Severe",
+          "Operational Impact": "Severe",
+          "Privacy Impact": "Severe"
+        },
+        "key": 6,
+        "_id": "detail-6"
+      },
+      {
+        "Name": "CAN Bus Spoofing (ICD Shunt CAN)",
+        "Description": "An attacker injects false current shunt data onto the ICD Shunt CAN bus. This misleads the BMS about the actual current flowing, potentially causing inaccurate State of Charge (SoC) and State of Health (SoH) calculations, and leading to inefficient or unsafe battery operation.",
+        "cyberLosses": [
+          {
+            "id": "loss-19",
+            "name": "Integrity",
+            "node": "ICD Shunt CAN",
+            "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-20",
+            "name": "Operational",
+            "node": "ICD Shunt CAN",
+            "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-21",
+            "name": "Safety",
+            "node": "ICD Shunt CAN",
+            "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 7,
+        "_id": "detail-7"
+      },
+      {
+        "Name": "False SoC/SoH Reporting",
+        "Description": "An attacker manipulates the State of Charge (SoC) and State of Health (SoH) data. This can lead to misleading information for the user, potentially causing range anxiety or overestimation of battery life, and can impact warranty claims or resale value.",
+        "cyberLosses": [
+          {
+            "id": "loss-22",
+            "name": "Authenticity",
+            "node": "SoC",
+            "nodeId": "8f364ae0-1de5-404b-831c-86daf0e24160",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-23",
+            "name": "Integrity",
+            "node": "SoC",
+            "nodeId": "8f364ae0-1de5-404b-831c-86daf0e24160",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-24",
+            "name": "Authenticity",
+            "node": "SoH",
+            "nodeId": "389064d4-2770-4d34-9a05-c91a12d3559e",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-25",
+            "name": "Integrity",
+            "node": "SoH",
+            "nodeId": "389064d4-2770-4d34-9a05-c91a12d3559e",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Minor"
+        },
+        "key": 8,
+        "_id": "detail-8"
+      },
+      {
+        "Name": "Vehicle CAN Bus Attack",
+        "Description": "An attacker compromises the Vehicle CAN bus connection to the BMS. This could involve injecting false commands, flooding the bus with messages, or modifying critical data, leading to erratic vehicle behavior, loss of control, or system failures.",
+        "cyberLosses": [
+          {
+            "id": "loss-26",
+            "name": "Integrity",
+            "node": "CAN Transceiver",
+            "nodeId": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-27",
+            "name": "Authenticity",
+            "node": "CAN Transceiver",
+            "nodeId": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-28",
+            "name": "Confidentiality",
+            "node": "CAN Transceiver",
+            "nodeId": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-29",
+            "name": "Safety",
+            "node": "CAN Transceiver",
+            "nodeId": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-30",
+            "name": "Operational",
+            "node": "CAN Transceiver",
+            "nodeId": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Severe",
+          "Safety Impact": "Severe",
+          "Operational Impact": "Severe",
+          "Privacy Impact": "Minor"
+        },
+        "key": 9,
+        "_id": "detail-9"
+      },
+      {
+        "Name": "Cloud Data Exfiltration",
+        "Description": "Sensitive battery operational data or user-related information stored in the cloud is accessed and exfiltrated by an attacker. This could include detailed battery performance logs, charging patterns, or potentially linked user data.",
+        "cyberLosses": [
+          {
+            "id": "loss-31",
+            "name": "Confidentiality",
+            "node": "Cloud",
+            "nodeId": "f910efcb-e9fb-4d3c-8927-4063902f576b",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss-32",
+            "name": "Privacy",
+            "node": "Cloud",
+            "nodeId": "f910efcb-e9fb-4d3c-8927-4063902f576b",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Severe"
+        },
+        "key": 10,
+        "_id": "detail-10"
+      }
+    ]
+  },
+  "attack_paths": {
+    "_id": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c60",
+    "model_id": "bms_model_456",
+    "paths": [
+      {
+        "id": "path-1",
+        "name": "Reprogram ECU for Lateral Movement via Debug Port",
+        "feasibility_rating": "High",
+        "elapsed_time": "> 1 month",
+        "expertise": "Expert",
+        "equipment": "Specialized",
+        "knowledge": "Confidential",
+        "window_of_opportunity": "Difficult"
+      },
+      {
+        "id": "path-2",
+        "name": "Exploit Vulnerabilities in Firmware Update Mechanism",
+        "feasibility_rating": "High",
+        "elapsed_time": "1 week - 1 month",
+        "expertise": "Expert",
+        "equipment": "Specialized",
+        "knowledge": "Restricted",
+        "window_of_opportunity": "Moderate"
+      },
+      {
+        "id": "path-3",
+        "name": "CAN Bus Spoofing via Diagnostic Interface",
+        "feasibility_rating": "Medium",
+        "elapsed_time": "< 1 week",
+        "expertise": "Proficient",
+        "equipment": "Standard",
+        "knowledge": "Restricted",
+        "window_of_opportunity": "Easy"
+      },
+      {
+        "id": "path-4",
+        "name": "Physical Modification of Debug Port",
+        "feasibility_rating": "Critical",
+        "elapsed_time": "> 1 month",
+        "expertise": "Expert",
+        "equipment": "Specialized",
+        "knowledge": "Strictly Confidential",
+        "window_of_opportunity": "Difficult"
+      },
+      {
+        "id": "path-5",
+        "name": "Exploit Internet Communication Channel for Command and Control",
+        "feasibility_rating": "Medium",
+        "elapsed_time": "1 week - 1 month",
+        "expertise": "Proficient",
+        "equipment": "Standard",
+        "knowledge": "Restricted",
+        "window_of_opportunity": "Moderate"
+      },
+      {
+        "id": "path-6",
+        "name": "Abuse Standard Diagnostic Protocol for Data Collection (SoC/SoH)",
+        "feasibility_rating": "Medium",
+        "elapsed_time": "< 1 week",
+        "expertise": "Proficient",
+        "equipment": "Standard",
+        "knowledge": "Public",
+        "window_of_opportunity": "Unlimited"
+      }
+    ]
+  },
+  "cybersecurity": {
+    "_id": "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e60",
+    "model_id": "bms_model_456",
+    "requirements": [
+      {
+        "id": "req-1",
+        "name": "Secure Debug Port Access",
+        "attack_scene": "Debug Port Exploitation",
+        "description": "Implement robust authentication and authorization mechanisms for the debug port. Disable it completely in production unless absolutely necessary and protected by strong security measures."
+      },
+      {
+        "id": "req-2",
+        "name": "Secure Firmware Update Verification",
+        "attack_scene": "Firmware Modification",
+        "description": "Implement secure boot and firmware signing with strong cryptographic algorithms to prevent the execution of unauthorized or tampered firmware."
+      },
+      {
+        "id": "req-3",
+        "name": "CAN Bus Message Authentication",
+        "attack_scene": "CAN Bus Spoofing (ICD Shunt CAN)",
+        "description": "Utilize message authentication codes (MACs) and sequence counters (e.g., SecOC) for critical CAN messages to prevent spoofing and ensure data integrity."
+      },
+      {
+        "id": "req-4",
+        "name": "Physical Security Measures",
+        "attack_scene": "Physical Modification of Debug Port",
+        "description": "Ensure physical enclosures of the BMS prevent unauthorized access to internal components like the debug port. Tamper-evident seals can also be employed."
+      },
+      {
+        "id": "req-5",
+        "name": "Secure Cloud Communication",
+        "attack_scene": "Cloud Data Exfiltration",
+        "description": "Encrypt all data transmitted to and from the cloud using industry-standard protocols (e.g., TLS/SSL) and implement access controls on cloud-based data storage."
+      },
+      {
+        "id": "req-6",
+        "name": "Diagnostic Service Authentication",
+        "attack_scene": "Abuse Standard Diagnostic Protocol for Data Collection (SoC/SoH)",
+        "description": "Implement strong authentication (e.g., Seed/Key mechanism) for accessing sensitive diagnostic services that could reveal or manipulate SoC/SoH data."
+      },
+      {
+        "id": "req-7",
+        "name": "Integrity Protection for Battery Parameters",
+        "attack_scene": "Compromise of Battery Pack Parameters",
+        "description": "Employ checksums, CRCs, or authenticated encryption for critical battery parameters stored or transmitted to detect and prevent unauthorized modifications."
+      },
+      {
+        "id": "req-8",
+        "name": "Input Validation for Cell Monitoring Data",
+        "attack_scene": "Tampering with Cell Monitoring Data",
+        "description": "Implement sanity checks and range validation for all incoming cell monitoring data to detect anomalies or malicious injections."
+      },
+      {
+        "id": "req-9",
+        "name": "Secure Storage of Calibration Data",
+        "attack_scene": "Manipulation of Calibration Data",
+        "description": "Use write protection mechanisms and integrity checks (e.g., CRC) for critical calibration data stored in non-volatile memory."
+      },
+      {
+        "id": "req-10",
+        "name": "Hardware-Based Key Protection",
+        "attack_scene": "Key Exposure",
+        "description": "Store cryptographic keys in a Hardware Security Module (HSM) or a secure element that prevents their extraction or direct access by software."
+      },
+      {
+        "id": "req-11",
+        "name": "CAN Bus Integrity for Vehicle Communication",
+        "attack_scene": "CAN Bus Attack",
+        "description": "Implement end-to-end protection or MACs for critical CAN messages exchanged on the vehicle network to ensure integrity and authenticity."
+      }
+    ]
+  }
+}
