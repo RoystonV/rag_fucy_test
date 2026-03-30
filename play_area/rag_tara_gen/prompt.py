@@ -223,33 +223,33 @@ Return JSON exactly in this structure (showing all three node types):
    ]
  },
  "attack_paths":{
-   "_id":"",
-   "model_id":"",
-   "paths":[
-      {
-        "id":"",
-        "name":"",
-        "feasibility_rating":"<Low|Medium|High|Critical>",
-        "elapsed_time":"<e.g. < 1 week | 1 week - 1 month | > 1 month>",
-        "expertise":"<Layman|Proficient|Expert>",
-        "equipment":"<Standard|Specialized>",
-        "knowledge":"<Public|Restricted|Confidential|Strictly Confidential>",
-        "window_of_opportunity":"<Unlimited|Easy|Moderate|Difficult>"
-      }
-   ]
- },
- "cybersecurity":{
-   "_id":"",
-   "model_id":"",
-   "requirements":[
-      {
-        "id":"",
-        "name":"",
-        "attack_scene":"",
-        "description":""
-      }
-   ]
- }
+    "_id":"",
+    "model_id":"",
+    "paths":[
+       {
+         "id":"",
+         "name":"",
+         "feasibility_rating":"<Low|Medium|High|Critical>",
+         "elapsed_time":"<e.g. < 1 week | 1 week - 1 month | > 1 month>",
+         "expertise":"<Layman|Proficient|Expert>",
+         "equipment":"<Standard|Specialized>",
+         "knowledge":"<Public|Restricted|Confidential|Strictly Confidential>",
+         "window_of_opportunity":"<Unlimited|Easy|Moderate|Difficult>"
+       }
+    ]
+  },
+  "cybersecurity":{
+    "_id":"",
+    "model_id":"",
+    "requirements":[
+       {
+         "id":"",
+         "name":"",
+         "attack_scene":"",
+         "description":""
+       }
+    ]
+  }
 }
 
 -------------------------------------------------

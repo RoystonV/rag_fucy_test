@@ -250,3 +250,4 @@ def print_summary(tara_json: dict) -> None:
     print("   IDs                : all stamped as uuid4")
     print("   Positions          : dynamically computed")
 
+

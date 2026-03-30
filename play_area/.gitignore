@@ -1,0 +1,5 @@
+# play_area is a sandbox — ignore generated outputs and cache
+rag_tara_gen/outputs/
+rag_tara_gen/__pycache__/
+__pycache__/
+*.pyc
