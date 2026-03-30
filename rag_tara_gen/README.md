@@ -219,7 +219,7 @@ The output uses a **hierarchical node architecture** with three node types:
 | `dataecu.json` | ECU asset definitions (50 systems) | 10 KB |
 | `annex.json` | ISO 21434 Annex F impact tables | 5.5 KB |
 | `clauses/` | ISO 21434 Clauses 5, 6, 8–11, 15 | 7 JSON files |
-| `reports_db/` | Reference TARA reports (BMS, Infotainment) | ~1 MB |
+| `reports_db/` | Reference TARA reports (BMS, Infotainment, ABS) | ~1 MB |
 
 ---
 
@@ -237,6 +237,12 @@ The output uses a **hierarchical node architecture** with three node types:
 ---
 
 ## Changelog
+
+### v2.4 — REPORTS_DB Matching Fix for Infotainment (2026-03-30)
+
+- **`components.py`** — Fixed `_find_reports_db_model_name()`: previously only split model names on camelCase boundaries (regex `(?<=[a-z])(?=[A-Z])`). Model IDs like `"model_id_infotainment"` contain no uppercase letters, so the regex was a no-op and the entire string was compared as one unsplittable token — never matching the ECU name. Added `.replace('_', ' ')` before splitting, so underscore-separated names are tokenized correctly. This caused the Infotainment prompt to silently omit all `REPORTS_DB` context and instead print *"No reference architecture exists in the database for this system"*.
+- **`datasets/reports_db/infotainment_2.json`** — Replaced `infotainment_1.json`. Renamed `model_id` from the raw placeholder `"model_id_infotainment"` to the proper camelCase `"InfotainmentHeadUnit"`, consistent with BMS's `"BatteryManagement"` convention. Both the `assets` and `damage_scenarios` blocks updated.
+- **`datasets/reports_db/infotainment_1.json`** — Removed (superseded by `infotainment_2.json`).
 
 ### v2.3 — CAPEC Fix, Output Organisation, Infotainment Reference (2026-03-26)
 
