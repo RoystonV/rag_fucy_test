@@ -246,9 +246,7 @@ def _find_reports_db_model_name(all_docs: list, ecu_entry: dict | None) -> str |
     )
     for model in model_names:
         # Split camelCase (BatteryManagement → ['battery', 'management'])
-        # AND split on underscores (model_id_infotainment → ['model', 'id', 'infotainment'])
-        split = re.sub(r'(?<=[a-z])(?=[A-Z])', ' ', model).replace('_', ' ')
-        words = split.lower().split()
+        words = re.sub(r'(?<=[a-z])(?=[A-Z])', ' ', model).lower().split()
         significant = [w for w in words if len(w) > 3]
         if any(w in ecu_name for w in significant):
             return model

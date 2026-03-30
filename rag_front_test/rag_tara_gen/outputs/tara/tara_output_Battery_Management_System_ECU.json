@@ -1,0 +1,1261 @@
+{
+  "assets": {
+    "_id": "66a4190a8837425837957369",
+    "user_id": "default-user",
+    "model_id": "66a4190a8837425837957369",
+    "template": {
+      "nodes": [
+        {
+          "id": "bms_group_id",
+          "type": "group",
+          "parentId": null,
+          "data": {
+            "label": "BMS (Battery Management System)",
+            "nodeCount": 14,
+            "style": {
+              "background": "rgba(33,150,243,0.05)",
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 510,
+              "width": 1041
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 1041,
+            "height": 510
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 1041,
+          "height": 510,
+          "zIndex": 0
+        },
+        {
+          "id": "battery_pack_id",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "BatteryPack",
+            "description": "",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "cell_monitoring_id",
+          "type": "default",
+          "parentId": "bms_group_id",
+          "isAsset": false,
+          "data": {
+            "label": "CellMonitoring",
+            "description": "",
+            "style": {
+              "backgroundColor": "#e6df19",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "io_analog_id",
+          "type": "default",
+          "parentId": "bms_group_id",
+          "isAsset": false,
+          "data": {
+            "label": "IO and Analog",
+            "description": "",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "mcu_group_id",
+          "type": "group",
+          "parentId": "bms_group_id",
+          "data": {
+            "label": "MCU Group",
+            "nodeCount": 5,
+            "style": {
+              "background": "rgba(33,150,243,0.05)",
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 300,
+              "width": 500
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 500,
+            "height": 300
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 500,
+          "height": 300,
+          "zIndex": 1
+        },
+        {
+          "id": "code_flash_id",
+          "type": "default",
+          "parentId": "mcu_group_id",
+          "isAsset": false,
+          "data": {
+            "label": "Code Flash",
+            "description": "",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "data_flash_id",
+          "type": "default",
+          "parentId": "mcu_group_id",
+          "isAsset": false,
+          "data": {
+            "label": "Data Flash",
+            "description": "",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "keys_id",
+          "type": "default",
+          "parentId": "mcu_group_id",
+          "isAsset": false,
+          "data": {
+            "label": "Keys",
+            "description": "",
+            "style": {
+              "backgroundColor": "#51dc1e",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "certificates_id",
+          "type": "default",
+          "parentId": "mcu_group_id",
+          "isAsset": false,
+          "data": {
+            "label": "Certificates",
+            "description": "",
+            "style": {
+              "backgroundColor": "#62c945",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "debug_port_id",
+          "type": "default",
+          "parentId": "mcu_group_id",
+          "isAsset": false,
+          "data": {
+            "label": "Debug Port",
+            "description": "",
+            "style": {
+              "backgroundColor": "#e26a6a",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "can_transceiver_id",
+          "type": "default",
+          "parentId": "bms_group_id",
+          "isAsset": false,
+          "data": {
+            "label": "CAN Transceiver",
+            "description": "",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "icd_shunt_can_id",
+          "type": "default",
+          "parentId": "bms_group_id",
+          "isAsset": false,
+          "data": {
+            "label": "ICD Shunt CAN",
+            "description": "",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "soc_data_id",
+          "type": "data",
+          "parentId": "bms_group_id",
+          "isAsset": false,
+          "data": {
+            "label": "SoC",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 50,
+          "height": 30
+        },
+        {
+          "id": "soh_data_id",
+          "type": "data",
+          "parentId": "bms_group_id",
+          "isAsset": false,
+          "data": {
+            "label": "SoH",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 50,
+          "height": 30
+        },
+        {
+          "id": "vehicle_system_id",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Vehicle System",
+            "description": "",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "cloud_id",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Cloud",
+            "description": "",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 150,
+          "height": 50
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge_1",
+          "source": "cell_monitoring_id",
+          "target": "battery_pack_id",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [],
+          "data": {
+            "label": "SPI",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge_2",
+          "source": "mcu_group_id",
+          "target": "cell_monitoring_id",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [],
+          "data": {
+            "label": "SPI_CellMonitor",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge_3",
+          "source": "io_analog_id",
+          "target": "battery_pack_id",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "data": {
+            "label": "IO",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge_4",
+          "source": "mcu_group_id",
+          "target": "io_analog_id",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "properties": [],
+          "data": {
+            "label": "IO_PINS",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge_5",
+          "source": "mcu_group_id",
+          "target": "icd_shunt_can_id",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [],
+          "data": {
+            "label": "CAN1",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge_6",
+          "source": "mcu_group_id",
+          "target": "can_transceiver_id",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity"
+          ],
+          "data": {
+            "label": "CAN2",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge_7",
+          "source": "icd_shunt_can_id",
+          "target": "battery_pack_id",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "data": {
+            "label": "ICD_Data",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge_8",
+          "source": "vehicle_system_id",
+          "target": "can_transceiver_id",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity",
+            "Confidentiality"
+          ],
+          "data": {
+            "label": "Vehicle CAN",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge_9",
+          "source": "vehicle_system_id",
+          "target": "cloud_id",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "data": {
+            "label": "Internet",
+            "offset": 0,
+            "t": 0.5
+          }
+        }
+      ]
+    }
+  },
+  "damage_scenarios": {
+    "_id": "66a4190a8837425837957369",
+    "model_id": "66a4190a8837425837957369",
+    "type": "damage",
+    "Derivations": [
+      {
+        "id": "derivation_1",
+        "nodeId": "code_flash_id",
+        "task": "Threat Analysis",
+        "name": "Firmware Tampering",
+        "loss": "Loss of Integrity and Availability",
+        "asset": "Code Flash",
+        "damage_scene": "An attacker injects malicious code into the BMS firmware via an unpatched vulnerability or compromised update mechanism. This could alter battery control logic, leading to unsafe operation or denial of service.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_2",
+        "nodeId": "keys_id",
+        "task": "Threat Analysis",
+        "name": "Key Material Compromise",
+        "loss": "Loss of Confidentiality and Authenticity",
+        "asset": "Keys",
+        "damage_scene": "Attacker gains unauthorized access to cryptographic keys stored within the BMS, allowing them to forge communication or decrypt sensitive data. This could enable them to impersonate legitimate components or manipulate battery charging/discharging parameters.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_3",
+        "nodeId": "can_transceiver_id",
+        "task": "Threat Analysis",
+        "name": "CAN Bus Spoofing",
+        "loss": "Loss of Integrity and Safety",
+        "asset": "CAN Transceiver",
+        "damage_scene": "An attacker injects false CAN messages into the vehicle network, which are processed by the BMS. This could lead to incorrect state estimations (SoC, SoH) or commands, potentially causing vehicle malfunction, overcharging/discharging, or thermal runaway.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_4",
+        "nodeId": "cell_monitoring_id",
+        "task": "Threat Analysis",
+        "name": "Sensor Data Manipulation",
+        "loss": "Loss of Integrity and Safety",
+        "asset": "CellMonitoring",
+        "damage_scene": "Attacker manipulates voltage or temperature readings from the CellMonitoring unit, causing the BMS to misinterpret the battery's state. This could lead to inaccurate SoC/SoH calculations and potentially unsafe battery operation, including overcharging or damage.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_5",
+        "nodeId": "soc_data_id",
+        "task": "Threat Analysis",
+        "name": "SoC Data Corruption",
+        "loss": "Loss of Integrity and Operational",
+        "asset": "SoC",
+        "damage_scene": "An attacker corrupts the State of Charge (SoC) data within the BMS. This could lead to a driver receiving inaccurate range estimations, potentially causing the vehicle to run out of power unexpectedly, or prevent charging.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_6",
+        "nodeId": "soh_data_id",
+        "task": "Threat Analysis",
+        "name": "SoH Data Tampering",
+        "loss": "Loss of Integrity and Financial",
+        "asset": "SoH",
+        "damage_scene": "An attacker tampers with the State of Health (SoH) data. This could be used to artificially inflate the perceived health of a battery for sale, or cause premature decommissioning of a battery, impacting warranty claims and resale value.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_7",
+        "nodeId": "debug_port_id",
+        "task": "Threat Analysis",
+        "name": "Unauthorized Debug Access",
+        "loss": "Loss of Integrity and Confidentiality",
+        "asset": "Debug Port",
+        "damage_scene": "An attacker gains access to the debug port (e.g., JTAG, UART) on the BMS MCU. This could allow for direct code modification, extraction of sensitive data like keys or certificates, or complete system takeover.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation_8",
+        "nodeId": "cloud_id",
+        "task": "Threat Analysis",
+        "name": "Compromised Cloud Communication",
+        "loss": "Loss of Confidentiality and Integrity",
+        "asset": "Cloud",
+        "damage_scene": "An attacker compromises the communication channel between the vehicle (via the BMS) and the cloud. This could lead to the exfiltration of battery performance data or the injection of malicious commands/updates to the BMS, impacting battery management and potentially vehicle operation.",
+        "isChecked": false
+      }
+    ],
+    "Details": [
+      {
+        "Name": "Firmware Tampering",
+        "Description": "An attacker injects malicious code into the BMS firmware via an unpatched vulnerability or compromised update mechanism. This could alter battery control logic, leading to unsafe operation or denial of service.",
+        "cyberLosses": [
+          {
+            "id": "loss_1",
+            "name": "Loss of Integrity",
+            "node": "Code Flash",
+            "nodeId": "code_flash_id",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss_2",
+            "name": "Loss of Availability",
+            "node": "Code Flash",
+            "nodeId": "code_flash_id",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Major",
+          "Operational Impact": "Severe",
+          "Privacy Impact": "Minor"
+        },
+        "key": 1,
+        "_id": "detail_1"
+      },
+      {
+        "Name": "Key Material Compromise",
+        "Description": "Attacker gains unauthorized access to cryptographic keys stored within the BMS, allowing them to forge communication or decrypt sensitive data. This could enable them to impersonate legitimate components or manipulate battery charging/discharging parameters.",
+        "cyberLosses": [
+          {
+            "id": "loss_3",
+            "name": "Loss of Confidentiality",
+            "node": "Keys",
+            "nodeId": "keys_id",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss_4",
+            "name": "Loss of Authenticity",
+            "node": "Keys",
+            "nodeId": "keys_id",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Major"
+        },
+        "key": 2,
+        "_id": "detail_2"
+      },
+      {
+        "Name": "CAN Bus Spoofing",
+        "Description": "An attacker injects false CAN messages into the vehicle network, which are processed by the BMS. This could lead to incorrect state estimations (SoC, SoH) or commands, potentially causing vehicle malfunction, overcharging/discharging, or thermal runaway.",
+        "cyberLosses": [
+          {
+            "id": "loss_5",
+            "name": "Loss of Integrity",
+            "node": "CAN Transceiver",
+            "nodeId": "can_transceiver_id",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss_6",
+            "name": "Loss of Safety",
+            "node": "CAN Transceiver",
+            "nodeId": "can_transceiver_id",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Severe",
+          "Operational Impact": "Severe",
+          "Privacy Impact": "Minor"
+        },
+        "key": 3,
+        "_id": "detail_3"
+      },
+      {
+        "Name": "Sensor Data Manipulation",
+        "Description": "Attacker manipulates voltage or temperature readings from the CellMonitoring unit, causing the BMS to misinterpret the battery's state. This could lead to inaccurate SoC/SoH calculations and potentially unsafe battery operation, including overcharging or damage.",
+        "cyberLosses": [
+          {
+            "id": "loss_7",
+            "name": "Loss of Integrity",
+            "node": "CellMonitoring",
+            "nodeId": "cell_monitoring_id",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss_8",
+            "name": "Loss of Safety",
+            "node": "CellMonitoring",
+            "nodeId": "cell_monitoring_id",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Severe",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 4,
+        "_id": "detail_4"
+      },
+      {
+        "Name": "SoC Data Corruption",
+        "Description": "An attacker corrupts the State of Charge (SoC) data within the BMS. This could lead to a driver receiving inaccurate range estimations, potentially causing the vehicle to run out of power unexpectedly, or prevent charging.",
+        "cyberLosses": [
+          {
+            "id": "loss_9",
+            "name": "Loss of Integrity",
+            "node": "SoC",
+            "nodeId": "soc_data_id",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss_10",
+            "name": "Loss of Operational Efficiency",
+            "node": "SoC",
+            "nodeId": "soc_data_id",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 5,
+        "_id": "detail_5"
+      },
+      {
+        "Name": "SoH Data Tampering",
+        "Description": "An attacker tampers with the State of Health (SoH) data. This could be used to artificially inflate the perceived health of a battery for sale, or cause premature decommissioning of a battery, impacting warranty claims and resale value.",
+        "cyberLosses": [
+          {
+            "id": "loss_11",
+            "name": "Loss of Integrity",
+            "node": "SoH",
+            "nodeId": "soh_data_id",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss_12",
+            "name": "Financial Loss",
+            "node": "SoH",
+            "nodeId": "soh_data_id",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 6,
+        "_id": "detail_6"
+      },
+      {
+        "Name": "Unauthorized Debug Access",
+        "Description": "An attacker gains access to the debug port (e.g., JTAG, UART) on the BMS MCU. This could allow for direct code modification, extraction of sensitive data like keys or certificates, or complete system takeover.",
+        "cyberLosses": [
+          {
+            "id": "loss_13",
+            "name": "Loss of Integrity",
+            "node": "Debug Port",
+            "nodeId": "debug_port_id",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss_14",
+            "name": "Loss of Confidentiality",
+            "node": "Debug Port",
+            "nodeId": "debug_port_id",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Major"
+        },
+        "key": 7,
+        "_id": "detail_7"
+      },
+      {
+        "Name": "Compromised Cloud Communication",
+        "Description": "An attacker compromises the communication channel between the vehicle (via the BMS) and the cloud. This could lead to the exfiltration of battery performance data or the injection of malicious commands/updates to the BMS, impacting battery management and potentially vehicle operation.",
+        "cyberLosses": [
+          {
+            "id": "loss_15",
+            "name": "Loss of Confidentiality",
+            "node": "Cloud",
+            "nodeId": "cloud_id",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "loss_16",
+            "name": "Loss of Integrity",
+            "node": "Cloud",
+            "nodeId": "cloud_id",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Moderate",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Major"
+        },
+        "key": 8,
+        "_id": "detail_8"
+      }
+    ]
+  }
+}

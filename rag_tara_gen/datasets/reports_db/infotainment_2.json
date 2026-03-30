@@ -1,0 +1,1136 @@
+{
+  "assets": {
+    "_id": "66265e3233929b9925994372",
+    "user_id": "user1",
+    "model_id": "InfotainmentHeadUnit",
+    "template": {
+      "nodes": [
+        {
+          "id": "infotainment-ecu-group",
+          "type": "group",
+          "parentId": null,
+          "data": {
+            "label": "Infotainment Head Unit",
+            "nodeCount": 9,
+            "style": {
+              "background": "rgba(33,150,243,0.05)",
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 510,
+              "width": 1041
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 1041,
+            "height": 510
+          },
+          "position": {
+            "x": 100,
+            "y": 100
+          },
+          "positionAbsolute": {
+            "x": 100,
+            "y": 100
+          },
+          "width": 1041,
+          "height": 510,
+          "zIndex": 0
+        },
+        {
+          "id": "head-unit-os",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": false,
+          "data": {
+            "label": "Head unit OS",
+            "description": "The operating system of the infotainment head unit.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 200,
+            "y": 150
+          },
+          "positionAbsolute": {
+            "x": 300,
+            "y": 250
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 1
+        },
+        {
+          "id": "bluetooth-wifi-stacks",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": false,
+          "data": {
+            "label": "Bluetooth/Wi-Fi stacks",
+            "description": "Software stacks for Bluetooth and Wi-Fi communication.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 200,
+            "y": 220
+          },
+          "positionAbsolute": {
+            "x": 300,
+            "y": 320
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 2
+        },
+        {
+          "id": "usb-driver-stack",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": false,
+          "data": {
+            "label": "USB driver stack",
+            "description": "Driver stack for USB interface.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 200,
+            "y": 290
+          },
+          "positionAbsolute": {
+            "x": 300,
+            "y": 390
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 3
+        },
+        {
+          "id": "telephony-stacks",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": false,
+          "data": {
+            "label": "Telephony stacks",
+            "description": "Software stacks for telephony communication.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 200,
+            "y": 360
+          },
+          "positionAbsolute": {
+            "x": 300,
+            "y": 460
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 4
+        },
+        {
+          "id": "application-layer-code",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": false,
+          "data": {
+            "label": "Application layer code",
+            "description": "The application software running on the head unit.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 500,
+            "y": 150
+          },
+          "positionAbsolute": {
+            "x": 600,
+            "y": 250
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 5
+        },
+        {
+          "id": "navigation-data",
+          "type": "data",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Navigation data",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity",
+            "Confidentiality"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "position": {
+            "x": 500,
+            "y": 220
+          },
+          "positionAbsolute": {
+            "x": 600,
+            "y": 320
+          },
+          "width": 50,
+          "height": 30,
+          "zIndex": 6
+        },
+        {
+          "id": "pii-user-profiles",
+          "type": "data",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "PII (User profiles)",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity",
+            "Confidentiality"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "position": {
+            "x": 500,
+            "y": 270
+          },
+          "positionAbsolute": {
+            "x": 600,
+            "y": 370
+          },
+          "width": 50,
+          "height": 30,
+          "zIndex": 7
+        },
+        {
+          "id": "can-gateway",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": false,
+          "data": {
+            "label": "CAN gateway",
+            "description": "Gateway for CAN bus communication.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 800,
+            "y": 200
+          },
+          "positionAbsolute": {
+            "x": 900,
+            "y": 300
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 8
+        },
+        {
+          "id": "audio-amplifier",
+          "type": "default",
+          "parentId": "infotainment-ecu-group",
+          "isAsset": true,
+          "data": {
+            "label": "Audio Amplifier",
+            "description": "Amplifies audio signals for speakers.",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 800,
+            "y": 300
+          },
+          "positionAbsolute": {
+            "x": 900,
+            "y": 400
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 9
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-1",
+          "source": "head-unit-os",
+          "target": "infotainment-ecu-group",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "OS Interface",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-2",
+          "source": "bluetooth-wifi-stacks",
+          "target": "infotainment-ecu-group",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "COM Protocol",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-3",
+          "source": "usb-driver-stack",
+          "target": "infotainment-ecu-group",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "USB",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-4",
+          "source": "telephony-stacks",
+          "target": "infotainment-ecu-group",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Cellular",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-5",
+          "source": "application-layer-code",
+          "target": "infotainment-ecu-group",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "App Interface",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-6",
+          "source": "navigation-data",
+          "target": "infotainment-ecu-group",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "NVM Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-7",
+          "source": "pii-user-profiles",
+          "target": "infotainment-ecu-group",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "NVM Access",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-8",
+          "source": "can-gateway",
+          "target": "infotainment-ecu-group",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "CAN",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-9",
+          "source": "audio-amplifier",
+          "target": "infotainment-ecu-group",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "Audio Out",
+            "offset": 0,
+            "t": 0.5
+          }
+        }
+      ],
+      "details": [
+        {
+          "nodeId": "head-unit-os",
+          "name": "Head unit OS",
+          "desc": "The operating system of the infotainment head unit.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "prop-integrity"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "prop-confidentiality"
+            },
+            {
+              "name": "Availability",
+              "id": "prop-availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "bluetooth-wifi-stacks",
+          "name": "Bluetooth/Wi-Fi stacks",
+          "desc": "Software stacks for Bluetooth and Wi-Fi communication.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "prop-integrity"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "prop-confidentiality"
+            },
+            {
+              "name": "Availability",
+              "id": "prop-availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "usb-driver-stack",
+          "name": "USB driver stack",
+          "desc": "Driver stack for USB interface.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "prop-integrity"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "prop-confidentiality"
+            },
+            {
+              "name": "Availability",
+              "id": "prop-availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "telephony-stacks",
+          "name": "Telephony stacks",
+          "desc": "Software stacks for telephony communication.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "prop-integrity"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "prop-confidentiality"
+            },
+            {
+              "name": "Availability",
+              "id": "prop-availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "application-layer-code",
+          "name": "Application layer code",
+          "desc": "The application software running on the head unit.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "prop-integrity"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "prop-confidentiality"
+            },
+            {
+              "name": "Availability",
+              "id": "prop-availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "navigation-data",
+          "name": "Navigation data",
+          "desc": "Stored navigational information.",
+          "type": "data",
+          "props": [
+            {
+              "name": "Authenticity",
+              "id": "prop-authenticity"
+            },
+            {
+              "name": "Integrity",
+              "id": "prop-integrity"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "prop-confidentiality"
+            }
+          ]
+        },
+        {
+          "nodeId": "pii-user-profiles",
+          "name": "PII (User profiles)",
+          "desc": "Personal Identifiable Information and user settings.",
+          "type": "data",
+          "props": [
+            {
+              "name": "Authenticity",
+              "id": "prop-authenticity"
+            },
+            {
+              "name": "Integrity",
+              "id": "prop-integrity"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "prop-confidentiality"
+            }
+          ]
+        },
+        {
+          "nodeId": "can-gateway",
+          "name": "CAN gateway",
+          "desc": "Gateway for CAN bus communication.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "prop-integrity"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "prop-confidentiality"
+            },
+            {
+              "name": "Availability",
+              "id": "prop-availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "audio-amplifier",
+          "name": "Audio Amplifier",
+          "desc": "Amplifies audio signals for speakers.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "prop-integrity"
+            },
+            {
+              "name": "Availability",
+              "id": "prop-availability"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "damage_scenarios": {
+    "_id": "66265e3233929b9925994373",
+    "model_id": "InfotainmentHeadUnit",
+    "type": "damage",
+    "Derivations": [
+      {
+        "id": "derivation-1",
+        "nodeId": "usb-driver-stack",
+        "task": "Threat Analysis",
+        "name": "CWE-225: General Information Management Problems -> CAPEC-27: Malicious File Loading -> MITRE ATT&CK T1018: Remote System Information Discovery -> ATM: Gather Target Information",
+        "loss": "Malware propagation or data exfiltration via USB",
+        "asset": "USB driver stack",
+        "damage_scene": "An attacker uses the USB interface to introduce malware or exfiltrate data from the infotainment system.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-2",
+        "nodeId": "head-unit-os",
+        "task": "Threat Analysis",
+        "name": "CWE-15: External Control of System or Configuration Setting -> CAPEC-28: Privilege Escalation -> MITRE ATT&CK T1548.003: Abuse Elevation Control Mechanism: Sudo and Operating System Specific Transfer Utilities -> ATM: Control of System",
+        "loss": "Unauthorized modification of system settings",
+        "asset": "Head unit OS",
+        "damage_scene": "An attacker exploits a vulnerability to gain external control over the infotainment system's configuration settings, potentially disabling safety features or altering critical parameters.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-3",
+        "nodeId": "bluetooth-wifi-stacks",
+        "task": "Threat Analysis",
+        "name": "MITRE ATT&CK T1590.001: Research Attack Surface: Vulnerabilities -> ATM: Gather Target Information",
+        "loss": "Unauthorized information disclosure via Bluetooth",
+        "asset": "Bluetooth/Wi-Fi stacks",
+        "damage_scene": "An attacker uses Bluetooth to discover and gather information from connected devices or the infotainment system itself.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-4",
+        "nodeId": "application-layer-code",
+        "task": "Threat Analysis",
+        "name": "CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer -> CAPEC-13: Input Validation Deception -> MITRE ATT&CK T1190: Exploit Public-Facing Application -> ATM: Exploit Application",
+        "loss": "Application compromise leading to unauthorized access",
+        "asset": "Application layer code",
+        "damage_scene": "An attacker exploits a vulnerability in the application layer code to gain unauthorized access to system resources or data.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-5",
+        "nodeId": "pii-user-profiles",
+        "task": "Threat Analysis",
+        "name": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> CAPEC-29: Data Leakage -> MITRE ATT&CK T1552.001: Steal or Substitute Credentials: Plaintext Accesses and Information -> ATM: Data Exfiltration",
+        "loss": "Disclosure of PII and user profiles",
+        "asset": "PII (User profiles)",
+        "damage_scene": "An attacker accesses and exfiltrates sensitive user profile data, including personal identifiable information.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-6",
+        "nodeId": "can-gateway",
+        "task": "Threat Analysis",
+        "name": "CWE-15: External Control of System or Configuration Setting -> CAPEC-28: Privilege Escalation -> MITRE ATT&CK T1071.001: Application Layer Protocol: Web Protocols -> ATM: Control of System",
+        "loss": "Unauthorized CAN bus message injection",
+        "asset": "CAN gateway",
+        "damage_scene": "An attacker exploits the CAN gateway to inject malicious CAN messages, potentially affecting vehicle control systems.",
+        "isChecked": false
+      }
+    ],
+    "Details": [
+      {
+        "Name": "Malware Propagation via USB",
+        "Description": "An attacker uses the USB interface to introduce malware into the infotainment system, potentially spreading to other connected ECUs or exfiltrating data.",
+        "cyberLosses": [
+          {
+            "id": "cyberLoss-1",
+            "name": "Malware propagation or data exfiltration via USB",
+            "node": "USB driver stack",
+            "nodeId": "usb-driver-stack",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 1,
+        "_id": "detail-1"
+      },
+      {
+        "Name": "Unauthorized Configuration Modification",
+        "Description": "An attacker exploits a vulnerability in the Head Unit OS to gain external control over the infotainment system's configuration settings, potentially altering critical parameters or disabling safety features.",
+        "cyberLosses": [
+          {
+            "id": "cyberLoss-2",
+            "name": "Unauthorized modification of system settings",
+            "node": "Head unit OS",
+            "nodeId": "head-unit-os",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Minor"
+        },
+        "key": 2,
+        "_id": "detail-2"
+      },
+      {
+        "Name": "Bluetooth Information Disclosure",
+        "Description": "An attacker uses Bluetooth to discover and gather sensitive information from connected devices or the infotainment system, leading to unauthorized information disclosure.",
+        "cyberLosses": [
+          {
+            "id": "cyberLoss-3",
+            "name": "Unauthorized information disclosure via Bluetooth",
+            "node": "Bluetooth/Wi-Fi stacks",
+            "nodeId": "bluetooth-wifi-stacks",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 3,
+        "_id": "detail-3"
+      },
+      {
+        "Name": "Application Compromise",
+        "Description": "An attacker exploits a vulnerability in the application layer code, gaining unauthorized access to system resources, data, or functionality.",
+        "cyberLosses": [
+          {
+            "id": "cyberLoss-4",
+            "name": "Application compromise leading to unauthorized access",
+            "node": "Application layer code",
+            "nodeId": "application-layer-code",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 4,
+        "_id": "detail-4"
+      },
+      {
+        "Name": "PII and User Profile Disclosure",
+        "Description": "An attacker accesses and exfiltrates sensitive user profile data, including personal identifiable information, leading to privacy breaches.",
+        "cyberLosses": [
+          {
+            "id": "cyberLoss-5",
+            "name": "Disclosure of PII and user profiles",
+            "node": "PII (User profiles)",
+            "nodeId": "pii-user-profiles",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Major"
+        },
+        "key": 5,
+        "_id": "detail-5"
+      },
+      {
+        "Name": "CAN Bus Message Injection",
+        "Description": "An attacker exploits the CAN gateway to inject malicious CAN messages, potentially compromising vehicle control systems and leading to safety hazards.",
+        "cyberLosses": [
+          {
+            "id": "cyberLoss-6",
+            "name": "Unauthorized CAN bus message injection",
+            "node": "CAN gateway",
+            "nodeId": "can-gateway",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 6,
+        "_id": "detail-6"
+      }
+    ]
+  }
+}

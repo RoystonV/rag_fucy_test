@@ -1,0 +1,1395 @@
+
+You are an automotive cybersecurity analyst performing Threat Analysis and Risk Assessment (TARA)
+according to ISO/SAE 21434 Clause 15.
+
+Your task is to generate a system architecture model and cybersecurity damage scenarios
+for the requested automotive ECU or system.
+
+STRICT KNOWLEDGE RULES
+
+- Use ONLY information relevant to the TARGET SYSTEM specified in the SYSTEM REQUEST below.
+- Do NOT invent assets or components that are not part of the targeted system.
+- If an AUTHORITATIVE ASSET LIST is provided in the request, generate EXACTLY those assets — no additions, no omissions.
+  All damage scenarios, derivations, and edges must reference ONLY those listed assets.
+- REPORTS_DB entries show real reference architectures. If the TARGET SYSTEM matches a REPORTS_DB system
+  (e.g. query is "BMS" and a BMS reference exists), follow the reference architecture's exact component names,
+  hierarchy, edge labels, and structure as closely as possible.
+- CRITICAL — FULL REFERENCE ARCHITECTURE BLOCK: If the context contains a block starting with
+  "=== FULL REFERENCE ARCHITECTURE: <ModelName> ===" this is the COMPLETE authoritative architecture for
+  that system. You MUST reproduce ALL nodes (with their exact labels, types, parentId relationships, colors
+  and sizes), ALL edges (with their exact protocol labels, source/target relationships), ALL damage
+  derivations, and ALL damage details exactly as specified in that block. Do NOT omit any component,
+  edge, or damage scenario listed there. This block takes precedence over all other instructions.
+- For other systems, use REPORTS_DB entries as structural EXAMPLES ONLY for JSON shape and patterns.
+- Do NOT reproduce another system's component names unless the TARGET SYSTEM matches exactly.
+- Use realistic automotive architecture relevant to the TARGET SYSTEM only.
+- Prefer knowledge retrieved from cybersecurity context (ISO 21434, CWE, CAPEC, MITRE, ATM).
+- If information is missing, infer only common industry-standard components for the specified system.
+
+NO UNNECESSARY COMPONENTS RULE (CRITICAL for automotive systems):
+- Every node you generate must have a clear justification — it must appear in the AUTHORITATIVE ASSET LIST,
+  the REPORTS_DB reference, or be a universally standard component for that specific automotive ECU type.
+- Do NOT add speculative sub-modules, buses, protocols, or external entities that are not explicitly called
+  out in the asset list or reference architecture.
+- Fewer, accurate components are ALWAYS better than many uncertain ones.
+- This rule is especially important for systems with NO REPORTS_DB reference: in that case, DO NOT
+  invent architecture beyond what is explicitly stated in the AUTHORITATIVE ASSET LIST.
+
+
+Threat reasoning must follow:
+CWE (root weakness) → CAPEC (attack pattern) → MITRE ATT&CK technique → ATM relevance → Damage Scenario
+
+-------------------------------------------------
+
+SYSTEM REQUEST:
+BMS (Battery Management System)
+
+AUTHORITATIVE ASSET LIST (from system dataecu specification) — generate ONLY these assets, no others:
+Assets: BatteryPack (external, default), CellMonitoring (default), IO and Analog (default), Code Flash (default, inside MCU group), Data Flash (default, inside MCU group), Keys (default, inside MCU group), Certificates (default, inside MCU group), Debug Port (default, inside MCU group), CAN Transceiver (default), ICD Shunt CAN (default), SoC (data node), SoH (data node), Vehicle System (external, default), Cloud (external, default). The 'Battery Management System' is a group container; inside it is an unnamed MCU subgroup containing Code Flash, Data Flash, Keys, Certificates, and Debug Port. Edges: SPI (CellMonitoring↔BatteryPack), SPI_CellMonitor (MCU group↔CellMonitoring), IO (IO and Analog↔BatteryPack), IO_PINS (MCU group↔IO and Analog), CAN1 (MCU group↔ICD Shunt CAN), CAN2 (MCU group↔CAN Transceiver), ICD_Data (ICD Shunt CAN↔BatteryPack), Vehicle CAN (Vehicle System↔CAN Transceiver), Internet (Vehicle System↔Cloud).
+
+All threat analysis, damage scenarios, and edges must reference ONLY the assets listed above. Do NOT add any other components.
+
+CYBERSECURITY KNOWLEDGE CONTEXT:
+
+[REPORTS_DB | full_file]
+=== FULL REFERENCE ARCHITECTURE: BatteryManagement ===
+{
+  "model": "BatteryManagement",
+  "nodes": [
+    {
+      "id": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+      "type": "default",
+      "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+      "isAsset": false,
+      "label": "BatteryPack",
+      "properties": [
+        "Integrity",
+        "Confidentiality",
+        "Authenticity",
+        "Authorization",
+        "Availability",
+        "Non-repudiation"
+      ],
+      "description": "Description",
+      "backgroundColor": "#dadada",
+      "height": 261,
+      "width": 150
+    },
+    {
+      "id": "db4141e3-e094-4c4e-8e06-44e1b9e1aa94",
+      "type": "default",
+      "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+      "isAsset": false,
+      "label": "CellMonitoring",
+      "properties": [
+        "Integrity",
+        "Availability"
+      ],
+      "description": "test desc",
+      "backgroundColor": "#e6df19",
+      "height": 50,
+      "width": 150
+    },
+    {
+      "id": "05e9f5bd-d85a-468b-954a-5dddc69079f6",
+      "type": "default",
+      "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+      "isAsset": false,
+      "label": "IO and Analog",
+      "properties": [
+        "Integrity",
+        "Availability"
+      ],
+      "backgroundColor": "#e2dfc1",
+      "height": 50,
+      "width": 150
+    },
+    {
+      "id": "6972d325-0c1e-4ff3-b900-707838d25c14",
+      "type": "default",
+      "parentId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+      "isAsset": false,
+      "label": "Code Flash",
+      "properties": [
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Authenticity"
+      ],
+      "backgroundColor": "#ccc8ea",
+      "height": 90,
+      "width": 104
+    },
+    {
+      "id": "1ea661cc-558d-4385-b53e-07e776965a4b",
+      "type": "default",
+      "parentId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+      "isAsset": false,
+      "label": "Data Flash",
+      "properties": [
+        "Integrity",
+        "Availability",
+        "Non-repudiation"
+      ],
+      "backgroundColor": "#f0b2b2",
+      "height": 41,
+      "width": 103
+    },
+    {
+      "id": "07f29908-e559-4899-b842-5f5e6bb31d3f",
+      "type": "default",
+      "parentId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+      "isAsset": false,
+      "label": "Keys",
+      "properties": [
+        "Confidentiality"
+      ],
+      "backgroundColor": "#51dc1e",
+      "height": 39,
+      "width": 104
+    },
+    {
+      "id": "588dd017-97a3-4e1a-a77e-91876c62c543",
+      "type": "default",
+      "parentId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+      "isAsset": false,
+      "label": "Certificates",
+      "properties": [
+        "Integrity",
+        "Authenticity",
+        "Availability"
+      ],
+      "backgroundColor": "#62c945",
+      "height": 41,
+      "width": 107
+    },
+    {
+      "id": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+      "type": "group",
+      "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+      "isAsset": false,
+      "label": "(group:8082874e)",
+      "properties": [],
+      "height": 239,
+      "width": 296
+    },
+    {
+      "id": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+      "type": "default",
+      "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+      "isAsset": false,
+      "label": "CAN Transceiver",
+      "properties": [],
+      "backgroundColor": "#dadada",
+      "height": 50,
+      "width": 150
+    },
+    {
+      "id": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+      "type": "default",
+      "parentId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+      "isAsset": false,
+      "label": "Debug Port",
+      "properties": [
+        "Integrity",
+        "Availability",
+        "Authorization"
+      ],
+      "backgroundColor": "#e26a6a",
+      "height": 37,
+      "width": 99
+    },
+    {
+      "id": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+      "type": "default",
+      "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+      "isAsset": false,
+      "label": "ICD Shunt CAN",
+      "properties": [
+        "Integrity",
+        "Availability"
+      ],
+      "backgroundColor": "#accd32",
+      "height": 50,
+      "width": 152
+    },
+    {
+      "id": "8acc2cd9-a02e-4f92-8937-56ccd324444f",
+      "type": "default",
+      "parentId": null,
+      "isAsset": false,
+      "label": "Vehicle System",
+      "properties": [],
+      "backgroundColor": "#dadada",
+      "height": 383,
+      "width": 150
+    },
+    {
+      "id": "f910efcb-e9fb-4d3c-8927-4063902f576b",
+      "type": "default",
+      "parentId": null,
+      "isAsset": false,
+      "label": "Cloud",
+      "properties": [],
+      "backgroundColor": "#dadada",
+      "height": 50,
+      "width": 150
+    },
+    {
+      "id": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+      "type": "group",
+      "parentId": null,
+      "isAsset": false,
+      "label": "Battery Management System",
+      "properties": [
+        "Integrity",
+        "Authenticity"
+      ],
+      "height": 510,
+      "width": 1041
+    },
+    {
+      "id": "8f364ae0-1de5-404b-831c-86daf0e24160",
+      "type": "data",
+      "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+      "isAsset": false,
+      "label": "SoC",
+      "properties": [
+        "Authenticity",
+        "Integrity"
+      ],
+      "backgroundColor": "#e3e896",
+      "height": 30,
+      "width": 50
+    },
+    {
+      "id": "389064d4-2770-4d34-9a05-c91a12d3559e",
+      "type": "data",
+      "parentId": "30a2cf91-706b-4d9a-8056-1522eccc9337",
+      "isAsset": false,
+      "label": "SoH",
+      "properties": [
+        "Authenticity",
+        "Integrity"
+      ],
+      "backgroundColor": "#e6ed7d",
+      "height": 30,
+      "width": 50
+    }
+  ],
+  "edges": [
+    {
+      "id": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bab-db4141e3-e094-4c4e-8e06-44e1b9e1aa94right",
+      "source": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+      "target": "db4141e3-e094-4c4e-8e06-44e1b9e1aa94",
+      "sourceHandle": "b",
+      "targetHandle": "right",
+      "protocol": "SPI_CellMonitor",
+      "properties": [
+        "Integrity"
+      ]
+    },
+    {
+      "id": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bab-05e9f5bd-d85a-468b-954a-5dddc69079f6right",
+      "source": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+      "target": "05e9f5bd-d85a-468b-954a-5dddc69079f6",
+      "sourceHandle": "b",
+      "targetHandle": "right",
+      "protocol": "IO_PINS",
+      "properties": [
+        "Confidentiality"
+      ]
+    },
+    {
+      "id": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bad-903c5635-ee0f-492d-8b4a-52106410cc8eleft",
+      "source": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+      "target": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+      "sourceHandle": "d",
+      "targetHandle": "left",
+      "protocol": "CAN2",
+      "properties": [
+        "Integrity",
+        "Authenticity"
+      ]
+    },
+    {
+      "id": "reactflow__edge-8082874e-707c-4bc8-94fe-627ee4e4a3bac-6c2782e0-08da-42e8-bc9e-9f5bc3310526right",
+      "source": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+      "target": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+      "sourceHandle": "c",
+      "targetHandle": "right",
+      "protocol": "CAN1",
+      "properties": [
+        "Integrity"
+      ]
+    },
+    {
+      "id": "reactflow__edge-db4141e3-e094-4c4e-8e06-44e1b9e1aa94left-e2ee030f-e8e7-4ea7-9573-8a3e4339c137top",
+      "source": "db4141e3-e094-4c4e-8e06-44e1b9e1aa94",
+      "target": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+      "sourceHandle": "left",
+      "targetHandle": "top",
+      "protocol": "SPI",
+      "properties": []
+    },
+    {
+      "id": "reactflow__edge-05e9f5bd-d85a-468b-954a-5dddc69079f6left-e2ee030f-e8e7-4ea7-9573-8a3e4339c137right",
+      "source": "05e9f5bd-d85a-468b-954a-5dddc69079f6",
+      "target": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+      "sourceHandle": "left",
+      "targetHandle": "right",
+      "protocol": "IO",
+      "properties": [
+        "Confidentiality"
+      ]
+    },
+    {
+      "id": "reactflow__edge-6c2782e0-08da-42e8-bc9e-9f5bc3310526left-e2ee030f-e8e7-4ea7-9573-8a3e4339c137bottom",
+      "source": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+      "target": "e2ee030f-e8e7-4ea7-9573-8a3e4339c137",
+      "sourceHandle": "left",
+      "targetHandle": "bottom",
+      "protocol": "ICD_Data",
+      "properties": [
+        "Confidentiality"
+      ]
+    },
+    {
+      "id": "reactflow__edge-8acc2cd9-a02e-4f92-8937-56ccd324444ftop-f910efcb-e9fb-4d3c-8927-4063902f576bbottom",
+      "source": "8acc2cd9-a02e-4f92-8937-56ccd324444f",
+      "target": "f910efcb-e9fb-4d3c-8927-4063902f576b",
+      "sourceHandle": "top",
+      "targetHandle": "bottom",
+      "protocol": "Inernet",
+      "properties": [
+        "Confidentiality"
+      ]
+    },
+    {
+      "id": "reactflow__edge-8acc2cd9-a02e-4f92-8937-56ccd324444fleft-903c5635-ee0f-492d-8b4a-52106410cc8eright",
+      "source": "8acc2cd9-a02e-4f92-8937-56ccd324444f",
+      "target": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+      "sourceHandle": "left",
+      "targetHandle": "right",
+      "protocol": "Vehicle CAN",
+      "properties": [
+        "Integrity",
+        "Authenticity",
+        "Confidentiality"
+      ]
+    }
+  ],
+  "damage_derivations": [
+    {
+      "name": "DS due to the loss of Integrity for BatteryPack",
+      "asset": false,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for BatteryPack",
+      "asset": false,
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authenticity for BatteryPack",
+      "asset": false,
+      "loss": "loss of Authenticity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authorization for BatteryPack",
+      "asset": false,
+      "loss": "loss of Authorization",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for BatteryPack",
+      "asset": false,
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Non-repudiation for BatteryPack",
+      "asset": false,
+      "loss": "loss of Non-repudiation",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for CellMonitoring",
+      "asset": false,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for CellMonitoring",
+      "asset": false,
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for IO and Analog",
+      "asset": false,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for IO and Analog",
+      "asset": false,
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for Code Flash",
+      "asset": false,
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for Code Flash",
+      "asset": false,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for Code Flash",
+      "asset": false,
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authenticity for Code Flash",
+      "asset": false,
+      "loss": "loss of Authenticity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for Data Flash",
+      "asset": false,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for Data Flash",
+      "asset": false,
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Non-repudiation for Data Flash",
+      "asset": false,
+      "loss": "loss of Non-repudiation",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for Keys",
+      "asset": false,
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for Certificates",
+      "asset": false,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authenticity for Certificates",
+      "asset": false,
+      "loss": "loss of Authenticity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for Certificates",
+      "asset": false,
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for Debug Port",
+      "asset": false,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for Debug Port",
+      "asset": false,
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authorization for Debug Port",
+      "asset": false,
+      "loss": "loss of Authorization",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for ICD Shunt CAN",
+      "asset": false,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Availability for ICD Shunt CAN",
+      "asset": false,
+      "loss": "loss of Availability",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authenticity for SoC",
+      "asset": false,
+      "loss": "loss of Authenticity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for SoC",
+      "asset": false,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authenticity for SoH",
+      "asset": false,
+      "loss": "loss of Authenticity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for SoH",
+      "asset": false,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for SPI_CellMonitor",
+      "asset": null,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for IO_PINS",
+      "asset": null,
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for CAN2",
+      "asset": null,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authenticity for CAN2",
+      "asset": null,
+      "loss": "loss of Authenticity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for CAN1",
+      "asset": null,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for IO",
+      "asset": null,
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for ICD_Data",
+      "asset": null,
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for Inernet",
+      "asset": null,
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Integrity for Vehicle CAN",
+      "asset": null,
+      "loss": "loss of Integrity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Authenticity for Vehicle CAN",
+      "asset": null,
+      "loss": "loss of Authenticity",
+      "damage_scene": ""
+    },
+    {
+      "name": "DS due to the loss of Confidentiality for Vehicle CAN",
+      "asset": null,
+      "loss": "loss of Confidentiality",
+      "damage_scene": ""
+    }
+  ],
+  "damage_details": []
+}
+=== END REFERENCE ARCHITECTURE: BatteryManagement ===
+---
+
+[ECU]
+{
+  "name": "BMS (Battery Management System)",
+  "type": "ECU",
+  "hint": "Assets: BatteryPack (external, default), CellMonitoring (default), IO and Analog (default), Code Flash (default, inside MCU group), Data Flash (default, inside MCU group), Keys (default, inside MCU group), Certificates (default, inside MCU group), Debug Port (default, inside MCU group), CAN Transceiver (default), ICD Shunt CAN (default), SoC (data node), SoH (data node), Vehicle System (external, default), Cloud (external, default). The 'Battery Management System' is a group container; inside it is an unnamed MCU subgroup containing Code Flash, Data Flash, Keys, Certificates, and Debug Port. Edges: SPI (CellMonitoring\u2194BatteryPack), SPI_CellMonitor (MCU group\u2194CellMonitoring), IO (IO and Analog\u2194BatteryPack), IO_PINS (MCU group\u2194IO and Analog), CAN1 (MCU group\u2194ICD Shunt CAN), CAN2 (MCU group\u2194CAN Transceiver), ICD_Data (ICD Shunt CAN\u2194BatteryPack), Vehicle CAN (Vehicle System\u2194CAN Transceiver), Internet (Vehicle System\u2194Cloud)."
+}
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: BatteryPack
+Type: default  IsAsset: False
+Description: Description
+Security Properties: Integrity, Confidentiality, Authenticity, Authorization, Availability, Non-repudiation
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: CellMonitoring
+Type: default  IsAsset: False
+Description: test desc
+Security Properties: Integrity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: IO and Analog
+Type: default  IsAsset: False
+Description: 
+Security Properties: Integrity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: Code Flash
+Type: default  IsAsset: False
+Description: 
+Security Properties: Confidentiality, Integrity, Availability, Authenticity
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: Data Flash
+Type: default  IsAsset: False
+Description: 
+Security Properties: Integrity, Availability, Non-repudiation
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: Keys
+Type: default  IsAsset: False
+Description: 
+Security Properties: Confidentiality
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: Certificates
+Type: default  IsAsset: False
+Description: 
+Security Properties: Integrity, Authenticity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: (group:8082874e)
+Type: group  IsAsset: False
+Description: 
+Security Properties: N/A
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: CAN Transceiver
+Type: default  IsAsset: False
+Description: 
+Security Properties: N/A
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: Debug Port
+Type: default  IsAsset: False
+Description: 
+Security Properties: Integrity, Availability, Authorization
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: ICD Shunt CAN
+Type: default  IsAsset: False
+Description: 
+Security Properties: Integrity, Availability
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: Vehicle System
+Type: default  IsAsset: False
+Description: 
+Security Properties: N/A
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: Cloud
+Type: default  IsAsset: False
+Description: 
+Security Properties: N/A
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: Battery Management System
+Type: group  IsAsset: False
+Description: 
+Security Properties: Integrity, Authenticity
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: SoC
+Type: data  IsAsset: False
+Description: 
+Security Properties: Authenticity, Integrity
+---
+
+[REPORTS_DB | asset]
+Reference Component [BatteryManagement]: SoH
+Type: data  IsAsset: False
+Description: 
+Security Properties: Authenticity, Integrity
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Integrity for BatteryPack
+Affected Asset: False
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Confidentiality for BatteryPack
+Affected Asset: False
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Authenticity for BatteryPack
+Affected Asset: False
+Cyber Loss: loss of Authenticity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Authorization for BatteryPack
+Affected Asset: False
+Cyber Loss: loss of Authorization
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Availability for BatteryPack
+Affected Asset: False
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Non-repudiation for BatteryPack
+Affected Asset: False
+Cyber Loss: loss of Non-repudiation
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Integrity for CellMonitoring
+Affected Asset: False
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Availability for CellMonitoring
+Affected Asset: False
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Integrity for IO and Analog
+Affected Asset: False
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Availability for IO and Analog
+Affected Asset: False
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Confidentiality for Code Flash
+Affected Asset: False
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Integrity for Code Flash
+Affected Asset: False
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Availability for Code Flash
+Affected Asset: False
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Authenticity for Code Flash
+Affected Asset: False
+Cyber Loss: loss of Authenticity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Integrity for Data Flash
+Affected Asset: False
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Availability for Data Flash
+Affected Asset: False
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Non-repudiation for Data Flash
+Affected Asset: False
+Cyber Loss: loss of Non-repudiation
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Confidentiality for Keys
+Affected Asset: False
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Integrity for Certificates
+Affected Asset: False
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Authenticity for Certificates
+Affected Asset: False
+Cyber Loss: loss of Authenticity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Availability for Certificates
+Affected Asset: False
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Integrity for Debug Port
+Affected Asset: False
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Availability for Debug Port
+Affected Asset: False
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Authorization for Debug Port
+Affected Asset: False
+Cyber Loss: loss of Authorization
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Integrity for ICD Shunt CAN
+Affected Asset: False
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Availability for ICD Shunt CAN
+Affected Asset: False
+Cyber Loss: loss of Availability
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Authenticity for SoC
+Affected Asset: False
+Cyber Loss: loss of Authenticity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Integrity for SoC
+Affected Asset: False
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Authenticity for SoH
+Affected Asset: False
+Cyber Loss: loss of Authenticity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Integrity for SoH
+Affected Asset: False
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Integrity for SPI_CellMonitor
+Affected Asset: None
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Confidentiality for IO_PINS
+Affected Asset: None
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Integrity for CAN2
+Affected Asset: None
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Authenticity for CAN2
+Affected Asset: None
+Cyber Loss: loss of Authenticity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Integrity for CAN1
+Affected Asset: None
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Confidentiality for IO
+Affected Asset: None
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Confidentiality for ICD_Data
+Affected Asset: None
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Confidentiality for Inernet
+Affected Asset: None
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Integrity for Vehicle CAN
+Affected Asset: None
+Cyber Loss: loss of Integrity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Authenticity for Vehicle CAN
+Affected Asset: None
+Cyber Loss: loss of Authenticity
+Damage Scene: 
+---
+
+[REPORTS_DB | damage_derivation]
+Reference Damage Derivation [BatteryManagement]:
+Threat/Weakness: DS due to the loss of Confidentiality for Vehicle CAN
+Affected Asset: None
+Cyber Loss: loss of Confidentiality
+Damage Scene: 
+---
+
+[REPORTS_DB | hierarchy_summary]
+Architecture Hierarchy for [BatteryManagement]:
+  TOP: Vehicle System (type:default)
+  TOP: Cloud (type:default)
+  TOP: Battery Management System (type:group)
+  Battery Management System contains: BatteryPack (type:default), CellMonitoring (type:default), IO and Analog (type:default), 8082874e-707c-4bc8-94fe-627ee4e4a3ba (type:group), CAN Transceiver (type:default), ICD Shunt CAN (type:default), SoC (type:data), SoH (type:data)
+  8082874e-707c-4bc8-94fe-627ee4e4a3ba contains: Code Flash (type:default), Data Flash (type:default), Keys (type:default), Certificates (type:default), Debug Port (type:default)
+---
+
+[REPORTS_DB | edge_summary]
+Edge connections for [BatteryManagement]:
+  SPI_CellMonitor: 8082874e-707c-4bc8-94fe-627ee4e4a3ba ↔ CellMonitoring (properties: Integrity)
+  IO_PINS: 8082874e-707c-4bc8-94fe-627ee4e4a3ba ↔ IO and Analog (properties: Confidentiality)
+  CAN2: 8082874e-707c-4bc8-94fe-627ee4e4a3ba ↔ CAN Transceiver (properties: Integrity, Authenticity)
+  CAN1: 8082874e-707c-4bc8-94fe-627ee4e4a3ba ↔ ICD Shunt CAN (properties: Integrity)
+  SPI: CellMonitoring ↔ BatteryPack (properties: none)
+  IO: IO and Analog ↔ BatteryPack (properties: Confidentiality)
+  ICD_Data: ICD Shunt CAN ↔ BatteryPack (properties: Confidentiality)
+  Inernet: Vehicle System ↔ Cloud (properties: Confidentiality)
+  Vehicle CAN: Vehicle System ↔ CAN Transceiver (properties: Integrity, Authenticity, Confidentiality)
+---
+
+[MITRE_MOBILE]
+MITRE Technique: Malicious SMS Message
+Description: Test
+---
+
+[CWE]
+CWE-1427: Improper Neutralization of Input Used for LLM Prompting
+Description: The product uses externally-provided data to build prompts provided to
+large language models (LLMs), but the way these prompts are constructed
+causes the LLM to fail to distinguish between user-supplied inputs and
+developer provided system directives.
+---
+
+[CWE]
+CWE-1245: Improper Finite State Machines (FSMs) in Hardware Logic
+Description: Faulty finite state machines (FSMs) in the hardware logic allow an attacker to put the system in an undefined state, to cause a denial of service (DoS) or gain privileges on the victim's system.
+---
+
+[ATM]
+ATM Technique: Abuse Standard Diagnostic Protocol to Temporarily Modify Execution
+Description: Standard diagnostic protocols can be used to write directly to RAM such as the UDS service, WriteMemoryByAddress (in contrast to RequestDownload, which usually targets writing to persistent flash). This can be used to modify sensitive data (for example verification keys) or change execution through writing to stack memory, or direct execution (if the device offers execution from RAM).
+---
+
+[CAPEC]
+CAPEC-666: BlueSmacking
+Description: An adversary uses Bluetooth flooding to transfer large packets to Bluetooth enabled devices over the L2CAP protocol with the goal of creating a DoS. This attack must be carried out within close proximity to a Bluetooth enabled device.
+---
+
+[MITRE_MOBILE]
+MITRE Technique: Web Protocols
+Description: Adversaries may communicate using application layer protocols associated with web protocols traffic to avoid detection/network filtering by blending in with existing traffic. Commands to remote mobile devices, and often the results of those commands, will be embedded within the protocol traffic between the mobile client and server. 
+
+Web protocols such as HTTP and HTTPS are used for web traffic as well as well as notification services native to mobile messaging services such as Google Cloud Messaging (GCM) and newly, Firebase Cloud Messaging (FCM), (GCM/FCM: two-way communication) and Apple Push Notification Service (APNS; one-way server-to-device).  Such notification services leverage HTTP/S via the respective API and are commonly abused on Android and iOS respectively in order blend in with routine device traffic making it difficult for enterprises to inspect. 
+---
+
+[CAPEC]
+CAPEC-701: Browser in the Middle (BiTM)
+Description: An adversary exploits the inherent functionalities of a web browser, in order to establish an unnoticed remote desktop connection in the victim's browser to the adversary's system. The adversary must deploy a web client with a remote desktop session that the victim can access.
+---
+
+[CAPEC]
+CAPEC-383: Harvesting Information via API Event Monitoring
+Description: An adversary hosts an event within an application framework and then monitors the data exchanged during the course of the event for the purpose of harvesting any important data leaked during the transactions. One example could be harvesting lists of usernames or userIDs for the purpose of sending spam messages to those users. One example of this type of attack involves the adversary creating an event within the sub-application. Assume the adversary hosts a "virtual sale" of rare items. As other users enter the event, the attacker records via AiTM (CAPEC-94) proxy the user_ids and usernames of everyone who attends. The adversary would then be able to spam those users within the application using an automated script.
+---
+
+[ATM]
+ATM Technique: Abuse Standard Diagnostic Protocol for Collection
+Description: The adversary can attempt to abuse ‘read’ capabilities in standard diagnostic protocols, such as the UDS service ‘read memory by address’ to access customer information from an ECU’s storage or memory.
+---
+
+[CAPEC]
+CAPEC-42: MIME Conversion
+Description: An attacker exploits a weakness in the MIME conversion routine to cause a buffer overflow and gain control over the mail server machine. The MIME system is designed to allow various different information formats to be interpreted and sent via e-mail. Attack points exist when data are converted to MIME compatible format and back.
+---
+
+[CAPEC]
+CAPEC-322: TCP (ISN) Greatest Common Divisor Probe
+Description: This OS fingerprinting probe sends a number of TCP SYN packets to an open port of a remote machine. The Initial Sequence Number (ISN) in each of the SYN/ACK response packets is analyzed to determine the smallest number that the target host uses when incrementing sequence numbers. This information can be useful for identifying an operating system because particular operating systems and versions increment sequence numbers using different values. The result of the analysis is then compared against a database of OS behaviors to determine the OS type and/or version.
+---
+
+[CAPEC]
+CAPEC-324: TCP (ISN) Sequence Predictability Probe
+Description: This type of operating system probe attempts to determine an estimate for how predictable the sequence number generation algorithm is for a remote host. Statistical techniques, such as standard deviation, can be used to determine how predictable the sequence number generation is for a system. This result can then be compared to a database of operating system behaviors to determine a likely match for operating system and version.
+---
+
+[MITRE_MOBILE]
+MITRE Technique: Remote Device Management Services
+Description: An adversary may use access to cloud services (e.g. Google's Android Device Manager or Apple iCloud's Find my iPhone) or to an enterprise mobility management (EMM)/mobile device management (MDM) server console to track the location of mobile devices managed by the service.(Citation: Krebs-Location) 
+---
+
+[CAPEC]
+CAPEC-277: Data Interchange Protocol Manipulation
+Description: Data Interchange Protocols are used to transmit structured data between entities. These protocols are often specific to a particular domain (B2B: purchase orders, invoices, transport logistics and waybills, medical records). They are often, but not always, XML-based. Subverting the protocol can allow an adversary to impersonate others, discover sensitive information, control the outcome of a session, or perform other attacks. This type of attack targets invalid assumptions that may be inherent in implementers of the protocol, incorrect implementations of the protocol, or vulnerabilities in the protocol itself.
+---
+
+[CWE]
+CWE-286: Incorrect User Management
+Description: The product does not properly manage a user within its environment.
+---
+
+[CAPEC]
+CAPEC-387: Navigation Remapping To Propagate Malicious Content
+Description: An adversary manipulates either egress or ingress data from a client within an application framework in order to change the content of messages and thereby circumvent the expected application logic.
+---
+
+[MITRE_ICS]
+MITRE Technique: Automated Collection
+Description: Adversaries may automate collection of industrial environment information using tools or scripts. This automated collection may leverage native control protocols and tools available in the control systems environment. For example, the OPC protocol may be used to enumerate and gather information. Access to a system or interface with these native protocols may allow collection and enumeration of other attached, communicating servers and devices.
+---
+
+[CAPEC]
+CAPEC-331: ICMP IP Total Length Field Probe
+Description: An adversary sends a UDP packet to a closed port on the target machine to solicit an IP Header's total length field value within the echoed 'Port Unreachable" error message. This type of behavior is useful for building a signature-base of operating system responses, particularly when error messages contain other types of information that is useful identifying specific operating system responses.
+---
+
+[ATM]
+ATM Technique: Abuse Standard Diagnostic Protocol for Lateral Movement
+Description: The adversary could try to abuse standard diagnostic protocols (e.g., unified diagnostic services) to move laterally inside the vehicle network. For example, an adversary that can send diagnostic commands could attempt to use UDS ‘download and execute’ or ‘write memory by address’ capabilities to gain code execution on an ECU on the vehicle network.
+---
+
+[CAPEC]
+CAPEC-296: ICMP Information Request
+Description: An adversary sends an ICMP Information Request to a host to determine if it will respond to this deprecated mechanism. ICMP Information Requests are a deprecated message type. Information Requests were originally used for diskless machines to automatically obtain their network configuration, but this message type has been superseded by more robust protocol implementations like DHCP.
+---
+
+
+-------------------------------------------------
+
+ARCHITECTURE RULES
+
+The architecture uses a nested group/container hierarchy:
+
+1. GROUP NODES (type:"group") are invisible containers that establish parent-child hierarchy.
+   - The top-level system (e.g. "Battery Management System") is a group with parentId:null.
+   - Sub-systems (e.g. MCU block) are groups nested inside the top-level group.
+   - Group nodes have a dashed-border style, NOT a solid backgroundColor.
+
+2. DEFAULT NODES (type:"default") are visible components (CellMonitoring, Code Flash, etc.).
+   - Each default node has a parentId pointing to its containing group.
+   - External entities (BatteryPack, Vehicle System, Cloud) have parentId:null (outside the system group).
+
+3. DATA NODES (type:"data") are small circular data items (SoC, SoH).
+   - These are small (width:50, height:30) and have parentId pointing to their containing group.
+
+4. PARENTID HIERARCHY: Every node must have a parentId.
+   - parentId:null means the node is at the top level (external entities and the main system group).
+   - Components inside the system group have parentId = the system group's id.
+   - Components inside a sub-group (e.g. MCU) have parentId = the sub-group's id.
+
+5. EDGES: Each edge must have a "data.label" that is a SHORT protocol/interface name:
+   - CORRECT: "SPI", "CAN1", "CAN2", "IO_PINS", "Vehicle CAN", "Internet", "ICD_Data"
+   - WRONG: "Measurements", "CAN Communication", "Controls Power Flow", "Sends data to"
+
+6. COLOR CODING: Assign distinct backgroundColor values by component role:
+   - Monitoring/sensing: yellow shades (#e6df19, #accd32)
+   - I/O interfaces: beige/tan (#e2dfc1)
+   - Flash/storage: purple (#ccc8ea)
+   - Security (Keys, Certificates): green (#51dc1e, #62c945)
+   - Debug: red/orange (#e26a6a)
+   - Data items (SoC, SoH): light yellow (#e3e896)
+   - External/generic: gray (#dadada)
+
+-------------------------------------------------
+
+TASK
+
+1. Identify the architecture of the requested system (use the AUTHORITATIVE ASSET LIST if provided).
+2. Generate assets that belong strictly to the TARGET SYSTEM — no others.
+3. Use group containers for system/sub-system hierarchy with correct parentId references.
+4. Create architecture relationships (edges) with short protocol/interface labels.
+5. Generate realistic cybersecurity damage scenarios referencing only the generated assets.
+6. For each damage scenario derive an Impact Rating using SFOP categories.
+
+-------------------------------------------------
+
+IMPACT RATING SCALE
+
+For every damage scenario derive cyber losses using SFOP categories:
+Safety | Financial | Operational | Privacy
+
+For each cyber loss assign: Negligible | Minor | Moderate | Major | Severe
+Then derive an overall impact rating based on the highest impact.
+
+-------------------------------------------------
+
+STRICT OUTPUT FORMAT
+
+Return ONLY valid JSON. Do not include explanations, markdown fences, or prose.
+Start the response with '{'.
+
+Return JSON exactly in this structure (showing all three node types):
+
+{
+ "assets":{
+   "_id":"",
+   "user_id":"",
+   "model_id":"",
+   "template":{
+      "nodes":[
+         {
+           "id":"<system-group-uuid>",
+           "type":"group",
+           "parentId":null,
+           "data":{
+             "label":"System Name",
+             "nodeCount":7,
+             "style":{"background":"rgba(33,150,243,0.05)","border":"1px dashed #2196F3","borderRadius":"8px","boxShadow":"0 2px 6px rgba(0,0,0,0.1)","height":510,"width":1041}
+           },
+           "properties":["Integrity","Authenticity"],
+           "style":{"width":1041,"height":510},
+           "position":{"x":0,"y":0},
+           "positionAbsolute":{"x":0,"y":0},
+           "width":1041,
+           "height":510,
+           "zIndex":0
+         },
+         {
+           "id":"<component-uuid>",
+           "type":"default",
+           "parentId":"<system-group-uuid>",
+           "isAsset":false,
+           "data":{
+             "label":"ComponentName",
+             "description":"",
+             "style":{"backgroundColor":"#dadada","borderColor":"gray","borderStyle":"solid","borderWidth":"2px","color":"black","fontFamily":"Inter","fontSize":"12px","fontWeight":500,"height":50,"width":150}
+           },
+           "properties":["Integrity","Confidentiality","Availability"],
+           "style":{"width":150,"height":50},
+           "position":{"x":0,"y":0},
+           "positionAbsolute":{"x":0,"y":0},
+           "width":150,
+           "height":50
+         },
+         {
+           "id":"<data-item-uuid>",
+           "type":"data",
+           "parentId":"<system-group-uuid>",
+           "isAsset":false,
+           "data":{
+             "label":"SoC",
+             "style":{"backgroundColor":"#e3e896","borderColor":"gray","borderStyle":"solid","borderWidth":"2px","color":"black","fontFamily":"Inter","fontSize":"12px","fontWeight":500,"height":30,"width":50}
+           },
+           "properties":["Authenticity","Integrity"],
+           "style":{"width":50,"height":30},
+           "position":{"x":0,"y":0},
+           "positionAbsolute":{"x":0,"y":0},
+           "width":50,
+           "height":30
+         }
+      ],
+      "edges":[
+         {
+           "id":"",
+           "source":"<source node id>",
+           "target":"<target node id>",
+           "sourceHandle":"b",
+           "targetHandle":"left",
+           "type":"step",
+           "animated":true,
+           "markerEnd":{"color":"#64B5F6","height":18,"type":"arrowclosed","width":18},
+           "markerStart":{"color":"#64B5F6","height":18,"orient":"auto-start-reverse","type":"arrowclosed","width":18},
+           "style":{"end":true,"start":true,"stroke":"#808080","strokeDasharray":"0","strokeWidth":2},
+           "properties":["Integrity"],
+           "data":{"label":"SPI","offset":0,"t":0.5}
+         }
+      ]
+   }
+ },
+ "damage_scenarios":{
+   "_id":"",
+   "model_id":"",
+   "type":"damage",
+   "Derivations":[
+      {
+        "id":"","nodeId":"","task":"Threat Analysis",
+        "name":"","loss":"","asset":"",
+        "damage_scene":"","isChecked":false
+      }
+   ],
+   "Details":[
+      {
+        "Name":"",
+        "Description":"",
+        "cyberLosses":[{"id":"","name":"","node":"","nodeId":"","isSelected":true,"is_risk_added":false}],
+        "impacts":{"Financial Impact":"","Safety Impact":"","Operational Impact":"","Privacy Impact":""},
+        "key":1,
+        "_id":""
+      }
+   ]
+ }
+}
+
+-------------------------------------------------
+
+CONSTRAINTS
+
+- Generate ONLY the assets listed in the AUTHORITATIVE ASSET LIST (if provided), or assets strictly belonging to the TARGET SYSTEM.
+- Do NOT add components from other ECU systems.
+- Do NOT fabricate sub-modules, protocols, or external entities unless they appear in the AUTHORITATIVE ASSET LIST or REPORTS_DB reference.
+- Use group containers (type:"group") for system and sub-system boundaries. Use type:"data" for small data nodes.
+- Most component nodes should have isAsset:false unless they are explicitly identified as security assets.
+- Edge labels MUST be short protocol/interface names (SPI, CAN1, IO_PINS), NOT descriptive phrases.
+- Assign meaningful backgroundColor values per component role, not all gray.
+- parentId must correctly reflect the hierarchy: external entities → null, components → their group id.
+- Damage scenarios must reference valid nodeId values from the nodes above.
+- Impact rating must be derived from the damage scenario context.
+- Use threat reasoning from CWE, MITRE, CAPEC, ATM — not from REPORTS_DB examples.
+- Fewer correct components are better than many speculative ones.
+- Do NOT include "position" or "positionAbsolute" fields in any node — these are computed automatically after generation.
+
+Return JSON only. Start the response with '{'.

@@ -1,0 +1,1278 @@
+{
+  "assets": {
+    "_id": "abs-system-model",
+    "user_id": "user-123",
+    "model_id": "model-456",
+    "template": {
+      "nodes": [
+        {
+          "id": "abs_ecu_group",
+          "type": "group",
+          "parentId": null,
+          "data": {
+            "label": "ABS ECU",
+            "nodeCount": 10,
+            "style": {
+              "background": "rgba(33,150,243,0.05)",
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 600,
+              "width": 1200
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity",
+            "Availability"
+          ],
+          "style": {
+            "width": 1200,
+            "height": 600
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "positionAbsolute": {
+            "x": 0,
+            "y": 0
+          },
+          "width": 1200,
+          "height": 600,
+          "zIndex": 0
+        },
+        {
+          "id": "mcu_group",
+          "type": "group",
+          "parentId": "abs_ecu_group",
+          "data": {
+            "label": "MCU Group",
+            "nodeCount": 5,
+            "style": {
+              "background": "rgba(33,150,243,0.05)",
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 200,
+              "width": 500
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 500,
+            "height": 200
+          },
+          "position": {
+            "x": 100,
+            "y": 150
+          },
+          "positionAbsolute": {
+            "x": 100,
+            "y": 150
+          },
+          "width": 500,
+          "height": 200,
+          "zIndex": 1
+        },
+        {
+          "id": "wheel_speed_sensors",
+          "type": "default",
+          "parentId": "abs_ecu_group",
+          "isAsset": false,
+          "data": {
+            "label": "Wheel Speed Sensors",
+            "description": "Four hall-effect sensors (FL, FR, RL, RR) delivering wheel rotation data via PWM.",
+            "style": {
+              "backgroundColor": "#e6df19",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 800,
+            "y": 100
+          },
+          "positionAbsolute": {
+            "x": 800,
+            "y": 100
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 1
+        },
+        {
+          "id": "hydraulic_control_unit",
+          "type": "default",
+          "parentId": "abs_ecu_group",
+          "isAsset": false,
+          "data": {
+            "label": "Hydraulic Control Unit",
+            "description": "Electro-hydraulic actuator block (solenoid valves + pump motor).",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 800,
+            "y": 250
+          },
+          "positionAbsolute": {
+            "x": 800,
+            "y": 250
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 1
+        },
+        {
+          "id": "can_transceiver",
+          "type": "default",
+          "parentId": "abs_ecu_group",
+          "isAsset": false,
+          "data": {
+            "label": "CAN Transceiver",
+            "description": "Physical-layer CAN-FD transceiver.",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 800,
+            "y": 400
+          },
+          "positionAbsolute": {
+            "x": 800,
+            "y": 400
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 1
+        },
+        {
+          "id": "obd_ii_interface",
+          "type": "default",
+          "parentId": "abs_ecu_group",
+          "isAsset": false,
+          "data": {
+            "label": "OBD-II Interface",
+            "description": "Standardized diagnostic connector exposing UDS services.",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability",
+            "Authorization"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 100,
+            "y": 400
+          },
+          "positionAbsolute": {
+            "x": 100,
+            "y": 400
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 1
+        },
+        {
+          "id": "code_flash",
+          "type": "default",
+          "parentId": "mcu_group",
+          "isAsset": true,
+          "data": {
+            "label": "Code Flash",
+            "description": "ABS firmware and braking algorithms.",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity",
+            "Availability",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 50,
+            "y": 20
+          },
+          "positionAbsolute": {
+            "x": 50,
+            "y": 20
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 2
+        },
+        {
+          "id": "data_flash",
+          "type": "default",
+          "parentId": "mcu_group",
+          "isAsset": true,
+          "data": {
+            "label": "Data Flash",
+            "description": "Calibration parameters and NVM config.",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability",
+            "Non-repudiation"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 50,
+            "y": 100
+          },
+          "positionAbsolute": {
+            "x": 50,
+            "y": 100
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 2
+        },
+        {
+          "id": "keys",
+          "type": "default",
+          "parentId": "mcu_group",
+          "isAsset": true,
+          "data": {
+            "label": "Keys",
+            "description": "Cryptographic seed-key and secure boot keys.",
+            "style": {
+              "backgroundColor": "#51dc1e",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 250,
+            "y": 20
+          },
+          "positionAbsolute": {
+            "x": 250,
+            "y": 20
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 2
+        },
+        {
+          "id": "certificates",
+          "type": "default",
+          "parentId": "mcu_group",
+          "isAsset": true,
+          "data": {
+            "label": "Certificates",
+            "description": "X.509 ECU auth certificates.",
+            "style": {
+              "backgroundColor": "#51dc1e",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 250,
+            "y": 100
+          },
+          "positionAbsolute": {
+            "x": 250,
+            "y": 100
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 2
+        },
+        {
+          "id": "debug_port",
+          "type": "default",
+          "parentId": "mcu_group",
+          "isAsset": true,
+          "data": {
+            "label": "Debug Port",
+            "description": "JTAG/SWD, must be locked in production.",
+            "style": {
+              "backgroundColor": "#e26a6a",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability",
+            "Authorization"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 400,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 400,
+            "y": 60
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 2
+        },
+        {
+          "id": "brake_pressure_data",
+          "type": "data",
+          "parentId": "abs_ecu_group",
+          "isAsset": false,
+          "data": {
+            "label": "Brake Pressure Data",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "position": {
+            "x": 400,
+            "y": 200
+          },
+          "positionAbsolute": {
+            "x": 400,
+            "y": 200
+          },
+          "width": 50,
+          "height": 30,
+          "zIndex": 1
+        },
+        {
+          "id": "diagnostic_data",
+          "type": "data",
+          "parentId": "abs_ecu_group",
+          "isAsset": false,
+          "data": {
+            "label": "Diagnostic Data",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "position": {
+            "x": 250,
+            "y": 300
+          },
+          "positionAbsolute": {
+            "x": 250,
+            "y": 300
+          },
+          "width": 50,
+          "height": 30,
+          "zIndex": 1
+        },
+        {
+          "id": "vehicle_can_bus",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Vehicle CAN Bus",
+            "description": "In-vehicle CAN/CAN-FD network.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 800,
+            "y": 550
+          },
+          "positionAbsolute": {
+            "x": 800,
+            "y": 550
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 0
+        },
+        {
+          "id": "ecm_engine_control_module",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "ECM Engine Control Module",
+            "description": "Provides vehicle speed and engine torque signals.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 1000,
+            "y": 550
+          },
+          "positionAbsolute": {
+            "x": 1000,
+            "y": 550
+          },
+          "width": 150,
+          "height": 50,
+          "zIndex": 0
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-mcu-wheel-speed-sensors",
+          "source": "mcu_group",
+          "target": "wheel_speed_sensors",
+          "sourceHandle": "right",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "PWM_Input"
+          ],
+          "data": {
+            "label": "PWM_Input",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-mcu-hcu",
+          "source": "mcu_group",
+          "target": "hydraulic_control_unit",
+          "sourceHandle": "right",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "PWM_Control"
+          ],
+          "data": {
+            "label": "PWM_Control",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-mcu-can-transceiver",
+          "source": "mcu_group",
+          "target": "can_transceiver",
+          "sourceHandle": "top",
+          "targetHandle": "bottom",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "CAN_Internal"
+          ],
+          "data": {
+            "label": "CAN_Internal",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-mcu-obd-ii",
+          "source": "mcu_group",
+          "target": "obd_ii_interface",
+          "sourceHandle": "left",
+          "targetHandle": "right",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "UDS_Diag"
+          ],
+          "data": {
+            "label": "UDS_Diag",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-can-transceiver-vehicle-can",
+          "source": "can_transceiver",
+          "target": "vehicle_can_bus",
+          "sourceHandle": "bottom",
+          "targetHandle": "top",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "CAN_Bus"
+          ],
+          "data": {
+            "label": "CAN_Bus",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-vehicle-can-ecm",
+          "source": "vehicle_can_bus",
+          "target": "ecm_engine_control_module",
+          "sourceHandle": "right",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Vehicle_CAN"
+          ],
+          "data": {
+            "label": "Vehicle_CAN",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-mcu-brake-pressure",
+          "source": "mcu_group",
+          "target": "brake_pressure_data",
+          "sourceHandle": "bottom",
+          "targetHandle": "top",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Computes"
+          ],
+          "data": {
+            "label": "Computes",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-mcu-diagnostic-data",
+          "source": "mcu_group",
+          "target": "diagnostic_data",
+          "sourceHandle": "left",
+          "targetHandle": "right",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Logs"
+          ],
+          "data": {
+            "label": "Logs",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edge-obd-ii-diagnostic-data",
+          "source": "obd_ii_interface",
+          "target": "diagnostic_data",
+          "sourceHandle": "bottom",
+          "targetHandle": "top",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Reads_DTC"
+          ],
+          "data": {
+            "label": "Reads_DTC",
+            "offset": 0,
+            "t": 0.5
+          }
+        }
+      ]
+    }
+  },
+  "damage_scenarios": {
+    "_id": "abs-damage-scenarios",
+    "model_id": "model-456",
+    "type": "damage",
+    "Derivations": [
+      {
+        "id": "derivation-cwe-494-code-flash",
+        "nodeId": "code_flash",
+        "task": "Threat Analysis",
+        "name": "ABS Firmware Tampering via OTA / UDS",
+        "loss": "Unauthorized firmware modification via OTA or diagnostic service",
+        "asset": "Code Flash",
+        "damage_scene": "An attacker delivers a tampered firmware image to the ABS ECU through an unsecured OTA channel or an unlocked UDS 0x34/0x36 session. The modified firmware disables the wheel lock prevention logic, causing the ABS to fail silently and creating a life-threatening loss-of-braking condition.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-cwe-321-keys",
+        "nodeId": "keys",
+        "task": "Threat Analysis",
+        "name": "Hard-coded Key Extraction and UDS Unlock",
+        "loss": "Compromise of ECU authentication and seed-key mechanism",
+        "asset": "Keys",
+        "damage_scene": "Reverse-engineering of the ABS ECU binary reveals a hard-coded seed-key algorithm. An attacker gains full UDS SecurityAccess (service 0x27), enabling arbitrary memory read/write and firmware reprogramming without valid workshop credentials.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-capec-390-wheel-speed-sensors",
+        "nodeId": "wheel_speed_sensors",
+        "task": "Threat Analysis",
+        "name": "Wheel Speed Sensor Signal Spoofing",
+        "loss": "Injection of spoofed wheel speed signals causing inappropriate ABS activation",
+        "asset": "Wheel Speed Sensors",
+        "damage_scene": "An attacker with physical or CAN access injects falsified PWM wheel-speed signals. The ABS MCU misinterprets normal braking as wheel lock and activates pulse modulation, dramatically extending stopping distance and increasing accident risk.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-atm-can-bus-injection",
+        "nodeId": "can_transceiver",
+        "task": "Threat Analysis",
+        "name": "CAN Bus ABS Frame Injection",
+        "loss": "Injection of spoofed ABS status CAN frames affecting adjacent ECUs",
+        "asset": "CAN Transceiver",
+        "damage_scene": "An adversary connected to the in-vehicle CAN bus transmits fabricated ABS_Active and WheelSpeed CAN frames. The ECM and ESC/ESP receive false data, alter torque distribution and stability control, potentially inducing a spin or loss of vehicle stability.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-cwe-307-obd-ii",
+        "nodeId": "obd_ii_interface",
+        "task": "Threat Analysis",
+        "name": "OBD-II Seed-Key Brute Force",
+        "loss": "Brute-force of UDS SecurityAccess seed-key to gain privileged diagnostic session",
+        "asset": "OBD-II Interface",
+        "damage_scene": "An attacker connects a rogue diagnostic tool to the OBD-II port and performs automated seed-key brute-forcing using the short 16-bit seed space. After unlocking level 2 security, the attacker reprograms the ABS ECU or corrupts its NVM calibration, degrading braking performance.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-cwe-276-data-flash",
+        "nodeId": "data_flash",
+        "task": "Threat Analysis",
+        "name": "Calibration Data Tampering in Data Flash",
+        "loss": "Tampering of ABS calibration parameters degrading stopping distance",
+        "asset": "Data Flash",
+        "damage_scene": "An attacker who obtains UDS programming access overwrites ABS threshold calibration values (slip ratio limits, pressure ramp rates) stored in Data Flash. The modified parameters cause the ABS system to intervene too early or too late, increasing stopping distance measurably beyond ISO 21434 safety targets.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-mitre-t0843-debug-port",
+        "nodeId": "debug_port",
+        "task": "Threat Analysis",
+        "name": "JTAG-based Full ECU Compromise",
+        "loss": "Full ECU compromise through unlocked JTAG debug port in production hardware",
+        "asset": "Debug Port",
+        "damage_scene": "A production ABS ECU is found with the JTAG/SWD interface active and unprotected. An attacker extracts the full flash image (including Keys and firmware), patches the binary to disable ABS logic, and re-flashes the modified image, indistinguishable from legitimate firmware.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-atm-manipulate-control-logic",
+        "nodeId": "hydraulic_control_unit",
+        "task": "Threat Analysis",
+        "name": "HCU Actuator Command Injection",
+        "loss": "Denial of braking or asymmetric braking through actuator command injection",
+        "asset": "Hydraulic Control Unit",
+        "damage_scene": "An attacker who has compromised the ABS MCU firmware sends erroneous solenoid valve commands to the HCU. This causes asymmetric brake pressure modulation (e.g., locking one wheel while releasing another), resulting in severe vehicle yaw and potential rollover at highway speed.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-cwe-20-brake-pressure-data",
+        "nodeId": "brake_pressure_data",
+        "task": "Threat Analysis",
+        "name": "Brake Pressure Data Integrity Violation",
+        "loss": "Falsified brake pressure data corrupting ABS control loop decisions",
+        "asset": "Brake Pressure Data",
+        "damage_scene": "Tampered computation inputs cause the ABS algorithm to operate on falsified pressure values. The control loop races between excessive modulation and no modulation, creating brake fade and an inability to maintain optimal wheel slip, increasing stopping distance by up to 40%.",
+        "isChecked": false
+      },
+      {
+        "id": "derivation-cwe-117-diagnostic-data",
+        "nodeId": "diagnostic_data",
+        "task": "Threat Analysis",
+        "name": "DTC Suppression Concealing ABS Safety Faults",
+        "loss": "Suppression or falsification of ABS DTCs concealing safety-critical faults",
+        "asset": "Diagnostic Data",
+        "damage_scene": "An attacker uses an authorised-looking diagnostic tool to clear or overwrite DTC entries after inducing ABS faults. Technicians performing pre-delivery inspections see a clean fault memory, remain unaware of the underlying vulnerability, and the compromised vehicle is released to the customer.",
+        "isChecked": false
+      }
+    ],
+    "Details": [
+      {
+        "Name": "ABS Firmware Tampering via OTA / UDS",
+        "Description": "Exploitation of CWE-494 to deliver unsigned/tampered ABS firmware. Disables wheel-lock prevention logic and creates a silent safety-critical failure. Rated Catastrophic for Safety Impact.",
+        "cyberLosses": [
+          {
+            "id": "loss-code-flash-firmware-mod",
+            "name": "Unauthorized firmware modification via OTA or diagnostic service",
+            "node": "Code Flash",
+            "nodeId": "code_flash",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Catastrophic",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 1,
+        "_id": "detail-abs-firmware-tampering"
+      },
+      {
+        "Name": "Hard-coded Key Extraction and UDS Unlock",
+        "Description": "Hard-coded seed-key compromise (CWE-321) grants full security level access to ABS ECU memory and programming services, enabling any subsequent attack.",
+        "cyberLosses": [
+          {
+            "id": "loss-keys-ecu-auth-compromise",
+            "name": "Compromise of ECU authentication and seed-key mechanism",
+            "node": "Keys",
+            "nodeId": "keys",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Minor"
+        },
+        "key": 2,
+        "_id": "detail-hard-coded-key-extraction"
+      },
+      {
+        "Name": "Wheel Speed Sensor Signal Spoofing",
+        "Description": "Injection of falsified PWM wheel-speed signals (CAPEC-390) causes the ABS to incorrectly activate during normal braking, extending stopping distance and increasing collision risk.",
+        "cyberLosses": [
+          {
+            "id": "loss-wheel-speed-spoofed-signals",
+            "name": "Injection of spoofed wheel speed signals causing inappropriate ABS activation",
+            "node": "Wheel Speed Sensors",
+            "nodeId": "wheel_speed_sensors",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Catastrophic",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 3,
+        "_id": "detail-wheel-speed-sensor-spoofing"
+      },
+      {
+        "Name": "CAN Bus ABS Frame Injection",
+        "Description": "Spoofed ABS CAN frames (ATM) mislead connected safety ECUs (ECM, ESC), triggering unintended traction interventions and vehicle instability.",
+        "cyberLosses": [
+          {
+            "id": "loss-can-transceiver-spoofed-frames",
+            "name": "Injection of spoofed ABS status CAN frames affecting adjacent ECUs",
+            "node": "CAN Transceiver",
+            "nodeId": "can_transceiver",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 4,
+        "_id": "detail-can-bus-abs-frame-injection"
+      },
+      {
+        "Name": "OBD-II Seed-Key Brute Force",
+        "Description": "Automated UDS SecurityAccess brute-force (CWE-307) through physical OBD-II port grants elevated programming access allowing ECU reprogramming.",
+        "cyberLosses": [
+          {
+            "id": "loss-obd-ii-securityaccess-brute-force",
+            "name": "Brute-force of UDS SecurityAccess seed-key to gain privileged diagnostic session",
+            "node": "OBD-II Interface",
+            "nodeId": "obd_ii_interface",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Major",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Minor"
+        },
+        "key": 5,
+        "_id": "detail-obd-ii-seed-key-brute-force"
+      },
+      {
+        "Name": "Calibration Data Tampering in Data Flash",
+        "Description": "Unauthorised modification of ABS threshold calibration (CWE-276) stored in Data Flash degrades braking performance beyond safe limits.",
+        "cyberLosses": [
+          {
+            "id": "loss-data-flash-calibration-tampering",
+            "name": "Tampering of ABS calibration parameters degrading stopping distance",
+            "node": "Data Flash",
+            "nodeId": "data_flash",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Major",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 6,
+        "_id": "detail-calibration-data-tampering"
+      },
+      {
+        "Name": "JTAG-based Full ECU Compromise",
+        "Description": "Unlocked Debug Port enables physical firmware extraction and re-flash (MITRE ICS T0843) allowing complete ECU takeover in production.",
+        "cyberLosses": [
+          {
+            "id": "loss-debug-port-full-ecu-compromise",
+            "name": "Full ECU compromise through unlocked JTAG debug port in production hardware",
+            "node": "Debug Port",
+            "nodeId": "debug_port",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Catastrophic",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Minor"
+        },
+        "key": 7,
+        "_id": "detail-jtag-based-full-ecu-compromise"
+      },
+      {
+        "Name": "HCU Actuator Command Injection",
+        "Description": "Compromised MCU firmware sends erroneous solenoid commands (ATM: Manipulate Control Logic) causing asymmetric braking and vehicle yaw.",
+        "cyberLosses": [
+          {
+            "id": "loss-hcu-actuator-command-injection",
+            "name": "Denial of braking or asymmetric braking through actuator command injection",
+            "node": "Hydraulic Control Unit",
+            "nodeId": "hydraulic_control_unit",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Catastrophic",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 8,
+        "_id": "detail-hcu-actuator-command-injection"
+      },
+      {
+        "Name": "Brake Pressure Data Integrity Violation",
+        "Description": "Falsified computation inputs (CWE-20) corrupt the real-time brake pressure data used by the ABS control loop, causing oscillating modulation and extended stopping distance.",
+        "cyberLosses": [
+          {
+            "id": "loss-brake-pressure-data-corruption",
+            "name": "Falsified brake pressure data corrupting ABS control loop decisions",
+            "node": "Brake Pressure Data",
+            "nodeId": "brake_pressure_data",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Major",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 9,
+        "_id": "detail-brake-pressure-data-integrity-violation"
+      },
+      {
+        "Name": "DTC Suppression Concealing ABS Safety Faults",
+        "Description": "Rogue diagnostic tool clears or overwrites Diagnostic Data (CWE-117) after inducing faults, masking ABS defects and allowing compromised vehicles to pass inspection.",
+        "cyberLosses": [
+          {
+            "id": "loss-diagnostic-data-dtc-suppression",
+            "name": "Suppression or falsification of ABS DTCs concealing safety-critical faults",
+            "node": "Diagnostic Data",
+            "nodeId": "diagnostic_data",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Major",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Minor"
+        },
+        "key": 10,
+        "_id": "detail-dtc-suppression"
+      }
+    ]
+  }
+}

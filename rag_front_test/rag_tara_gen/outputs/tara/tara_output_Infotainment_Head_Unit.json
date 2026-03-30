@@ -1,0 +1,2083 @@
+{
+  "assets": {
+    "_id": "65b1e44521b533b68e935074",
+    "user_id": "user_default",
+    "model_id": "65b1e44521b533b68e935073",
+    "template": {
+      "nodes": [
+        {
+          "id": "infh_root_group",
+          "type": "group",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Infotainment Head Unit",
+            "nodeCount": 16,
+            "style": {
+              "background": "rgba(33,150,243,0.05)",
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 560,
+              "width": 1200
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity",
+            "Availability"
+          ],
+          "style": {
+            "width": 1200,
+            "height": 560
+          },
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "positionAbsolute": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "width": 1200,
+          "height": 560,
+          "zIndex": 0
+        },
+        {
+          "id": "infh_display",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
+          "data": {
+            "label": "Display Unit",
+            "description": "Touchscreen HMI connected to MCU via I2C/MIPI-DSI. Renders navigation, media, and system UI.",
+            "style": {
+              "backgroundColor": "#b3d9ff",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 24,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 24.0,
+            "y": 60.0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "infh_audio",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
+          "data": {
+            "label": "Audio Amplifier",
+            "description": "Digital audio amplifier linked via I2S. Drives cabin speakers for media and navigation voice.",
+            "style": {
+              "backgroundColor": "#ffd580",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 194.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 194.0,
+            "y": 60.0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "infh_bt",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
+          "data": {
+            "label": "Bluetooth Module",
+            "description": "BT 5.x / BLE module linked via HCI UART. Handles phone pairing, A2DP audio, HFP calls, PBAP contacts.",
+            "style": {
+              "backgroundColor": "#c8aff0",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 155
+            }
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity",
+            "Availability",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 155,
+            "height": 50
+          },
+          "position": {
+            "x": 364.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 364.0,
+            "y": 60.0
+          },
+          "width": 155,
+          "height": 50
+        },
+        {
+          "id": "infh_wifi",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
+          "data": {
+            "label": "Wi-Fi Module",
+            "description": "802.11ac Wi-Fi connected via SDIO. Used for OTA updates, cloud API, and hotspot.",
+            "style": {
+              "backgroundColor": "#a8e6cf",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 140
+            }
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity",
+            "Availability",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 140,
+            "height": 50
+          },
+          "position": {
+            "x": 539.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 539.0,
+            "y": 60.0
+          },
+          "width": 140,
+          "height": 50
+        },
+        {
+          "id": "infh_usb",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
+          "data": {
+            "label": "USB Interface",
+            "description": "USB 2.0 host port (USB2). Supports CarPlay, Android Auto, media playback, and firmware flashing.",
+            "style": {
+              "backgroundColor": "#f7c6a0",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 140
+            }
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 140,
+            "height": 50
+          },
+          "position": {
+            "x": 699.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 699.0,
+            "y": 60.0
+          },
+          "width": 140,
+          "height": 50
+        },
+        {
+          "id": "infh_mic",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
+          "data": {
+            "label": "Microphone",
+            "description": "Cabin microphone for voice commands and hands-free calls. Connects via ADC line-in.",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 130
+            }
+          },
+          "properties": [
+            "Confidentiality",
+            "Availability"
+          ],
+          "style": {
+            "width": 130,
+            "height": 50
+          },
+          "position": {
+            "x": 859.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 859.0,
+            "y": 60.0
+          },
+          "width": 130,
+          "height": 50
+        },
+        {
+          "id": "infh_camera",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
+          "data": {
+            "label": "Rear Camera Input",
+            "description": "Rear-view camera video feed received via MIPI-CSI2. Rendered on display during reverse.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 160
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 160,
+            "height": 50
+          },
+          "position": {
+            "x": 1009.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 1009.0,
+            "y": 60.0
+          },
+          "width": 160,
+          "height": 50
+        },
+        {
+          "id": "infh_can_trx",
+          "type": "default",
+          "parentId": "infh_root_group",
+          "isAsset": false,
+          "data": {
+            "label": "CAN Transceiver",
+            "description": "CAN FD transceiver bridging the IVI MCU to the vehicle CAN bus for vehicle speed, warning signals.",
+            "style": {
+              "backgroundColor": "#accd32",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 155
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 155,
+            "height": 50
+          },
+          "position": {
+            "x": 24,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 24.0,
+            "y": 130.0
+          },
+          "width": 155,
+          "height": 50
+        },
+        {
+          "id": "infh_user_profiles",
+          "type": "data",
+          "parentId": "infh_root_group",
+          "isAsset": false,
+          "data": {
+            "label": "User Profiles",
+            "description": "PII data: driver preferences, paired device list, call/contact history, seat/mirror settings.",
+            "style": {
+              "backgroundColor": "#f9e4b7",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 120
+            }
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity",
+            "Non-repudiation"
+          ],
+          "style": {
+            "width": 120,
+            "height": 30
+          },
+          "position": {
+            "x": 199.0,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 199.0,
+            "y": 130.0
+          },
+          "width": 120,
+          "height": 30
+        },
+        {
+          "id": "infh_nav_data",
+          "type": "data",
+          "parentId": "infh_root_group",
+          "isAsset": false,
+          "data": {
+            "label": "Navigation Data",
+            "description": "GPS route history, saved POIs, destination logs. High-privacy sensitivity per ISO 21434.",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 130
+            }
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 130,
+            "height": 30
+          },
+          "position": {
+            "x": 339.0,
+            "y": 130.0
+          },
+          "positionAbsolute": {
+            "x": 339.0,
+            "y": 130.0
+          },
+          "width": 130,
+          "height": 30
+        },
+        {
+          "id": "infh_mcu_group",
+          "type": "group",
+          "parentId": "infh_root_group",
+          "isAsset": false,
+          "data": {
+            "label": "(MCU)",
+            "style": {
+              "background": "rgba(33,150,243,0.05)",
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 239,
+              "width": 310
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 310,
+            "height": 239
+          },
+          "position": {
+            "x": 24,
+            "y": 200.0
+          },
+          "positionAbsolute": {
+            "x": 24.0,
+            "y": 200.0
+          },
+          "width": 310,
+          "height": 239,
+          "zIndex": 1
+        },
+        {
+          "id": "infh_code_flash",
+          "type": "default",
+          "parentId": "infh_mcu_group",
+          "isAsset": false,
+          "data": {
+            "label": "Code Flash",
+            "description": "IVI OS firmware (Linux/QNX) and application stack. Tamper causes compromised behaviour or bricking.",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 39,
+              "width": 104
+            }
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity",
+            "Availability",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 104,
+            "height": 39
+          },
+          "position": {
+            "x": 24,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 260.0
+          },
+          "width": 104,
+          "height": 39
+        },
+        {
+          "id": "infh_data_flash",
+          "type": "default",
+          "parentId": "infh_mcu_group",
+          "isAsset": false,
+          "data": {
+            "label": "Data Flash",
+            "description": "Non-volatile memory for calibration tables, variant coding, and persistent configuration.",
+            "style": {
+              "backgroundColor": "#f0b2b2",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 39,
+              "width": 104
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability",
+            "Non-repudiation"
+          ],
+          "style": {
+            "width": 104,
+            "height": 39
+          },
+          "position": {
+            "x": 148.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 172.0,
+            "y": 260.0
+          },
+          "width": 104,
+          "height": 39
+        },
+        {
+          "id": "infh_keys",
+          "type": "default",
+          "parentId": "infh_mcu_group",
+          "isAsset": false,
+          "data": {
+            "label": "Keys",
+            "description": "TLS private key, OTA package signing verification key, Bluetooth link keys. Stored in secure element / HSM.",
+            "style": {
+              "backgroundColor": "#51dc1e",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 39,
+              "width": 104
+            }
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "style": {
+            "width": 104,
+            "height": 39
+          },
+          "position": {
+            "x": 24,
+            "y": 119.0
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 319.0
+          },
+          "width": 104,
+          "height": 39
+        },
+        {
+          "id": "infh_certs",
+          "type": "default",
+          "parentId": "infh_mcu_group",
+          "isAsset": false,
+          "data": {
+            "label": "Certificates",
+            "description": "X.509 TLS client certificate and secure boot certificate chain. Required for cloud and OTA authentication.",
+            "style": {
+              "backgroundColor": "#62c945",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 39,
+              "width": 110
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity",
+            "Availability"
+          ],
+          "style": {
+            "width": 110,
+            "height": 39
+          },
+          "position": {
+            "x": 148.0,
+            "y": 119.0
+          },
+          "positionAbsolute": {
+            "x": 172.0,
+            "y": 319.0
+          },
+          "width": 110,
+          "height": 39
+        },
+        {
+          "id": "infh_debug",
+          "type": "default",
+          "parentId": "infh_mcu_group",
+          "isAsset": false,
+          "data": {
+            "label": "Debug Port",
+            "description": "JTAG/UART debug interface. Must be disabled in production. Exposure enables full MCU memory read.",
+            "style": {
+              "backgroundColor": "#e26a6a",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 39,
+              "width": 104
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability",
+            "Authorization"
+          ],
+          "style": {
+            "width": 104,
+            "height": 39
+          },
+          "position": {
+            "x": 24,
+            "y": 178.0
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 378.0
+          },
+          "width": 104,
+          "height": 39
+        },
+        {
+          "id": "infh_vehicle_can",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Vehicle CAN Bus",
+            "description": "Vehicle-wide CAN FD backbone shared with other ECUs (BCM, ADAS, Cluster, etc.).",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 1260.0,
+            "y": 40.0
+          },
+          "positionAbsolute": {
+            "x": 1260.0,
+            "y": 40.0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "infh_smartphone",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Smartphone",
+            "description": "User's paired mobile device. Communicates over Bluetooth (HFP/A2DP/PBAP) and USB (CarPlay/Android Auto).",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 130
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 130,
+            "height": 50
+          },
+          "position": {
+            "x": 1260.0,
+            "y": 120.0
+          },
+          "positionAbsolute": {
+            "x": 1260.0,
+            "y": 120.0
+          },
+          "width": 130,
+          "height": 50
+        },
+        {
+          "id": "infh_cloud",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Cloud Backend",
+            "description": "OEM cloud services: OTA update server, telematics API, map updates, remote diagnostics.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 145
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 145,
+            "height": 50
+          },
+          "position": {
+            "x": 1260.0,
+            "y": 200.0
+          },
+          "positionAbsolute": {
+            "x": 1260.0,
+            "y": 200.0
+          },
+          "width": 145,
+          "height": 50
+        },
+        {
+          "id": "infh_obd",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "OBD-II Port",
+            "description": "Physical diagnostic access port. Exposes UDS services on CAN. Must be access-controlled.",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 130
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 130,
+            "height": 50
+          },
+          "position": {
+            "x": 1260.0,
+            "y": 280.0
+          },
+          "positionAbsolute": {
+            "x": 1260.0,
+            "y": 280.0
+          },
+          "width": 130,
+          "height": 50
+        }
+      ],
+      "edges": [
+        {
+          "id": "infh_edge_mcu_display",
+          "source": "infh_mcu_group",
+          "target": "infh_display",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "I2C",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "infh_edge_mcu_audio",
+          "source": "infh_mcu_group",
+          "target": "infh_audio",
+          "sourceHandle": "b",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "I2S",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "infh_edge_mcu_bt",
+          "source": "infh_mcu_group",
+          "target": "infh_bt",
+          "sourceHandle": "d",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity",
+            "Authenticity"
+          ],
+          "data": {
+            "label": "HCI",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "infh_edge_mcu_wifi",
+          "source": "infh_mcu_group",
+          "target": "infh_wifi",
+          "sourceHandle": "d",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity",
+            "Authenticity"
+          ],
+          "data": {
+            "label": "SDIO",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "infh_edge_mcu_usb",
+          "source": "infh_mcu_group",
+          "target": "infh_usb",
+          "sourceHandle": "c",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity"
+          ],
+          "data": {
+            "label": "USB2",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "infh_edge_mcu_mic",
+          "source": "infh_mcu_group",
+          "target": "infh_mic",
+          "sourceHandle": "c",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "data": {
+            "label": "ADC_MIC",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "infh_edge_mcu_camera",
+          "source": "infh_mcu_group",
+          "target": "infh_camera",
+          "sourceHandle": "a",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "MIPI_CSI",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "infh_edge_mcu_can",
+          "source": "infh_mcu_group",
+          "target": "infh_can_trx",
+          "sourceHandle": "a",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity"
+          ],
+          "data": {
+            "label": "CAN_IVI",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "infh_edge_can_vcan",
+          "source": "infh_can_trx",
+          "target": "infh_vehicle_can",
+          "sourceHandle": "right",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "data": {
+            "label": "Vehicle_CAN",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "infh_edge_wifi_cloud",
+          "source": "infh_wifi",
+          "target": "infh_cloud",
+          "sourceHandle": "right",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity",
+            "Authenticity"
+          ],
+          "data": {
+            "label": "HTTPS",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "infh_edge_bt_phone",
+          "source": "infh_bt",
+          "target": "infh_smartphone",
+          "sourceHandle": "right",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality",
+            "Authenticity"
+          ],
+          "data": {
+            "label": "BT_Profile",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "infh_edge_obd_can",
+          "source": "infh_obd",
+          "target": "infh_can_trx",
+          "sourceHandle": "right",
+          "targetHandle": "bottom",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "OBD_UDS",
+            "offset": 0,
+            "t": 0.5
+          }
+        }
+      ]
+    }
+  },
+  "damage_scenarios": {
+    "_id": "65b1e44521b533b68e935075",
+    "model_id": "65b1e44521b533b68e935073",
+    "type": "damage",
+    "Derivations": [
+      {
+        "id": "65b1e44521b533b68e935076",
+        "nodeId": "infh_display",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Integrity for Display Unit",
+        "loss": "loss of Integrity",
+        "asset": "Display Unit",
+        "damage_scene": "Attacker manipulates display output to show false information, causing driver distraction or misdirection.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935077",
+        "nodeId": "infh_display",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Availability for Display Unit",
+        "loss": "loss of Availability",
+        "asset": "Display Unit",
+        "damage_scene": "Display unit becomes unresponsive, preventing driver from accessing critical information (e.g., navigation, warnings).",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935078",
+        "nodeId": "infh_audio",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Integrity for Audio Amplifier",
+        "loss": "loss of Integrity",
+        "asset": "Audio Amplifier",
+        "damage_scene": "Audio output is distorted or contains malicious noise, interfering with critical alerts or driver attention.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935079",
+        "nodeId": "infh_audio",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Availability for Audio Amplifier",
+        "loss": "loss of Availability",
+        "asset": "Audio Amplifier",
+        "damage_scene": "No audio output from the infotainment system, including navigation prompts and critical alerts.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93507a",
+        "nodeId": "infh_bt",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Confidentiality for Bluetooth Module",
+        "loss": "loss of Confidentiality",
+        "asset": "Bluetooth Module",
+        "damage_scene": "Unauthorized access to paired smartphone data (contacts, call logs, messages).",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93507b",
+        "nodeId": "infh_bt",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Integrity for Bluetooth Module",
+        "loss": "loss of Integrity",
+        "asset": "Bluetooth Module",
+        "damage_scene": "Spoofed Bluetooth commands leading to unintended actions (e.g., initiating calls, changing media).",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93507c",
+        "nodeId": "infh_bt",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Availability for Bluetooth Module",
+        "loss": "loss of Availability",
+        "asset": "Bluetooth Module",
+        "damage_scene": "Bluetooth connectivity is disabled, preventing phone pairing and associated features.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93507d",
+        "nodeId": "infh_bt",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Authenticity for Bluetooth Module",
+        "loss": "loss of Authenticity",
+        "asset": "Bluetooth Module",
+        "damage_scene": "Attacker impersonates a legitimate Bluetooth device to gain unauthorized access.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93507e",
+        "nodeId": "infh_wifi",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Confidentiality for Wi-Fi Module",
+        "loss": "loss of Confidentiality",
+        "asset": "Wi-Fi Module",
+        "damage_scene": "Sniffing of Wi-Fi traffic, potentially exposing sensitive data transmitted to/from the cloud or user devices.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93507f",
+        "nodeId": "infh_wifi",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Integrity for Wi-Fi Module",
+        "loss": "loss of Integrity",
+        "asset": "Wi-Fi Module",
+        "damage_scene": "Injection of malicious data or commands through the Wi-Fi interface, potentially leading to firmware corruption or unauthorized access.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935080",
+        "nodeId": "infh_wifi",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Availability for Wi-Fi Module",
+        "loss": "loss of Availability",
+        "asset": "Wi-Fi Module",
+        "damage_scene": "Wi-Fi functionality is disabled, preventing OTA updates, cloud connectivity, and hotspot functionality.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935081",
+        "nodeId": "infh_wifi",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Authenticity for Wi-Fi Module",
+        "loss": "loss of Authenticity",
+        "asset": "Wi-Fi Module",
+        "damage_scene": "Attacker impersonates a legitimate Wi-Fi access point to intercept traffic or deliver malicious payloads.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935082",
+        "nodeId": "infh_usb",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Confidentiality for USB Interface",
+        "loss": "loss of Confidentiality",
+        "asset": "USB Interface",
+        "damage_scene": "Unauthorized access to data on connected USB devices or exfiltration of data through the USB interface.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935083",
+        "nodeId": "infh_usb",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Integrity for USB Interface",
+        "loss": "loss of Integrity",
+        "asset": "USB Interface",
+        "damage_scene": "Malicious firmware or data injection via a compromised USB device (e.g., USB drive, CarPlay/Android Auto device).",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935084",
+        "nodeId": "infh_usb",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Availability for USB Interface",
+        "loss": "loss of Availability",
+        "asset": "USB Interface",
+        "damage_scene": "USB ports become non-functional, preventing connection of essential peripherals like smartphones for CarPlay/Android Auto.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935085",
+        "nodeId": "infh_mic",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Confidentiality for Microphone",
+        "loss": "loss of Confidentiality",
+        "asset": "Microphone",
+        "damage_scene": "Unauthorized eavesdropping on cabin conversations via the microphone.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935086",
+        "nodeId": "infh_mic",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Availability for Microphone",
+        "loss": "loss of Availability",
+        "asset": "Microphone",
+        "damage_scene": "Microphone fails to capture audio for voice commands or hands-free calls.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935087",
+        "nodeId": "infh_camera",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Integrity for Rear Camera Input",
+        "loss": "loss of Integrity",
+        "asset": "Rear Camera Input",
+        "damage_scene": "Display of a manipulated or frozen rear-view image, creating a blind spot during reversing.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935088",
+        "nodeId": "infh_camera",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Availability for Rear Camera Input",
+        "loss": "loss of Availability",
+        "asset": "Rear Camera Input",
+        "damage_scene": "No rear-view camera image displayed, increasing the risk of collision when reversing.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935089",
+        "nodeId": "infh_can_trx",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Integrity for CAN Transceiver",
+        "loss": "loss of Integrity",
+        "asset": "CAN Transceiver",
+        "damage_scene": "Injection of spoofed CAN messages onto the vehicle network, affecting vehicle behavior (e.g., speed, braking).",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93508a",
+        "nodeId": "infh_can_trx",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Availability for CAN Transceiver",
+        "loss": "loss of Availability",
+        "asset": "CAN Transceiver",
+        "damage_scene": "Disruption of communication with other vehicle ECUs via the CAN bus.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93508b",
+        "nodeId": "infh_user_profiles",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Confidentiality for User Profiles",
+        "loss": "loss of Confidentiality",
+        "asset": "User Profiles",
+        "damage_scene": "Exposure of personal driver preferences, contacts, and call history.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93508c",
+        "nodeId": "infh_user_profiles",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Integrity for User Profiles",
+        "loss": "loss of Integrity",
+        "asset": "User Profiles",
+        "damage_scene": "Modification of driver preferences leading to an undesirable user experience or incorrect vehicle settings.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93508d",
+        "nodeId": "infh_user_profiles",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Non-repudiation for User Profiles",
+        "loss": "loss of Non-repudiation",
+        "asset": "User Profiles",
+        "damage_scene": "Inability to definitively attribute user profile changes or actions.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93508e",
+        "nodeId": "infh_nav_data",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Confidentiality for Navigation Data",
+        "loss": "loss of Confidentiality",
+        "asset": "Navigation Data",
+        "damage_scene": "Exposure of the driver's location history and frequent destinations.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93508f",
+        "nodeId": "infh_nav_data",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Integrity for Navigation Data",
+        "loss": "loss of Integrity",
+        "asset": "Navigation Data",
+        "damage_scene": "Modification of navigation routes or points of interest, leading to incorrect navigation guidance.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935090",
+        "nodeId": "infh_nav_data",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Authenticity for Navigation Data",
+        "loss": "loss of Authenticity",
+        "asset": "Navigation Data",
+        "damage_scene": "Navigation system providing guidance based on falsified or untrusted location data.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935091",
+        "nodeId": "infh_code_flash",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Confidentiality for Code Flash",
+        "loss": "loss of Confidentiality",
+        "asset": "Code Flash",
+        "damage_scene": "Extraction of sensitive information embedded within the OS or application code.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935092",
+        "nodeId": "infh_code_flash",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Integrity for Code Flash",
+        "loss": "loss of Integrity",
+        "asset": "Code Flash",
+        "damage_scene": "Modification of OS or application code, leading to altered functionality or malicious behavior.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935093",
+        "nodeId": "infh_code_flash",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Availability for Code Flash",
+        "loss": "loss of Availability",
+        "asset": "Code Flash",
+        "damage_scene": "Bricking of the infotainment unit due to corrupted firmware.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935094",
+        "nodeId": "infh_code_flash",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Authenticity for Code Flash",
+        "loss": "loss of Authenticity",
+        "asset": "Code Flash",
+        "damage_scene": "Execution of unauthorized or tampered firmware.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935095",
+        "nodeId": "infh_data_flash",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Integrity for Data Flash",
+        "loss": "loss of Integrity",
+        "asset": "Data Flash",
+        "damage_scene": "Modification of calibration data, user settings, or configuration parameters.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935096",
+        "nodeId": "infh_data_flash",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Availability for Data Flash",
+        "loss": "loss of Availability",
+        "asset": "Data Flash",
+        "damage_scene": "Inability to load or access critical configuration data, leading to system malfunction.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935097",
+        "nodeId": "infh_data_flash",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Non-repudiation for Data Flash",
+        "loss": "loss of Non-repudiation",
+        "asset": "Data Flash",
+        "damage_scene": "Inability to verify the origin or integrity of stored data.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935098",
+        "nodeId": "infh_keys",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Confidentiality for Keys",
+        "loss": "loss of Confidentiality",
+        "asset": "Keys",
+        "damage_scene": "Exposure of sensitive cryptographic keys (e.g., private keys, link keys), enabling impersonation and decryption.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e935099",
+        "nodeId": "infh_certs",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Integrity for Certificates",
+        "loss": "loss of Integrity",
+        "asset": "Certificates",
+        "damage_scene": "Tampering with security certificates, compromising secure communication and authentication.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93509a",
+        "nodeId": "infh_certs",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Authenticity for Certificates",
+        "loss": "loss of Authenticity",
+        "asset": "Certificates",
+        "damage_scene": "Attacker presents a forged certificate to gain unauthorized access or impersonate the device.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93509b",
+        "nodeId": "infh_certs",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Availability for Certificates",
+        "loss": "loss of Availability",
+        "asset": "Certificates",
+        "damage_scene": "Inability to perform secure communication or authentication due to missing or corrupted certificates.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93509c",
+        "nodeId": "infh_debug",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Integrity for Debug Port",
+        "loss": "loss of Integrity",
+        "asset": "Debug Port",
+        "damage_scene": "Malicious modification of system configuration or firmware through the debug interface.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93509d",
+        "nodeId": "infh_debug",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Availability for Debug Port",
+        "loss": "loss of Availability",
+        "asset": "Debug Port",
+        "damage_scene": "Inability to debug or diagnose system issues due to a disabled debug port.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93509e",
+        "nodeId": "infh_debug",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Authorization for Debug Port",
+        "loss": "loss of Authorization",
+        "asset": "Debug Port",
+        "damage_scene": "Unauthorized access to system memory and functionality via the debug interface.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e93509f",
+        "nodeId": "infh_vehicle_can",
+        "task": "Threat Analysis",
+        "name": "DS due to the loss of Integrity for Vehicle CAN Bus",
+        "loss": "loss of Integrity",
+        "asset": "Vehicle CAN Bus",
+        "damage_scene": "Injection of false CAN messages that could compromise safety-critical functions (e.g., steering, braking).",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e9350a0",
+        "nodeId": "infh_smartphone",
+        "task": "Threat Analysis",
+        "name": "DS due to compromise of Smartphone connection",
+        "loss": "loss of Confidentiality",
+        "asset": "Smartphone",
+        "damage_scene": "Compromised smartphone used to inject malicious data or commands into the Infotainment Head Unit.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e9350a1",
+        "nodeId": "infh_cloud",
+        "task": "Threat Analysis",
+        "name": "DS due to compromise of Cloud Backend",
+        "loss": "loss of Integrity",
+        "asset": "Cloud Backend",
+        "damage_scene": "Compromised cloud backend used to push malicious updates or configuration to the Infotainment Head Unit.",
+        "isChecked": false
+      },
+      {
+        "id": "65b1e44521b533b68e9350a2",
+        "nodeId": "infh_obd",
+        "task": "Threat Analysis",
+        "name": "DS due to compromise of OBD-II Port",
+        "loss": "loss of Integrity",
+        "asset": "OBD-II Port",
+        "damage_scene": "Attacker uses OBD-II port to gain access to the CAN bus and inject malicious messages.",
+        "isChecked": false
+      }
+    ],
+    "Details": [
+      {
+        "Name": "Malicious OTA Firmware Update via Wi-Fi",
+        "Description": "An attacker performs a man-in-the-middle attack over the Wi-Fi link (HTTPS channel) and injects a malicious firmware image into Code Flash. Because code signing verification (Certificates) is bypassed or the signing key (Keys) is compromised, the IVI MCU executes attacker-controlled firmware, enabling persistent access to the vehicle CAN bus and full cabin sensor control.",
+        "cyberLosses": [
+          {
+            "id": "65b1e44521b533b68e935092",
+            "name": "loss of Integrity",
+            "node": "Code Flash",
+            "nodeId": "infh_code_flash",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "65b1e44521b533b68e93509a",
+            "name": "loss of Authenticity",
+            "node": "Certificates",
+            "nodeId": "infh_certs",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "65b1e44521b533b68e935098",
+            "name": "loss of Confidentiality",
+            "node": "Keys",
+            "nodeId": "infh_keys",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Major",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 1,
+        "_id": "65b1e44521b533b68e935090"
+      },
+      {
+        "Name": "User PII Exfiltration via Bluetooth",
+        "Description": "An attacker exploits a Bluetooth pairing vulnerability (e.g., BIAS or KNOB attack) to impersonate a trusted device. By gaining authenticated HCI-level access, the attacker reads PBAP contact list, call history, and User Profiles stored in Data Flash, exfiltrating sensitive PII over the BT_Profile link to the attacker's device.",
+        "cyberLosses": [
+          {
+            "id": "65b1e44521b533b68e93508b",
+            "name": "loss of Confidentiality",
+            "node": "User Profiles",
+            "nodeId": "infh_user_profiles",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "65b1e44521b533b68e93507a",
+            "name": "loss of Confidentiality",
+            "node": "Bluetooth Module",
+            "nodeId": "infh_bt",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Severe"
+        },
+        "key": 2,
+        "_id": "65b1e44521b533b68e935091"
+      },
+      {
+        "Name": "GPS Navigation Data Spoofing",
+        "Description": "An attacker injects falsified GPS NMEA sentences through an SDR-based GPS spoofer, causing Navigation Data stored in Data Flash to record fictitious routes. The manipulated navigation data misleads the driver to wrong or dangerous destinations. Per ISO 21434 Clause 15, this constitutes a loss of Authenticity and Integrity for location-based assets.",
+        "cyberLosses": [
+          {
+            "id": "65b1e44521b533b68e93508f",
+            "name": "loss of Authenticity",
+            "node": "Navigation Data",
+            "nodeId": "infh_nav_data",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "65b1e44521b533b68e93508e",
+            "name": "loss of Integrity",
+            "node": "Navigation Data",
+            "nodeId": "infh_nav_data",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Major",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 3,
+        "_id": "65b1e44521b533b68e935092"
+      },
+      {
+        "Name": "Malware Injection via USB Interface",
+        "Description": "A malicious USB device presents as a trusted CarPlay/Android Auto accessory. It exploits a USB stack parsing vulnerability (CWE-119) to overflow a buffer in the IVI OS running from Code Flash, achieving arbitrary code execution. The malware persists in Data Flash and may open a reverse tunnel to the CAN bus via the CAN Transceiver.",
+        "cyberLosses": [
+          {
+            "id": "65b1e44521b533b68e935083",
+            "name": "loss of Integrity",
+            "node": "USB Interface",
+            "nodeId": "infh_usb",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "65b1e44521b533b68e935092",
+            "name": "loss of Integrity",
+            "node": "Code Flash",
+            "nodeId": "infh_code_flash",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "65b1e44521b533b68e935095",
+            "name": "loss of Integrity",
+            "node": "Data Flash",
+            "nodeId": "infh_data_flash",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Moderate",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Moderate"
+        },
+        "key": 4,
+        "_id": "65b1e44521b533b68e935093"
+      },
+      {
+        "Name": "Microphone Eavesdropping (Cabin Audio Intercept)",
+        "Description": "A compromised IVI application or a software implant delivered via OTA continuously streams Microphone ADC input to a remote attacker over the Wi-Fi/HTTPS channel. The driver's private conversations, phone calls, and voice commands are captured without consent — a severe privacy violation under GDPR and ISO 21434 impact categories.",
+        "cyberLosses": [
+          {
+            "id": "65b1e44521b533b68e935085",
+            "name": "loss of Confidentiality",
+            "node": "Microphone",
+            "nodeId": "infh_mic",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "65b1e44521b533b68e93507e",
+            "name": "loss of Confidentiality",
+            "node": "Wi-Fi Module",
+            "nodeId": "infh_wifi",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Minor",
+          "Privacy Impact": "Severe"
+        },
+        "key": 5,
+        "_id": "65b1e44521b533b68e935094"
+      },
+      {
+        "Name": "CAN Bus Injection via IVI Gateway",
+        "Description": "The IVI's CAN Transceiver is connected to the vehicle CAN bus shared with safety-critical ECUs (BCM, ADAS, Cluster). An attacker who has compromised IVI Code Flash injects spoofed CAN frames (e.g., fake wheel speed messages, door lock commands) onto the Vehicle CAN Bus. This can manipulate other ECU behaviour and compromise vehicle safety — directly violating SFOP Safety and Operational impact categories.",
+        "cyberLosses": [
+          {
+            "id": "65b1e44521b533b68e935089",
+            "name": "loss of Integrity",
+            "node": "CAN Transceiver",
+            "nodeId": "infh_can_trx",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "65b1e44521b533b68e93509d",
+            "name": "loss of Integrity",
+            "node": "Vehicle CAN Bus",
+            "nodeId": "infh_vehicle_can",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Severe",
+          "Operational Impact": "Severe",
+          "Privacy Impact": "Minor"
+        },
+        "key": 6,
+        "_id": "65b1e44521b533b68e935095"
+      },
+      {
+        "Name": "Debug Port Exploitation for Key Extraction",
+        "Description": "An attacker with physical access connects a JTAG debugger to the exposed Debug Port. With the debug interface active (or improperly locked), full MCU memory can be read, exposing Keys (TLS private keys, OTA signing keys, Bluetooth link keys) and Certificates stored in the secure element / HSM. This enables offline decryption of past sessions and forging of OTA packages.",
+        "cyberLosses": [
+          {
+            "id": "65b1e44521b533b68e93509c",
+            "name": "loss of Authorization",
+            "node": "Debug Port",
+            "nodeId": "infh_debug",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "65b1e44521b533b68e935098",
+            "name": "loss of Confidentiality",
+            "node": "Keys",
+            "nodeId": "infh_keys",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "65b1e44521b533b68e935099",
+            "name": "loss of Integrity",
+            "node": "Certificates",
+            "nodeId": "infh_certs",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Major",
+          "Safety Impact": "Moderate",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Major"
+        },
+        "key": 7,
+        "_id": "65b1e44521b533b68e935096"
+      },
+      {
+        "Name": "Rear Camera Feed Substitution",
+        "Description": "An attacker injects a falsified MIPI-CSI2 video stream onto the Rear Camera Input using a hardware interposer or by exploiting an in-vehicle Ethernet/CSI bridge. The Display Unit shows a manipulated or frozen rear view during reversing, creating a dangerous blind spot. Loss of Integrity of the camera feed constitutes a Safety impact at Severe level.",
+        "cyberLosses": [
+          {
+            "id": "65b1e44521b533b68e935087",
+            "name": "loss of Integrity",
+            "node": "Rear Camera Input",
+            "nodeId": "infh_camera",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "65b1e44521b533b68e935077",
+            "name": "loss of Availability",
+            "node": "Display Unit",
+            "nodeId": "infh_display",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Minor",
+          "Safety Impact": "Severe",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Negligible"
+        },
+        "key": 8,
+        "_id": "65b1e44521b533b68e935097"
+      },
+      {
+        "Name": "Wi-Fi MITM — Cloud API Token Theft",
+        "Description": "An attacker sets up a rogue Wi-Fi access point with the same SSID as a known network. The IVI auto-connects and performs TLS certificate validation using stored Certificates; if certificate pinning is absent or Certificates are compromised, the attacker performs TLS termination and steals Cloud Backend API tokens and session credentials transmitted over HTTPS.",
+        "cyberLosses": [
+          {
+            "id": "65b1e44521b533b68e93507e",
+            "name": "loss of Confidentiality",
+            "node": "Wi-Fi Module",
+            "nodeId": "infh_wifi",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "65b1e44521b533b68e93509a",
+            "name": "loss of Authenticity",
+            "node": "Certificates",
+            "nodeId": "infh_certs",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Negligible",
+          "Operational Impact": "Moderate",
+          "Privacy Impact": "Major"
+        },
+        "key": 9,
+        "_id": "65b1e44521b533b68e935098"
+      },
+      {
+        "Name": "OBD-II Diagnostic Abuse — Unauthorised UDS Service Execution",
+        "Description": "An attacker connects to the physical OBD-II Port with a standard ELM327 adapter and issues UDS service 0x27 (Security Access) without a valid seed-key challenge. A weak or unprotected diagnostic session allows reading of Data Flash calibration tables, erasing diagnostic trouble codes (DTCs), or invoking ECU reset commands — violating Integrity and Authorization of the CAN Transceiver and Data Flash assets.",
+        "cyberLosses": [
+          {
+            "id": "65b1e44521b533b68e935095",
+            "name": "loss of Integrity",
+            "node": "Data Flash",
+            "nodeId": "infh_data_flash",
+            "isSelected": true,
+            "is_risk_added": false
+          },
+          {
+            "id": "65b1e44521b533b68e935089",
+            "name": "loss of Integrity",
+            "node": "CAN Transceiver",
+            "nodeId": "infh_can_trx",
+            "isSelected": true,
+            "is_risk_added": false
+          }
+        ],
+        "impacts": {
+          "Financial Impact": "Moderate",
+          "Safety Impact": "Minor",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Minor"
+        },
+        "key": 10,
+        "_id": "65b1e44521b533b68e935099"
+      }
+    ]
+  }
+}
