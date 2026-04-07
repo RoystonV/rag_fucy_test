@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TARA Visualizer · ISO/SAE 21434</title>
-  <meta name="description" content="Interactive TARA Report Visualizer — Browse ISO/SAE 21434 Threat Analysis & Risk Assessment reports from MongoDB with node-graph architecture views and damage scenario tables." />
+  <meta name="description" content="Interactive TARA Report Visualizer — Browse ISO/SAE 21434 Threat Analysis & Risk Assessment reports with architecture graphs, item definitions, damage scenarios, attack trees, threat scenarios, and cybersecurity requirements." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -94,7 +94,7 @@
   </main>
 
   <!-- ═══════════════════════════════════════════
-       RIGHT PANEL — Damage scenarios
+       RIGHT PANEL — Tabbed TARA sections
        ═══════════════════════════════════════════ -->
   <aside id="right-panel">
 
@@ -110,11 +110,15 @@
       </div>
       <div class="stat-cell">
         <div class="stat-num amber"  id="stat-derivs">—</div>
-        <div class="stat-label">Threats</div>
+        <div class="stat-label">DS</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-num purple" id="stat-details">—</div>
-        <div class="stat-label">Details</div>
+        <div class="stat-num purple" id="stat-attacks">—</div>
+        <div class="stat-label">Attacks</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num cyan"   id="stat-cs">—</div>
+        <div class="stat-label">Req.</div>
       </div>
     </div>
 
@@ -123,17 +127,82 @@
       <div class="node-info-empty">Click a node to inspect it</div>
     </div>
 
-    <!-- Damage scenarios header -->
-    <div class="panel-header">
-      <div class="panel-title">Damage Scenarios</div>
-      <div class="panel-count" id="panel-count">0</div>
+    <!-- Tab bar -->
+    <div class="tab-bar" id="tab-bar">
+      <button class="tab-btn active" data-tab="damage"   id="tab-damage">⚠️ Damage</button>
+      <button class="tab-btn"        data-tab="attacks"  id="tab-attacks">⚔️ Attacks</button>
+      <button class="tab-btn"        data-tab="threats"  id="tab-threats">🎯 Threats</button>
+      <button class="tab-btn"        data-tab="csreqs"   id="tab-csreqs">🔐 CS Req.</button>
+      <button class="tab-btn"        data-tab="itemdef"  id="tab-itemdef">📦 Items</button>
     </div>
 
-    <!-- Damage list -->
-    <div id="damage-list">
-      <div class="panel-empty">
-        <div class="empty-icon">📋</div>
-        <div>Select a report to view threats</div>
+    <!-- Tab: Damage Scenarios -->
+    <div class="tab-panel active" id="panel-damage">
+      <div class="panel-subheader">
+        <span class="panel-title">Damage Scenarios</span>
+        <span class="panel-count" id="panel-count">0</span>
+      </div>
+      <div id="damage-list">
+        <div class="panel-empty">
+          <div class="empty-icon">📋</div>
+          <div>Select a report to view damage scenarios</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Attacks -->
+    <div class="tab-panel" id="panel-attacks">
+      <div class="panel-subheader">
+        <span class="panel-title">Attack Scenes</span>
+        <span class="panel-count" id="attack-panel-count">0</span>
+      </div>
+      <div id="attack-list">
+        <div class="panel-empty">
+          <div class="empty-icon">⚔️</div>
+          <div>Select a report to view attack scenes</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Threat Scenarios -->
+    <div class="tab-panel" id="panel-threats">
+      <div class="panel-subheader">
+        <span class="panel-title">Threat Scenarios</span>
+        <span class="panel-count" id="threat-panel-count">0</span>
+      </div>
+      <div id="threat-list">
+        <div class="panel-empty">
+          <div class="empty-icon">🎯</div>
+          <div>Select a report to view threat scenarios</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Cybersecurity Requirements -->
+    <div class="tab-panel" id="panel-csreqs">
+      <div class="panel-subheader">
+        <span class="panel-title">Cybersecurity Requirements</span>
+        <span class="panel-count" id="cs-panel-count">0</span>
+      </div>
+      <div id="cs-list">
+        <div class="panel-empty">
+          <div class="empty-icon">🔐</div>
+          <div>Select a report to view CS requirements</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Item Definitions -->
+    <div class="tab-panel" id="panel-itemdef">
+      <div class="panel-subheader">
+        <span class="panel-title">Item Definitions</span>
+        <span class="panel-count" id="item-panel-count">0</span>
+      </div>
+      <div id="item-list">
+        <div class="panel-empty">
+          <div class="empty-icon">📦</div>
+          <div>Select a report to view item definitions</div>
+        </div>
       </div>
     </div>
 

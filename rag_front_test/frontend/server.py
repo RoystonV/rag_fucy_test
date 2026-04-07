@@ -10,6 +10,10 @@ import sys
 import json
 from pathlib import Path
 
+# Force UTF-8 output on Windows to avoid cp1252 emoji crash
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
 # Make sure db.py (in parent rag_tara_gen) is importable
 ROOT = Path(__file__).parent.parent / "rag_tara_gen"
 sys.path.insert(0, str(ROOT))
@@ -18,7 +22,7 @@ try:
     from flask import Flask, jsonify, send_from_directory, abort, request
     from flask_cors import CORS
 except ImportError:
-    print("❌ Flask not installed. Run: pip install flask flask-cors pymongo")
+    print("[ERROR] Flask not installed. Run: pip install flask flask-cors pymongo")
     sys.exit(1)
 
 import db as mongo_db
@@ -105,14 +109,14 @@ if __name__ == "__main__":
 
     connected = mongo_db.is_connected()
     if connected:
-        print("  🍃 MongoDB connection: ✅ OK")
+        print("  [OK] MongoDB connection: Connected")
         reports = mongo_db.list_reports(limit=1)
         if not reports:
-            print("  ⚠️  No reports in MongoDB yet.")
-            print(f"     Run seed: python seed_mongo.py  (from {Path(__file__).parent})")
+            print("  [WARN] No reports in MongoDB yet.")
+            print(f"         Run seed: python seed_mongo.py  (from {Path(__file__).parent})")
     else:
-        print("  ⚠️  MongoDB not reachable. Start MongoDB first.")
-        print("      Reports list will be empty until connection is established.")
+        print("  [WARN] MongoDB not reachable. Check your MONGO_URI / MONGODB_URI env var.")
+        print("         Reports list will be empty until connection is established.")
 
     print("\n  Press Ctrl+C to stop.\n")
     app.run(host="0.0.0.0", port=port, debug=False)

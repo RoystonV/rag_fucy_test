@@ -1,0 +1,4553 @@
+{
+  "assets": {
+    "_id": "66a92c24f042872c4692c5a1",
+    "user_id": "user_1",
+    "model_id": "model_1",
+    "template": {
+      "nodes": [
+        {
+          "id": "d1a04f78-00b5-4771-b7cd-3c37a58f157e",
+          "type": "group",
+          "parentId": null,
+          "data": {
+            "label": "Battery Management System",
+            "nodeCount": 14,
+            "style": {
+              "background": "rgba(33,150,243,0.05)",
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 510,
+              "width": 1041
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 1041,
+            "height": 510
+          },
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "positionAbsolute": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "width": 1041,
+          "height": 510,
+          "zIndex": 0
+        },
+        {
+          "id": "e02b943c-9744-480e-85c6-f31440682f4c",
+          "type": "default",
+          "parentId": "d1a04f78-00b5-4771-b7cd-3c37a58f157e",
+          "isAsset": false,
+          "data": {
+            "label": "BatteryPack",
+            "description": "Description",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 261,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Confidentiality",
+            "Authenticity",
+            "Authorization",
+            "Availability",
+            "Non-repudiation"
+          ],
+          "style": {
+            "width": 150,
+            "height": 261
+          },
+          "position": {
+            "x": 24,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 24.0,
+            "y": 60.0
+          },
+          "width": 150,
+          "height": 261
+        },
+        {
+          "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+          "type": "default",
+          "parentId": "d1a04f78-00b5-4771-b7cd-3c37a58f157e",
+          "isAsset": false,
+          "data": {
+            "label": "CellMonitoring",
+            "description": "test desc",
+            "style": {
+              "backgroundColor": "#e6df19",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 194.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 194.0,
+            "y": 60.0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "f9e8d7c6-b5a4-3210-fedc-ba9876543210",
+          "type": "default",
+          "parentId": "d1a04f78-00b5-4771-b7cd-3c37a58f157e",
+          "isAsset": false,
+          "data": {
+            "label": "IO and Analog",
+            "description": "",
+            "style": {
+              "backgroundColor": "#e2dfc1",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 364.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 364.0,
+            "y": 60.0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "type": "group",
+          "parentId": "d1a04f78-00b5-4771-b7cd-3c37a58f157e",
+          "isAsset": false,
+          "data": {
+            "label": "MCU Subgroup",
+            "style": {
+              "background": "rgba(33,150,243,0.05)",
+              "border": "1px dashed #2196F3",
+              "borderRadius": "8px",
+              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+              "height": 239,
+              "width": 296
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 296,
+            "height": 239
+          },
+          "position": {
+            "x": 24,
+            "y": 341.0
+          },
+          "positionAbsolute": {
+            "x": 24.0,
+            "y": 341.0
+          },
+          "width": 296,
+          "height": 239
+        },
+        {
+          "id": "6972d325-0c1e-4ff3-b900-707838d25c14",
+          "type": "default",
+          "parentId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "isAsset": false,
+          "data": {
+            "label": "Code Flash",
+            "description": "",
+            "style": {
+              "backgroundColor": "#ccc8ea",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 90,
+              "width": 104
+            }
+          },
+          "properties": [
+            "Confidentiality",
+            "Integrity",
+            "Availability",
+            "Authenticity"
+          ],
+          "style": {
+            "width": 104,
+            "height": 90
+          },
+          "position": {
+            "x": 24,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 401.0
+          },
+          "width": 104,
+          "height": 90
+        },
+        {
+          "id": "1ea661cc-558d-4385-b53e-07e776965a4b",
+          "type": "default",
+          "parentId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "isAsset": false,
+          "data": {
+            "label": "Data Flash",
+            "description": "",
+            "style": {
+              "backgroundColor": "#f0b2b2",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 41,
+              "width": 103
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability",
+            "Non-repudiation"
+          ],
+          "style": {
+            "width": 103,
+            "height": 41
+          },
+          "position": {
+            "x": 148.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 172.0,
+            "y": 401.0
+          },
+          "width": 103,
+          "height": 41
+        },
+        {
+          "id": "07f29908-e559-4899-b842-5f5e6bb31d3f",
+          "type": "default",
+          "parentId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "isAsset": false,
+          "data": {
+            "label": "Keys",
+            "description": "",
+            "style": {
+              "backgroundColor": "#51dc1e",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 39,
+              "width": 104
+            }
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "style": {
+            "width": 104,
+            "height": 39
+          },
+          "position": {
+            "x": 24,
+            "y": 170.0
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 511.0
+          },
+          "width": 104,
+          "height": 39
+        },
+        {
+          "id": "588dd017-97a3-4e1a-a77e-91876c62c543",
+          "type": "default",
+          "parentId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "isAsset": false,
+          "data": {
+            "label": "Certificates",
+            "description": "",
+            "style": {
+              "backgroundColor": "#62c945",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 41,
+              "width": 107
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity",
+            "Availability"
+          ],
+          "style": {
+            "width": 107,
+            "height": 41
+          },
+          "position": {
+            "x": 148.0,
+            "y": 170.0
+          },
+          "positionAbsolute": {
+            "x": 172.0,
+            "y": 511.0
+          },
+          "width": 107,
+          "height": 41
+        },
+        {
+          "id": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+          "type": "default",
+          "parentId": "d1a04f78-00b5-4771-b7cd-3c37a58f157e",
+          "isAsset": false,
+          "data": {
+            "label": "CAN Transceiver",
+            "description": "",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 534.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 534.0,
+            "y": 60.0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+          "type": "default",
+          "parentId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "isAsset": false,
+          "data": {
+            "label": "Debug Port",
+            "description": "",
+            "style": {
+              "backgroundColor": "#e26a6a",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 37,
+              "width": 99
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability",
+            "Authorization"
+          ],
+          "style": {
+            "width": 99,
+            "height": 37
+          },
+          "position": {
+            "x": 24,
+            "y": 231.0
+          },
+          "positionAbsolute": {
+            "x": 48.0,
+            "y": 572.0
+          },
+          "width": 99,
+          "height": 37
+        },
+        {
+          "id": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+          "type": "default",
+          "parentId": "d1a04f78-00b5-4771-b7cd-3c37a58f157e",
+          "isAsset": false,
+          "data": {
+            "label": "ICD Shunt CAN",
+            "description": "",
+            "style": {
+              "backgroundColor": "#accd32",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 152
+            }
+          },
+          "properties": [
+            "Integrity",
+            "Availability"
+          ],
+          "style": {
+            "width": 152,
+            "height": 50
+          },
+          "position": {
+            "x": 704.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 704.0,
+            "y": 60.0
+          },
+          "width": 152,
+          "height": 50
+        },
+        {
+          "id": "8acc2cd9-a02e-4f92-8937-56ccd324444f",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Vehicle System",
+            "description": "",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 383,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 383
+          },
+          "position": {
+            "x": 1101.0,
+            "y": 40.0
+          },
+          "positionAbsolute": {
+            "x": 1101.0,
+            "y": 40.0
+          },
+          "width": 150,
+          "height": 383
+        },
+        {
+          "id": "f910efcb-e9fb-4d3c-8927-4063902f576b",
+          "type": "default",
+          "parentId": null,
+          "isAsset": false,
+          "data": {
+            "label": "Cloud",
+            "description": "",
+            "style": {
+              "backgroundColor": "#dadada",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 50,
+              "width": 150
+            }
+          },
+          "properties": [],
+          "style": {
+            "width": 150,
+            "height": 50
+          },
+          "position": {
+            "x": 1101.0,
+            "y": 453.0
+          },
+          "positionAbsolute": {
+            "x": 1101.0,
+            "y": 453.0
+          },
+          "width": 150,
+          "height": 50
+        },
+        {
+          "id": "8f364ae0-1de5-404b-831c-86daf0e24160",
+          "type": "data",
+          "parentId": "d1a04f78-00b5-4771-b7cd-3c37a58f157e",
+          "isAsset": false,
+          "data": {
+            "label": "SoC",
+            "style": {
+              "backgroundColor": "#e3e896",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "position": {
+            "x": 876.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 876.0,
+            "y": 60.0
+          },
+          "width": 50,
+          "height": 30
+        },
+        {
+          "id": "389064d4-2770-4d34-9a05-c91a12d3559e",
+          "type": "data",
+          "parentId": "d1a04f78-00b5-4771-b7cd-3c37a58f157e",
+          "isAsset": false,
+          "data": {
+            "label": "SoH",
+            "style": {
+              "backgroundColor": "#e6ed7d",
+              "borderColor": "gray",
+              "borderStyle": "solid",
+              "borderWidth": "2px",
+              "color": "black",
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": 500,
+              "height": 30,
+              "width": 50
+            }
+          },
+          "properties": [
+            "Authenticity",
+            "Integrity"
+          ],
+          "style": {
+            "width": 50,
+            "height": 30
+          },
+          "position": {
+            "x": 946.0,
+            "y": 60
+          },
+          "positionAbsolute": {
+            "x": 946.0,
+            "y": 60.0
+          },
+          "width": 50,
+          "height": 30
+        }
+      ],
+      "edges": [
+        {
+          "id": "edg_spi_cellmonitor",
+          "source": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "target": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+          "sourceHandle": "b",
+          "targetHandle": "right",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "SPI_CellMonitor",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edg_io_pins",
+          "source": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "target": "f9e8d7c6-b5a4-3210-fedc-ba9876543210",
+          "sourceHandle": "b",
+          "targetHandle": "right",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "data": {
+            "label": "IO_PINS",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edg_can2",
+          "source": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "target": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+          "sourceHandle": "d",
+          "targetHandle": "left",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity"
+          ],
+          "data": {
+            "label": "CAN2",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edg_can1",
+          "source": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+          "target": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+          "sourceHandle": "c",
+          "targetHandle": "right",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity"
+          ],
+          "data": {
+            "label": "CAN1",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edg_spi",
+          "source": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+          "target": "e02b943c-9744-480e-85c6-f31440682f4c",
+          "sourceHandle": "left",
+          "targetHandle": "top",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [],
+          "data": {
+            "label": "SPI",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edg_io",
+          "source": "f9e8d7c6-b5a4-3210-fedc-ba9876543210",
+          "target": "e02b943c-9744-480e-85c6-f31440682f4c",
+          "sourceHandle": "left",
+          "targetHandle": "right",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "data": {
+            "label": "IO",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edg_icd_data",
+          "source": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+          "target": "e02b943c-9744-480e-85c6-f31440682f4c",
+          "sourceHandle": "left",
+          "targetHandle": "bottom",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "data": {
+            "label": "ICD_Data",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edg_internet",
+          "source": "8acc2cd9-a02e-4f92-8937-56ccd324444f",
+          "target": "f910efcb-e9fb-4d3c-8927-4063902f576b",
+          "sourceHandle": "top",
+          "targetHandle": "bottom",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Confidentiality"
+          ],
+          "data": {
+            "label": "Internet",
+            "offset": 0,
+            "t": 0.5
+          }
+        },
+        {
+          "id": "edg_vehicle_can",
+          "source": "8acc2cd9-a02e-4f92-8937-56ccd324444f",
+          "target": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+          "sourceHandle": "left",
+          "targetHandle": "right",
+          "type": "step",
+          "animated": true,
+          "markerEnd": {
+            "color": "#64B5F6",
+            "height": 18,
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "markerStart": {
+            "color": "#64B5F6",
+            "height": 18,
+            "orient": "auto-start-reverse",
+            "type": "arrowclosed",
+            "width": 18
+          },
+          "style": {
+            "end": true,
+            "start": true,
+            "stroke": "#808080",
+            "strokeDasharray": "0",
+            "strokeWidth": 2
+          },
+          "properties": [
+            "Integrity",
+            "Authenticity",
+            "Confidentiality"
+          ],
+          "data": {
+            "label": "Vehicle CAN",
+            "offset": 0,
+            "t": 0.5
+          }
+        }
+      ]
+    }
+  },
+  "item_definition": [
+    {
+      "nodeId": "d1a04f78-00b5-4771-b7cd-3c37a58f157e",
+      "name": "Battery Management System",
+      "desc": "The top-level group container for the Battery Management System.",
+      "type": "group",
+      "props": [
+        {
+          "name": "Integrity",
+          "id": "prop_d1a_int"
+        },
+        {
+          "name": "Authenticity",
+          "id": "prop_d1a_auth"
+        }
+      ]
+    },
+    {
+      "nodeId": "e02b943c-9744-480e-85c6-f31440682f4c",
+      "name": "BatteryPack",
+      "desc": "The battery pack unit.",
+      "type": "default",
+      "props": [
+        {
+          "name": "Integrity",
+          "id": "prop_batt_int"
+        },
+        {
+          "name": "Confidentiality",
+          "id": "prop_batt_conf"
+        },
+        {
+          "name": "Authenticity",
+          "id": "prop_batt_auth"
+        },
+        {
+          "name": "Authorization",
+          "id": "prop_batt_authz"
+        },
+        {
+          "name": "Availability",
+          "id": "prop_batt_avail"
+        },
+        {
+          "name": "Non-repudiation",
+          "id": "prop_batt_nonrep"
+        }
+      ]
+    },
+    {
+      "nodeId": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      "name": "CellMonitoring",
+      "desc": "Monitors individual battery cells.",
+      "type": "default",
+      "props": [
+        {
+          "name": "Integrity",
+          "id": "prop_cell_int"
+        },
+        {
+          "name": "Availability",
+          "id": "prop_cell_avail"
+        }
+      ]
+    },
+    {
+      "nodeId": "f9e8d7c6-b5a4-3210-fedc-ba9876543210",
+      "name": "IO and Analog",
+      "desc": "Handles input/output and analog signals.",
+      "type": "default",
+      "props": [
+        {
+          "name": "Integrity",
+          "id": "prop_io_int"
+        },
+        {
+          "name": "Availability",
+          "id": "prop_io_avail"
+        }
+      ]
+    },
+    {
+      "nodeId": "8082874e-707c-4bc8-94fe-627ee4e4a3ba",
+      "name": "MCU Subgroup",
+      "desc": "Group containing MCU internal components.",
+      "type": "group",
+      "props": []
+    },
+    {
+      "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+      "name": "Code Flash",
+      "desc": "Non-volatile memory for code execution.",
+      "type": "default",
+      "props": [
+        {
+          "name": "Confidentiality",
+          "id": "prop_code_conf"
+        },
+        {
+          "name": "Integrity",
+          "id": "prop_code_int"
+        },
+        {
+          "name": "Availability",
+          "id": "prop_code_avail"
+        },
+        {
+          "name": "Authenticity",
+          "id": "prop_code_auth"
+        }
+      ]
+    },
+    {
+      "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+      "name": "Data Flash",
+      "desc": "Non-volatile memory for data storage.",
+      "type": "default",
+      "props": [
+        {
+          "name": "Integrity",
+          "id": "prop_data_int"
+        },
+        {
+          "name": "Availability",
+          "id": "prop_data_avail"
+        },
+        {
+          "name": "Non-repudiation",
+          "id": "prop_data_nonrep"
+        }
+      ]
+    },
+    {
+      "nodeId": "07f29908-e559-4899-b842-5f5e6bb31d3f",
+      "name": "Keys",
+      "desc": "Cryptographic keys.",
+      "type": "default",
+      "props": [
+        {
+          "name": "Confidentiality",
+          "id": "prop_keys_conf"
+        }
+      ]
+    },
+    {
+      "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543",
+      "name": "Certificates",
+      "desc": "Digital certificates.",
+      "type": "default",
+      "props": [
+        {
+          "name": "Integrity",
+          "id": "prop_cert_int"
+        },
+        {
+          "name": "Authenticity",
+          "id": "prop_cert_auth"
+        },
+        {
+          "name": "Availability",
+          "id": "prop_cert_avail"
+        }
+      ]
+    },
+    {
+      "nodeId": "903c5635-ee0f-492d-8b4a-52106410cc8e",
+      "name": "CAN Transceiver",
+      "desc": "Handles CAN communication interface.",
+      "type": "default",
+      "props": []
+    },
+    {
+      "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+      "name": "Debug Port",
+      "desc": "Interface for debugging and diagnostics.",
+      "type": "default",
+      "props": [
+        {
+          "name": "Integrity",
+          "id": "prop_debug_int"
+        },
+        {
+          "name": "Availability",
+          "id": "prop_debug_avail"
+        },
+        {
+          "name": "Authorization",
+          "id": "prop_debug_authz"
+        }
+      ]
+    },
+    {
+      "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+      "name": "ICD Shunt CAN",
+      "desc": "CAN interface for current shunt measurements.",
+      "type": "default",
+      "props": [
+        {
+          "name": "Integrity",
+          "id": "prop_shunt_int"
+        },
+        {
+          "name": "Availability",
+          "id": "prop_shunt_avail"
+        }
+      ]
+    },
+    {
+      "nodeId": "8acc2cd9-a02e-4f92-8937-56ccd324444f",
+      "name": "Vehicle System",
+      "desc": "External vehicle system interface.",
+      "type": "default",
+      "props": []
+    },
+    {
+      "nodeId": "f910efcb-e9fb-4d3c-8927-4063902f576b",
+      "name": "Cloud",
+      "desc": "External cloud connectivity.",
+      "type": "default",
+      "props": []
+    },
+    {
+      "nodeId": "8f364ae0-1de5-404b-831c-86daf0e24160",
+      "name": "SoC",
+      "desc": "State of Charge data.",
+      "type": "data",
+      "props": [
+        {
+          "name": "Authenticity",
+          "id": "prop_soc_auth"
+        },
+        {
+          "name": "Integrity",
+          "id": "prop_soc_int"
+        }
+      ]
+    },
+    {
+      "nodeId": "389064d4-2770-4d34-9a05-c91a12d3559e",
+      "name": "SoH",
+      "desc": "State of Health data.",
+      "type": "data",
+      "props": [
+        {
+          "name": "Authenticity",
+          "id": "prop_soh_auth"
+        },
+        {
+          "name": "Integrity",
+          "id": "prop_soh_int"
+        }
+      ]
+    },
+    {
+      "nodeId": "edg_spi_cellmonitor",
+      "name": "SPI_CellMonitor",
+      "desc": "SPI communication between MCU and CellMonitoring.",
+      "type": "step",
+      "props": [
+        {
+          "name": "Integrity",
+          "id": "prop_edg_spi_cm_int"
+        }
+      ]
+    },
+    {
+      "nodeId": "edg_io_pins",
+      "name": "IO_PINS",
+      "desc": "IO Pins communication between MCU and IO/Analog.",
+      "type": "step",
+      "props": [
+        {
+          "name": "Confidentiality",
+          "id": "prop_edg_io_conf"
+        }
+      ]
+    },
+    {
+      "nodeId": "edg_can2",
+      "name": "CAN2",
+      "desc": "CAN bus communication channel 2.",
+      "type": "step",
+      "props": [
+        {
+          "name": "Integrity",
+          "id": "prop_edg_can2_int"
+        },
+        {
+          "name": "Authenticity",
+          "id": "prop_edg_can2_auth"
+        }
+      ]
+    },
+    {
+      "nodeId": "edg_can1",
+      "name": "CAN1",
+      "desc": "CAN bus communication channel 1.",
+      "type": "step",
+      "props": [
+        {
+          "name": "Integrity",
+          "id": "prop_edg_can1_int"
+        }
+      ]
+    },
+    {
+      "nodeId": "edg_spi",
+      "name": "SPI",
+      "desc": "SPI communication between CellMonitoring and BatteryPack.",
+      "type": "step",
+      "props": []
+    },
+    {
+      "nodeId": "edg_io",
+      "name": "IO",
+      "desc": "IO communication between IO and Analog and BatteryPack.",
+      "type": "step",
+      "props": [
+        {
+          "name": "Confidentiality",
+          "id": "prop_edg_io_conf_batt"
+        }
+      ]
+    },
+    {
+      "nodeId": "edg_icd_data",
+      "name": "ICD_Data",
+      "desc": "ICD Shunt CAN data communication to BatteryPack.",
+      "type": "step",
+      "props": [
+        {
+          "name": "Confidentiality",
+          "id": "prop_edg_icd_conf"
+        }
+      ]
+    },
+    {
+      "nodeId": "edg_internet",
+      "name": "Internet",
+      "desc": "Internet communication link.",
+      "type": "step",
+      "props": [
+        {
+          "name": "Confidentiality",
+          "id": "prop_edg_int_conf"
+        }
+      ]
+    },
+    {
+      "nodeId": "edg_vehicle_can",
+      "name": "Vehicle CAN",
+      "desc": "CAN communication with the vehicle network.",
+      "type": "step",
+      "props": [
+        {
+          "name": "Integrity",
+          "id": "prop_edg_vc_int"
+        },
+        {
+          "name": "Authenticity",
+          "id": "prop_edg_vc_auth"
+        },
+        {
+          "name": "Confidentiality",
+          "id": "prop_edg_vc_conf"
+        }
+      ]
+    }
+  ],
+  "damage_scenarios": {
+    "_id": "66a92c24f042872c4692c5a2",
+    "model_id": "model_1",
+    "type": "Derived",
+    "Derivations": [
+      {
+        "id": "DS001",
+        "task": "Check for DS due to the loss of Integrity for BatteryPack",
+        "name": "DS due to the loss of Integrity for BatteryPack",
+        "loss": "loss of Integrity",
+        "asset": false,
+        "nodeId": "e02b943c-9744-480e-85c6-f31440682f4c",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS002",
+        "task": "Check for DS due to the loss of Confidentiality for BatteryPack",
+        "name": "DS due to the loss of Confidentiality for BatteryPack",
+        "loss": "loss of Confidentiality",
+        "asset": false,
+        "nodeId": "e02b943c-9744-480e-85c6-f31440682f4c",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS003",
+        "task": "Check for DS due to the loss of Authenticity for BatteryPack",
+        "name": "DS due to the loss of Authenticity for BatteryPack",
+        "loss": "loss of Authenticity",
+        "asset": false,
+        "nodeId": "e02b943c-9744-480e-85c6-f31440682f4c",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS004",
+        "task": "Check for DS due to the loss of Authorization for BatteryPack",
+        "name": "DS due to the loss of Authorization for BatteryPack",
+        "loss": "loss of Authorization",
+        "asset": false,
+        "nodeId": "e02b943c-9744-480e-85c6-f31440682f4c",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS005",
+        "task": "Check for DS due to the loss of Availability for BatteryPack",
+        "name": "DS due to the loss of Availability for BatteryPack",
+        "loss": "loss of Availability",
+        "asset": false,
+        "nodeId": "e02b943c-9744-480e-85c6-f31440682f4c",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS006",
+        "task": "Check for DS due to the loss of Non-repudiation for BatteryPack",
+        "name": "DS due to the loss of Non-repudiation for BatteryPack",
+        "loss": "loss of Non-repudiation",
+        "asset": false,
+        "nodeId": "e02b943c-9744-480e-85c6-f31440682f4c",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS007",
+        "task": "Check for DS due to the loss of Integrity for CellMonitoring",
+        "name": "DS due to the loss of Integrity for CellMonitoring",
+        "loss": "loss of Integrity",
+        "asset": false,
+        "nodeId": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS008",
+        "task": "Check for DS due to the loss of Availability for CellMonitoring",
+        "name": "DS due to the loss of Availability for CellMonitoring",
+        "loss": "loss of Availability",
+        "asset": false,
+        "nodeId": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS009",
+        "task": "Check for DS due to the loss of Integrity for IO and Analog",
+        "name": "DS due to the loss of Integrity for IO and Analog",
+        "loss": "loss of Integrity",
+        "asset": false,
+        "nodeId": "f9e8d7c6-b5a4-3210-fedc-ba9876543210",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS010",
+        "task": "Check for DS due to the loss of Availability for IO and Analog",
+        "name": "DS due to the loss of Availability for IO and Analog",
+        "loss": "loss of Availability",
+        "asset": false,
+        "nodeId": "f9e8d7c6-b5a4-3210-fedc-ba9876543210",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS011",
+        "task": "Check for DS due to the loss of Confidentiality for Code Flash",
+        "name": "DS due to the loss of Confidentiality for Code Flash",
+        "loss": "loss of Confidentiality",
+        "asset": false,
+        "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS012",
+        "task": "Check for DS due to the loss of Integrity for Code Flash",
+        "name": "DS due to the loss of Integrity for Code Flash",
+        "loss": "loss of Integrity",
+        "asset": false,
+        "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS013",
+        "task": "Check for DS due to the loss of Availability for Code Flash",
+        "name": "DS due to the loss of Availability for Code Flash",
+        "loss": "loss of Availability",
+        "asset": false,
+        "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS014",
+        "task": "Check for DS due to the loss of Authenticity for Code Flash",
+        "name": "DS due to the loss of Authenticity for Code Flash",
+        "loss": "loss of Authenticity",
+        "asset": false,
+        "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS015",
+        "task": "Check for DS due to the loss of Integrity for Data Flash",
+        "name": "DS due to the loss of Integrity for Data Flash",
+        "loss": "loss of Integrity",
+        "asset": false,
+        "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS016",
+        "task": "Check for DS due to the loss of Availability for Data Flash",
+        "name": "DS due to the loss of Availability for Data Flash",
+        "loss": "loss of Availability",
+        "asset": false,
+        "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS017",
+        "task": "Check for DS due to the loss of Non-repudiation for Data Flash",
+        "name": "DS due to the loss of Non-repudiation for Data Flash",
+        "loss": "loss of Non-repudiation",
+        "asset": false,
+        "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS018",
+        "task": "Check for DS due to the loss of Confidentiality for Keys",
+        "name": "DS due to the loss of Confidentiality for Keys",
+        "loss": "loss of Confidentiality",
+        "asset": false,
+        "nodeId": "07f29908-e559-4899-b842-5f5e6bb31d3f",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS019",
+        "task": "Check for DS due to the loss of Integrity for Certificates",
+        "name": "DS due to the loss of Integrity for Certificates",
+        "loss": "loss of Integrity",
+        "asset": false,
+        "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS020",
+        "task": "Check for DS due to the loss of Authenticity for Certificates",
+        "name": "DS due to the loss of Authenticity for Certificates",
+        "loss": "loss of Authenticity",
+        "asset": false,
+        "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS021",
+        "task": "Check for DS due to the loss of Availability for Certificates",
+        "name": "DS due to the loss of Availability for Certificates",
+        "loss": "loss of Availability",
+        "asset": false,
+        "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS022",
+        "task": "Check for DS due to the loss of Integrity for Debug Port",
+        "name": "DS due to the loss of Integrity for Debug Port",
+        "loss": "loss of Integrity",
+        "asset": false,
+        "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS023",
+        "task": "Check for DS due to the loss of Availability for Debug Port",
+        "name": "DS due to the loss of Availability for Debug Port",
+        "loss": "loss of Availability",
+        "asset": false,
+        "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS024",
+        "task": "Check for DS due to the loss of Authorization for Debug Port",
+        "name": "DS due to the loss of Authorization for Debug Port",
+        "loss": "loss of Authorization",
+        "asset": false,
+        "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS025",
+        "task": "Check for DS due to the loss of Integrity for ICD Shunt CAN",
+        "name": "DS due to the loss of Integrity for ICD Shunt CAN",
+        "loss": "loss of Integrity",
+        "asset": false,
+        "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS026",
+        "task": "Check for DS due to the loss of Availability for ICD Shunt CAN",
+        "name": "DS due to the loss of Availability for ICD Shunt CAN",
+        "loss": "loss of Availability",
+        "asset": false,
+        "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS027",
+        "task": "Check for DS due to the loss of Authenticity for SoC",
+        "name": "DS due to the loss of Authenticity for SoC",
+        "loss": "loss of Authenticity",
+        "asset": false,
+        "nodeId": "8f364ae0-1de5-404b-831c-86daf0e24160",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS028",
+        "task": "Check for DS due to the loss of Integrity for SoC",
+        "name": "DS due to the loss of Integrity for SoC",
+        "loss": "loss of Integrity",
+        "asset": false,
+        "nodeId": "8f364ae0-1de5-404b-831c-86daf0e24160",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS029",
+        "task": "Check for DS due to the loss of Authenticity for SoH",
+        "name": "DS due to the loss of Authenticity for SoH",
+        "loss": "loss of Authenticity",
+        "asset": false,
+        "nodeId": "389064d4-2770-4d34-9a05-c91a12d3559e",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS030",
+        "task": "Check for DS due to the loss of Integrity for SoH",
+        "name": "DS due to the loss of Integrity for SoH",
+        "loss": "loss of Integrity",
+        "asset": false,
+        "nodeId": "389064d4-2770-4d34-9a05-c91a12d3559e",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS031",
+        "task": "Check for DS due to the loss of Integrity for SPI_CellMonitor",
+        "name": "DS due to the loss of Integrity for SPI_CellMonitor",
+        "loss": "loss of Integrity",
+        "asset": null,
+        "nodeId": "edg_spi_cellmonitor",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS032",
+        "task": "Check for DS due to the loss of Confidentiality for IO_PINS",
+        "name": "DS due to the loss of Confidentiality for IO_PINS",
+        "loss": "loss of Confidentiality",
+        "asset": null,
+        "nodeId": "edg_io_pins",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS033",
+        "task": "Check for DS due to the loss of Integrity for CAN2",
+        "name": "DS due to the loss of Integrity for CAN2",
+        "loss": "loss of Integrity",
+        "asset": null,
+        "nodeId": "edg_can2",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS034",
+        "task": "Check for DS due to the loss of Authenticity for CAN2",
+        "name": "DS due to the loss of Authenticity for CAN2",
+        "loss": "loss of Authenticity",
+        "asset": null,
+        "nodeId": "edg_can2",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS035",
+        "task": "Check for DS due to the loss of Integrity for CAN1",
+        "name": "DS due to the loss of Integrity for CAN1",
+        "loss": "loss of Integrity",
+        "asset": null,
+        "nodeId": "edg_can1",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS036",
+        "task": "Check for DS due to the loss of Confidentiality for IO",
+        "name": "DS due to the loss of Confidentiality for IO",
+        "loss": "loss of Confidentiality",
+        "asset": null,
+        "nodeId": "edg_io",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS037",
+        "task": "Check for DS due to the loss of Confidentiality for ICD_Data",
+        "name": "DS due to the loss of Confidentiality for ICD_Data",
+        "loss": "loss of Confidentiality",
+        "asset": null,
+        "nodeId": "edg_icd_data",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS038",
+        "task": "Check for DS due to the loss of Confidentiality for Internet",
+        "name": "DS due to the loss of Confidentiality for Internet",
+        "loss": "loss of Confidentiality",
+        "asset": null,
+        "nodeId": "edg_internet",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS039",
+        "task": "Check for DS due to the loss of Integrity for Vehicle CAN",
+        "name": "DS due to the loss of Integrity for Vehicle CAN",
+        "loss": "loss of Integrity",
+        "asset": null,
+        "nodeId": "edg_vehicle_can",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS040",
+        "task": "Check for DS due to the loss of Authenticity for Vehicle CAN",
+        "name": "DS due to the loss of Authenticity for Vehicle CAN",
+        "loss": "loss of Authenticity",
+        "asset": null,
+        "nodeId": "edg_vehicle_can",
+        "damageScene": [],
+        "is_checked": null
+      },
+      {
+        "id": "DS041",
+        "task": "Check for DS due to the loss of Confidentiality for Vehicle CAN",
+        "name": "DS due to the loss of Confidentiality for Vehicle CAN",
+        "loss": "loss of Confidentiality",
+        "asset": null,
+        "nodeId": "edg_vehicle_can",
+        "damageScene": [],
+        "is_checked": null
+      }
+    ],
+    "Details": [
+      {
+        "nodeId": "e02b943c-9744-480e-85c6-f31440682f4c",
+        "name": "BatteryPack",
+        "desc": "The battery pack unit.",
+        "type": "default",
+        "props": [
+          {
+            "name": "Integrity",
+            "id": "prop_batt_int"
+          },
+          {
+            "name": "Confidentiality",
+            "id": "prop_batt_conf"
+          },
+          {
+            "name": "Authenticity",
+            "id": "prop_batt_auth"
+          },
+          {
+            "name": "Authorization",
+            "id": "prop_batt_authz"
+          },
+          {
+            "name": "Availability",
+            "id": "prop_batt_avail"
+          },
+          {
+            "name": "Non-repudiation",
+            "id": "prop_batt_nonrep"
+          }
+        ]
+      },
+      {
+        "nodeId": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "name": "CellMonitoring",
+        "desc": "Monitors individual battery cells.",
+        "type": "default",
+        "props": [
+          {
+            "name": "Integrity",
+            "id": "prop_cell_int"
+          },
+          {
+            "name": "Availability",
+            "id": "prop_cell_avail"
+          }
+        ]
+      },
+      {
+        "nodeId": "f9e8d7c6-b5a4-3210-fedc-ba9876543210",
+        "name": "IO and Analog",
+        "desc": "Handles input/output and analog signals.",
+        "type": "default",
+        "props": [
+          {
+            "name": "Integrity",
+            "id": "prop_io_int"
+          },
+          {
+            "name": "Availability",
+            "id": "prop_io_avail"
+          }
+        ]
+      },
+      {
+        "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+        "name": "Code Flash",
+        "desc": "Non-volatile memory for code execution.",
+        "type": "default",
+        "props": [
+          {
+            "name": "Confidentiality",
+            "id": "prop_code_conf"
+          },
+          {
+            "name": "Integrity",
+            "id": "prop_code_int"
+          },
+          {
+            "name": "Availability",
+            "id": "prop_code_avail"
+          },
+          {
+            "name": "Authenticity",
+            "id": "prop_code_auth"
+          }
+        ]
+      },
+      {
+        "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+        "name": "Data Flash",
+        "desc": "Non-volatile memory for data storage.",
+        "type": "default",
+        "props": [
+          {
+            "name": "Integrity",
+            "id": "prop_data_int"
+          },
+          {
+            "name": "Availability",
+            "id": "prop_data_avail"
+          },
+          {
+            "name": "Non-repudiation",
+            "id": "prop_data_nonrep"
+          }
+        ]
+      },
+      {
+        "nodeId": "07f29908-e559-4899-b842-5f5e6bb31d3f",
+        "name": "Keys",
+        "desc": "Cryptographic keys.",
+        "type": "default",
+        "props": [
+          {
+            "name": "Confidentiality",
+            "id": "prop_keys_conf"
+          }
+        ]
+      },
+      {
+        "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543",
+        "name": "Certificates",
+        "desc": "Digital certificates.",
+        "type": "default",
+        "props": [
+          {
+            "name": "Integrity",
+            "id": "prop_cert_int"
+          },
+          {
+            "name": "Authenticity",
+            "id": "prop_cert_auth"
+          },
+          {
+            "name": "Availability",
+            "id": "prop_cert_avail"
+          }
+        ]
+      },
+      {
+        "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+        "name": "Debug Port",
+        "desc": "Interface for debugging and diagnostics.",
+        "type": "default",
+        "props": [
+          {
+            "name": "Integrity",
+            "id": "prop_debug_int"
+          },
+          {
+            "name": "Availability",
+            "id": "prop_debug_avail"
+          },
+          {
+            "name": "Authorization",
+            "id": "prop_debug_authz"
+          }
+        ]
+      },
+      {
+        "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+        "name": "ICD Shunt CAN",
+        "desc": "CAN interface for current shunt measurements.",
+        "type": "default",
+        "props": [
+          {
+            "name": "Integrity",
+            "id": "prop_shunt_int"
+          },
+          {
+            "name": "Availability",
+            "id": "prop_shunt_avail"
+          }
+        ]
+      },
+      {
+        "nodeId": "8f364ae0-1de5-404b-831c-86daf0e24160",
+        "name": "SoC",
+        "desc": "State of Charge data.",
+        "type": "data",
+        "props": [
+          {
+            "name": "Authenticity",
+            "id": "prop_soc_auth"
+          },
+          {
+            "name": "Integrity",
+            "id": "prop_soc_int"
+          }
+        ]
+      },
+      {
+        "nodeId": "389064d4-2770-4d34-9a05-c91a12d3559e",
+        "name": "SoH",
+        "desc": "State of Health data.",
+        "type": "data",
+        "props": [
+          {
+            "name": "Authenticity",
+            "id": "prop_soh_auth"
+          },
+          {
+            "name": "Integrity",
+            "id": "prop_soh_int"
+          }
+        ]
+      },
+      {
+        "nodeId": "edg_spi_cellmonitor",
+        "name": "SPI_CellMonitor",
+        "desc": "SPI communication between MCU and CellMonitoring.",
+        "type": "step",
+        "props": [
+          {
+            "name": "Integrity",
+            "id": "prop_edg_spi_cm_int"
+          }
+        ]
+      },
+      {
+        "nodeId": "edg_io_pins",
+        "name": "IO_PINS",
+        "desc": "IO Pins communication between MCU and IO/Analog.",
+        "type": "step",
+        "props": [
+          {
+            "name": "Confidentiality",
+            "id": "prop_edg_io_conf"
+          }
+        ]
+      },
+      {
+        "nodeId": "edg_can2",
+        "name": "CAN2",
+        "desc": "CAN bus communication channel 2.",
+        "type": "step",
+        "props": [
+          {
+            "name": "Integrity",
+            "id": "prop_edg_can2_int"
+          },
+          {
+            "name": "Authenticity",
+            "id": "prop_edg_can2_auth"
+          }
+        ]
+      },
+      {
+        "nodeId": "edg_can1",
+        "name": "CAN1",
+        "desc": "CAN bus communication channel 1.",
+        "type": "step",
+        "props": [
+          {
+            "name": "Integrity",
+            "id": "prop_edg_can1_int"
+          }
+        ]
+      },
+      {
+        "nodeId": "edg_io",
+        "name": "IO",
+        "desc": "IO communication between IO and Analog and BatteryPack.",
+        "type": "step",
+        "props": [
+          {
+            "name": "Confidentiality",
+            "id": "prop_edg_io_conf_batt"
+          }
+        ]
+      },
+      {
+        "nodeId": "edg_icd_data",
+        "name": "ICD_Data",
+        "desc": "ICD Shunt CAN data communication to BatteryPack.",
+        "type": "step",
+        "props": [
+          {
+            "name": "Confidentiality",
+            "id": "prop_edg_icd_conf"
+          }
+        ]
+      },
+      {
+        "nodeId": "edg_internet",
+        "name": "Internet",
+        "desc": "Internet communication link.",
+        "type": "step",
+        "props": [
+          {
+            "name": "Confidentiality",
+            "id": "prop_edg_int_conf"
+          }
+        ]
+      },
+      {
+        "nodeId": "edg_vehicle_can",
+        "name": "Vehicle CAN",
+        "desc": "CAN communication with the vehicle network.",
+        "type": "step",
+        "props": [
+          {
+            "name": "Integrity",
+            "id": "prop_edg_vc_int"
+          },
+          {
+            "name": "Authenticity",
+            "id": "prop_edg_vc_auth"
+          },
+          {
+            "name": "Confidentiality",
+            "id": "prop_edg_vc_conf"
+          }
+        ]
+      }
+    ]
+  },
+  "attacks": {
+    "_id": "66a92c24f042872c4692c5a3",
+    "model_id": "model_1",
+    "type": "attack_trees",
+    "scenes": [
+      {
+        "ID": "att_can_bus_001",
+        "Name": "CAN Bus Attack",
+        "threat_id": "",
+        "damage_id": "",
+        "threat_key": "",
+        "overall_rating": "",
+        "templates": {
+          "nodes": [
+            {
+              "id": "root_can_attack",
+              "nodeId": "root_can_attack",
+              "nodeType": "derived",
+              "label": "[TSD001] CAN Bus Attack (Message Spoofing, Flooding, Replay)",
+              "name": "CAN Bus Attack (Message Spoofing, Flooding, Replay)",
+              "description": "Adversary gains access to the CAN bus to inject malicious messages, disrupt communication by flooding the bus, or replay old messages. This can lead to incorrect battery state reporting (SoC/SoH), false commands (e.g., contactor status), or denial of service.",
+              "data": {
+                "label": "[TSD001] CAN Bus Attack (Message Spoofing, Flooding, Replay)",
+                "nodeId": "root_can_attack",
+                "nodeType": "derived",
+                "connections": [
+                  {
+                    "id": "gate_can_or",
+                    "type": "OR Gate"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "transparent",
+                  "borderColor": "black",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "color": "black",
+                  "fontFamily": "Inter",
+                  "fontSize": "16px",
+                  "fontWeight": 500,
+                  "height": 60,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "height": 60
+            },
+            {
+              "id": "gate_can_or",
+              "nodeId": "gate_can_or",
+              "nodeType": "or_gate",
+              "label": "OR Gate",
+              "data": {
+                "label": "OR Gate",
+                "nodeId": "gate_can_or",
+                "nodeType": "or_gate",
+                "connections": [
+                  {
+                    "id": "sub_can_spoof",
+                    "type": "Sub Attack"
+                  },
+                  {
+                    "id": "sub_can_flood",
+                    "type": "Sub Attack"
+                  },
+                  {
+                    "id": "sub_can_replay",
+                    "type": "Sub Attack"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "transparent",
+                  "borderColor": "black",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "height": 60,
+                  "width": 60
+                }
+              },
+              "position": {
+                "x": 0,
+                "y": 100
+              }
+            },
+            {
+              "id": "sub_can_spoof",
+              "nodeId": "sub_can_spoof",
+              "nodeType": "sub_attack",
+              "label": "Message Spoofing",
+              "name": "Message Spoofing",
+              "description": "Adversary crafts and injects fake CAN messages to deceive the BMS, leading to incorrect state estimations or control actions.",
+              "data": {
+                "label": "Message Spoofing",
+                "nodeId": "sub_can_spoof",
+                "nodeType": "sub_attack",
+                "connections": [
+                  {
+                    "id": "leaf_can_spoof_inject",
+                    "type": "Basic Event"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "#ffe0b2",
+                  "borderColor": "orange",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "height": 50,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": -150,
+                "y": 200
+              }
+            },
+            {
+              "id": "leaf_can_spoof_inject",
+              "nodeId": "leaf_can_spoof_inject",
+              "nodeType": "basic_event",
+              "label": "Inject Malicious CAN Frame",
+              "name": "Inject Malicious CAN Frame",
+              "description": "MITRE ATT&CK T1050: Application Window Discovery. Adversary directly injects manipulated CAN frames into the bus.",
+              "data": {
+                "label": "Inject Malicious CAN Frame",
+                "nodeId": "leaf_can_spoof_inject",
+                "nodeType": "basic_event",
+                "connections": [],
+                "style": {
+                  "backgroundColor": "#fff9c4",
+                  "borderColor": "gray",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "height": 40,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": -150,
+                "y": 280
+              }
+            },
+            {
+              "id": "sub_can_flood",
+              "nodeId": "sub_can_flood",
+              "nodeType": "sub_attack",
+              "label": "Message Flooding",
+              "name": "Message Flooding",
+              "description": "Adversary overwhelms the CAN bus with excessive messages, causing a denial of service for legitimate communication.",
+              "data": {
+                "label": "Message Flooding",
+                "nodeId": "sub_can_flood",
+                "nodeType": "sub_attack",
+                "connections": [
+                  {
+                    "id": "leaf_can_flood_generate",
+                    "type": "Basic Event"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "#ffe0b2",
+                  "borderColor": "orange",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "height": 50,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 0,
+                "y": 200
+              }
+            },
+            {
+              "id": "leaf_can_flood_generate",
+              "nodeId": "leaf_can_flood_generate",
+              "nodeType": "basic_event",
+              "label": "Generate High Volume CAN Traffic",
+              "name": "Generate High Volume CAN Traffic",
+              "description": "MITRE ATT&CK T1499: Network Service Scanning. Adversary floods the bus with legitimate or malformed CAN frames.",
+              "data": {
+                "label": "Generate High Volume CAN Traffic",
+                "nodeId": "leaf_can_flood_generate",
+                "nodeType": "basic_event",
+                "connections": [],
+                "style": {
+                  "backgroundColor": "#fff9c4",
+                  "borderColor": "gray",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "height": 40,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 0,
+                "y": 280
+              }
+            },
+            {
+              "id": "sub_can_replay",
+              "nodeId": "sub_can_replay",
+              "nodeType": "sub_attack",
+              "label": "Replay Attack",
+              "name": "Replay Attack",
+              "description": "Adversary captures legitimate CAN messages and retransmits them later to achieve unintended actions or bypass security checks.",
+              "data": {
+                "label": "Replay Attack",
+                "nodeId": "sub_can_replay",
+                "nodeType": "sub_attack",
+                "connections": [
+                  {
+                    "id": "leaf_can_replay_capture",
+                    "type": "Basic Event"
+                  },
+                  {
+                    "id": "leaf_can_replay_transmit",
+                    "type": "Basic Event"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "#ffe0b2",
+                  "borderColor": "orange",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "height": 50,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 150,
+                "y": 200
+              }
+            },
+            {
+              "id": "leaf_can_replay_capture",
+              "nodeId": "leaf_can_replay_capture",
+              "nodeType": "basic_event",
+              "label": "Capture Legitimate CAN Frame",
+              "name": "Capture Legitimate CAN Frame",
+              "description": "Adversary monitors CAN bus to capture relevant messages.",
+              "data": {
+                "label": "Capture Legitimate CAN Frame",
+                "nodeId": "leaf_can_replay_capture",
+                "nodeType": "basic_event",
+                "connections": [],
+                "style": {
+                  "backgroundColor": "#fff9c4",
+                  "borderColor": "gray",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "height": 40,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 75,
+                "y": 280
+              }
+            },
+            {
+              "id": "leaf_can_replay_transmit",
+              "nodeId": "leaf_can_replay_transmit",
+              "nodeType": "basic_event",
+              "label": "Re-transmit Captured Frame",
+              "name": "Re-transmit Captured Frame",
+              "description": "Adversary injects the captured frame at a later time.",
+              "data": {
+                "label": "Re-transmit Captured Frame",
+                "nodeId": "leaf_can_replay_transmit",
+                "nodeType": "basic_event",
+                "connections": [],
+                "style": {
+                  "backgroundColor": "#fff9c4",
+                  "borderColor": "gray",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "height": 40,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 225,
+                "y": 280
+              }
+            }
+          ],
+          "edges": [
+            {
+              "id": "edge_root_can_or",
+              "source": "root_can_attack",
+              "target": "gate_can_or",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_gate_can_spoof",
+              "source": "gate_can_or",
+              "target": "sub_can_spoof",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_gate_can_flood",
+              "source": "gate_can_or",
+              "target": "sub_can_flood",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_gate_can_replay",
+              "source": "gate_can_or",
+              "target": "sub_can_replay",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_spoof_leaf",
+              "source": "sub_can_spoof",
+              "target": "leaf_can_spoof_inject",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_flood_leaf",
+              "source": "sub_can_flood",
+              "target": "leaf_can_flood_generate",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_replay_leaf1",
+              "source": "sub_can_replay",
+              "target": "leaf_can_replay_capture",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_replay_leaf2",
+              "source": "sub_can_replay",
+              "target": "leaf_can_replay_transmit",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ID": "att_debug_port_001",
+        "Name": "Debug Port Attack",
+        "threat_id": "",
+        "damage_id": "",
+        "threat_key": "",
+        "overall_rating": "",
+        "templates": {
+          "nodes": [
+            {
+              "id": "root_debug_attack",
+              "nodeId": "root_debug_attack",
+              "nodeType": "derived",
+              "label": "[TSD002] Debug Port Attack (JTAG/SWD Exploitation)",
+              "name": "Debug Port Attack (JTAG/SWD Exploitation)",
+              "description": "Adversary gains physical or logical access to debug interfaces (e.g., JTAG, SWD) to extract sensitive information, tamper with firmware, or gain control of the ECU. This can compromise confidentiality of keys and certificates, integrity of code, and availability of the system.",
+              "data": {
+                "label": "[TSD002] Debug Port Attack (JTAG/SWD Exploitation)",
+                "nodeId": "root_debug_attack",
+                "nodeType": "derived",
+                "connections": [
+                  {
+                    "id": "gate_debug_or",
+                    "type": "OR Gate"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "transparent",
+                  "borderColor": "black",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "color": "black",
+                  "fontFamily": "Inter",
+                  "fontSize": "16px",
+                  "fontWeight": 500,
+                  "height": 60,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "height": 60
+            },
+            {
+              "id": "gate_debug_or",
+              "nodeId": "gate_debug_or",
+              "nodeType": "or_gate",
+              "label": "OR Gate",
+              "data": {
+                "label": "OR Gate",
+                "nodeId": "gate_debug_or",
+                "nodeType": "or_gate",
+                "connections": [
+                  {
+                    "id": "sub_debug_extract",
+                    "type": "Sub Attack"
+                  },
+                  {
+                    "id": "sub_debug_firmware_tamper",
+                    "type": "Sub Attack"
+                  },
+                  {
+                    "id": "sub_debug_glitching",
+                    "type": "Sub Attack"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "transparent",
+                  "borderColor": "black",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "height": 60,
+                  "width": 60
+                }
+              },
+              "position": {
+                "x": 0,
+                "y": 100
+              }
+            },
+            {
+              "id": "sub_debug_extract",
+              "nodeId": "sub_debug_extract",
+              "nodeType": "sub_attack",
+              "label": "Data Extraction",
+              "name": "Data Extraction",
+              "description": "Adversary uses debug interfaces to read out sensitive information like keys, certificates, or firmware.",
+              "data": {
+                "label": "Data Extraction",
+                "nodeId": "sub_debug_extract",
+                "nodeType": "sub_attack",
+                "connections": [
+                  {
+                    "id": "leaf_debug_read_memory",
+                    "type": "Basic Event"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "#ffe0b2",
+                  "borderColor": "orange",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "height": 50,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": -150,
+                "y": 200
+              }
+            },
+            {
+              "id": "leaf_debug_read_memory",
+              "nodeId": "leaf_debug_read_memory",
+              "nodeType": "basic_event",
+              "label": "Read Memory via Debug Interface",
+              "name": "Read Memory via Debug Interface",
+              "description": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor. Accessing memory contents through JTAG/SWD.",
+              "data": {
+                "label": "Read Memory via Debug Interface",
+                "nodeId": "leaf_debug_read_memory",
+                "nodeType": "basic_event",
+                "connections": [],
+                "style": {
+                  "backgroundColor": "#fff9c4",
+                  "borderColor": "gray",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "height": 40,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": -150,
+                "y": 280
+              }
+            },
+            {
+              "id": "sub_debug_firmware_tamper",
+              "nodeId": "sub_debug_firmware_tamper",
+              "nodeType": "sub_attack",
+              "label": "Firmware Tampering",
+              "name": "Firmware Tampering",
+              "description": "Adversary overwrites or modifies the ECU's firmware through debug interfaces.",
+              "data": {
+                "label": "Firmware Tampering",
+                "nodeId": "sub_debug_firmware_tamper",
+                "nodeType": "sub_attack",
+                "connections": [
+                  {
+                    "id": "leaf_debug_write_flash",
+                    "type": "Basic Event"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "#ffe0b2",
+                  "borderColor": "orange",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "height": 50,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 0,
+                "y": 200
+              }
+            },
+            {
+              "id": "leaf_debug_write_flash",
+              "nodeId": "leaf_debug_write_flash",
+              "nodeType": "basic_event",
+              "label": "Write Flash Memory via Debug Interface",
+              "name": "Write Flash Memory via Debug Interface",
+              "description": "CWE-20: Improper Input Validation. Modifying firmware stored in Code Flash or Data Flash.",
+              "data": {
+                "label": "Write Flash Memory via Debug Interface",
+                "nodeId": "leaf_debug_write_flash",
+                "nodeType": "basic_event",
+                "connections": [],
+                "style": {
+                  "backgroundColor": "#fff9c4",
+                  "borderColor": "gray",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "height": 40,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 0,
+                "y": 280
+              }
+            },
+            {
+              "id": "sub_debug_glitching",
+              "nodeId": "sub_debug_glitching",
+              "nodeType": "sub_attack",
+              "label": "Glitching Attacks",
+              "name": "Glitching Attacks",
+              "description": "Adversary uses voltage or clock glitches to induce faults and bypass security mechanisms.",
+              "data": {
+                "label": "Glitching Attacks",
+                "nodeId": "sub_debug_glitching",
+                "nodeType": "sub_attack",
+                "connections": [
+                  {
+                    "id": "leaf_debug_voltage_glitch",
+                    "type": "Basic Event"
+                  },
+                  {
+                    "id": "leaf_debug_clock_glitch",
+                    "type": "Basic Event"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "#ffe0b2",
+                  "borderColor": "orange",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "height": 50,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 150,
+                "y": 200
+              }
+            },
+            {
+              "id": "leaf_debug_voltage_glitch",
+              "nodeId": "leaf_debug_voltage_glitch",
+              "nodeType": "basic_event",
+              "label": "Voltage Glitching",
+              "name": "Voltage Glitching",
+              "description": "CWE-1247: Improper Protection Against Voltage and Clock Glitches. Inducing transient voltage fluctuations.",
+              "data": {
+                "label": "Voltage Glitching",
+                "nodeId": "leaf_debug_voltage_glitch",
+                "nodeType": "basic_event",
+                "connections": [],
+                "style": {
+                  "backgroundColor": "#fff9c4",
+                  "borderColor": "gray",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "height": 40,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 75,
+                "y": 280
+              }
+            },
+            {
+              "id": "leaf_debug_clock_glitch",
+              "nodeId": "leaf_debug_clock_glitch",
+              "nodeType": "basic_event",
+              "label": "Clock Glitching",
+              "name": "Clock Glitching",
+              "description": "CWE-1247: Improper Protection Against Voltage and Clock Glitches. Modifying clock signal frequency or timing.",
+              "data": {
+                "label": "Clock Glitching",
+                "nodeId": "leaf_debug_clock_glitch",
+                "nodeType": "basic_event",
+                "connections": [],
+                "style": {
+                  "backgroundColor": "#fff9c4",
+                  "borderColor": "gray",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "height": 40,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 225,
+                "y": 280
+              }
+            }
+          ],
+          "edges": [
+            {
+              "id": "edge_root_debug_or",
+              "source": "root_debug_attack",
+              "target": "gate_debug_or",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_gate_debug_extract",
+              "source": "gate_debug_or",
+              "target": "sub_debug_extract",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_gate_debug_tamper",
+              "source": "gate_debug_or",
+              "target": "sub_debug_firmware_tamper",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_gate_debug_glitch",
+              "source": "gate_debug_or",
+              "target": "sub_debug_glitching",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_extract_leaf",
+              "source": "sub_debug_extract",
+              "target": "leaf_debug_read_memory",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_tamper_leaf",
+              "source": "sub_debug_firmware_tamper",
+              "target": "leaf_debug_write_flash",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_glitch_leaf1",
+              "source": "sub_debug_glitching",
+              "target": "leaf_debug_voltage_glitch",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_glitch_leaf2",
+              "source": "sub_debug_glitching",
+              "target": "leaf_debug_clock_glitch",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ID": "att_data_flash_001",
+        "Name": "Data Flash Attack",
+        "threat_id": "",
+        "damage_id": "",
+        "threat_key": "",
+        "overall_rating": "",
+        "templates": {
+          "nodes": [
+            {
+              "id": "root_dataflash_attack",
+              "nodeId": "root_dataflash_attack",
+              "nodeType": "derived",
+              "label": "[TSD003] Data Flash Attack (Modification/Exfiltration)",
+              "name": "Data Flash Attack (Modification/Exfiltration)",
+              "description": "Adversary targets the Data Flash to modify critical parameters, logs (like SoH), or exfiltrate sensitive data. This can impact battery performance, warranty claims, and data integrity.",
+              "data": {
+                "label": "[TSD003] Data Flash Attack (Modification/Exfiltration)",
+                "nodeId": "root_dataflash_attack",
+                "nodeType": "derived",
+                "connections": [
+                  {
+                    "id": "gate_dataflash_or",
+                    "type": "OR Gate"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "transparent",
+                  "borderColor": "black",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "color": "black",
+                  "fontFamily": "Inter",
+                  "fontSize": "16px",
+                  "fontWeight": 500,
+                  "height": 60,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "height": 60
+            },
+            {
+              "id": "gate_dataflash_or",
+              "nodeId": "gate_dataflash_or",
+              "nodeType": "or_gate",
+              "label": "OR Gate",
+              "data": {
+                "label": "OR Gate",
+                "nodeId": "gate_dataflash_or",
+                "nodeType": "or_gate",
+                "connections": [
+                  {
+                    "id": "sub_dataflash_modify",
+                    "type": "Sub Attack"
+                  },
+                  {
+                    "id": "sub_dataflash_exfil",
+                    "type": "Sub Attack"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "transparent",
+                  "borderColor": "black",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "height": 60,
+                  "width": 60
+                }
+              },
+              "position": {
+                "x": 0,
+                "y": 100
+              }
+            },
+            {
+              "id": "sub_dataflash_modify",
+              "nodeId": "sub_dataflash_modify",
+              "nodeType": "sub_attack",
+              "label": "Parameter Modification",
+              "name": "Parameter Modification",
+              "description": "Adversary alters stored parameters in Data Flash, impacting battery management logic and potentially causing safety issues.",
+              "data": {
+                "label": "Parameter Modification",
+                "nodeId": "sub_dataflash_modify",
+                "nodeType": "sub_attack",
+                "connections": [
+                  {
+                    "id": "leaf_dataflash_write",
+                    "type": "Basic Event"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "#ffe0b2",
+                  "borderColor": "orange",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "height": 50,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": -75,
+                "y": 200
+              }
+            },
+            {
+              "id": "leaf_dataflash_write",
+              "nodeId": "leaf_dataflash_write",
+              "nodeType": "basic_event",
+              "label": "Write to Data Flash",
+              "name": "Write to Data Flash",
+              "description": "ATM Technique: Abuse Standard Diagnostic Protocol for Persistence. Writing malicious data or code to Data Flash.",
+              "data": {
+                "label": "Write to Data Flash",
+                "nodeId": "leaf_dataflash_write",
+                "nodeType": "basic_event",
+                "connections": [],
+                "style": {
+                  "backgroundColor": "#fff9c4",
+                  "borderColor": "gray",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "height": 40,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": -75,
+                "y": 280
+              }
+            },
+            {
+              "id": "sub_dataflash_exfil",
+              "nodeId": "sub_dataflash_exfil",
+              "nodeType": "sub_attack",
+              "label": "Data Exfiltration",
+              "name": "Data Exfiltration",
+              "description": "Adversary reads sensitive data from Data Flash, such as battery usage logs or configuration data.",
+              "data": {
+                "label": "Data Exfiltration",
+                "nodeId": "sub_dataflash_exfil",
+                "nodeType": "sub_attack",
+                "connections": [
+                  {
+                    "id": "leaf_dataflash_read",
+                    "type": "Basic Event"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "#ffe0b2",
+                  "borderColor": "orange",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "height": 50,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 75,
+                "y": 200
+              }
+            },
+            {
+              "id": "leaf_dataflash_read",
+              "nodeId": "leaf_dataflash_read",
+              "nodeType": "basic_event",
+              "label": "Read from Data Flash",
+              "name": "Read from Data Flash",
+              "description": "ATM Technique: Abuse Standard Diagnostic Protocol for Collection. Reading stored battery health data or logs.",
+              "data": {
+                "label": "Read from Data Flash",
+                "nodeId": "leaf_dataflash_read",
+                "nodeType": "basic_event",
+                "connections": [],
+                "style": {
+                  "backgroundColor": "#fff9c4",
+                  "borderColor": "gray",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "height": 40,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 75,
+                "y": 280
+              }
+            }
+          ],
+          "edges": [
+            {
+              "id": "edge_root_dataflash_or",
+              "source": "root_dataflash_attack",
+              "target": "gate_dataflash_or",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_gate_dataflash_modify",
+              "source": "gate_dataflash_or",
+              "target": "sub_dataflash_modify",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_gate_dataflash_exfil",
+              "source": "gate_dataflash_or",
+              "target": "sub_dataflash_exfil",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_modify_leaf",
+              "source": "sub_dataflash_modify",
+              "target": "leaf_dataflash_write",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_exfil_leaf",
+              "source": "sub_dataflash_exfil",
+              "target": "leaf_dataflash_read",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ID": "att_internet_001",
+        "Name": "Internet Communication Attack",
+        "threat_id": "",
+        "damage_id": "",
+        "threat_key": "",
+        "overall_rating": "",
+        "templates": {
+          "nodes": [
+            {
+              "id": "root_internet_attack",
+              "nodeId": "root_internet_attack",
+              "nodeType": "derived",
+              "label": "[TSD004] Internet Communication Attack (C&C, Data Exfiltration)",
+              "name": "Internet Communication Attack (C&C, Data Exfiltration)",
+              "description": "Adversary exploits the internet connection of the BMS (if applicable, e.g., via connected vehicle services) for command and control or to exfiltrate sensitive battery data.",
+              "data": {
+                "label": "[TSD004] Internet Communication Attack (C&C, Data Exfiltration)",
+                "nodeId": "root_internet_attack",
+                "nodeType": "derived",
+                "connections": [
+                  {
+                    "id": "gate_internet_or",
+                    "type": "OR Gate"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "transparent",
+                  "borderColor": "black",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "color": "black",
+                  "fontFamily": "Inter",
+                  "fontSize": "16px",
+                  "fontWeight": 500,
+                  "height": 60,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 0,
+                "y": 0
+              },
+              "height": 60
+            },
+            {
+              "id": "gate_internet_or",
+              "nodeId": "gate_internet_or",
+              "nodeType": "or_gate",
+              "label": "OR Gate",
+              "data": {
+                "label": "OR Gate",
+                "nodeId": "gate_internet_or",
+                "nodeType": "or_gate",
+                "connections": [
+                  {
+                    "id": "sub_internet_cnc",
+                    "type": "Sub Attack"
+                  },
+                  {
+                    "id": "sub_internet_exfil",
+                    "type": "Sub Attack"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "transparent",
+                  "borderColor": "black",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "height": 60,
+                  "width": 60
+                }
+              },
+              "position": {
+                "x": 0,
+                "y": 100
+              }
+            },
+            {
+              "id": "sub_internet_cnc",
+              "nodeId": "sub_internet_cnc",
+              "nodeType": "sub_attack",
+              "label": "Command and Control (C2)",
+              "name": "Command and Control (C2)",
+              "description": "Adversary uses the internet connection to send commands to the BMS or control other vehicle functions.",
+              "data": {
+                "label": "Command and Control (C2)",
+                "nodeId": "sub_internet_cnc",
+                "nodeType": "sub_attack",
+                "connections": [
+                  {
+                    "id": "leaf_internet_receive_cmd",
+                    "type": "Basic Event"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "#ffe0b2",
+                  "borderColor": "orange",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "height": 50,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": -75,
+                "y": 200
+              }
+            },
+            {
+              "id": "leaf_internet_receive_cmd",
+              "nodeId": "leaf_internet_receive_cmd",
+              "nodeType": "basic_event",
+              "label": "Receive Commands Remotely",
+              "name": "Receive Commands Remotely",
+              "description": "ATM Technique: Internet Communication. Adversary sends commands via the internet connection to control the BMS.",
+              "data": {
+                "label": "Receive Commands Remotely",
+                "nodeId": "leaf_internet_receive_cmd",
+                "nodeType": "basic_event",
+                "connections": [],
+                "style": {
+                  "backgroundColor": "#fff9c4",
+                  "borderColor": "gray",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "height": 40,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": -75,
+                "y": 280
+              }
+            },
+            {
+              "id": "sub_internet_exfil",
+              "nodeId": "sub_internet_exfil",
+              "nodeType": "sub_attack",
+              "label": "Data Exfiltration",
+              "name": "Data Exfiltration",
+              "description": "Adversary transmits sensitive battery data (e.g., usage patterns, health status) to an external server.",
+              "data": {
+                "label": "Data Exfiltration",
+                "nodeId": "sub_internet_exfil",
+                "nodeType": "sub_attack",
+                "connections": [
+                  {
+                    "id": "leaf_internet_send_data",
+                    "type": "Basic Event"
+                  }
+                ],
+                "style": {
+                  "backgroundColor": "#ffe0b2",
+                  "borderColor": "orange",
+                  "borderStyle": "solid",
+                  "borderWidth": "2px",
+                  "height": 50,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 75,
+                "y": 200
+              }
+            },
+            {
+              "id": "leaf_internet_send_data",
+              "nodeId": "leaf_internet_send_data",
+              "nodeType": "basic_event",
+              "label": "Send Battery Data Externally",
+              "name": "Send Battery Data Externally",
+              "description": "ATM Technique: Internet Communication. Exfiltrating battery data over the internet connection.",
+              "data": {
+                "label": "Send Battery Data Externally",
+                "nodeId": "leaf_internet_send_data",
+                "nodeType": "basic_event",
+                "connections": [],
+                "style": {
+                  "backgroundColor": "#fff9c4",
+                  "borderColor": "gray",
+                  "borderStyle": "solid",
+                  "borderWidth": "1px",
+                  "height": 40,
+                  "width": 150
+                }
+              },
+              "position": {
+                "x": 75,
+                "y": 280
+              }
+            }
+          ],
+          "edges": [
+            {
+              "id": "edge_root_internet_or",
+              "source": "root_internet_attack",
+              "target": "gate_internet_or",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_gate_internet_cnc",
+              "source": "gate_internet_or",
+              "target": "sub_internet_cnc",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_gate_internet_exfil",
+              "source": "gate_internet_or",
+              "target": "sub_internet_exfil",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_cnc_leaf",
+              "source": "sub_internet_cnc",
+              "target": "leaf_internet_receive_cmd",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            },
+            {
+              "id": "edge_exfil_leaf",
+              "source": "sub_internet_exfil",
+              "target": "leaf_internet_send_data",
+              "type": "step",
+              "animated": false,
+              "style": {
+                "stroke": "#808080",
+                "strokeWidth": 2
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "threat_scenarios": {
+    "_id": "66a92c24f042872c4692c5a4",
+    "model_id": "model_1",
+    "type": "derived",
+    "Details": [
+      {
+        "rowId": "thr_001",
+        "id": "DS001",
+        "Details": [
+          {
+            "node": "BatteryPack",
+            "nodeId": "e02b943c-9744-480e-85c6-f31440682f4c",
+            "name": "Battery Pack Integrity Loss via CAN Spoofing",
+            "props": [
+              {
+                "id": "prop_batt_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_batt_auth",
+                "name": "Authenticity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_002",
+        "id": "DS002",
+        "Details": [
+          {
+            "node": "BatteryPack",
+            "nodeId": "e02b943c-9744-480e-85c6-f31440682f4c",
+            "name": "Battery Pack Confidentiality Breach via Internet Exfiltration",
+            "props": [
+              {
+                "id": "prop_batt_conf",
+                "name": "Confidentiality",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_int_conf",
+                "name": "Confidentiality",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_003",
+        "id": "DS003",
+        "Details": [
+          {
+            "node": "BatteryPack",
+            "nodeId": "e02b943c-9744-480e-85c6-f31440682f4c",
+            "name": "Battery Pack Authenticity Compromise via CAN Spoofing",
+            "props": [
+              {
+                "id": "prop_batt_auth",
+                "name": "Authenticity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_can2_auth",
+                "name": "Authenticity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_004",
+        "id": "DS004",
+        "Details": [
+          {
+            "node": "BatteryPack",
+            "nodeId": "e02b943c-9744-480e-85c6-f31440682f4c",
+            "name": "Battery Pack Authorization Bypass via Debug Port Attack",
+            "props": [
+              {
+                "id": "prop_batt_authz",
+                "name": "Authorization",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_debug_authz",
+                "name": "Authorization",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_005",
+        "id": "DS005",
+        "Details": [
+          {
+            "node": "BatteryPack",
+            "nodeId": "e02b943c-9744-480e-85c6-f31440682f4c",
+            "name": "Battery Pack Availability Loss via CAN Flooding",
+            "props": [
+              {
+                "id": "prop_batt_avail",
+                "name": "Availability",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_can1_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_006",
+        "id": "DS006",
+        "Details": [
+          {
+            "node": "BatteryPack",
+            "nodeId": "e02b943c-9744-480e-85c6-f31440682f4c",
+            "name": "Battery Pack Non-repudiation Lost via Compromised Data Flash",
+            "props": [
+              {
+                "id": "prop_batt_nonrep",
+                "name": "Non-repudiation",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_data_nonrep",
+                "name": "Non-repudiation",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_007",
+        "id": "DS007",
+        "Details": [
+          {
+            "node": "CellMonitoring",
+            "nodeId": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+            "name": "Cell Monitoring Integrity Compromised via SPI_CellMonitor Tampering",
+            "props": [
+              {
+                "id": "prop_cell_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_spi_cm_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_008",
+        "id": "DS008",
+        "Details": [
+          {
+            "node": "CellMonitoring",
+            "nodeId": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+            "name": "Cell Monitoring Availability Lost via CAN Flooding",
+            "props": [
+              {
+                "id": "prop_cell_avail",
+                "name": "Availability",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_can1_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_009",
+        "id": "DS009",
+        "Details": [
+          {
+            "node": "IO and Analog",
+            "nodeId": "f9e8d7c6-b5a4-3210-fedc-ba9876543210",
+            "name": "IO and Analog Integrity Lost via IO_PINS Data Corruption",
+            "props": [
+              {
+                "id": "prop_io_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_io_conf",
+                "name": "Confidentiality",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_010",
+        "id": "DS010",
+        "Details": [
+          {
+            "node": "IO and Analog",
+            "nodeId": "f9e8d7c6-b5a4-3210-fedc-ba9876543210",
+            "name": "IO and Analog Availability Lost via Malicious I/O Control",
+            "props": [
+              {
+                "id": "prop_io_avail",
+                "name": "Availability",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_io_conf_batt",
+                "name": "Confidentiality",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_011",
+        "id": "DS011",
+        "Details": [
+          {
+            "node": "Code Flash",
+            "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+            "name": "Code Flash Confidentiality Compromised via Debug Port Read",
+            "props": [
+              {
+                "id": "prop_code_conf",
+                "name": "Confidentiality",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_debug_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_012",
+        "id": "DS012",
+        "Details": [
+          {
+            "node": "Code Flash",
+            "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+            "name": "Code Flash Integrity Lost via Debug Port Firmware Tampering",
+            "props": [
+              {
+                "id": "prop_code_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_debug_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_013",
+        "id": "DS013",
+        "Details": [
+          {
+            "node": "Code Flash",
+            "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+            "name": "Code Flash Availability Lost via Glitching Attack",
+            "props": [
+              {
+                "id": "prop_code_avail",
+                "name": "Availability",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_debug_avail",
+                "name": "Availability",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_014",
+        "id": "DS014",
+        "Details": [
+          {
+            "node": "Code Flash",
+            "nodeId": "6972d325-0c1e-4ff3-b900-707838d25c14",
+            "name": "Code Flash Authenticity Violated via Firmware Tampering",
+            "props": [
+              {
+                "id": "prop_code_auth",
+                "name": "Authenticity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_debug_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_015",
+        "id": "DS015",
+        "Details": [
+          {
+            "node": "Data Flash",
+            "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+            "name": "Data Flash Integrity Lost via Malicious Data Write",
+            "props": [
+              {
+                "id": "prop_data_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_data_nonrep",
+                "name": "Non-repudiation",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_016",
+        "id": "DS016",
+        "Details": [
+          {
+            "node": "Data Flash",
+            "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+            "name": "Data Flash Availability Lost via Denial of Service Attack",
+            "props": [
+              {
+                "id": "prop_data_avail",
+                "name": "Availability",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_can1_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_017",
+        "id": "DS017",
+        "Details": [
+          {
+            "node": "Data Flash",
+            "nodeId": "1ea661cc-558d-4385-b53e-07e776965a4b",
+            "name": "Data Flash Non-repudiation Violated via Data Tampering",
+            "props": [
+              {
+                "id": "prop_data_nonrep",
+                "name": "Non-repudiation",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_vc_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_018",
+        "id": "DS018",
+        "Details": [
+          {
+            "node": "Keys",
+            "nodeId": "07f29908-e559-4899-b842-5f5e6bb31d3f",
+            "name": "Keys Confidentiality Lost via Debug Port Extraction",
+            "props": [
+              {
+                "id": "prop_keys_conf",
+                "name": "Confidentiality",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_debug_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_019",
+        "id": "DS019",
+        "Details": [
+          {
+            "node": "Certificates",
+            "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543",
+            "name": "Certificates Integrity Compromised via Debug Port Tampering",
+            "props": [
+              {
+                "id": "prop_cert_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_debug_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_020",
+        "id": "DS020",
+        "Details": [
+          {
+            "node": "Certificates",
+            "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543",
+            "name": "Certificates Authenticity Violated via Debug Port Tampering",
+            "props": [
+              {
+                "id": "prop_cert_auth",
+                "name": "Authenticity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_debug_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_021",
+        "id": "DS021",
+        "Details": [
+          {
+            "node": "Certificates",
+            "nodeId": "588dd017-97a3-4e1a-a77e-91876c62c543",
+            "name": "Certificates Availability Lost via Debug Port Attack",
+            "props": [
+              {
+                "id": "prop_cert_avail",
+                "name": "Availability",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_debug_avail",
+                "name": "Availability",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_022",
+        "id": "DS022",
+        "Details": [
+          {
+            "node": "Debug Port",
+            "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+            "name": "Debug Port Integrity Lost via Malicious Debug Access",
+            "props": [
+              {
+                "id": "prop_debug_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_debug_authz",
+                "name": "Authorization",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_023",
+        "id": "DS023",
+        "Details": [
+          {
+            "node": "Debug Port",
+            "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+            "name": "Debug Port Availability Lost via DoS Attack",
+            "props": [
+              {
+                "id": "prop_debug_avail",
+                "name": "Availability",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_can1_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_024",
+        "id": "DS024",
+        "Details": [
+          {
+            "node": "Debug Port",
+            "nodeId": "78ead7f2-f1ef-4739-bd91-b2bb504ccce4",
+            "name": "Debug Port Authorization Bypass via Exploitation",
+            "props": [
+              {
+                "id": "prop_debug_authz",
+                "name": "Authorization",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_debug_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_025",
+        "id": "DS025",
+        "Details": [
+          {
+            "node": "ICD Shunt CAN",
+            "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+            "name": "ICD Shunt CAN Integrity Lost via CAN Spoofing",
+            "props": [
+              {
+                "id": "prop_shunt_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_vc_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_026",
+        "id": "DS026",
+        "Details": [
+          {
+            "node": "ICD Shunt CAN",
+            "nodeId": "6c2782e0-08da-42e8-bc9e-9f5bc3310526",
+            "name": "ICD Shunt CAN Availability Lost via CAN Flooding",
+            "props": [
+              {
+                "id": "prop_shunt_avail",
+                "name": "Availability",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_can1_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_027",
+        "id": "DS027",
+        "Details": [
+          {
+            "node": "SoC",
+            "nodeId": "8f364ae0-1de5-404b-831c-86daf0e24160",
+            "name": "SoC Authenticity Violated via CAN Spoofing",
+            "props": [
+              {
+                "id": "prop_soc_auth",
+                "name": "Authenticity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_can2_auth",
+                "name": "Authenticity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_028",
+        "id": "DS028",
+        "Details": [
+          {
+            "node": "SoC",
+            "nodeId": "8f364ae0-1de5-404b-831c-86daf0e24160",
+            "name": "SoC Integrity Lost via CAN Spoofing",
+            "props": [
+              {
+                "id": "prop_soc_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_vc_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_029",
+        "id": "DS029",
+        "Details": [
+          {
+            "node": "SoH",
+            "nodeId": "389064d4-2770-4d34-9a05-c91a12d3559e",
+            "name": "SoH Authenticity Violated via Data Flash Modification",
+            "props": [
+              {
+                "id": "prop_soh_auth",
+                "name": "Authenticity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_data_nonrep",
+                "name": "Non-repudiation",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_030",
+        "id": "DS030",
+        "Details": [
+          {
+            "node": "SoH",
+            "nodeId": "389064d4-2770-4d34-9a05-c91a12d3559e",
+            "name": "SoH Integrity Lost via Data Flash Modification",
+            "props": [
+              {
+                "id": "prop_soh_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_data_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_031",
+        "id": "DS031",
+        "Details": [
+          {
+            "node": "SPI_CellMonitor",
+            "nodeId": "edg_spi_cellmonitor",
+            "name": "SPI_CellMonitor Integrity Lost via E2E Protection Failure",
+            "props": [
+              {
+                "id": "prop_edg_spi_cm_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_032",
+        "id": "DS032",
+        "Details": [
+          {
+            "node": "IO_PINS",
+            "nodeId": "edg_io_pins",
+            "name": "IO_PINS Confidentiality Lost via Bus Snooping",
+            "props": [
+              {
+                "id": "prop_edg_io_conf",
+                "name": "Confidentiality",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_033",
+        "id": "DS033",
+        "Details": [
+          {
+            "node": "CAN2",
+            "nodeId": "edg_can2",
+            "name": "CAN2 Integrity Lost via CAN Spoofing",
+            "props": [
+              {
+                "id": "prop_edg_can2_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_vc_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_034",
+        "id": "DS034",
+        "Details": [
+          {
+            "node": "CAN2",
+            "nodeId": "edg_can2",
+            "name": "CAN2 Authenticity Violated via CAN Spoofing",
+            "props": [
+              {
+                "id": "prop_edg_can2_auth",
+                "name": "Authenticity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_vc_auth",
+                "name": "Authenticity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_035",
+        "id": "DS035",
+        "Details": [
+          {
+            "node": "CAN1",
+            "nodeId": "edg_can1",
+            "name": "CAN1 Integrity Lost via CAN Spoofing",
+            "props": [
+              {
+                "id": "prop_edg_can1_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_vc_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_036",
+        "id": "DS036",
+        "Details": [
+          {
+            "node": "IO",
+            "nodeId": "edg_io",
+            "name": "IO Confidentiality Lost via Bus Snooping",
+            "props": [
+              {
+                "id": "prop_edg_io_conf_batt",
+                "name": "Confidentiality",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_037",
+        "id": "DS037",
+        "Details": [
+          {
+            "node": "ICD_Data",
+            "nodeId": "edg_icd_data",
+            "name": "ICD_Data Confidentiality Lost via Bus Snooping",
+            "props": [
+              {
+                "id": "prop_edg_icd_conf",
+                "name": "Confidentiality",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_038",
+        "id": "DS038",
+        "Details": [
+          {
+            "node": "Internet",
+            "nodeId": "edg_internet",
+            "name": "Internet Confidentiality Lost via Data Exfiltration",
+            "props": [
+              {
+                "id": "prop_edg_int_conf",
+                "name": "Confidentiality",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_039",
+        "id": "DS039",
+        "Details": [
+          {
+            "node": "Vehicle CAN",
+            "nodeId": "edg_vehicle_can",
+            "name": "Vehicle CAN Integrity Lost via Spoofing or Flooding",
+            "props": [
+              {
+                "id": "prop_edg_vc_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_can2_int",
+                "name": "Integrity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_040",
+        "id": "DS040",
+        "Details": [
+          {
+            "node": "Vehicle CAN",
+            "nodeId": "edg_vehicle_can",
+            "name": "Vehicle CAN Authenticity Violated via Spoofing",
+            "props": [
+              {
+                "id": "prop_edg_vc_auth",
+                "name": "Authenticity",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              },
+              {
+                "id": "prop_edg_can2_auth",
+                "name": "Authenticity",
+                "isSelected": true,
+                "is_risk_added": false,
+                "key": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rowId": "thr_041",
+        "id": "DS041",
+        "Details": [
+          {
+            "node": "Vehicle CAN",
+            "nodeId": "edg_vehicle_can",
+            "name": "Vehicle CAN Confidentiality Lost via Eavesdropping",
+            "props": [
+              {
+                "id": "prop_edg_vc_conf",
+                "name": "Confidentiality",
+                "isSelected": true,
+                "is_risk_added": true,
+                "key": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "cybersecurity": {
+    "_id": "66a92c24f042872c4692c5a5",
+    "model_id": "model_1",
+    "type": "cybersecurity_requirements",
+    "scenes": [
+      {
+        "ID": "cs_req_001",
+        "Name": "Secure Onboard Communication (SecOC)",
+        "Description": "Implement SecOC for critical CAN messages to ensure message authentication and integrity.",
+        "threat_id": "undefined",
+        "threat_key": "undefined",
+        "attack_scene_id": "att_can_bus_001",
+        "attack_scene_name": "CAN Bus Attack"
+      },
+      {
+        "ID": "cs_req_002",
+        "Name": "CAN Controller Hardware Filtering",
+        "Description": "Configure CAN controllers to filter messages by ID at the hardware level, accepting only whitelisted IDs.",
+        "threat_id": "undefined",
+        "threat_key": "undefined",
+        "attack_scene_id": "att_can_bus_001",
+        "attack_scene_name": "CAN Bus Attack"
+      },
+      {
+        "ID": "cs_req_003",
+        "Name": "Rate Limiting on CAN Messages",
+        "Description": "Implement rate limiting to detect and discard excessive message traffic on the CAN bus.",
+        "threat_id": "undefined",
+        "threat_key": "undefined",
+        "attack_scene_id": "att_can_bus_001",
+        "attack_scene_name": "CAN Bus Attack"
+      },
+      {
+        "ID": "cs_req_004",
+        "Name": "JTAG/Debug Port Lockout",
+        "Description": "Disable or protect debug ports (JTAG/SWD) after manufacturing using OTP fuses or challenge-response mechanisms.",
+        "threat_id": "undefined",
+        "threat_key": "undefined",
+        "attack_scene_id": "att_debug_port_001",
+        "attack_scene_name": "Debug Port Attack"
+      },
+      {
+        "ID": "cs_req_005",
+        "Name": "Hardware Security Module (HSM)",
+        "Description": "Utilize an HSM to protect cryptographic keys and certificates, preventing extraction via debug interfaces or side-channels.",
+        "threat_id": "undefined",
+        "threat_key": "undefined",
+        "attack_scene_id": "att_debug_port_001",
+        "attack_scene_name": "Debug Port Attack"
+      },
+      {
+        "ID": "cs_req_006",
+        "Name": "Memory Protection Unit (MPU)",
+        "Description": "Configure MPU to isolate critical code and data segments, preventing unauthorized access or modification through debug interfaces.",
+        "threat_id": "undefined",
+        "threat_key": "undefined",
+        "attack_scene_id": "att_debug_port_001",
+        "attack_scene_name": "Debug Port Attack"
+      },
+      {
+        "ID": "cs_req_007",
+        "Name": "Secure Boot",
+        "Description": "Implement secure boot to verify the integrity and authenticity of firmware before execution, preventing execution of tampered code from Data Flash.",
+        "threat_id": "undefined",
+        "threat_key": "undefined",
+        "attack_scene_id": "att_data_flash_001",
+        "attack_scene_name": "Data Flash Attack"
+      },
+      {
+        "ID": "cs_req_008",
+        "Name": "Secure Storage (NVM)",
+        "Description": "Encrypt sensitive data stored in Data Flash and use monotonic counters to prevent rollback attacks on logs like SoH.",
+        "threat_id": "undefined",
+        "threat_key": "undefined",
+        "attack_scene_id": "att_data_flash_001",
+        "attack_scene_name": "Data Flash Attack"
+      },
+      {
+        "ID": "cs_req_009",
+        "Name": "Diagnostic Authentication",
+        "Description": "Enforce strong authentication for privileged diagnostic services to prevent unauthorized access and modification of Data Flash contents.",
+        "threat_id": "undefined",
+        "threat_key": "undefined",
+        "attack_scene_id": "att_data_flash_001",
+        "attack_scene_name": "Data Flash Attack"
+      },
+      {
+        "ID": "cs_req_010",
+        "Name": "Secure Communication Channel (TLS/DTLS)",
+        "Description": "Utilize secure communication protocols (e.g., TLS/DTLS) for any internet-connected services to protect data confidentiality and integrity.",
+        "threat_id": "undefined",
+        "threat_key": "undefined",
+        "attack_scene_id": "att_internet_001",
+        "attack_scene_name": "Internet Communication Attack"
+      },
+      {
+        "ID": "cs_req_011",
+        "Name": "Network Segmentation",
+        "Description": "If possible, segment the network to isolate the BMS from other less secure components, limiting the impact of internet-borne threats.",
+        "threat_id": "undefined",
+        "threat_key": "undefined",
+        "attack_scene_id": "att_internet_001",
+        "attack_scene_name": "Internet Communication Attack"
+      },
+      {
+        "ID": "cs_req_012",
+        "Name": "Intrusion Detection System (IDS)",
+        "Description": "Implement an IDS to monitor network traffic for anomalous patterns indicative of C&C or data exfiltration attempts over the internet connection.",
+        "threat_id": "undefined",
+        "threat_key": "undefined",
+        "attack_scene_id": "att_internet_001",
+        "attack_scene_name": "Internet Communication Attack"
+      },
+      {
+        "ID": "cs_req_013",
+        "Name": "E2E Protection (Internal)",
+        "Description": "Apply End-to-End protection on SPI communication between the MCU and Cell Monitors to detect data corruption or tampering.",
+        "threat_id": "undefined",
+        "threat_key": "undefined",
+        "attack_scene_id": "att_debug_port_001",
+        "attack_scene_name": "Debug Port Attack"
+      },
+      {
+        "ID": "cs_req_014",
+        "Name": "Data Integrity Checks",
+        "Description": "Implement checksums or CRCs for critical data transmitted over IO and CAN interfaces to detect corruption.",
+        "threat_id": "undefined",
+        "threat_key": "undefined",
+        "attack_scene_id": "att_can_bus_001",
+        "attack_scene_name": "CAN Bus Attack"
+      },
+      {
+        "ID": "cs_req_015",
+        "Name": "Defensive Coding Practices",
+        "Description": "Follow secure coding standards (e.g., MISRA C) to prevent vulnerabilities that could be exploited via debug interfaces or by tampering with firmware.",
+        "threat_id": "undefined",
+        "threat_key": "undefined",
+        "attack_scene_id": "att_debug_port_001",
+        "attack_scene_name": "Debug Port Attack"
+      }
+    ]
+  }
+}

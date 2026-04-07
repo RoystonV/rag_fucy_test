@@ -1,0 +1,816 @@
+================================================================================
+  RAG TARA GEN — COMPLETE PIPELINE EXPLANATION
+  TARA = Threat Analysis and Risk Assessment (ISO/SAE 21434)
+  RAG  = Retrieval Augmented Generation
+================================================================================
+
+TABLE OF CONTENTS
+─────────────────
+1.  PROJECT OVERVIEW
+2.  PIPELINE FLOW (How it all works end-to-end)
+3.  FILE-BY-FILE EXPLANATION
+    3.1  config.py
+    3.2  resolve_ecu.py
+    3.3  components.py
+    3.4  ingest.py
+    3.5  prompt.py
+    3.6  pipeline.py
+    3.7  postprocess.py
+    3.8  main.py
+4.  DATASETS
+5.  OUTPUT JSON STRUCTURE
+6.  CHANGELOG SUMMARY
+
+
+================================================================================
+1. PROJECT OVERVIEW
+================================================================================
+
+This project is an automated TARA (Threat Analysis and Risk Assessment) report
+generator for automotive ECUs (Electronic Control Units). It follows the
+ISO/SAE 21434 Clause 15 standard for automotive cybersecurity.
+
+The system uses a RAG (Retrieval Augmented Generation) pipeline built with:
+  - Haystack (open-source LLM framework)
+  - Google Gemini (LLM for generation)
+  - Sentence-Transformers (for semantic embeddings)
+
+Given a user query like "Battery Management System ECU", the pipeline:
+  1. Resolves which ECU the user means (fuzzy matching)
+  2. Ingests threat databases (MITRE, CAPEC, CWE, ISO 21434, etc.)
+  3. Retrieves relevant threat intelligence via semantic search
+  4. Generates a complete TARA report as structured JSON
+
+Dependencies (requirements.txt):
+  - haystack-ai          → Core RAG framework
+  - sentence-transformers → Embedding models for semantic search
+  - google-ai-haystack   → Gemini LLM integration
+  - lxml                 → XML parsing for CWE dataset
+
+
+================================================================================
+2. PIPELINE FLOW (End-to-End)
+================================================================================
+
+Step 1: User inputs query
+    Example: python main.py --query "Battery Management System ECU"
+
+Step 2: ECU Resolution (resolve_ecu.py / components.py)
+    The query "Battery Management System ECU" is fuzzy-matched against
+    dataecu.json to find the entry with key "bms". This returns:
+      - name: "Battery Management System"
+      - type: "ecu"
+      - hint: (detailed list of components like CellMonitoring, CAN Transceiver, etc.)
+
+Step 3: Enriched Query Construction (components.py → build_enriched_query)
+    The plain query is expanded with the ECU hint to constrain the LLM:
+      "Battery Management System
+       AUTHORITATIVE ASSET LIST: CellMonitoring, IO and Analog, Code Flash..."
+
+Step 4: Dataset Ingestion (ingest.py → load_all_documents)
+    All threat databases are loaded and converted to Haystack Documents:
+      - MITRE ATT&CK Mobile + ICS (attack techniques)
+      - ATM (Automotive Threat Matrix)
+      - CAPEC (Common Attack Pattern Enumeration)
+      - CWE (Common Weakness Enumeration)
+      - ISO 21434 clause JSONs
+      - Annex F (impact rating tables)
+      - dataecu.json (ECU definitions)
+      - reports_db/ (reference TARA architectures)
+
+Step 5: Two-Phase Context Assembly
+    Phase A — PINNED DOCS (bypass retriever):
+      - The full reference architecture from reports_db (if one exists for this ECU)
+      - The ECU entry from dataecu.json
+      These are ALWAYS included in the prompt, guaranteed.
+
+    Phase B — SEMANTIC RETRIEVAL (threat docs only):
+      - The user query is embedded using BGE-small model
+      - Top-20 most similar threat-framework documents are retrieved
+      - Only MITRE/ATM/CAPEC/CWE/ISO docs are in the retriever store
+
+Step 6: Prompt Construction (prompt.py)
+    A Jinja2 template merges:
+      - The enriched query (with asset list)
+      - All retrieved + pinned documents
+      - Architecture rules (node types, edge labels, colors)
+      - Output format specification (exact JSON schema)
+
+Step 7: LLM Generation (pipeline.py → run_query)
+    The assembled prompt is sent to Google Gemini (gemini-2.5-flash-lite).
+    The LLM returns raw JSON text.
+
+Step 8: Post-Processing (postprocess.py → parse_and_fix)
+    - Strip markdown fences (```json ... ```)
+    - Parse JSON
+    - stamp_uuids(): replace all empty/placeholder IDs with uuid4
+    - crosslink_node_ids(): match Derivation.nodeId to actual node IDs by label
+    - apply_layout(): compute x,y positions for visualization
+
+Step 9: Output
+    - JSON printed to console
+    - Saved to outputs/tara/tara_output_<name>.json
+    - Debug prompt saved to outputs/prompts/tara_prompt_<name>.txt
+
+
+================================================================================
+3. FILE-BY-FILE EXPLANATION
+================================================================================
+
+
+────────────────────────────────────────────────────────────────────────────────
+3.1  config.py — Central Configuration
+────────────────────────────────────────────────────────────────────────────────
+
+Purpose: Stores all paths, model names, and tunable constants in one place.
+
+KEY VARIABLES:
+  BASE_PATH       = Path to datasets/ directory (relative to this file)
+  MITRE_MOBILE    = Path to mobileattack.json
+  MITRE_ICS       = Path to icsattack.json
+  ATM_PATH        = Path to atm.json
+  CAPEC_PATH      = Path to capec.xml
+  CWE_PATH        = Path to cwec.xml
+  ECU_PATH        = Path to dataecu.json
+  ANNEX_PATH      = Path to annex.json
+  CLAUSE_PATH     = Path to clauses/ directory
+  REPORTS_PATH    = Path to reports_db/ directory
+
+  EMBED_MODEL     = "BAAI/bge-small-en-v1.5"     ← Embedding model for semantic search
+  MAX_CHARS       = 1500                          ← Max chars per chunk
+  GEMINI_MODEL    = "gemini-2.5-flash-lite"       ← LLM model
+  RETRIEVER_TOP_K = 20                            ← Number of docs to retrieve
+
+  THREAT_SOURCES  = {"MITRE_MOBILE", "MITRE_ICS", "ATM", "CAPEC", "CWE", "ISO_21434", "ANNEX_F"}
+      → These go into the semantic retriever (searched by similarity)
+
+  PINNED_SOURCES  = {"ECU", "REPORTS_DB"}
+      → These bypass the retriever and are always injected into the prompt
+
+Example: If you want to change the LLM model, you only edit GEMINI_MODEL here.
+
+
+────────────────────────────────────────────────────────────────────────────────
+3.2  resolve_ecu.py — Fuzzy ECU Matcher
+────────────────────────────────────────────────────────────────────────────────
+
+Purpose: Match a free-text user query to a specific ECU entry in dataecu.json.
+This is critical because users might type "BMS", "battery management system",
+"Battery ECU", etc. — all meaning the same thing.
+
+FUNCTIONS:
+
+  _acronym(text: str) -> str
+  ─────────────────────────
+    Generates an acronym from text by taking the first letter of each
+    "significant" word (skipping common words like "the", "and", "for"
+    and automotive suffix words like "ecu", "system", "module").
+
+    Example:
+      _acronym("Battery Management System ECU")
+      → Skips "System" (suffix), skips "ECU" (suffix)
+      → Takes first letter of ["battery", "management"]
+      → Returns "bm"
+
+      _acronym("Anti-lock Braking System")
+      → core words = ["anti-lock", "braking"]
+      → Returns "ab"
+
+  resolve_ecu(query: str, ecu_path=None) -> dict | None
+  ─────────────────────────────────────────────────────
+    6-pass fuzzy matching algorithm:
+
+    Pass 0 — ALIAS TABLE:
+      Checks hardcoded abbreviations. If query contains "obd-ii", maps to key "obd".
+      Example: query="OBD-II port" → finds "obd-ii" in _ALIASES → returns ecu_db["obd"]
+
+    Pass 1 — EXACT KEY:
+      If query exactly equals a key, or the key appears as a standalone word.
+      Example: query="bms" → matches key "bms" directly
+
+    Pass 2 — FULL NAME SUBSTRING:
+      If an entry's full name is contained within the query.
+      Example: query="I need a Battery Management System report"
+              → entry name "Battery Management System" is a substring → match
+
+    Pass 3a — EXACT ACRONYM:
+      Computes acronym of query and compares to keys.
+      Example: query="Battery Management" → acronym="bm" → matches key "bm" (if exists)
+
+    Pass 3b — ACRONYM PREFIX:
+      If acronym starts with a key and length difference ≤ 1.
+      Example: acronym="bms" starts with key "bm" (diff=1) → match
+
+    Pass 4 — WORD OVERLAP:
+      If ≥ 2 significant words from the entry name appear in the query.
+      Example: query="battery system controller"
+              → entry "Battery Management System" has core words ["battery", "management"]
+              → "battery" is in query (1 match), "management" not (0)
+              → Only 1 match, so no match here
+
+    Pass 5 — KEY WORD IN QUERY:
+      If any word > 3 chars from the key appears in the query.
+      Example: key="infotainment" → word "infotainment" (>3 chars) in query → match
+
+    Returns: dict with {name, type, hint} or None if no match found.
+
+  list_ecus(ecu_path=None) -> None
+  ────────────────────────────────
+    Prints a formatted table of all ECU keys and names from dataecu.json.
+    Example output:
+      Key                  Name
+      ------------------------------------------------------------
+        bms                Battery Management System
+        infotainment       Infotainment Head Unit
+        gateway            Gateway / Domain Controller
+      Total: 50 ECU entries
+
+
+────────────────────────────────────────────────────────────────────────────────
+3.3  components.py — Core Components & Builders
+────────────────────────────────────────────────────────────────────────────────
+
+Purpose: Contains ECU resolution (duplicated from resolve_ecu.py for backward
+compatibility), UUID post-processing, enriched query builder, pinned doc
+assembly, and Haystack component factory functions.
+
+CONFIGURATION SECTION (lines 25-46):
+  Duplicates config.py values. Both files define the same paths and constants.
+  This exists because components.py was the original monolithic file before
+  config.py and resolve_ecu.py were separated out.
+
+FUNCTIONS:
+
+  resolve_ecu(query, ecu_path) → Same 6-pass algorithm as resolve_ecu.py
+  list_ecus(ecu_path) → Same table printer as resolve_ecu.py
+
+  build_enriched_query(user_query: str, ecu_entry: dict | None) -> str
+  ────────────────────────────────────────────────────────────────────
+    If an ECU was resolved, builds an enriched query that constrains the LLM:
+
+    Example with ecu_entry:
+      Input:  user_query = "Battery Management System"
+              ecu_entry  = {name: "Battery Management System", hint: "CellMonitoring, IO..."}
+      Output: "Battery Management System\n\n
+               AUTHORITATIVE ASSET LIST (from system dataecu specification) —
+               generate ONLY these assets, no others:
+               CellMonitoring, IO and Analog, Code Flash, ...\n\n
+               All threat analysis, damage scenarios, and edges must reference
+               ONLY the assets listed above."
+
+    If no ECU matched, returns the raw user_query unchanged.
+
+  stamp_uuids(obj: dict) -> dict
+  ──────────────────────────────
+    Recursively walks the entire JSON tree. Any field named "id", "_id", or
+    "model_id" that is empty, None, contains "PLACEHOLDER", or starts with "<"
+    gets replaced with a fresh uuid4 string.
+
+    Example:
+      Before: {"id": "", "name": "CAN Transceiver"}
+      After:  {"id": "a3f1c2d4-...", "name": "CAN Transceiver"}
+
+      Before: {"_id": "<PLACEHOLDER>", "model_id": ""}
+      After:  {"_id": "b7e2f8a1-...", "model_id": "c9d3e5f6-..."}
+
+  crosslink_node_ids(obj: dict) -> dict
+  ──────────────────────────────────────
+    After UUIDs are stamped on nodes, this function ensures that all
+    Derivations[].nodeId and Details[].cyberLosses[].nodeId reference
+    actual node IDs (not placeholders).
+
+    It builds a lookup: label → node_id, then for each derivation/cyberLoss,
+    if the nodeId is missing/placeholder, it looks up the asset name in the
+    label map and fills in the correct UUID.
+
+    Example:
+      Nodes: [{"id": "abc-123", "data": {"label": "CAN Transceiver"}}]
+      Derivation: {"asset": "CAN Transceiver", "nodeId": ""}
+      After: {"asset": "CAN Transceiver", "nodeId": "abc-123"}
+
+  _find_reports_db_model_name(all_docs, ecu_entry) -> str | None
+  ───────────────────────────────────────────────────────────────
+    Scans all REPORTS_DB documents to find which model name matches the
+    resolved ECU. Splits camelCase names AND underscore-separated names
+    into words, then checks if any significant word (>3 chars) appears
+    in the ECU name.
+
+    Example:
+      ECU name = "Battery Management System"
+      Model names in REPORTS_DB = {"BatteryManagement", "InfotainmentHeadUnit"}
+      "BatteryManagement" → splits to ["battery", "management"]
+      "battery" (>3 chars) is in "battery management system" → MATCH
+      Returns: "BatteryManagement"
+
+  build_pinned_docs(all_docs, ecu_entry) -> (list, str | None)
+  ─────────────────────────────────────────────────────────────
+    Extracts documents that MUST always appear in the LLM prompt:
+      Priority 1: full_file chunk (entire reference architecture)
+      Priority 2: ECU entry from dataecu.json
+      Priority 3: Individual REPORTS_DB chunks (nodes, edges, derivations)
+
+    Returns tuple of (pinned_docs_list, matched_model_name).
+
+  build_store(docs_subset, text_embedder=None)
+  ─────────────────────────────────────────────
+    Creates an InMemoryDocumentStore, embeds all documents using
+    SentenceTransformersDocumentEmbedder, and writes them to the store.
+    Returns (store, text_embedder).
+
+  build_threat_store(all_docs, text_embedder=None)
+  ─────────────────────────────────────────────────
+    Filters documents to keep ONLY threat-framework sources (MITRE, ATM,
+    CAPEC, CWE, ISO 21434, Annex F), then calls build_store().
+    ECU and REPORTS_DB docs are excluded because they're pinned separately.
+
+  build_retriever(store) → InMemoryEmbeddingRetriever with top_k=20
+  build_generator()      → GoogleAIGeminiGenerator (requires GOOGLE_API_KEY)
+
+
+────────────────────────────────────────────────────────────────────────────────
+3.4  ingest.py — Dataset Ingestion
+────────────────────────────────────────────────────────────────────────────────
+
+Purpose: Loads ALL datasets from disk and converts them into Haystack Document
+objects. Each Document has content (text) and metadata (source, type, etc.).
+
+HELPER FUNCTIONS:
+
+  _truncate(text, max_chars=1500) -> str
+    Truncates text to max_chars, cutting at the last sentence boundary.
+    Example: "First sentence. Second sentence. Third..." (if >1500 chars)
+             → cuts at last ". " within 1500 chars
+
+  _flatten_list(lst) -> list
+    Recursively flattens nested lists into a single flat list.
+    Example: [["a", "b"], "c", [["d"]]] → ["a", "b", "c", "d"]
+
+  _section_to_text(section, clause_id) -> str
+    Converts an ISO 21434 clause section (JSON dict) into readable text.
+    Handles content, requirements, recommendations, and nested subsections.
+
+  _clean_node_for_text(node) -> (label, desc, props, ntype)
+    Extracts key fields from a report node for text representation.
+
+INGESTION FUNCTIONS:
+
+  ingest_mitre(path, source) -> list[Document]
+  ──────────────────────────────────────────────
+    Loads MITRE ATT&CK JSON (Mobile or ICS). Filters for "attack-pattern"
+    objects only. Creates one Document per technique.
+
+    Example Document:
+      content: "MITRE Technique: Drive-By Compromise\nDescription: Adversaries may..."
+      meta: {"source": "MITRE_MOBILE", "stix_id": "attack-pattern--abc123"}
+
+  ingest_atm(path) -> list[Document]
+  ────────────────────────────────────
+    Loads Automotive Threat Matrix JSON. Same structure as MITRE but strips
+    HTML tags from descriptions using regex.
+
+    Example Document:
+      content: "ATM Technique: CAN Bus Flooding\nDescription: An attacker sends..."
+      meta: {"source": "ATM", "stix_id": "attack-pattern--xyz789"}
+
+  ingest_capec(xml_path) -> list[Document]
+  ─────────────────────────────────────────
+    Parses CAPEC XML. Each Attack_Pattern element becomes one Document.
+    Note: Name is an XML attribute (ap.get("Name")), not a child element.
+
+    Example Document:
+      content: "CAPEC-66: SQL Injection\nDescription: An attacker exploits..."
+      meta: {"source": "CAPEC", "capec_id": "66"}
+
+  ingest_cwe(xml_path) -> list[Document]
+  ───────────────────────────────────────
+    Parses CWE XML using lxml (handles huge 16MB file). Each Weakness element
+    becomes one Document.
+
+    Example Document:
+      content: "CWE-119: Improper Restriction of Operations\nDescription: The software..."
+      meta: {"source": "CWE", "cwe_id": "CWE-119"}
+
+  ingest_iso_clauses(clause_dir) -> list[Document]
+  ──────────────────────────────────────────────────
+    Reads each clause-*.json file from the clauses/ directory. Each section
+    within a clause becomes a separate Document (section-level chunking).
+
+    Example Document:
+      content: "ISO 21434 Clause 15 — Section 15.3: Threat Analysis..."
+      meta: {"source": "ISO_21434", "clause": "15", "section_id": "15.3"}
+
+  ingest_annex(annex_path) -> list[Document]
+  ───────────────────────────────────────────
+    Loads Annex F (impact rating guidelines). Each section becomes a Document,
+    including formatted tables for impact rating scales.
+
+  ingest_ecu(ecu_path) -> list[Document]
+  ───────────────────────────────────────
+    Loads dataecu.json. Each ECU entry (key-value pair) becomes one Document.
+    Example: key="bms", value={name, type, hint} → Document with JSON content.
+
+  ingest_reports_db(reports_path) -> list[Document]
+  ──────────────────────────────────────────────────
+    THE MOST COMPLEX INGESTION. Loads reference TARA reports (e.g., bms_1.json,
+    infotainment_2.json) and creates MULTIPLE chunk types per report:
+
+    Chunk Type 1 — "full_file":
+      The ENTIRE report serialized as compact JSON (visual fields stripped).
+      This is the primary context the LLM uses.
+      Created by _serialize_report_for_llm() which strips position/style noise.
+
+    Chunk Type 2 — "asset" (one per node):
+      Individual component descriptions.
+      Example: "Reference Component [BatteryManagement]: CellMonitoring
+               Type: default  IsAsset: false
+               Description: Monitors individual cell voltages...
+               Security Properties: Integrity, Availability"
+
+    Chunk Type 3 — "damage_derivation" (one per derivation):
+      Individual threat/weakness entries.
+      Example: "Reference Damage Derivation [BatteryManagement]:
+               Threat/Weakness: CAN Bus Spoofing
+               Affected Asset: CAN Transceiver
+               Cyber Loss: Integrity
+               Damage Scene: Unauthorized command injection"
+
+    Chunk Type 4 — "damage_detail" (one per damage scenario):
+      Detailed damage scenarios with impact ratings.
+
+    Chunk Type 5 — "hierarchy_summary":
+      Parent-child tree of the entire architecture in one chunk.
+      Example: "Architecture Hierarchy for [BatteryManagement]:
+                TOP: Battery Management System (type:group)
+                Battery Management System contains: MCU (type:group), CAN Transceiver..."
+
+    Chunk Type 6 — "edge_summary":
+      All connections in one chunk.
+      Example: "Edge connections for [BatteryManagement]:
+                SPI: CellMonitoring ↔ MCU (properties: Integrity)
+                CAN1: CAN Transceiver ↔ Vehicle CAN Bus (properties: Integrity)"
+
+    Helper functions for stripping visual noise:
+      _strip_node(node)  → Keeps only id, type, parentId, label, properties, description
+      _strip_edge(edge)  → Keeps only id, source, target, handles, protocol, properties
+      _strip_derivation(d) → Keeps name, asset, loss, damage_scene
+      _strip_detail(det)   → Keeps Name, Description, cyberLosses, impacts
+
+  load_all_documents() -> list[Document]
+  ───────────────────────────────────────
+    Master loader. Calls all ingest_* functions and merges results.
+    Prints a summary table of document counts per source.
+    Returns the complete list of all Documents.
+
+
+────────────────────────────────────────────────────────────────────────────────
+3.5  prompt.py — LLM Prompt Template
+────────────────────────────────────────────────────────────────────────────────
+
+Purpose: Contains the Jinja2 template (TARA_PROMPT_TEMPLATE) that is filled
+with retrieved documents and the enriched query, then sent to Gemini.
+
+The template has these sections:
+
+  ROLE: "You are an automotive cybersecurity analyst performing TARA..."
+
+  STRICT KNOWLEDGE RULES:
+    - Use ONLY information relevant to the TARGET SYSTEM
+    - Follow AUTHORITATIVE ASSET LIST exactly (no additions)
+    - If a FULL REFERENCE ARCHITECTURE block exists, reproduce it exactly
+    - Use REPORTS_DB as structural examples for other systems
+    - Prefer retrieved cybersecurity knowledge (CWE, CAPEC, MITRE)
+
+  SYSTEM REQUEST: {{question}} (filled with enriched_query)
+
+  CYBERSECURITY KNOWLEDGE CONTEXT:
+    {% for doc in documents %} ... {% endfor %}
+    (All pinned + retrieved documents are inserted here)
+
+  ARCHITECTURE RULES:
+    - GROUP nodes (type:"group") = invisible containers (dashed border)
+    - DEFAULT nodes (type:"default") = visible components
+    - DATA nodes (type:"data") = small circular data items (width:50, height:30)
+    - parentId hierarchy rules
+    - Edge labels must be short protocols: "SPI", "CAN1", not "Sends data to"
+    - Color coding by role (yellow=monitoring, green=security, red=debug, etc.)
+
+  TASK: 6-step instruction for what the LLM must do
+
+  IMPACT RATING: SFOP scale (Safety, Financial, Operational, Privacy)
+    Each rated: Negligible | Minor | Moderate | Major | Severe
+
+  STRICT OUTPUT FORMAT: Exact JSON schema with examples of all three node types
+
+  CONSTRAINTS: Final reminders (no extra components, correct parentId, etc.)
+
+
+────────────────────────────────────────────────────────────────────────────────
+3.6  pipeline.py — RAG Pipeline Assembly & Execution
+────────────────────────────────────────────────────────────────────────────────
+
+Purpose: Wires together all Haystack components and runs the two-phase query.
+
+FUNCTIONS:
+
+  build_pipeline(all_docs) -> (text_embedder, retriever, prompt_builder, generator)
+  ──────────────────────────────────────────────────────────────────────────────────
+    1. Calls build_threat_store(all_docs) → creates InMemoryDocumentStore
+       containing ONLY threat-framework docs (no ECU/REPORTS_DB)
+    2. Creates InMemoryEmbeddingRetriever on that store (top_k=20)
+    3. Creates GoogleAIGeminiGenerator
+    4. Creates PromptBuilder with TARA_PROMPT_TEMPLATE
+
+    Returns all four components as a tuple.
+
+  run_query(text_embedder, retriever, prompt_builder, generator,
+            user_query, enriched_query, pinned_docs) -> str
+  ───────────────────────────────────────────────────────
+    Executes the two-phase context strategy:
+
+    Phase 1 — Embed the plain user_query (e.g., "Battery Management System")
+              Using the plain query gives better retrieval accuracy than
+              the enriched query (which has too much text).
+
+    Phase 2 — Retrieve top-20 threat-framework documents by cosine similarity.
+
+    Merge — pinned_docs (ECU + REPORTS_DB) placed FIRST, then retrieved docs.
+            This ensures the LLM sees the architecture before threat knowledge.
+
+    Build prompt — Insert all docs + enriched_query into the Jinja2 template.
+
+    Generate — Send to Gemini, return the raw reply string.
+
+    Example flow:
+      user_query = "Battery Management System"
+      → embedding = [0.023, -0.041, ...] (384-dim vector)
+      → retrieved = [CWE-119 doc, CAPEC-66 doc, MITRE T1234 doc, ...]  (20 docs)
+      → all_context = [full_file_BMS, ecu_hint_BMS, ...] + retrieved  (30+ docs)
+      → prompt = filled template (~10,000 tokens)
+      → LLM output = raw JSON string
+
+
+────────────────────────────────────────────────────────────────────────────────
+3.7  postprocess.py — Post-Processing (UUID, Crosslink, Layout)
+────────────────────────────────────────────────────────────────────────────────
+
+Purpose: Cleans up the raw LLM output into production-ready JSON with valid
+UUIDs, cross-linked node references, and computed visualization positions.
+
+FUNCTIONS:
+
+  stamp_uuids(obj) → Same as components.py version (see 3.3)
+  crosslink_node_ids(obj) → Same as components.py version (see 3.3)
+
+  apply_layout(obj: dict) -> dict
+  ────────────────────────────────
+    Computes position and positionAbsolute for every node in the architecture.
+    The LLM is told NOT to generate positions — this function adds them after.
+
+    Layout constants:
+      _PAD     = 24px   (padding inside groups)
+      _COL_GAP = 20px   (horizontal gap between siblings)
+      _ROW_GAP = 20px   (vertical gap between rows)
+      _HEADER  = 36px   (space for group label)
+
+    Strategy:
+      1. Top-level system GROUP → placed at canvas origin (0, 0)
+      2. External nodes (parentId=null, type≠group) → stacked to the RIGHT
+         of the system group, each 30px apart vertically
+      3. Children of any group → arranged LEFT-TO-RIGHT in rows, wrapping
+         to next row when they'd overflow the parent's width
+      4. Sub-groups → placed below regular nodes, side by side
+      5. positionAbsolute → computed recursively:
+         absolute = parent's absolute + node's relative position
+
+    Example:
+      System Group (1041x510, at 0,0):
+        ├─ CellMonitoring (150x50) at relative (24, 60)
+        │   → absolute (24, 60)
+        ├─ IO_Analog (150x50) at relative (194, 60)
+        │   → absolute (194, 60)
+        ├─ MCU subgroup (300x200) at relative (24, 130)
+        │   ├─ Code Flash at relative (24, 60) inside MCU
+        │   │   → absolute (24+24, 130+60) = (48, 190)
+        │   └─ Keys at relative (194, 60) inside MCU
+        │       → absolute (24+194, 130+60) = (218, 190)
+      External: BatteryPack at absolute (1101, 40)  ← right of system group
+
+  parse_and_fix(raw_text: str) -> dict | None
+  ─────────────────────────────────────────────
+    Master post-processing entry point:
+      1. Strip markdown fences (```json ... ```)
+      2. Parse JSON
+      3. stamp_uuids() → fill all empty IDs
+      4. crosslink_node_ids() → link derivations to nodes
+      5. apply_layout() → compute positions
+    Returns the cleaned dict, or None on parse failure.
+
+  print_summary(tara_json) → Prints node/edge/derivation/detail counts
+
+
+────────────────────────────────────────────────────────────────────────────────
+3.8  main.py — CLI Entry Point
+────────────────────────────────────────────────────────────────────────────────
+
+Purpose: Command-line interface that orchestrates the entire pipeline.
+
+USAGE:
+  python main.py --query "Battery Management System ECU"
+  python main.py --query "Infotainment Head Unit" --output infotainment_tara.json
+  python main.py --list-ecus
+  python main.py --query "Gateway ECU" --no-save
+
+CLI ARGUMENTS:
+  --query, -q    : Target ECU or system name (required unless --list-ecus)
+  --output, -o   : Custom output filename (default: tara_output_<query>.json)
+  --no-save      : Print JSON to console only, don't save file
+  --list-ecus    : List all ECU keys from dataecu.json and exit
+
+MAIN FUNCTION FLOW:
+
+  Step 1/4 — Resolve ECU:
+    Calls resolve_ecu(user_query) to find the matching dataecu.json entry.
+    Then calls build_enriched_query() to create the constrained query.
+
+  Step 2/4 — Ingest:
+    Calls load_all_documents() to load all threat databases.
+    Step 2b: FILTERS OUT unrelated ECU docs — if user queried "BMS",
+    removes all ECU docs that don't contain "battery management system".
+    This prevents "ABS", "HVAC" etc. from leaking into the prompt.
+    Step 2c: Builds pinned docs (full architecture + ECU hint).
+
+  Step 3/4 — Build Pipeline:
+    Calls build_pipeline() to create embedder, retriever, prompt builder, generator.
+
+  Step 4/4 — Generate:
+    Calls run_query() with all components + enriched query + pinned docs.
+
+  Post-Processing:
+    Calls parse_and_fix() from postprocess.py (UUID stamping + layout).
+    Prints summary (node count, edge count, etc.).
+
+  Save Prompt (Debug):
+    Reconstructs the full prompt and saves to outputs/prompts/ for inspection.
+
+  Save Output:
+    Saves final JSON to outputs/tara/tara_output_<name>.json
+
+
+================================================================================
+4. DATASETS
+================================================================================
+
+Directory: rag_tara_gen/datasets/
+
+  mobileattack.json (4.4 MB)
+    MITRE ATT&CK for Mobile — attack techniques targeting mobile platforms.
+    Used because automotive infotainment systems share mobile threat vectors.
+
+  icsattack.json (3.1 MB)
+    MITRE ATT&CK for ICS — attack techniques targeting industrial control systems.
+    Relevant because automotive ECUs are essentially embedded control systems.
+
+  atm.json (289 KB)
+    Automotive Threat Matrix — automotive-specific attack techniques.
+    Directly maps to vehicle threat scenarios.
+
+  capec.xml (3.8 MB)
+    Common Attack Pattern Enumeration and Classification v3.
+    Provides structured attack patterns (e.g., SQL injection, buffer overflow).
+
+  cwec.xml (16 MB)
+    Common Weakness Enumeration v4.
+    Provides software/hardware weakness definitions (root causes of attacks).
+
+  dataecu.json (14 KB)
+    50 automotive ECU/system definitions. Each entry has:
+      - name: Human-readable name
+      - type: "ecu" or "system"
+      - hint: Detailed component list, hierarchy, and edge definitions
+
+  annex.json (5.5 KB)
+    ISO 21434 Annex F — Guidelines for Impact Rating.
+    Contains SFOP impact tables used for rating damage scenarios.
+
+  clauses/ (7 JSON files)
+    ISO 21434 clauses 5, 6, 8, 9, 10, 11, 15 in structured JSON format.
+    Each file contains sections, requirements, and recommendations.
+
+  reports_db/ (reference architectures)
+    Contains pre-built TARA reports used as reference architectures:
+      - bms_1.json: Battery Management System reference
+      - infotainment_2.json: Infotainment Head Unit reference
+      - abs_1.json: Anti-lock Braking System reference
+    These serve as "gold standard" examples the LLM can replicate.
+
+
+================================================================================
+5. OUTPUT JSON STRUCTURE
+================================================================================
+
+The generated TARA report has two main sections:
+
+{
+  "assets": {
+    "_id": "<uuid>",
+    "model_id": "<uuid>",
+    "template": {
+      "nodes": [
+        // GROUP node (invisible container)
+        {
+          "id": "<uuid>",
+          "type": "group",
+          "parentId": null,           ← top-level
+          "data": {"label": "Battery Management System", "nodeCount": 7},
+          "properties": ["Integrity", "Authenticity"],
+          "position": {"x": 0, "y": 0},
+          "positionAbsolute": {"x": 0, "y": 0}
+        },
+        // DEFAULT node (visible component)
+        {
+          "id": "<uuid>",
+          "type": "default",
+          "parentId": "<group-uuid>",  ← belongs to the system group
+          "isAsset": false,
+          "data": {"label": "CellMonitoring", "style": {"backgroundColor": "#e6df19"}},
+          "properties": ["Integrity", "Availability"]
+        },
+        // DATA node (small data item)
+        {
+          "id": "<uuid>",
+          "type": "data",
+          "parentId": "<group-uuid>",
+          "data": {"label": "SoC", "style": {"backgroundColor": "#e3e896"}}
+        }
+      ],
+      "edges": [
+        {
+          "id": "<uuid>",
+          "source": "<node-id>",
+          "target": "<node-id>",
+          "data": {"label": "SPI"},    ← short protocol name
+          "properties": ["Integrity"]
+        }
+      ]
+    }
+  },
+  "damage_scenarios": {
+    "_id": "<uuid>",
+    "type": "damage",
+    "Derivations": [
+      {
+        "id": "<uuid>",
+        "nodeId": "<linked-to-node-uuid>",
+        "name": "CAN Bus Spoofing",
+        "asset": "CAN Transceiver",
+        "loss": "Integrity",
+        "damage_scene": "Unauthorized command injection"
+      }
+    ],
+    "Details": [
+      {
+        "_id": "<uuid>",
+        "Name": "CAN Bus Attack",
+        "Description": "Attacker replays CAN frames...",
+        "cyberLosses": [
+          {"id": "<uuid>", "name": "Integrity", "node": "CAN Transceiver", "nodeId": "<uuid>"}
+        ],
+        "impacts": {
+          "Safety Impact": "Major",
+          "Financial Impact": "Moderate",
+          "Operational Impact": "Major",
+          "Privacy Impact": "Negligible"
+        }
+      }
+    ]
+  }
+}
+
+
+================================================================================
+6. CHANGELOG SUMMARY
+================================================================================
+
+v2.4 (2026-03-30) — REPORTS_DB Matching Fix for Infotainment:
+  - Fixed _find_reports_db_model_name(): added .replace('_', ' ') so underscore-
+    separated model IDs like "model_id_infotainment" are tokenized correctly.
+  - Replaced infotainment_1.json with infotainment_2.json using proper camelCase
+    model_id "InfotainmentHeadUnit".
+
+v2.3 (2026-03-26) — CAPEC Fix, Output Organisation, Infotainment Reference:
+  - Fixed ingest_capec(): CAPEC Name is an XML attribute, not child element.
+  - Fixed positions bug: parse_and_fix now imported from postprocess.py (has layout).
+  - Added ECU doc filter to strip unrelated ECU docs from context.
+  - Output folders reorganised into outputs/tara/ and outputs/prompts/.
+  - Infotainment dataecu hint rewritten with precise definitions.
+  - infotainment_1.json rebuilt with 21 nodes, 12 edges, 52 derivations.
+  - Added abs_1.json reference architecture.
+
+v2.1 (2026-03-22) — Architecture Accuracy Improvements:
+  - Updated BMS dataecu hint with exact component names and hierarchy.
+  - Rewrote prompt template with ARCHITECTURE RULES section.
+  - Added hierarchy_summary and edge_summary chunk types in ingest.py.
+
+================================================================================
+END OF EXPLANATION
+================================================================================

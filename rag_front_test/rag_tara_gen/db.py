@@ -19,7 +19,12 @@ except ImportError:
     _PYMONGO_AVAILABLE = False
 
 
-MONGO_URI  = os.environ.get("MONGO_URI", "mongodb://localhost:27017")
+# Accept both MONGODB_URI (Atlas standard) and MONGO_URI
+MONGO_URI  = (
+    os.environ.get("MONGODB_URI")
+    or os.environ.get("MONGO_URI")
+    or "mongodb://localhost:27017"
+)
 DB_NAME    = "tara_db"
 COLLECTION = "reports"
 
@@ -65,19 +70,19 @@ def save_report(tara_json: dict, query_name: str, ecu_name: str = "") -> str | N
 
         if report_id:
             col.replace_one({"assets._id": report_id}, doc, upsert=True)
-            print(f"  🍃 MongoDB: upserted report  (assets._id={report_id})")
+            print(f"  [DB] upserted report  (assets._id={report_id})")
         else:
             result = col.insert_one(doc)
             report_id = str(result.inserted_id)
-            print(f"  🍃 MongoDB: inserted report  (_id={report_id})")
+            print(f"  [DB] inserted report  (_id={report_id})")
 
         return str(report_id)
 
     except (ConnectionFailure, ServerSelectionTimeoutError) as e:
-        print(f"  ⚠️  MongoDB not reachable — skipping DB save: {e}")
+        print(f"  [WARN] MongoDB not reachable - skipping DB save: {e}")
         return None
     except Exception as e:
-        print(f"  ⚠️  MongoDB save failed: {e}")
+        print(f"  [WARN] MongoDB save failed: {e}")
         return None
 
 
@@ -97,6 +102,10 @@ def list_reports(limit: int = 100) -> list[dict]:
                 "assets.template.edges": 1,
                 "damage_scenarios.Derivations": 1,
                 "damage_scenarios.Details": 1,
+                "item_definition": 1,
+                "attacks.scenes": 1,
+                "threat_scenarios.Details": 1,
+                "cybersecurity.scenes": 1,
             }
         ).sort("_saved_at", DESCENDING).limit(limit)
 
@@ -106,16 +115,24 @@ def list_reports(limit: int = 100) -> list[dict]:
             edges    = doc.get("assets", {}).get("template", {}).get("edges", [])
             derivs   = doc.get("damage_scenarios", {}).get("Derivations", [])
             details  = doc.get("damage_scenarios", {}).get("Details", [])
+            item_def = doc.get("item_definition", [])
+            attacks  = doc.get("attacks", {}).get("scenes", [])
+            threats  = doc.get("threat_scenarios", {}).get("Details", [])
+            cs_reqs  = doc.get("cybersecurity", {}).get("scenes", [])
             results.append({
-                "_id":        str(doc["_id"]),
-                "assets_id":  doc.get("assets", {}).get("_id", ""),
-                "query":      doc.get("_query", ""),
-                "ecu_name":   doc.get("_ecu_name", ""),
-                "saved_at":   doc.get("_saved_at", ""),
-                "node_count": len(nodes),
-                "edge_count": len(edges),
-                "deriv_count":  len(derivs),
-                "detail_count": len(details),
+                "_id":            str(doc["_id"]),
+                "assets_id":      doc.get("assets", {}).get("_id", ""),
+                "query":          doc.get("_query", ""),
+                "ecu_name":       doc.get("_ecu_name", ""),
+                "saved_at":       doc.get("_saved_at", ""),
+                "node_count":     len(nodes),
+                "edge_count":     len(edges),
+                "deriv_count":    len(derivs),
+                "detail_count":   len(details),
+                "item_def_count": len(item_def),
+                "attack_count":   len(attacks),
+                "threat_count":   len(threats),
+                "cs_req_count":   len(cs_reqs),
             })
         return results
     except Exception as e:
