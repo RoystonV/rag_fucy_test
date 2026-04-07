@@ -1,1136 +1,2663 @@
 {
-  "assets": {
-    "_id": "66265e3233929b9925994372",
-    "user_id": "user1",
-    "model_id": "InfotainmentHeadUnit",
-    "template": {
-      "nodes": [
+  "Models": [
+    {
+      "_id": "infotainment_model_001",
+      "user_id": "user_id_123",
+      "name": "InfotainmentHeadUnit",
+      "template": [],
+      "created_by": "system",
+      "Created_at": "2025-03-23T08:00:00.000Z",
+      "last_updated": "2025-03-23T08:00:00.000Z",
+      "status": 1
+    }
+  ],
+  "Assets": [
+    {
+      "_id": "infotainment_asset_001",
+      "user_id": "user_id_123",
+      "model_id": "infotainment_model_001",
+      "template": {
+        "nodes": [
+          {
+            "id": "infotainment-ecu-group",
+            "type": "group",
+            "parentId": null,
+            "isAsset": false,
+            "data": {
+              "label": "Infotainment Head Unit",
+              "nodeCount": 12,
+              "style": {
+                "background": "rgba(33,150,243,0.05)",
+                "border": "1px dashed #2196F3",
+                "borderRadius": "8px",
+                "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+                "height": 560,
+                "width": 1100
+              }
+            },
+            "properties": [
+              "Integrity",
+              "Authenticity",
+              "Confidentiality"
+            ],
+            "position": {
+              "x": -120,
+              "y": -60
+            },
+            "positionAbsolute": {
+              "x": -120,
+              "y": -60
+            },
+            "style": {
+              "height": 560,
+              "width": 1100
+            },
+            "width": 1100,
+            "height": 560,
+            "zIndex": 0,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "soc-group",
+            "type": "group",
+            "parentId": "infotainment-ecu-group",
+            "isAsset": false,
+            "data": {
+              "label": "",
+              "nodeCount": 5,
+              "style": {
+                "background": "rgba(33,150,243,0.05)",
+                "border": "1px dashed #2196F3",
+                "borderRadius": "8px",
+                "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
+                "height": 260,
+                "width": 320
+              }
+            },
+            "properties": [],
+            "position": {
+              "x": 400,
+              "y": 60
+            },
+            "positionAbsolute": {
+              "x": 400,
+              "y": 60
+            },
+            "style": {
+              "height": 260,
+              "width": 320
+            },
+            "width": 320,
+            "height": 260,
+            "zIndex": 1,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "head-unit-os",
+            "type": "default",
+            "parentId": "infotainment-ecu-group",
+            "isAsset": false,
+            "data": {
+              "label": "Head Unit OS",
+              "description": "Linux-based RTOS (e.g., AGL / Android Automotive OS) managing process scheduling, memory, drivers, and security policy enforcement on the SoC. Runs hypervisor partitions for safety and infotainment domains.",
+              "style": {
+                "backgroundColor": "#dadada",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "fontWeight": 500,
+                "height": 50,
+                "width": 160
+              }
+            },
+            "properties": [
+              "Integrity",
+              "Confidentiality",
+              "Availability"
+            ],
+            "position": {
+              "x": 80,
+              "y": 80
+            },
+            "positionAbsolute": {
+              "x": 80,
+              "y": 80
+            },
+            "style": {
+              "height": 50,
+              "width": 160
+            },
+            "width": 160,
+            "height": 50,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "bluetooth-wifi-stacks",
+            "type": "default",
+            "parentId": "infotainment-ecu-group",
+            "isAsset": false,
+            "data": {
+              "label": "Bluetooth/Wi-Fi Stacks",
+              "description": "Dual-mode wireless protocol stacks supporting BT 5.2 (A2DP, HFP, AVRCP, PBAP) and IEEE 802.11ac Wi-Fi. Handles pairing, bonding key storage, RF proximity-based attacks surface, and OTA data bridging. Exposes RFCOMM and L2CAP channels.",
+              "style": {
+                "backgroundColor": "#e6df19",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "fontWeight": 500,
+                "height": 50,
+                "width": 160
+              }
+            },
+            "properties": [
+              "Integrity",
+              "Confidentiality",
+              "Availability"
+            ],
+            "position": {
+              "x": 80,
+              "y": 160
+            },
+            "positionAbsolute": {
+              "x": 80,
+              "y": 160
+            },
+            "style": {
+              "height": 50,
+              "width": 160
+            },
+            "width": 160,
+            "height": 50,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "usb-driver-stack",
+            "type": "default",
+            "parentId": "infotainment-ecu-group",
+            "isAsset": false,
+            "data": {
+              "label": "USB Driver Stack",
+              "description": "USB 3.0/2.0 host and device mode driver handling MTP, Android Auto, Apple CarPlay, and mass-storage enumeration. Physical port accessible to any connected device; primary vector for media injection and firmware staging attacks.",
+              "style": {
+                "backgroundColor": "#e2dfc1",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "fontWeight": 500,
+                "height": 50,
+                "width": 160
+              }
+            },
+            "properties": [
+              "Integrity",
+              "Confidentiality",
+              "Availability"
+            ],
+            "position": {
+              "x": 80,
+              "y": 240
+            },
+            "positionAbsolute": {
+              "x": 80,
+              "y": 240
+            },
+            "style": {
+              "height": 50,
+              "width": 160
+            },
+            "width": 160,
+            "height": 50,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "telephony-stacks",
+            "type": "default",
+            "parentId": "infotainment-ecu-group",
+            "isAsset": false,
+            "data": {
+              "label": "Telephony Stacks",
+              "description": "4G/LTE or 5G modem abstraction layer including RIL (Radio Interface Layer), SMS, voice call routing, and telematics data plane. If SIM-enabled, exposes remote SMS command injection surface and over-the-air carrier exploits.",
+              "style": {
+                "backgroundColor": "#dadada",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "fontWeight": 500,
+                "height": 50,
+                "width": 160
+              }
+            },
+            "properties": [
+              "Integrity",
+              "Confidentiality",
+              "Availability"
+            ],
+            "position": {
+              "x": 80,
+              "y": 320
+            },
+            "positionAbsolute": {
+              "x": 80,
+              "y": 320
+            },
+            "style": {
+              "height": 50,
+              "width": 160
+            },
+            "width": 160,
+            "height": 50,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "application-layer-code",
+            "type": "default",
+            "parentId": "soc-group",
+            "isAsset": false,
+            "data": {
+              "label": "Application Layer Code",
+              "description": "Signed OEM application binaries running in user space: media player, maps, voice assistant, and OEM store. Code Flash equivalent — if unsigned or improperly verified, subject to arbitrary code execution via malicious app sideloading.",
+              "style": {
+                "backgroundColor": "#ccc8ea",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "height": 50,
+                "width": 120
+              }
+            },
+            "properties": [
+              "Confidentiality",
+              "Integrity",
+              "Availability",
+              "Authenticity"
+            ],
+            "position": {
+              "x": 420,
+              "y": 80
+            },
+            "positionAbsolute": {
+              "x": 420,
+              "y": 80
+            },
+            "style": {
+              "height": 50,
+              "width": 120
+            },
+            "width": 120,
+            "height": 50,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "navigation-data",
+            "type": "data",
+            "parentId": "soc-group",
+            "isAsset": true,
+            "data": {
+              "label": "Navigation Data",
+              "description": "Stored map tiles, POI databases, last-known-location history, frequently-visited destinations, and route cache. Privacy-sensitive; if exfiltrated reveals driver habits and home address. Integrity loss causes map poisoning.",
+              "style": {
+                "backgroundColor": "#e3e896",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "fontWeight": 500,
+                "height": 34,
+                "width": 120
+              }
+            },
+            "properties": [
+              "Authenticity",
+              "Integrity",
+              "Confidentiality"
+            ],
+            "position": {
+              "x": 560,
+              "y": 90
+            },
+            "positionAbsolute": {
+              "x": 560,
+              "y": 90
+            },
+            "style": {
+              "height": 34,
+              "width": 120
+            },
+            "width": 120,
+            "height": 34,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "pii-user-profiles",
+            "type": "data",
+            "parentId": "soc-group",
+            "isAsset": true,
+            "data": {
+              "label": "PII / User Profiles",
+              "description": "Synchronized cloud profile data including driver contact lists (PBAP), call history, SMS messages, linked accounts (Spotify/Google), biometric seat/mirror preferences, and payment tokens for toll or EV charging services.",
+              "style": {
+                "backgroundColor": "#e6ed7d",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "fontWeight": 500,
+                "height": 34,
+                "width": 120
+              }
+            },
+            "properties": [
+              "Authenticity",
+              "Integrity",
+              "Confidentiality"
+            ],
+            "position": {
+              "x": 560,
+              "y": 145
+            },
+            "positionAbsolute": {
+              "x": 560,
+              "y": 145
+            },
+            "style": {
+              "height": 34,
+              "width": 120
+            },
+            "width": 120,
+            "height": 34,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "ota-update-client",
+            "type": "default",
+            "parentId": "soc-group",
+            "isAsset": false,
+            "data": {
+              "label": "OTA Update Client",
+              "description": "FOTA/SOTA agent responsible for downloading, verifying (code-signature), and applying software updates over cellular or Wi-Fi. If signature verification is bypassed or the channel is MITM'd, allows persistent malicious firmware installation.",
+              "style": {
+                "backgroundColor": "#e26a6a",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "height": 40,
+                "width": 120
+              }
+            },
+            "properties": [
+              "Integrity",
+              "Availability",
+              "Authenticity",
+              "Authorization"
+            ],
+            "position": {
+              "x": 420,
+              "y": 175
+            },
+            "positionAbsolute": {
+              "x": 420,
+              "y": 175
+            },
+            "style": {
+              "height": 40,
+              "width": 120
+            },
+            "width": 120,
+            "height": 40,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "can-gateway",
+            "type": "default",
+            "parentId": "infotainment-ecu-group",
+            "isAsset": false,
+            "data": {
+              "label": "CAN Gateway",
+              "description": "Software/hardware gateway translating infotainment requests (e.g. climate, seat, vehicle speed display) to in-vehicle CAN or LIN frames. Acts as a trust boundary — a compromised IHU can leverage this to inject off-domain CAN messages into powertrain or body networks.",
+              "style": {
+                "backgroundColor": "#accd32",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "fontWeight": 500,
+                "height": 50,
+                "width": 155
+              }
+            },
+            "properties": [
+              "Integrity",
+              "Confidentiality",
+              "Availability",
+              "Authorization"
+            ],
+            "position": {
+              "x": 800,
+              "y": 160
+            },
+            "positionAbsolute": {
+              "x": 800,
+              "y": 160
+            },
+            "style": {
+              "height": 50,
+              "width": 155
+            },
+            "width": 155,
+            "height": 50,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "audio-amplifier",
+            "type": "default",
+            "parentId": "infotainment-ecu-group",
+            "isAsset": false,
+            "data": {
+              "label": "Audio Amplifier",
+              "description": "Digital Signal Processor (DSP) and Class-D power amplifier driving up to 8 speakers at rated SPL. Receives I2S/TDM audio from the SoC. Susceptible to acoustic DoS (e.g., max-volume injection) or clipping attacks that damage speakers via corrupted DSP configuration.",
+              "style": {
+                "backgroundColor": "#e2dfc1",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "fontWeight": 500,
+                "height": 50,
+                "width": 155
+              }
+            },
+            "properties": [
+              "Integrity",
+              "Availability"
+            ],
+            "position": {
+              "x": 800,
+              "y": 280
+            },
+            "positionAbsolute": {
+              "x": 800,
+              "y": 280
+            },
+            "style": {
+              "height": 50,
+              "width": 155
+            },
+            "width": 155,
+            "height": 50,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "external-cloud-backend",
+            "type": "default",
+            "parentId": null,
+            "isAsset": false,
+            "data": {
+              "label": "Cloud / OEM Backend",
+              "description": "OEM server infrastructure hosting OTA update manifests, map data, connected-services APIs (remote start, geofence), and analytics telemetry. Compromise of the backend propagates to all fielded vehicles.",
+              "style": {
+                "backgroundColor": "#dadada",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "fontWeight": 500,
+                "height": 55,
+                "width": 160
+              }
+            },
+            "properties": [
+              "Integrity",
+              "Confidentiality",
+              "Availability"
+            ],
+            "position": {
+              "x": 1100,
+              "y": 60
+            },
+            "positionAbsolute": {
+              "x": 1100,
+              "y": 60
+            },
+            "style": {
+              "height": 55,
+              "width": 160
+            },
+            "width": 160,
+            "height": 55,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          },
+          {
+            "id": "vehicle-network",
+            "type": "default",
+            "parentId": null,
+            "isAsset": false,
+            "data": {
+              "label": "Vehicle CAN / LIN / Ethernet",
+              "description": "In-vehicle network backbone shared with ADAS, BCM, Powertrain, and HVAC ECUs. The IHU's CAN gateway is an ingress point into this domain — lateral movement from infotainment to safety-critical ECUs is the primary systemic risk.",
+              "style": {
+                "backgroundColor": "#dadada",
+                "borderColor": "gray",
+                "borderStyle": "solid",
+                "borderWidth": "2px",
+                "color": "black",
+                "fontFamily": "Inter",
+                "fontSize": "12px",
+                "fontWeight": 500,
+                "height": 400,
+                "width": 160
+              }
+            },
+            "properties": [
+              "Integrity",
+              "Availability"
+            ],
+            "position": {
+              "x": 1100,
+              "y": 160
+            },
+            "positionAbsolute": {
+              "x": 1100,
+              "y": 160
+            },
+            "style": {
+              "height": 400,
+              "width": 160
+            },
+            "width": 160,
+            "height": 400,
+            "dragging": false,
+            "selected": false,
+            "resizing": false
+          }
+        ],
+        "edges": [
+          {
+            "id": "edge-ht-os-soc",
+            "source": "head-unit-os",
+            "target": "soc-group",
+            "type": "step",
+            "animated": true,
+            "properties": [
+              "Integrity"
+            ],
+            "data": {
+              "label": "Syscall/HAL",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2,
+              "strokeDasharray": "0"
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18,
+              "orient": "auto-start-reverse"
+            }
+          },
+          {
+            "id": "edge-bt-soc",
+            "source": "bluetooth-wifi-stacks",
+            "target": "soc-group",
+            "type": "step",
+            "animated": true,
+            "properties": [
+              "Integrity",
+              "Confidentiality"
+            ],
+            "data": {
+              "label": "BT/WiFi Data",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2,
+              "strokeDasharray": "0"
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18,
+              "orient": "auto-start-reverse"
+            }
+          },
+          {
+            "id": "edge-usb-soc",
+            "source": "usb-driver-stack",
+            "target": "soc-group",
+            "type": "step",
+            "animated": true,
+            "properties": [
+              "Integrity"
+            ],
+            "data": {
+              "label": "USB",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2,
+              "strokeDasharray": "0"
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18,
+              "orient": "auto-start-reverse"
+            }
+          },
+          {
+            "id": "edge-tel-soc",
+            "source": "telephony-stacks",
+            "target": "soc-group",
+            "type": "step",
+            "animated": true,
+            "properties": [
+              "Integrity",
+              "Confidentiality"
+            ],
+            "data": {
+              "label": "Cellular/LTE",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2,
+              "strokeDasharray": "0"
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18,
+              "orient": "auto-start-reverse"
+            }
+          },
+          {
+            "id": "edge-soc-can",
+            "source": "soc-group",
+            "target": "can-gateway",
+            "type": "step",
+            "animated": true,
+            "properties": [
+              "Integrity",
+              "Authorization"
+            ],
+            "data": {
+              "label": "CAN_Internal",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2,
+              "strokeDasharray": "0"
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18,
+              "orient": "auto-start-reverse"
+            }
+          },
+          {
+            "id": "edge-soc-audio",
+            "source": "soc-group",
+            "target": "audio-amplifier",
+            "type": "step",
+            "animated": true,
+            "properties": [
+              "Integrity",
+              "Availability"
+            ],
+            "data": {
+              "label": "I2S_Audio",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2,
+              "strokeDasharray": "0"
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18,
+              "orient": "auto-start-reverse"
+            }
+          },
+          {
+            "id": "edge-ota-cloud",
+            "source": "ota-update-client",
+            "target": "external-cloud-backend",
+            "type": "step",
+            "animated": true,
+            "properties": [
+              "Integrity",
+              "Authenticity",
+              "Confidentiality"
+            ],
+            "data": {
+              "label": "HTTPS/TLS",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2,
+              "strokeDasharray": "0"
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18,
+              "orient": "auto-start-reverse"
+            }
+          },
+          {
+            "id": "edge-can-vnet",
+            "source": "can-gateway",
+            "target": "vehicle-network",
+            "type": "step",
+            "animated": true,
+            "properties": [
+              "Integrity",
+              "Availability"
+            ],
+            "data": {
+              "label": "CAN_Bus",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2,
+              "strokeDasharray": "0"
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18,
+              "orient": "auto-start-reverse"
+            }
+          },
+          {
+            "id": "edge-app-navdata",
+            "source": "application-layer-code",
+            "target": "navigation-data",
+            "type": "step",
+            "animated": true,
+            "properties": [
+              "Integrity"
+            ],
+            "data": {
+              "label": "ReadWrite_NVM",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            }
+          },
+          {
+            "id": "edge-app-pii",
+            "source": "application-layer-code",
+            "target": "pii-user-profiles",
+            "type": "step",
+            "animated": true,
+            "properties": [
+              "Confidentiality"
+            ],
+            "data": {
+              "label": "PII_Access",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            }
+          }
+        ]
+      },
+      "asset_name": null,
+      "asset_properties": null,
+      "Details": [
         {
-          "id": "infotainment-ecu-group",
+          "nodeId": "infotainment-ecu-group",
+          "name": "Infotainment Head Unit",
+          "desc": "Central entertainment and connectivity ECU combining SoC, wireless radios, telephony modem, and vehicle network gateway.",
           "type": "group",
-          "parentId": null,
-          "data": {
-            "label": "Infotainment Head Unit",
-            "nodeCount": 9,
-            "style": {
-              "background": "rgba(33,150,243,0.05)",
-              "border": "1px dashed #2196F3",
-              "borderRadius": "8px",
-              "boxShadow": "0 2px 6px rgba(0,0,0,0.1)",
-              "height": 510,
-              "width": 1041
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "ihu-prop-integrity"
+            },
+            {
+              "name": "Authenticity",
+              "id": "ihu-prop-authenticity"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "ihu-prop-confidentiality"
             }
-          },
-          "properties": [
-            "Integrity",
-            "Authenticity"
-          ],
-          "style": {
-            "width": 1041,
-            "height": 510
-          },
-          "position": {
-            "x": 100,
-            "y": 100
-          },
-          "positionAbsolute": {
-            "x": 100,
-            "y": 100
-          },
-          "width": 1041,
-          "height": 510,
-          "zIndex": 0
+          ]
         },
-        {
-          "id": "head-unit-os",
-          "type": "default",
-          "parentId": "infotainment-ecu-group",
-          "isAsset": false,
-          "data": {
-            "label": "Head unit OS",
-            "description": "The operating system of the infotainment head unit.",
-            "style": {
-              "backgroundColor": "#dadada",
-              "borderColor": "gray",
-              "borderStyle": "solid",
-              "borderWidth": "2px",
-              "color": "black",
-              "fontFamily": "Inter",
-              "fontSize": "12px",
-              "fontWeight": 500,
-              "height": 50,
-              "width": 150
-            }
-          },
-          "properties": [
-            "Integrity",
-            "Confidentiality",
-            "Availability"
-          ],
-          "style": {
-            "width": 150,
-            "height": 50
-          },
-          "position": {
-            "x": 200,
-            "y": 150
-          },
-          "positionAbsolute": {
-            "x": 300,
-            "y": 250
-          },
-          "width": 150,
-          "height": 50,
-          "zIndex": 1
-        },
-        {
-          "id": "bluetooth-wifi-stacks",
-          "type": "default",
-          "parentId": "infotainment-ecu-group",
-          "isAsset": false,
-          "data": {
-            "label": "Bluetooth/Wi-Fi stacks",
-            "description": "Software stacks for Bluetooth and Wi-Fi communication.",
-            "style": {
-              "backgroundColor": "#dadada",
-              "borderColor": "gray",
-              "borderStyle": "solid",
-              "borderWidth": "2px",
-              "color": "black",
-              "fontFamily": "Inter",
-              "fontSize": "12px",
-              "fontWeight": 500,
-              "height": 50,
-              "width": 150
-            }
-          },
-          "properties": [
-            "Integrity",
-            "Confidentiality",
-            "Availability"
-          ],
-          "style": {
-            "width": 150,
-            "height": 50
-          },
-          "position": {
-            "x": 200,
-            "y": 220
-          },
-          "positionAbsolute": {
-            "x": 300,
-            "y": 320
-          },
-          "width": 150,
-          "height": 50,
-          "zIndex": 2
-        },
-        {
-          "id": "usb-driver-stack",
-          "type": "default",
-          "parentId": "infotainment-ecu-group",
-          "isAsset": false,
-          "data": {
-            "label": "USB driver stack",
-            "description": "Driver stack for USB interface.",
-            "style": {
-              "backgroundColor": "#dadada",
-              "borderColor": "gray",
-              "borderStyle": "solid",
-              "borderWidth": "2px",
-              "color": "black",
-              "fontFamily": "Inter",
-              "fontSize": "12px",
-              "fontWeight": 500,
-              "height": 50,
-              "width": 150
-            }
-          },
-          "properties": [
-            "Integrity",
-            "Confidentiality",
-            "Availability"
-          ],
-          "style": {
-            "width": 150,
-            "height": 50
-          },
-          "position": {
-            "x": 200,
-            "y": 290
-          },
-          "positionAbsolute": {
-            "x": 300,
-            "y": 390
-          },
-          "width": 150,
-          "height": 50,
-          "zIndex": 3
-        },
-        {
-          "id": "telephony-stacks",
-          "type": "default",
-          "parentId": "infotainment-ecu-group",
-          "isAsset": false,
-          "data": {
-            "label": "Telephony stacks",
-            "description": "Software stacks for telephony communication.",
-            "style": {
-              "backgroundColor": "#dadada",
-              "borderColor": "gray",
-              "borderStyle": "solid",
-              "borderWidth": "2px",
-              "color": "black",
-              "fontFamily": "Inter",
-              "fontSize": "12px",
-              "fontWeight": 500,
-              "height": 50,
-              "width": 150
-            }
-          },
-          "properties": [
-            "Integrity",
-            "Confidentiality",
-            "Availability"
-          ],
-          "style": {
-            "width": 150,
-            "height": 50
-          },
-          "position": {
-            "x": 200,
-            "y": 360
-          },
-          "positionAbsolute": {
-            "x": 300,
-            "y": 460
-          },
-          "width": 150,
-          "height": 50,
-          "zIndex": 4
-        },
-        {
-          "id": "application-layer-code",
-          "type": "default",
-          "parentId": "infotainment-ecu-group",
-          "isAsset": false,
-          "data": {
-            "label": "Application layer code",
-            "description": "The application software running on the head unit.",
-            "style": {
-              "backgroundColor": "#dadada",
-              "borderColor": "gray",
-              "borderStyle": "solid",
-              "borderWidth": "2px",
-              "color": "black",
-              "fontFamily": "Inter",
-              "fontSize": "12px",
-              "fontWeight": 500,
-              "height": 50,
-              "width": 150
-            }
-          },
-          "properties": [
-            "Integrity",
-            "Confidentiality",
-            "Availability"
-          ],
-          "style": {
-            "width": 150,
-            "height": 50
-          },
-          "position": {
-            "x": 500,
-            "y": 150
-          },
-          "positionAbsolute": {
-            "x": 600,
-            "y": 250
-          },
-          "width": 150,
-          "height": 50,
-          "zIndex": 5
-        },
-        {
-          "id": "navigation-data",
-          "type": "data",
-          "parentId": "infotainment-ecu-group",
-          "isAsset": true,
-          "data": {
-            "label": "Navigation data",
-            "style": {
-              "backgroundColor": "#e3e896",
-              "borderColor": "gray",
-              "borderStyle": "solid",
-              "borderWidth": "2px",
-              "color": "black",
-              "fontFamily": "Inter",
-              "fontSize": "12px",
-              "fontWeight": 500,
-              "height": 30,
-              "width": 50
-            }
-          },
-          "properties": [
-            "Authenticity",
-            "Integrity",
-            "Confidentiality"
-          ],
-          "style": {
-            "width": 50,
-            "height": 30
-          },
-          "position": {
-            "x": 500,
-            "y": 220
-          },
-          "positionAbsolute": {
-            "x": 600,
-            "y": 320
-          },
-          "width": 50,
-          "height": 30,
-          "zIndex": 6
-        },
-        {
-          "id": "pii-user-profiles",
-          "type": "data",
-          "parentId": "infotainment-ecu-group",
-          "isAsset": true,
-          "data": {
-            "label": "PII (User profiles)",
-            "style": {
-              "backgroundColor": "#e3e896",
-              "borderColor": "gray",
-              "borderStyle": "solid",
-              "borderWidth": "2px",
-              "color": "black",
-              "fontFamily": "Inter",
-              "fontSize": "12px",
-              "fontWeight": 500,
-              "height": 30,
-              "width": 50
-            }
-          },
-          "properties": [
-            "Authenticity",
-            "Integrity",
-            "Confidentiality"
-          ],
-          "style": {
-            "width": 50,
-            "height": 30
-          },
-          "position": {
-            "x": 500,
-            "y": 270
-          },
-          "positionAbsolute": {
-            "x": 600,
-            "y": 370
-          },
-          "width": 50,
-          "height": 30,
-          "zIndex": 7
-        },
-        {
-          "id": "can-gateway",
-          "type": "default",
-          "parentId": "infotainment-ecu-group",
-          "isAsset": false,
-          "data": {
-            "label": "CAN gateway",
-            "description": "Gateway for CAN bus communication.",
-            "style": {
-              "backgroundColor": "#dadada",
-              "borderColor": "gray",
-              "borderStyle": "solid",
-              "borderWidth": "2px",
-              "color": "black",
-              "fontFamily": "Inter",
-              "fontSize": "12px",
-              "fontWeight": 500,
-              "height": 50,
-              "width": 150
-            }
-          },
-          "properties": [
-            "Integrity",
-            "Confidentiality",
-            "Availability"
-          ],
-          "style": {
-            "width": 150,
-            "height": 50
-          },
-          "position": {
-            "x": 800,
-            "y": 200
-          },
-          "positionAbsolute": {
-            "x": 900,
-            "y": 300
-          },
-          "width": 150,
-          "height": 50,
-          "zIndex": 8
-        },
-        {
-          "id": "audio-amplifier",
-          "type": "default",
-          "parentId": "infotainment-ecu-group",
-          "isAsset": true,
-          "data": {
-            "label": "Audio Amplifier",
-            "description": "Amplifies audio signals for speakers.",
-            "style": {
-              "backgroundColor": "#e2dfc1",
-              "borderColor": "gray",
-              "borderStyle": "solid",
-              "borderWidth": "2px",
-              "color": "black",
-              "fontFamily": "Inter",
-              "fontSize": "12px",
-              "fontWeight": 500,
-              "height": 50,
-              "width": 150
-            }
-          },
-          "properties": [
-            "Integrity",
-            "Availability"
-          ],
-          "style": {
-            "width": 150,
-            "height": 50
-          },
-          "position": {
-            "x": 800,
-            "y": 300
-          },
-          "positionAbsolute": {
-            "x": 900,
-            "y": 400
-          },
-          "width": 150,
-          "height": 50,
-          "zIndex": 9
-        }
-      ],
-      "edges": [
-        {
-          "id": "edge-1",
-          "source": "head-unit-os",
-          "target": "infotainment-ecu-group",
-          "sourceHandle": "b",
-          "targetHandle": "left",
-          "type": "step",
-          "animated": true,
-          "markerEnd": {
-            "color": "#64B5F6",
-            "height": 18,
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "markerStart": {
-            "color": "#64B5F6",
-            "height": 18,
-            "orient": "auto-start-reverse",
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "style": {
-            "end": true,
-            "start": true,
-            "stroke": "#808080",
-            "strokeDasharray": "0",
-            "strokeWidth": 2
-          },
-          "properties": [
-            "Integrity"
-          ],
-          "data": {
-            "label": "OS Interface",
-            "offset": 0,
-            "t": 0.5
-          }
-        },
-        {
-          "id": "edge-2",
-          "source": "bluetooth-wifi-stacks",
-          "target": "infotainment-ecu-group",
-          "sourceHandle": "b",
-          "targetHandle": "left",
-          "type": "step",
-          "animated": true,
-          "markerEnd": {
-            "color": "#64B5F6",
-            "height": 18,
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "markerStart": {
-            "color": "#64B5F6",
-            "height": 18,
-            "orient": "auto-start-reverse",
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "style": {
-            "end": true,
-            "start": true,
-            "stroke": "#808080",
-            "strokeDasharray": "0",
-            "strokeWidth": 2
-          },
-          "properties": [
-            "Integrity"
-          ],
-          "data": {
-            "label": "COM Protocol",
-            "offset": 0,
-            "t": 0.5
-          }
-        },
-        {
-          "id": "edge-3",
-          "source": "usb-driver-stack",
-          "target": "infotainment-ecu-group",
-          "sourceHandle": "b",
-          "targetHandle": "left",
-          "type": "step",
-          "animated": true,
-          "markerEnd": {
-            "color": "#64B5F6",
-            "height": 18,
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "markerStart": {
-            "color": "#64B5F6",
-            "height": 18,
-            "orient": "auto-start-reverse",
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "style": {
-            "end": true,
-            "start": true,
-            "stroke": "#808080",
-            "strokeDasharray": "0",
-            "strokeWidth": 2
-          },
-          "properties": [
-            "Integrity"
-          ],
-          "data": {
-            "label": "USB",
-            "offset": 0,
-            "t": 0.5
-          }
-        },
-        {
-          "id": "edge-4",
-          "source": "telephony-stacks",
-          "target": "infotainment-ecu-group",
-          "sourceHandle": "b",
-          "targetHandle": "left",
-          "type": "step",
-          "animated": true,
-          "markerEnd": {
-            "color": "#64B5F6",
-            "height": 18,
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "markerStart": {
-            "color": "#64B5F6",
-            "height": 18,
-            "orient": "auto-start-reverse",
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "style": {
-            "end": true,
-            "start": true,
-            "stroke": "#808080",
-            "strokeDasharray": "0",
-            "strokeWidth": 2
-          },
-          "properties": [
-            "Integrity"
-          ],
-          "data": {
-            "label": "Cellular",
-            "offset": 0,
-            "t": 0.5
-          }
-        },
-        {
-          "id": "edge-5",
-          "source": "application-layer-code",
-          "target": "infotainment-ecu-group",
-          "sourceHandle": "b",
-          "targetHandle": "left",
-          "type": "step",
-          "animated": true,
-          "markerEnd": {
-            "color": "#64B5F6",
-            "height": 18,
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "markerStart": {
-            "color": "#64B5F6",
-            "height": 18,
-            "orient": "auto-start-reverse",
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "style": {
-            "end": true,
-            "start": true,
-            "stroke": "#808080",
-            "strokeDasharray": "0",
-            "strokeWidth": 2
-          },
-          "properties": [
-            "Integrity"
-          ],
-          "data": {
-            "label": "App Interface",
-            "offset": 0,
-            "t": 0.5
-          }
-        },
-        {
-          "id": "edge-6",
-          "source": "navigation-data",
-          "target": "infotainment-ecu-group",
-          "sourceHandle": "b",
-          "targetHandle": "left",
-          "type": "step",
-          "animated": true,
-          "markerEnd": {
-            "color": "#64B5F6",
-            "height": 18,
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "markerStart": {
-            "color": "#64B5F6",
-            "height": 18,
-            "orient": "auto-start-reverse",
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "style": {
-            "end": true,
-            "start": true,
-            "stroke": "#808080",
-            "strokeDasharray": "0",
-            "strokeWidth": 2
-          },
-          "properties": [
-            "Integrity"
-          ],
-          "data": {
-            "label": "NVM Access",
-            "offset": 0,
-            "t": 0.5
-          }
-        },
-        {
-          "id": "edge-7",
-          "source": "pii-user-profiles",
-          "target": "infotainment-ecu-group",
-          "sourceHandle": "b",
-          "targetHandle": "left",
-          "type": "step",
-          "animated": true,
-          "markerEnd": {
-            "color": "#64B5F6",
-            "height": 18,
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "markerStart": {
-            "color": "#64B5F6",
-            "height": 18,
-            "orient": "auto-start-reverse",
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "style": {
-            "end": true,
-            "start": true,
-            "stroke": "#808080",
-            "strokeDasharray": "0",
-            "strokeWidth": 2
-          },
-          "properties": [
-            "Integrity"
-          ],
-          "data": {
-            "label": "NVM Access",
-            "offset": 0,
-            "t": 0.5
-          }
-        },
-        {
-          "id": "edge-8",
-          "source": "can-gateway",
-          "target": "infotainment-ecu-group",
-          "sourceHandle": "b",
-          "targetHandle": "left",
-          "type": "step",
-          "animated": true,
-          "markerEnd": {
-            "color": "#64B5F6",
-            "height": 18,
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "markerStart": {
-            "color": "#64B5F6",
-            "height": 18,
-            "orient": "auto-start-reverse",
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "style": {
-            "end": true,
-            "start": true,
-            "stroke": "#808080",
-            "strokeDasharray": "0",
-            "strokeWidth": 2
-          },
-          "properties": [
-            "Integrity"
-          ],
-          "data": {
-            "label": "CAN",
-            "offset": 0,
-            "t": 0.5
-          }
-        },
-        {
-          "id": "edge-9",
-          "source": "audio-amplifier",
-          "target": "infotainment-ecu-group",
-          "sourceHandle": "b",
-          "targetHandle": "left",
-          "type": "step",
-          "animated": true,
-          "markerEnd": {
-            "color": "#64B5F6",
-            "height": 18,
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "markerStart": {
-            "color": "#64B5F6",
-            "height": 18,
-            "orient": "auto-start-reverse",
-            "type": "arrowclosed",
-            "width": 18
-          },
-          "style": {
-            "end": true,
-            "start": true,
-            "stroke": "#808080",
-            "strokeDasharray": "0",
-            "strokeWidth": 2
-          },
-          "properties": [
-            "Integrity"
-          ],
-          "data": {
-            "label": "Audio Out",
-            "offset": 0,
-            "t": 0.5
-          }
-        }
-      ],
-      "details": [
         {
           "nodeId": "head-unit-os",
-          "name": "Head unit OS",
-          "desc": "The operating system of the infotainment head unit.",
+          "name": "Head Unit OS",
+          "desc": "Linux-based RTOS managing process scheduling, memory, drivers, and security policy on the SoC.",
           "type": "default",
           "props": [
             {
               "name": "Integrity",
-              "id": "prop-integrity"
+              "id": "huos-prop-integrity"
             },
             {
               "name": "Confidentiality",
-              "id": "prop-confidentiality"
+              "id": "huos-prop-confidentiality"
             },
             {
               "name": "Availability",
-              "id": "prop-availability"
+              "id": "huos-prop-availability"
             }
           ]
         },
         {
           "nodeId": "bluetooth-wifi-stacks",
-          "name": "Bluetooth/Wi-Fi stacks",
-          "desc": "Software stacks for Bluetooth and Wi-Fi communication.",
+          "name": "Bluetooth/Wi-Fi Stacks",
+          "desc": "Dual-mode wireless protocol stacks supporting BT 5.2 and IEEE 802.11ac Wi-Fi including pairing key storage.",
           "type": "default",
           "props": [
             {
               "name": "Integrity",
-              "id": "prop-integrity"
+              "id": "btwifi-prop-integrity"
             },
             {
               "name": "Confidentiality",
-              "id": "prop-confidentiality"
+              "id": "btwifi-prop-confidentiality"
             },
             {
               "name": "Availability",
-              "id": "prop-availability"
+              "id": "btwifi-prop-availability"
             }
           ]
         },
         {
           "nodeId": "usb-driver-stack",
-          "name": "USB driver stack",
-          "desc": "Driver stack for USB interface.",
+          "name": "USB Driver Stack",
+          "desc": "USB 3.0/2.0 host and device mode driver handling MTP, Android Auto, CarPlay, and mass-storage enumeration.",
           "type": "default",
           "props": [
             {
               "name": "Integrity",
-              "id": "prop-integrity"
+              "id": "usb-prop-integrity"
             },
             {
               "name": "Confidentiality",
-              "id": "prop-confidentiality"
+              "id": "usb-prop-confidentiality"
             },
             {
               "name": "Availability",
-              "id": "prop-availability"
+              "id": "usb-prop-availability"
             }
           ]
         },
         {
           "nodeId": "telephony-stacks",
-          "name": "Telephony stacks",
-          "desc": "Software stacks for telephony communication.",
+          "name": "Telephony Stacks",
+          "desc": "4G/LTE or 5G modem abstraction layer including RIL, SMS, voice call routing, and telematics data plane.",
           "type": "default",
           "props": [
             {
               "name": "Integrity",
-              "id": "prop-integrity"
+              "id": "tel-prop-integrity"
             },
             {
               "name": "Confidentiality",
-              "id": "prop-confidentiality"
+              "id": "tel-prop-confidentiality"
             },
             {
               "name": "Availability",
-              "id": "prop-availability"
+              "id": "tel-prop-availability"
             }
           ]
         },
         {
           "nodeId": "application-layer-code",
-          "name": "Application layer code",
-          "desc": "The application software running on the head unit.",
+          "name": "Application Layer Code",
+          "desc": "Signed OEM application binaries: media player, maps, voice assistant, OEM store.",
           "type": "default",
           "props": [
             {
-              "name": "Integrity",
-              "id": "prop-integrity"
+              "name": "Confidentiality",
+              "id": "app-prop-confidentiality"
             },
             {
-              "name": "Confidentiality",
-              "id": "prop-confidentiality"
+              "name": "Integrity",
+              "id": "app-prop-integrity"
             },
             {
               "name": "Availability",
-              "id": "prop-availability"
+              "id": "app-prop-availability"
+            },
+            {
+              "name": "Authenticity",
+              "id": "app-prop-authenticity"
             }
           ]
         },
         {
           "nodeId": "navigation-data",
-          "name": "Navigation data",
-          "desc": "Stored navigational information.",
+          "name": "Navigation Data",
+          "desc": "Stored map tiles, POI databases, last-known-location history, and route cache.",
           "type": "data",
           "props": [
             {
               "name": "Authenticity",
-              "id": "prop-authenticity"
+              "id": "nav-prop-authenticity"
             },
             {
               "name": "Integrity",
-              "id": "prop-integrity"
+              "id": "nav-prop-integrity"
             },
             {
               "name": "Confidentiality",
-              "id": "prop-confidentiality"
+              "id": "nav-prop-confidentiality"
             }
           ]
         },
         {
           "nodeId": "pii-user-profiles",
-          "name": "PII (User profiles)",
-          "desc": "Personal Identifiable Information and user settings.",
+          "name": "PII / User Profiles",
+          "desc": "Driver contact lists, call history, SMS messages, linked accounts, biometric preferences, and payment tokens.",
           "type": "data",
           "props": [
             {
               "name": "Authenticity",
-              "id": "prop-authenticity"
+              "id": "pii-prop-authenticity"
             },
             {
               "name": "Integrity",
-              "id": "prop-integrity"
+              "id": "pii-prop-integrity"
             },
             {
               "name": "Confidentiality",
-              "id": "prop-confidentiality"
+              "id": "pii-prop-confidentiality"
+            }
+          ]
+        },
+        {
+          "nodeId": "ota-update-client",
+          "name": "OTA Update Client",
+          "desc": "FOTA/SOTA agent downloading, verifying (code-signature), and applying software updates over cellular or Wi-Fi.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "ota-prop-integrity"
+            },
+            {
+              "name": "Availability",
+              "id": "ota-prop-availability"
+            },
+            {
+              "name": "Authenticity",
+              "id": "ota-prop-authenticity"
+            },
+            {
+              "name": "Authorization",
+              "id": "ota-prop-authorization"
             }
           ]
         },
         {
           "nodeId": "can-gateway",
-          "name": "CAN gateway",
-          "desc": "Gateway for CAN bus communication.",
+          "name": "CAN Gateway",
+          "desc": "Software/hardware gateway translating infotainment requests to in-vehicle CAN or LIN frames.",
           "type": "default",
           "props": [
             {
               "name": "Integrity",
-              "id": "prop-integrity"
+              "id": "cang-prop-integrity"
             },
             {
               "name": "Confidentiality",
-              "id": "prop-confidentiality"
+              "id": "cang-prop-confidentiality"
             },
             {
               "name": "Availability",
-              "id": "prop-availability"
+              "id": "cang-prop-availability"
+            },
+            {
+              "name": "Authorization",
+              "id": "cang-prop-authorization"
             }
           ]
         },
         {
           "nodeId": "audio-amplifier",
           "name": "Audio Amplifier",
-          "desc": "Amplifies audio signals for speakers.",
+          "desc": "DSP and Class-D power amplifier driving up to 8 speakers. Receives I2S/TDM audio from the SoC.",
           "type": "default",
           "props": [
             {
               "name": "Integrity",
-              "id": "prop-integrity"
+              "id": "amp-prop-integrity"
             },
             {
               "name": "Availability",
-              "id": "prop-availability"
+              "id": "amp-prop-availability"
+            }
+          ]
+        },
+        {
+          "nodeId": "edge-ota-cloud",
+          "name": "HTTPS/TLS",
+          "desc": null,
+          "type": "step",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "edge-ota-integrity"
+            },
+            {
+              "name": "Authenticity",
+              "id": "edge-ota-authenticity"
+            },
+            {
+              "name": "Confidentiality",
+              "id": "edge-ota-confidentiality"
+            }
+          ]
+        },
+        {
+          "nodeId": "edge-can-vnet",
+          "name": "CAN_Bus",
+          "desc": null,
+          "type": "step",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "edge-canvnet-integrity"
+            },
+            {
+              "name": "Availability",
+              "id": "edge-canvnet-availability"
             }
           ]
         }
       ]
     }
-  },
-  "damage_scenarios": {
-    "_id": "66265e3233929b9925994373",
-    "model_id": "InfotainmentHeadUnit",
-    "type": "damage",
-    "Derivations": [
-      {
-        "id": "derivation-1",
-        "nodeId": "usb-driver-stack",
-        "task": "Threat Analysis",
-        "name": "CWE-225: General Information Management Problems -> CAPEC-27: Malicious File Loading -> MITRE ATT&CK T1018: Remote System Information Discovery -> ATM: Gather Target Information",
-        "loss": "Malware propagation or data exfiltration via USB",
-        "asset": "USB driver stack",
-        "damage_scene": "An attacker uses the USB interface to introduce malware or exfiltrate data from the infotainment system.",
-        "isChecked": false
-      },
-      {
-        "id": "derivation-2",
-        "nodeId": "head-unit-os",
-        "task": "Threat Analysis",
-        "name": "CWE-15: External Control of System or Configuration Setting -> CAPEC-28: Privilege Escalation -> MITRE ATT&CK T1548.003: Abuse Elevation Control Mechanism: Sudo and Operating System Specific Transfer Utilities -> ATM: Control of System",
-        "loss": "Unauthorized modification of system settings",
-        "asset": "Head unit OS",
-        "damage_scene": "An attacker exploits a vulnerability to gain external control over the infotainment system's configuration settings, potentially disabling safety features or altering critical parameters.",
-        "isChecked": false
-      },
-      {
-        "id": "derivation-3",
-        "nodeId": "bluetooth-wifi-stacks",
-        "task": "Threat Analysis",
-        "name": "MITRE ATT&CK T1590.001: Research Attack Surface: Vulnerabilities -> ATM: Gather Target Information",
-        "loss": "Unauthorized information disclosure via Bluetooth",
-        "asset": "Bluetooth/Wi-Fi stacks",
-        "damage_scene": "An attacker uses Bluetooth to discover and gather information from connected devices or the infotainment system itself.",
-        "isChecked": false
-      },
-      {
-        "id": "derivation-4",
-        "nodeId": "application-layer-code",
-        "task": "Threat Analysis",
-        "name": "CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer -> CAPEC-13: Input Validation Deception -> MITRE ATT&CK T1190: Exploit Public-Facing Application -> ATM: Exploit Application",
-        "loss": "Application compromise leading to unauthorized access",
-        "asset": "Application layer code",
-        "damage_scene": "An attacker exploits a vulnerability in the application layer code to gain unauthorized access to system resources or data.",
-        "isChecked": false
-      },
-      {
-        "id": "derivation-5",
-        "nodeId": "pii-user-profiles",
-        "task": "Threat Analysis",
-        "name": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> CAPEC-29: Data Leakage -> MITRE ATT&CK T1552.001: Steal or Substitute Credentials: Plaintext Accesses and Information -> ATM: Data Exfiltration",
-        "loss": "Disclosure of PII and user profiles",
-        "asset": "PII (User profiles)",
-        "damage_scene": "An attacker accesses and exfiltrates sensitive user profile data, including personal identifiable information.",
-        "isChecked": false
-      },
-      {
-        "id": "derivation-6",
-        "nodeId": "can-gateway",
-        "task": "Threat Analysis",
-        "name": "CWE-15: External Control of System or Configuration Setting -> CAPEC-28: Privilege Escalation -> MITRE ATT&CK T1071.001: Application Layer Protocol: Web Protocols -> ATM: Control of System",
-        "loss": "Unauthorized CAN bus message injection",
-        "asset": "CAN gateway",
-        "damage_scene": "An attacker exploits the CAN gateway to inject malicious CAN messages, potentially affecting vehicle control systems.",
-        "isChecked": false
-      }
-    ],
-    "Details": [
-      {
-        "Name": "Malware Propagation via USB",
-        "Description": "An attacker uses the USB interface to introduce malware into the infotainment system, potentially spreading to other connected ECUs or exfiltrating data.",
-        "cyberLosses": [
-          {
-            "id": "cyberLoss-1",
-            "name": "Malware propagation or data exfiltration via USB",
-            "node": "USB driver stack",
-            "nodeId": "usb-driver-stack",
-            "isSelected": true,
-            "is_risk_added": false
-          }
-        ],
-        "impacts": {
-          "Financial Impact": "Moderate",
-          "Safety Impact": "Minor",
-          "Operational Impact": "Moderate",
-          "Privacy Impact": "Moderate"
+  ],
+  "Damage_scenarios": [
+    {
+      "_id": "infotainment_ds_main_001",
+      "model_id": "infotainment_model_001",
+      "user_id": "user_id_123",
+      "type": "damage",
+      "Derivations": [
+        {
+          "id": "ihu_deriv_1",
+          "nodeId": "head-unit-os",
+          "task": "Threat Analysis",
+          "name": "CWE-269: Improper Privilege Management → CVE-class Root Privilege Escalation in Android Automotive OS",
+          "loss": "Unauthorized root-level code execution on the Head Unit OS",
+          "asset": "Head Unit OS",
+          "damageScene": "An attacker exploits an unpatched privilege-escalation vulnerability in the Android Automotive OS kernel or a privileged service. Obtaining root access allows disabling SELinux policies, installing persistent backdoors in /system, and laterally pivoting to the CAN gateway. The OS integrity is permanently compromised, enabling silent firmware manipulation of connected vehicle components.",
+          "is_checked": false
         },
-        "key": 1,
-        "_id": "detail-1"
-      },
-      {
-        "Name": "Unauthorized Configuration Modification",
-        "Description": "An attacker exploits a vulnerability in the Head Unit OS to gain external control over the infotainment system's configuration settings, potentially altering critical parameters or disabling safety features.",
-        "cyberLosses": [
-          {
-            "id": "cyberLoss-2",
-            "name": "Unauthorized modification of system settings",
-            "node": "Head unit OS",
-            "nodeId": "head-unit-os",
-            "isSelected": true,
-            "is_risk_added": false
-          }
-        ],
-        "impacts": {
-          "Financial Impact": "Major",
-          "Safety Impact": "Major",
-          "Operational Impact": "Major",
-          "Privacy Impact": "Minor"
+        {
+          "id": "ihu_deriv_2",
+          "nodeId": "bluetooth-wifi-stacks",
+          "task": "Threat Analysis",
+          "name": "CVE-2020-0022 (BlueFrag) class — CWE-120: Buffer Copy without Checking Size of Input on BT Stack",
+          "loss": "Remote unauthenticated code execution via Bluetooth proximity attack",
+          "asset": "Bluetooth/Wi-Fi Stacks",
+          "damageScene": "An attacker within ~10 m Bluetooth range sends a crafted L2CAP packet exploiting a heap overflow in the BT stack (e.g., BlueFrag-style). No user interaction or pairing is required. The attacker gains arbitrary code execution within the BT daemon context, downloads a secondary payload over Wi-Fi, and establishes a reverse shell for persistent access to the IHU.",
+          "is_checked": false
         },
-        "key": 2,
-        "_id": "detail-2"
-      },
-      {
-        "Name": "Bluetooth Information Disclosure",
-        "Description": "An attacker uses Bluetooth to discover and gather sensitive information from connected devices or the infotainment system, leading to unauthorized information disclosure.",
-        "cyberLosses": [
-          {
-            "id": "cyberLoss-3",
-            "name": "Unauthorized information disclosure via Bluetooth",
-            "node": "Bluetooth/Wi-Fi stacks",
-            "nodeId": "bluetooth-wifi-stacks",
-            "isSelected": true,
-            "is_risk_added": false
-          }
-        ],
-        "impacts": {
-          "Financial Impact": "Minor",
-          "Safety Impact": "Negligible",
-          "Operational Impact": "Minor",
-          "Privacy Impact": "Moderate"
+        {
+          "id": "ihu_deriv_3",
+          "nodeId": "usb-driver-stack",
+          "task": "Threat Analysis",
+          "name": "CAPEC-27: Malicious File Loading via USB — CWE-494: Download of Code Without Integrity Check",
+          "loss": "Malware installation and data exfiltration via USB-connected device",
+          "asset": "USB Driver Stack",
+          "damageScene": "A rogue USB thumb drive with a crafted autorun or MTP payload is plugged into the USB port by a vehicle occupant or valet. The USB driver stack parses a malformed filesystem or MTP packet, triggering a buffer overflow. A malicious application is sideloaded to the IHU, enabling keylogging of Bluetooth PIN, reading call history, and exfiltrating navigation data to a remote server over Wi-Fi.",
+          "is_checked": false
         },
-        "key": 3,
-        "_id": "detail-3"
-      },
-      {
-        "Name": "Application Compromise",
-        "Description": "An attacker exploits a vulnerability in the application layer code, gaining unauthorized access to system resources, data, or functionality.",
-        "cyberLosses": [
-          {
-            "id": "cyberLoss-4",
-            "name": "Application compromise leading to unauthorized access",
-            "node": "Application layer code",
-            "nodeId": "application-layer-code",
-            "isSelected": true,
-            "is_risk_added": false
-          }
-        ],
-        "impacts": {
-          "Financial Impact": "Moderate",
-          "Safety Impact": "Minor",
-          "Operational Impact": "Moderate",
-          "Privacy Impact": "Moderate"
+        {
+          "id": "ihu_deriv_4",
+          "nodeId": "telephony-stacks",
+          "task": "Threat Analysis",
+          "name": "CAPEC-161: Infrastructure Manipulation — CWE-20: Improper Input Validation in RIL / SMS Parser",
+          "loss": "Arbitrary remote code execution via silent SMS (Type-0 / binary SMS) injection",
+          "asset": "Telephony Stacks",
+          "damageScene": "An attacker with access to a rogue base station or compromised carrier sends a specially crafted binary SMS (Class 0 / binary WAP-PUSH) to the vehicle's SIM number. The RIL SMS parser fails to validate message length, causing a heap overflow. The attacker achieves remote code execution on the telephony daemon without any driver action, establishing a persistent C2 channel over the LTE data plane.",
+          "is_checked": false
         },
-        "key": 4,
-        "_id": "detail-4"
-      },
-      {
-        "Name": "PII and User Profile Disclosure",
-        "Description": "An attacker accesses and exfiltrates sensitive user profile data, including personal identifiable information, leading to privacy breaches.",
-        "cyberLosses": [
-          {
-            "id": "cyberLoss-5",
-            "name": "Disclosure of PII and user profiles",
-            "node": "PII (User profiles)",
-            "nodeId": "pii-user-profiles",
-            "isSelected": true,
-            "is_risk_added": false
-          }
-        ],
-        "impacts": {
-          "Financial Impact": "Moderate",
-          "Safety Impact": "Negligible",
-          "Operational Impact": "Minor",
-          "Privacy Impact": "Major"
+        {
+          "id": "ihu_deriv_5",
+          "nodeId": "application-layer-code",
+          "task": "Threat Analysis",
+          "name": "CWE-295: Improper Certificate Validation — MITM App Store Update leading to malicious app installation",
+          "loss": "Unsigned or trojaned application code executing in IHU user space",
+          "asset": "Application Layer Code",
+          "damageScene": "An attacker performs a MITM attack on the OEM app store update channel (e.g., poisoned DNS, rogue Wi-Fi AP). Due to improper TLS certificate pinning in the app manager, a modified application binary bypasses signature checks. The trojanized media-player app gains access to microphone, GPS, and CAN vehicle-data APIs, enabling covert surveillance and targeted CAN frame injection via the gateway.",
+          "is_checked": false
         },
-        "key": 5,
-        "_id": "detail-5"
-      },
-      {
-        "Name": "CAN Bus Message Injection",
-        "Description": "An attacker exploits the CAN gateway to inject malicious CAN messages, potentially compromising vehicle control systems and leading to safety hazards.",
-        "cyberLosses": [
-          {
-            "id": "cyberLoss-6",
-            "name": "Unauthorized CAN bus message injection",
-            "node": "CAN gateway",
-            "nodeId": "can-gateway",
-            "isSelected": true,
-            "is_risk_added": false
-          }
-        ],
-        "impacts": {
-          "Financial Impact": "Moderate",
-          "Safety Impact": "Major",
-          "Operational Impact": "Major",
-          "Privacy Impact": "Negligible"
+        {
+          "id": "ihu_deriv_6",
+          "nodeId": "navigation-data",
+          "task": "Threat Analysis",
+          "name": "CWE-345: Insufficient Verification of Data Authenticity — Map / POI Poisoning Attack",
+          "loss": "Navigation data integrity violation causing driver misdirection",
+          "asset": "Navigation Data",
+          "damageScene": "An attacker with write access (via a compromised app or USB) modifies stored map tiles and POI databases in the IHU's flash. The navigation system silently routes the driver through roads under attacker surveillance or into dangerous areas. In fleet scenarios, bulk manipulation enables coordinated vehicle misdirection. Exfiltration of route history also discloses driver home address and daily routine.",
+          "is_checked": false
         },
-        "key": 6,
-        "_id": "detail-6"
-      }
-    ]
-  }
+        {
+          "id": "ihu_deriv_7",
+          "nodeId": "pii-user-profiles",
+          "task": "Threat Analysis",
+          "name": "CWE-200: Exposure of Sensitive Information — Mass PII Exfiltration via Synchronised Cloud Profile",
+          "loss": "Disclosure of driver PII contact list, call history, payment tokens, and biometric preferences",
+          "asset": "PII / User Profiles",
+          "damageScene": "An attacker exploits a broken access-control vulnerability in the IHU profile-sync service to exfiltrate driver contact lists (PBAP), full call history, SMS messages, and linked payment tokens stored in the IHU's credential vault. GDPR-regulated personal data is transmitted to a remote server. In aggregate, fleet-scale exfiltration enables targeted spear-phishing and identity fraud against vehicle owners.",
+          "is_checked": false
+        },
+        {
+          "id": "ihu_deriv_8",
+          "nodeId": "ota-update-client",
+          "task": "Threat Analysis",
+          "name": "CWE-494: Download of Code Without Integrity Check — Malicious OTA Package Installation",
+          "loss": "Persistent malicious firmware installed fleet-wide via compromised OTA channel",
+          "asset": "OTA Update Client",
+          "damageScene": "An attacker compromises the OEM cloud backend or performs a BGP-hijack of the OTA CDN. A crafted update package with a forged or replayed signature is delivered to the OTA client. Due to weak rollback-protection or signature-bypass, the IHU installs the malicious package. The attack can be delivered silently to all vehicles checking in for updates in a specific region, achieving persistent control of millions of IHUs simultaneously.",
+          "is_checked": false
+        },
+        {
+          "id": "ihu_deriv_9",
+          "nodeId": "can-gateway",
+          "task": "Threat Analysis",
+          "name": "ATM Technique: CAN Bus Message Injection via Compromised IHU Gateway",
+          "loss": "Injection of arbitrary CAN frames into vehicle powertrain or body network",
+          "asset": "CAN Gateway",
+          "damageScene": "After gaining control of the IHU (via BT, USB, or OTA exploit), an attacker leverages the CAN gateway's insufficient message filtering to inject crafted CAN frames targeting adjacent ECUs. This enables disabling ESC/ABS, altering HVAC, locking/unlocking doors remotely, or spoofing instrument cluster data. The IHU-to-CAN path represents the most critical lateral movement vector from the infotainment domain into safety-critical systems.",
+          "is_checked": false
+        },
+        {
+          "id": "ihu_deriv_10",
+          "nodeId": "audio-amplifier",
+          "task": "Threat Analysis",
+          "name": "CWE-1284: Improper Validation of Specified Quantity in Input — DSP Configuration Abuse / Acoustic DoS",
+          "loss": "Denial-of-service via maximum-volume injection or speaker damage through DSP mis-configuration",
+          "asset": "Audio Amplifier",
+          "damageScene": "An attacker who has compromised the SoC/IHU OS sends a crafted DSP configuration command over the I2S/I2C control bus. The amplifier is programmed to output maximum gain at a frequency that exceeds speaker rated power, permanently damaging voice-coils. Alternatively, a rapid loud-noise burst is injected to impair driver situational awareness during critical driving manoeuvres.",
+          "is_checked": false
+        }
+      ],
+      "Details": [
+        {
+          "Name": "Head Unit OS Root Privilege Escalation",
+          "_id": "ihu_detail_1",
+          "key": 1,
+          "Description": "Exploitation of a kernel or privileged-service vulnerability granting root-level code execution on the Android Automotive OS. Enables disabling security policies, installing persistent backdoors, and pivoting to the CAN gateway.",
+          "cyberLosses": [
+            {
+              "id": "cl_ihu_1",
+              "name": "Unauthorized root-level code execution on the Head Unit OS",
+              "node": "Head Unit OS",
+              "nodeId": "head-unit-os",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Major",
+            "Safety Impact": "Major",
+            "Operational Impact": "Major",
+            "Privacy Impact": "Moderate"
+          }
+        },
+        {
+          "Name": "Bluetooth Proximity Code Execution",
+          "_id": "ihu_detail_2",
+          "key": 2,
+          "Description": "Unauthenticated remote code execution via BlueFrag-class heap overflow in the BT stack. No pairing required; attacker within ~10 m gains persistent shell access to the IHU.",
+          "cyberLosses": [
+            {
+              "id": "cl_ihu_2",
+              "name": "Remote unauthenticated code execution via Bluetooth proximity attack",
+              "node": "Bluetooth/Wi-Fi Stacks",
+              "nodeId": "bluetooth-wifi-stacks",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Major",
+            "Safety Impact": "Major",
+            "Operational Impact": "Moderate",
+            "Privacy Impact": "Major"
+          }
+        },
+        {
+          "Name": "Malware Installation via USB Sideloading",
+          "_id": "ihu_detail_3",
+          "key": 3,
+          "Description": "Rogue USB device exploits buffer overflow in the USB/MTP driver stack to sideload malicious applications. Allows exfiltration of navigation, call history, and Bluetooth credentials.",
+          "cyberLosses": [
+            {
+              "id": "cl_ihu_3",
+              "name": "Malware installation and data exfiltration via USB-connected device",
+              "node": "USB Driver Stack",
+              "nodeId": "usb-driver-stack",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Moderate",
+            "Safety Impact": "Minor",
+            "Operational Impact": "Moderate",
+            "Privacy Impact": "Major"
+          }
+        },
+        {
+          "Name": "Remote Code Execution via Silent SMS / RIL Exploit",
+          "_id": "ihu_detail_4",
+          "key": 4,
+          "Description": "Binary SMS or WAP-PUSH message triggers RIL heap overflow achieving remote code execution on the telephony daemon with no user interaction. Creates persistent LTE-based C2 channel.",
+          "cyberLosses": [
+            {
+              "id": "cl_ihu_4",
+              "name": "Arbitrary remote code execution via silent SMS injection",
+              "node": "Telephony Stacks",
+              "nodeId": "telephony-stacks",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Moderate",
+            "Safety Impact": "Minor",
+            "Operational Impact": "Major",
+            "Privacy Impact": "Major"
+          }
+        },
+        {
+          "Name": "Trojanized App via MITM App Store Update",
+          "_id": "ihu_detail_5",
+          "key": 5,
+          "Description": "MITM attack on OEM app store channel with improper TLS certificate pinning allows delivery of a keylogger/surveillance app that gains access to microphone, GPS, and CAN data APIs.",
+          "cyberLosses": [
+            {
+              "id": "cl_ihu_5",
+              "name": "Unsigned or trojaned application code executing in IHU user space",
+              "node": "Application Layer Code",
+              "nodeId": "application-layer-code",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Major",
+            "Safety Impact": "Moderate",
+            "Operational Impact": "Moderate",
+            "Privacy Impact": "Catastrophic"
+          }
+        },
+        {
+          "Name": "Navigation Map / POI Poisoning",
+          "_id": "ihu_detail_6",
+          "key": 6,
+          "Description": "Write access to flash storage (via compromised app or USB) allows tampering of navigation tiles and POI data. Causes driver misdirection; route history exfiltration discloses home address and daily routine.",
+          "cyberLosses": [
+            {
+              "id": "cl_ihu_6",
+              "name": "Navigation data integrity violation causing driver misdirection",
+              "node": "Navigation Data",
+              "nodeId": "navigation-data",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Minor",
+            "Safety Impact": "Moderate",
+            "Operational Impact": "Major",
+            "Privacy Impact": "Major"
+          }
+        },
+        {
+          "Name": "Fleet-Scale PII Exfiltration from Driver Profiles",
+          "_id": "ihu_detail_7",
+          "key": 7,
+          "Description": "Broken access control in the profile-sync service enables mass theft of contact lists, call history, SMS, linked payment tokens, and biometric preferences across all enrolled vehicles.",
+          "cyberLosses": [
+            {
+              "id": "cl_ihu_7",
+              "name": "Disclosure of driver PII, contact list, call history, payment tokens, and biometric preferences",
+              "node": "PII / User Profiles",
+              "nodeId": "pii-user-profiles",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Major",
+            "Safety Impact": "Negligible",
+            "Operational Impact": "Minor",
+            "Privacy Impact": "Catastrophic"
+          }
+        },
+        {
+          "Name": "Malicious OTA Package Fleet Compromise",
+          "_id": "ihu_detail_8",
+          "key": 8,
+          "Description": "Attacker compromises OEM backend or CDN to deliver a forged OTA update that bypasses rollback-protection and signature verification, achieving persistent control of millions of IHUs.",
+          "cyberLosses": [
+            {
+              "id": "cl_ihu_8",
+              "name": "Persistent malicious firmware installed fleet-wide via compromised OTA channel",
+              "node": "OTA Update Client",
+              "nodeId": "ota-update-client",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Catastrophic",
+            "Safety Impact": "Major",
+            "Operational Impact": "Catastrophic",
+            "Privacy Impact": "Major"
+          }
+        },
+        {
+          "Name": "Lateral CAN Frame Injection via IHU Gateway",
+          "_id": "ihu_detail_9",
+          "key": 9,
+          "Description": "Post-compromise of the IHU, attacker uses the insufficiently filtered CAN gateway to inject arbitrary CAN frames disabling ABS/ESC, manipulating HVAC, or spoofing cluster data — the highest-severity pivot path.",
+          "cyberLosses": [
+            {
+              "id": "cl_ihu_9",
+              "name": "Injection of arbitrary CAN frames into vehicle powertrain or body network",
+              "node": "CAN Gateway",
+              "nodeId": "can-gateway",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Major",
+            "Safety Impact": "Catastrophic",
+            "Operational Impact": "Major",
+            "Privacy Impact": "Negligible"
+          }
+        },
+        {
+          "Name": "Acoustic DoS / Speaker Damage via DSP Config Injection",
+          "_id": "ihu_detail_10",
+          "key": 10,
+          "Description": "Compromised SoC sends crafted I2C control commands that mis-configure the DSP amplifier to maximum gain, permanently damaging speakers or injecting loud bursts that impair driver awareness.",
+          "cyberLosses": [
+            {
+              "id": "cl_ihu_10",
+              "name": "Denial-of-service via maximum-volume injection or speaker damage through DSP mis-configuration",
+              "node": "Audio Amplifier",
+              "nodeId": "audio-amplifier",
+              "isSelected": true,
+              "is_risk_added": false
+            }
+          ],
+          "impacts": {
+            "Financial Impact": "Minor",
+            "Safety Impact": "Moderate",
+            "Operational Impact": "Moderate",
+            "Privacy Impact": "Negligible"
+          }
+        }
+      ]
+    }
+  ],
+  "Threat_scenarios": [
+    {
+      "_id": "infotainment_ts_001",
+      "model_id": "infotainment_model_001",
+      "user_id": "user_id_123",
+      "type": "threat",
+      "Details": [
+        {
+          "rowId": "408d4ab8-7acc-41c1-a497-393f0a267778",
+          "id": "TSD001",
+          "Details": [
+            {
+              "node": "Head Unit OS",
+              "nodeId": "head-unit-os",
+              "props": [
+                {
+                  "id": "b5efba88-8e82-4484-baf1-2cb38741569a",
+                  "is_risk_added": true,
+                  "name": "Spoofing",
+                  "isSelected": true,
+                  "key": 1
+                },
+                {
+                  "id": "01a0c574-64fc-4b39-9f4e-a50b967ad7e2",
+                  "is_risk_added": true,
+                  "name": "Tampering",
+                  "isSelected": true,
+                  "key": 2
+                },
+                {
+                  "id": "1450f8aa-5acd-4b53-9f49-b702432ee06e",
+                  "is_risk_added": true,
+                  "name": "Elevation of Privilege",
+                  "isSelected": true,
+                  "key": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "rowId": "eea8180e-68d3-450b-a296-747f2d5cfdcb",
+          "id": "TSD002",
+          "Details": [
+            {
+              "node": "Bluetooth/Wi-Fi Stacks",
+              "nodeId": "bluetooth-wifi-stacks",
+              "props": [
+                {
+                  "id": "b8be4b00-8b2a-428d-a0fc-ec99be79e037",
+                  "is_risk_added": true,
+                  "name": "Spoofing",
+                  "isSelected": true,
+                  "key": 1
+                },
+                {
+                  "id": "e99f7c9a-3076-4e18-bf7c-1740cbc6519c",
+                  "is_risk_added": true,
+                  "name": "Tampering",
+                  "isSelected": true,
+                  "key": 2
+                },
+                {
+                  "id": "a5daf32b-da26-4d50-836e-f0deedaad11f",
+                  "is_risk_added": true,
+                  "name": "Information Disclosure",
+                  "isSelected": true,
+                  "key": 3
+                },
+                {
+                  "id": "26167439-c7aa-4223-8d7a-a0c7316262c6",
+                  "is_risk_added": true,
+                  "name": "Elevation of Privilege",
+                  "isSelected": true,
+                  "key": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "rowId": "044da649-73f3-445c-acb5-dd200284abc3",
+          "id": "TSD003",
+          "Details": [
+            {
+              "node": "USB Driver Stack",
+              "nodeId": "usb-driver-stack",
+              "props": [
+                {
+                  "id": "b43498c8-97c4-4e14-a490-8a8652c2430f",
+                  "is_risk_added": true,
+                  "name": "Tampering",
+                  "isSelected": true,
+                  "key": 1
+                },
+                {
+                  "id": "461a473d-aae6-4d15-a3eb-84028a3be3c3",
+                  "is_risk_added": true,
+                  "name": "Information Disclosure",
+                  "isSelected": true,
+                  "key": 2
+                },
+                {
+                  "id": "b9a34cc8-f6b9-405c-9d77-418f038e8028",
+                  "is_risk_added": true,
+                  "name": "Repudiation",
+                  "isSelected": true,
+                  "key": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "rowId": "904273f1-69a0-4a72-a8f6-c521d9f213ac",
+          "id": "TSD004",
+          "Details": [
+            {
+              "node": "Telephony Stacks",
+              "nodeId": "telephony-stacks",
+              "props": [
+                {
+                  "id": "a2032071-56dd-4f87-8f48-fd4ef348302c",
+                  "is_risk_added": true,
+                  "name": "Tampering",
+                  "isSelected": true,
+                  "key": 1
+                },
+                {
+                  "id": "af447708-43b0-4813-9501-3e0ce8fe6fd7",
+                  "is_risk_added": true,
+                  "name": "Elevation of Privilege",
+                  "isSelected": true,
+                  "key": 2
+                },
+                {
+                  "id": "1414adde-9785-4d3c-aacd-31e4d5440960",
+                  "is_risk_added": true,
+                  "name": "Information Disclosure",
+                  "isSelected": true,
+                  "key": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "rowId": "14984a8b-c16d-4141-be8e-4665bbe77e62",
+          "id": "TSD005",
+          "Details": [
+            {
+              "node": "Application Layer Code",
+              "nodeId": "application-layer-code",
+              "props": [
+                {
+                  "id": "8608d24a-2426-4e4e-a39a-f98184a09052",
+                  "is_risk_added": true,
+                  "name": "Spoofing",
+                  "isSelected": true,
+                  "key": 1
+                },
+                {
+                  "id": "d61531e4-6e2e-4097-b2ec-b179bfcf3217",
+                  "is_risk_added": true,
+                  "name": "Tampering",
+                  "isSelected": true,
+                  "key": 2
+                },
+                {
+                  "id": "317edaa0-6bbd-466d-9537-8c60660ff3d0",
+                  "is_risk_added": true,
+                  "name": "Information Disclosure",
+                  "isSelected": true,
+                  "key": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "rowId": "966fab8d-8a79-44b1-9df8-6ab4b2433a90",
+          "id": "TSD006",
+          "Details": [
+            {
+              "node": "CAN Gateway",
+              "nodeId": "can-gateway",
+              "props": [
+                {
+                  "id": "8f5e6015-31cd-4a90-9235-a2c76dbeac83",
+                  "is_risk_added": true,
+                  "name": "Spoofing",
+                  "isSelected": true,
+                  "key": 1
+                },
+                {
+                  "id": "8e3550b9-1f4e-401d-a957-0c2be16fc50b",
+                  "is_risk_added": true,
+                  "name": "Tampering",
+                  "isSelected": true,
+                  "key": 2
+                },
+                {
+                  "id": "b30b4269-9dd6-4730-a0df-96c7d45f854e",
+                  "is_risk_added": true,
+                  "name": "Denial of Service",
+                  "isSelected": true,
+                  "key": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "rowId": "76e5271b-3e32-46df-98fa-2fa7dda7f012",
+          "id": "TSD007",
+          "Details": [
+            {
+              "node": "OTA Update Client",
+              "nodeId": "ota-update-client",
+              "props": [
+                {
+                  "id": "003a0b98-1fc4-409b-ae49-e9cdc5e02021",
+                  "is_risk_added": true,
+                  "name": "Tampering",
+                  "isSelected": true,
+                  "key": 1
+                },
+                {
+                  "id": "f0c953cc-4590-4a86-a71e-fdd87def32a0",
+                  "is_risk_added": true,
+                  "name": "Repudiation",
+                  "isSelected": true,
+                  "key": 2
+                },
+                {
+                  "id": "4c5daf4e-bfb1-4cce-90ae-e9a316fbc036",
+                  "is_risk_added": true,
+                  "name": "Denial of Service",
+                  "isSelected": true,
+                  "key": 3
+                },
+                {
+                  "id": "38dad241-e629-423d-bcb0-08d844f49bf4",
+                  "is_risk_added": true,
+                  "name": "Elevation of Privilege",
+                  "isSelected": true,
+                  "key": 4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "infotainment_ts_002",
+      "model_id": "infotainment_model_001",
+      "user_id": "user_id_123",
+      "type": "threat",
+      "Details": [
+        {
+          "name": "Head Unit OS Root Privilege Escalation",
+          "description": "Attacker exploits kernel IPC or privileged-service vulnerability granting root on Android Automotive OS. Enables disabling SELinux and pivoting to CAN gateway. CAL 3.",
+          "id": "ba87dfc6-9db9-4b00-8fb4-da5686c19875",
+          "threat_ids": [
+            {
+              "propId": "b1a0669e-0a1b-4e9d-b71b-2d6c31cd5a36",
+              "nodeId": "head-unit-os"
+            }
+          ]
+        },
+        {
+          "name": "Bluetooth Proximity Code Execution (BlueFrag-class)",
+          "description": "Unauthenticated remote heap overflow in BT L2CAP layer grants code execution in the BT daemon within ~10 m. No pairing required — CAL 3.",
+          "id": "22afb0ee-5d0f-4d5f-8a72-9ac5272d3624",
+          "threat_ids": [
+            {
+              "propId": "6ada4ae5-c9d0-4144-8698-5d01f346c7e2",
+              "nodeId": "bluetooth-wifi-stacks"
+            }
+          ]
+        },
+        {
+          "name": "Malware Sideloading via Malicious USB Device",
+          "description": "Crafted USB MTP/mass-storage packet triggers buffer overflow; malicious APK sideloaded with access to contacts, GPS, and CAN APIs. Physical access — CAL 2.",
+          "id": "e8416bc3-950f-4b4d-b9c1-852c21dcbba8",
+          "threat_ids": [
+            {
+              "propId": "90f18d34-0b22-4a55-8516-ab3cbf7a5bf0",
+              "nodeId": "usb-driver-stack"
+            }
+          ]
+        },
+        {
+          "name": "Remote Code Execution via Silent SMS / RIL Exploit",
+          "description": "Binary Class-0 SMS exploits RIL input validation failure. Achieves telephony-daemon RCE over LTE with no user interaction — CAL 4.",
+          "id": "dbe3cf20-46aa-4dcc-a602-adcf90830324",
+          "threat_ids": [
+            {
+              "propId": "c0b7ef45-bcad-4cbe-9ae4-1db35bf8635b",
+              "nodeId": "telephony-stacks"
+            }
+          ]
+        },
+        {
+          "name": "Trojanized App via MITM OEM App Store Update",
+          "description": "Rogue Wi-Fi AP + missing TLS pinning delivers signed-looking trojanized media app with mic/GPS/CAN surveillance APIs — CAL 3.",
+          "id": "78310869-0290-4b06-8dfb-5b07f975e83f",
+          "threat_ids": [
+            {
+              "propId": "135a3d89-a35a-4a3c-b268-20ce62708901",
+              "nodeId": "application-layer-code"
+            }
+          ]
+        },
+        {
+          "name": "Cross-Domain CAN Frame Injection via Compromised IHU",
+          "description": "Post-IHU compromise: attacker uses permissive CAN gateway to inject frames into powertrain/body/chassis domains. Highest-severity pivot path — CAL 4.",
+          "id": "4209ceda-2046-4454-8d10-8c058c45fc06",
+          "threat_ids": [
+            {
+              "propId": "df0e9368-39b4-46c4-b251-0e7bfd44c21d",
+              "nodeId": "can-gateway"
+            }
+          ]
+        },
+        {
+          "name": "Fleet-Wide Malicious OTA Package Delivery",
+          "description": "Compromised OEM backend or BGP-hijacked CDN delivers forged OTA package with rollback-protection bypass to all vehicles simultaneously — CAL 4.",
+          "id": "fab8e0eb-603f-4022-af14-983c48bbcd9a",
+          "threat_ids": [
+            {
+              "propId": "41e0e870-cd36-4e08-a796-0b8e01a74a62",
+              "nodeId": "ota-update-client"
+            }
+          ]
+        },
+        {
+          "name": "Mass PII Exfiltration via Broken Access Control in Profile Sync",
+          "description": "Broken access control in cloud profile-sync service enables fleet-scale theft of contact lists, call history, SMS, payment tokens, and biometric prefs — CAL 3.",
+          "id": "91915963-0f48-40a6-9bc0-55708fcf9955",
+          "threat_ids": [
+            {
+              "propId": "ac09783a-55c2-48b2-973d-cc2683a61890",
+              "nodeId": "pii-user-profiles"
+            }
+          ]
+        },
+        {
+          "name": "Navigation Map / POI Poisoning via Compromised Storage Write",
+          "description": "Attacker with write access tampers navigation tiles/POI data. Driver misdirected; route-history exfiltration discloses home address and daily routine — CAL 3.",
+          "id": "873c87a9-a9c4-4bed-b815-2914f808e92e",
+          "threat_ids": [
+            {
+              "propId": "81e10b41-8787-4618-b41d-64d8428428b4",
+              "nodeId": "navigation-data"
+            }
+          ]
+        },
+        {
+          "name": "Acoustic DoS / Speaker Damage via DSP Config Injection",
+          "description": "Compromised SoC sends crafted I2C DSP commands setting maximum gain, damaging voice-coils or injecting disorienting loud burst — CAL 3.",
+          "id": "3acef621-4284-414f-9b0d-53bfdcffcc85",
+          "threat_ids": [
+            {
+              "propId": "48b0e984-eff1-49e9-b053-0ec7a1bf5bc6",
+              "nodeId": "audio-amplifier"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Attacks": [
+    {
+      "_id": "infotainment_atk_001",
+      "model_id": "infotainment_model_001",
+      "user_id": "user_id_123",
+      "type": "attacks",
+      "scenes": [
+        {
+          "ID": "58ad868a-2700-4a31-a9b3-80c3fa4d0d87",
+          "Name": "Bluetooth Proximity RCE Chain",
+          "threat_id": "",
+          "damage_id": "ihu_detail_2",
+          "threat_key": "TSD002",
+          "overall_rating": "High",
+          "templates": {
+            "nodes": [
+              {
+                "id": "c306b6e2-4663-4f22-b320-75f7b44fe3e8",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 50
+                },
+                "data": {
+                  "label": "[TSD002] BT Heap Overflow → IHU Root Shell",
+                  "nodeType": "derived",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "7127d1eb-14dd-46ec-92b7-8e8710431c1a",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 170
+                },
+                "data": {
+                  "label": "OR Gate",
+                  "nodeType": "gate",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "5a6d1f13-42e9-43ac-ad39-b6da94e74af3",
+                "type": "default",
+                "position": {
+                  "x": 150,
+                  "y": 300
+                },
+                "data": {
+                  "label": "Craft Malformed L2CAP Packet (BlueFrag-class)",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "ff82ac4a-8982-4008-82ee-50f8f53fd1bf",
+                "type": "default",
+                "position": {
+                  "x": 650,
+                  "y": 300
+                },
+                "data": {
+                  "label": "Exploit HFP/A2DP Protocol Parser Bug",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              }
+            ],
+            "edges": []
+          }
+        },
+        {
+          "ID": "2cd8a6bc-203f-49da-b507-1d030225b8ab",
+          "Name": "USB Malware Sideload Chain",
+          "threat_id": "",
+          "damage_id": "ihu_detail_3",
+          "threat_key": "TSD003",
+          "overall_rating": "High",
+          "templates": {
+            "nodes": [
+              {
+                "id": "5ae119a7-da58-40c4-961b-3f24853e4d02",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 50
+                },
+                "data": {
+                  "label": "[TSD003] USB MTP Buffer Overflow → APK Sideload",
+                  "nodeType": "derived",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "b20d3054-e34f-4683-9287-15a857c150b6",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 170
+                },
+                "data": {
+                  "label": "OR Gate",
+                  "nodeType": "gate",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "c8b10faf-7882-4236-819b-f1854feeb9b4",
+                "type": "default",
+                "position": {
+                  "x": 150,
+                  "y": 300
+                },
+                "data": {
+                  "label": "Crafted USB MTP Packet Triggering Heap Overflow",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "abc7d08b-6a1e-4663-b723-2ebd066b4786",
+                "type": "default",
+                "position": {
+                  "x": 650,
+                  "y": 300
+                },
+                "data": {
+                  "label": "Malicious Mass-Storage FAT32 Filesystem Exploit",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              }
+            ],
+            "edges": []
+          }
+        },
+        {
+          "ID": "d688a915-fda7-489e-b14c-caa7f88491a4",
+          "Name": "IHU→CAN Lateral Movement Chain",
+          "threat_id": "",
+          "damage_id": "ihu_detail_9",
+          "threat_key": "TSD006",
+          "overall_rating": "Critical",
+          "templates": {
+            "nodes": [
+              {
+                "id": "3fe13fb6-47c8-4e85-896b-0a5b302788b9",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 50
+                },
+                "data": {
+                  "label": "[TSD006] Compromised IHU → CAN Frame Injection",
+                  "nodeType": "derived",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "27ecb1ed-4524-427c-ba74-6321bd928774",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 170
+                },
+                "data": {
+                  "label": "AND Gate",
+                  "nodeType": "gate",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "b5c14931-e9f0-4732-a4f1-f14bdaf07256",
+                "type": "default",
+                "position": {
+                  "x": 150,
+                  "y": 300
+                },
+                "data": {
+                  "label": "Gain IHU Code Execution (BT/USB/OTA)",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "2ff56f9d-d3e9-40df-a0a2-5164d21f7e23",
+                "type": "default",
+                "position": {
+                  "x": 650,
+                  "y": 300
+                },
+                "data": {
+                  "label": "Bypass CAN Gateway Message Filter",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              }
+            ],
+            "edges": []
+          }
+        },
+        {
+          "ID": "18d2d544-aea4-4103-8943-dda16d70102b",
+          "Name": "Malicious OTA Fleet Takeover",
+          "threat_id": "",
+          "damage_id": "ihu_detail_8",
+          "threat_key": "TSD007",
+          "overall_rating": "Critical",
+          "templates": {
+            "nodes": [
+              {
+                "id": "8152c03d-4225-4f0b-a0e6-80d6dd16c875",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 50
+                },
+                "data": {
+                  "label": "[TSD007] Forged OTA Package → Fleet-Wide Firmware Install",
+                  "nodeType": "derived",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "28f95bbd-af93-4b18-be0b-a466e6f79dad",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 170
+                },
+                "data": {
+                  "label": "OR Gate",
+                  "nodeType": "gate",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "6fcb27a2-9097-4bde-8910-151c3e2df303",
+                "type": "default",
+                "position": {
+                  "x": 150,
+                  "y": 300
+                },
+                "data": {
+                  "label": "Compromise OEM Cloud Backend (Credential Theft / Supply Chain)",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "c70ccd2b-36cd-42a7-9d54-269ee5da521f",
+                "type": "default",
+                "position": {
+                  "x": 650,
+                  "y": 300
+                },
+                "data": {
+                  "label": "BGP Hijack OTA CDN + MITM Update Channel",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              }
+            ],
+            "edges": []
+          }
+        }
+      ]
+    },
+    {
+      "_id": "infotainment_atk_002",
+      "model_id": "infotainment_model_001",
+      "user_id": "user_id_123",
+      "type": "attacks",
+      "scenes": [
+        {
+          "ID": "d8b71b1b-b4ba-436e-960c-fbd18d1fd910",
+          "Name": "Bluetooth Proximity RCE",
+          "Approach": "Wireless L2CAP/BT stack exploitation within Bluetooth range",
+          "Expertise": "Expert (wireless protocol RE, heap exploitation)",
+          "Knowledge of the Item": "Significant (BT stack binary analysis)",
+          "Window of Opportunity": "Short (within ~10 m of vehicle)",
+          "Equipment": "BTLE sniffer, custom exploit payload",
+          "Elapsed Time": "1–3 months",
+          "Attack Feasibilities Rating": "Medium — CAL 3"
+        },
+        {
+          "ID": "6c21469d-a29d-4ab8-8e25-a3a37209ba33",
+          "Name": "USB Malware Sideload",
+          "Approach": "Physical USB port exploitation via crafted MTP/filesystem payload",
+          "Expertise": "Proficient",
+          "Knowledge of the Item": "Moderate",
+          "Window of Opportunity": "Short (~5 min physical access)",
+          "Equipment": "Custom USB device with exploit payload",
+          "Elapsed Time": "< 1 week",
+          "Attack Feasibilities Rating": "High — CAL 2"
+        },
+        {
+          "ID": "d02a257f-15b6-486f-ab32-670bf881178c",
+          "Name": "Silent SMS RCE via RIL",
+          "Approach": "Rogue base station delivery of binary Class-0 SMS to trigger RIL heap overflow",
+          "Expertise": "Expert (cellular protocol stack knowledge)",
+          "Knowledge of the Item": "High",
+          "Window of Opportunity": "Long (vehicle SIM always reachable)",
+          "Equipment": "Software-defined radio, rogue eNodeB",
+          "Elapsed Time": "> 3 months",
+          "Attack Feasibilities Rating": "Low — CAL 4"
+        },
+        {
+          "ID": "8e4181dd-7210-4f05-bc7b-68fe1ca3ef4c",
+          "Name": "IHU→CAN Lateral Movement",
+          "Approach": "Post-IHU-compromise pivot to CAN gateway via permissive filter rules",
+          "Expertise": "Specialist (CAN protocol + IHU internals)",
+          "Knowledge of the Item": "Moderate (CAN DBC files + gateway config)",
+          "Window of Opportunity": "High (post-compromise, persistent access)",
+          "Equipment": "CAN sniffing tool, IHU shell",
+          "Elapsed Time": "< 1 week after initial compromise",
+          "Attack Feasibilities Rating": "High — CAL 4"
+        },
+        {
+          "ID": "308c1210-4e67-4ea7-b393-fbbd339d72d0",
+          "Name": "Malicious OTA Package",
+          "Approach": "OEM backend compromise or CDN BGP hijack to serve forged update",
+          "Expertise": "Expert",
+          "Knowledge of the Item": "High",
+          "Window of Opportunity": "Long (update windows occur periodically)",
+          "Equipment": "Nation-state level infrastructure",
+          "Elapsed Time": "> 6 months",
+          "Attack Feasibilities Rating": "Low — CAL 4"
+        },
+        {
+          "ID": "34e3231b-104a-4bd5-a291-d2493baeee64",
+          "Name": "Trojanized App via Wi-Fi MITM",
+          "Approach": "Rogue Wi-Fi AP at parking lot + DNS poisoning of OEM app store update URL",
+          "Expertise": "Proficient",
+          "Knowledge of the Item": "Moderate",
+          "Window of Opportunity": "Short (vehicle connected to public Wi-Fi)",
+          "Equipment": "Rogue AP, SSL-stripping proxy",
+          "Elapsed Time": "< 1 week",
+          "Attack Feasibilities Rating": "Medium — CAL 3"
+        }
+      ]
+    }
+  ],
+  "Cybersecurity": [
+    {
+      "_id": "infotainment_cyber_001",
+      "model_id": "infotainment_model_001",
+      "user_id": "user_id_123",
+      "type": "cybersecurity",
+      "scenes": [
+        {
+          "ID": "c2752a16-d37a-4fae-a1e5-e665edc33ecc",
+          "Name": "Cryptographic Verification of All OTA & App Updates",
+          "Description": "The IHU shall verify the integrity and authenticity of every OTA package and sideloaded application using ECDSA-P256 signatures. Packages failing verification shall be rejected and logged.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "e364d086-71d4-417c-a249-955714d5c10f",
+          "Name": "Bluetooth Stack Hardening — Input Validation and Memory Safety",
+          "Description": "The BT protocol stack shall enforce strict length-bounds checking on all L2CAP, HFP, and A2DP packets. A memory-safe implementation (bounds-checked parser) shall be used. Regular CVE patching cadence required.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "e53cc5ce-9008-4a69-90d9-438864c82f6d",
+          "Name": "USB Attack Surface Reduction",
+          "Description": "The IHU USB driver stack shall enumerate only whitelisted USB device classes (Audio, HID, MTP). Mounting of unknown mass-storage filesystems in user-accessible storage paths shall be prohibited without integrity verification.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "d90611c9-2b76-408c-a699-b09004c3c52a",
+          "Name": "CAN Gateway Strict Message Filtering",
+          "Description": "The CAN gateway shall implement an allowlist of infotainment-originated CAN IDs. Any frame with a source CAN ID outside the allowed infotainment domain shall be dropped and a DTC logged.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "3ee6114f-6dff-402f-a898-2248d2043037",
+          "Name": "PII Encryption at Rest and in Transit",
+          "Description": "All PII (contact lists, call history, SMS, payment tokens) stored on the IHU shall be encrypted at rest using AES-256-GCM with keys derived from a device-bound credential. Data in transit shall use TLS 1.3 with certificate pinning.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "ee4cf49c-1f83-4a54-b4fa-c1c6a9c12eb8",
+          "Name": "Head Unit OS SELinux Mandatory Access Control",
+          "Description": "All IHU OS processes shall run under a strictly defined SELinux policy. Privilege escalation vectors (SUID binaries, writable system paths) shall be eliminated. Policy enforcement shall be verified by automated CI security scanning.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "53b0facd-ae67-47ce-88b3-7c45efe99630",
+          "Name": "Telephony RIL Input Validation and Isolation",
+          "Description": "The RIL SMS parser shall enforce maximum message length and character-set bounds. The telephony daemon shall run in an isolated sandbox (Linux namespace) with no direct access to CAN gateway or file system paths outside its domain.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "b73dfc19-8669-401d-a3fa-7635e0bd6de6",
+          "Name": "Navigation Data Integrity Verification",
+          "Description": "Map tile packages shall include Merkle-tree hash manifests signed by the OEM map provider. The navigation application shall verify these hashes before committing tile updates to persistent storage.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        }
+      ]
+    },
+    {
+      "_id": "infotainment_cyber_002",
+      "model_id": "infotainment_model_001",
+      "user_id": "user_id_123",
+      "type": "cybersecurity",
+      "scenes": [
+        {
+          "ID": "3868d0b5-3356-49fd-af77-c80ffbee8457",
+          "Name": "[CS-IHU-R1] Enforce TLS 1.3 with Certificate Pinning for All OTA/App Channels",
+          "Description": "OTA client and app manager shall use TLS 1.3 with pinned leaf certificates. Certificate mismatch shall abort the connection and trigger a security alert DTC.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "3ba938be-b4e7-44b9-a503-9d9bec5959f7",
+          "Name": "[CS-IHU-R2] Apply Android Automotive OS SELinux Policy Hardening",
+          "Description": "Remove all permissive SELinux domains. Audit and restrict all SUID/SGID binaries. Verify policy using automated policy analysis tool on each build.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "400c3ffe-b065-4254-808e-f34c29786238",
+          "Name": "[CS-IHU-R3] Restrict USB Device Class Enumeration to Allowlist",
+          "Description": "USB host driver shall only enumerate Audio (0x01), HID (0x03), and MTP (0xFF/0x00) device classes. All other classes shall be rejected at the driver level before any data transfer.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "6ebc2a7e-36e0-464c-be49-bdf6b7e842f0",
+          "Name": "[CS-IHU-R4] Implement CAN Gateway Domain-Isolation Allowlist",
+          "Description": "CAN gateway firmware shall implement a static allowlist of permitted infotainment→vehicle message IDs. Unknown IDs shall be dropped. Overflow events shall be logged, rate-limited, and surfaced as DTC U0155.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "07b99820-4a4e-46c4-81b6-4252c62722f2",
+          "Name": "[CS-IHU-R5] Encrypt PII at Rest — AES-256-GCM with Device-Bound Key",
+          "Description": "Contact lists, call history, SMS, and payment tokens shall be stored in an encrypted SQLite database using AES-256-GCM. The key shall be derived from a device-unique secret fused at manufacturing.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "4238057b-1b1e-4bdd-8578-b1423434c8dc",
+          "Name": "[CS-IHU-R6] Isolate RIL Telephony Daemon in Namespaced Sandbox",
+          "Description": "The telephony daemon shall run in a Linux PID/mount/network namespace with access only to /dev/modem and its own data partition. No IPC to CAN gateway or filesystem paths outside its domain shall be permitted.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "8642b654-3f28-408b-a067-4764d87450b4",
+          "Name": "[CS-IHU-R7] Verify Navigation Map Merkle-Tree Hash Before Storage Commit",
+          "Description": "Navigation app shall validate SHA-256 Merkle tree hash manifest (signed ECDSA-P256) before committing any tile update to /data/navi. Hash mismatch shall rollback update and log DTC.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        }
+      ]
+    },
+    {
+      "_id": "infotainment_cyber_003",
+      "model_id": "infotainment_model_001",
+      "user_id": "user_id_123",
+      "type": "cybersecurity",
+      "scenes": []
+    }
+  ],
+  "Risk_treatment": [
+    {
+      "_id": "infotainment_rt_001",
+      "model_id": "infotainment_model_001",
+      "user_id": "user_id_123",
+      "Details": [
+        {
+          "id": "f7a2040b-536b-48d7-b659-67897817750a",
+          "threat_id": "ts_ihu_1",
+          "node_id": "head-unit-os",
+          "label": "[TSD001] OS Root Privilege Escalation — Reduce: SELinux hardening + kernel patching cadence",
+          "damage_id": "ihu_detail_1",
+          "threat_key": "TSD001"
+        },
+        {
+          "id": "753271d8-f105-4df4-a5de-612dfb5080ac",
+          "threat_id": "ts_ihu_2",
+          "node_id": "bluetooth-wifi-stacks",
+          "label": "[TSD002] Bluetooth RCE — Reduce: BT stack bounds-checking + mandatory pairing authentication",
+          "damage_id": "ihu_detail_2",
+          "threat_key": "TSD002"
+        },
+        {
+          "id": "729cd8fd-49d0-4399-92d7-266f47861380",
+          "threat_id": "ts_ihu_3",
+          "node_id": "usb-driver-stack",
+          "label": "[TSD003] USB Malware Sideload — Reduce: USB device class allowlist + app signing enforcement",
+          "damage_id": "ihu_detail_3",
+          "threat_key": "TSD003"
+        },
+        {
+          "id": "5a037ff6-bd25-43dc-b712-d4a3b7bc841f",
+          "threat_id": "ts_ihu_4",
+          "node_id": "telephony-stacks",
+          "label": "[TSD004] Silent SMS RCE — Reduce: RIL input validation + telephony daemon namespace isolation",
+          "damage_id": "ihu_detail_4",
+          "threat_key": "TSD004"
+        },
+        {
+          "id": "a740ec06-7667-49b9-b0fa-0df9b85e6cdc",
+          "threat_id": "ts_ihu_5",
+          "node_id": "application-layer-code",
+          "label": "[TSD005] Trojanized App via MITM — Reduce: TLS certificate pinning + app signature verification",
+          "damage_id": "ihu_detail_5",
+          "threat_key": "TSD005"
+        },
+        {
+          "id": "a66399e0-b127-48f5-a578-e115155fa4d9",
+          "threat_id": "ts_ihu_6",
+          "node_id": "navigation-data",
+          "label": "[TSD006] Navigation Poisoning — Reduce: Merkle-tree hash verification of map tile updates",
+          "damage_id": "ihu_detail_6",
+          "threat_key": "TSD006"
+        },
+        {
+          "id": "dc78720e-9898-49db-bc7b-09afbc1fbbee",
+          "threat_id": "ts_ihu_7",
+          "node_id": "pii-user-profiles",
+          "label": "[TSD007] PII Mass Exfiltration — Reduce: AES-256-GCM at-rest encryption + access control audit",
+          "damage_id": "ihu_detail_7",
+          "threat_key": "TSD007"
+        },
+        {
+          "id": "2704fc4f-a092-47e7-9f09-8e5db589c2b1",
+          "threat_id": "ts_ihu_8",
+          "node_id": "ota-update-client",
+          "label": "[TSD008] Malicious OTA Fleet Compromise — Reduce: ECDSA package signing + rollback counter",
+          "damage_id": "ihu_detail_8",
+          "threat_key": "TSD008"
+        },
+        {
+          "id": "7339ca4b-88d5-456c-b3b0-af858b72543c",
+          "threat_id": "ts_ihu_9",
+          "node_id": "can-gateway",
+          "label": "[TSD009] CAN Frame Injection via IHU — Reduce: Gateway domain allowlist + DTC U0155 logging",
+          "damage_id": "ihu_detail_9",
+          "threat_key": "TSD009"
+        },
+        {
+          "id": "534af53d-2bed-49cd-864e-7b924e2eaad4",
+          "threat_id": "ts_ihu_10",
+          "node_id": "audio-amplifier",
+          "label": "[TSD010] Acoustic DoS via DSP Config Injection — Retain (residual): Volume clamp + I2C auth",
+          "damage_id": "ihu_detail_10",
+          "threat_key": "TSD010"
+        }
+      ]
+    }
+  ]
 }

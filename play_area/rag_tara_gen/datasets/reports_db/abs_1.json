@@ -35,10 +35,23 @@
                 "width": 1000
               }
             },
-            "properties": ["Integrity", "Authenticity", "Availability"],
-            "position": { "x": -100, "y": -50 },
-            "positionAbsolute": { "x": -100, "y": -50 },
-            "style": { "height": 520, "width": 1000 },
+            "properties": [
+              "Integrity",
+              "Authenticity",
+              "Availability"
+            ],
+            "position": {
+              "x": -100,
+              "y": -50
+            },
+            "positionAbsolute": {
+              "x": -100,
+              "y": -50
+            },
+            "style": {
+              "height": 520,
+              "width": 1000
+            },
             "width": 1000,
             "height": 520,
             "zIndex": 0,
@@ -64,9 +77,18 @@
               }
             },
             "properties": [],
-            "position": { "x": 400, "y": 60 },
-            "positionAbsolute": { "x": 400, "y": 60 },
-            "style": { "height": 250, "width": 300 },
+            "position": {
+              "x": 400,
+              "y": 60
+            },
+            "positionAbsolute": {
+              "x": 400,
+              "y": 60
+            },
+            "style": {
+              "height": 250,
+              "width": 300
+            },
             "width": 300,
             "height": 250,
             "zIndex": 1,
@@ -94,10 +116,24 @@
                 "width": 110
               }
             },
-            "properties": ["Confidentiality", "Integrity", "Availability", "Authenticity"],
-            "position": { "x": 420, "y": 80 },
-            "positionAbsolute": { "x": 420, "y": 80 },
-            "style": { "height": 50, "width": 110 },
+            "properties": [
+              "Confidentiality",
+              "Integrity",
+              "Availability",
+              "Authenticity"
+            ],
+            "position": {
+              "x": 420,
+              "y": 80
+            },
+            "positionAbsolute": {
+              "x": 420,
+              "y": 80
+            },
+            "style": {
+              "height": 50,
+              "width": 110
+            },
             "width": 110,
             "height": 50,
             "dragging": false,
@@ -124,10 +160,23 @@
                 "width": 110
               }
             },
-            "properties": ["Integrity", "Availability", "Non-repudiation"],
-            "position": { "x": 550, "y": 80 },
-            "positionAbsolute": { "x": 550, "y": 80 },
-            "style": { "height": 41, "width": 110 },
+            "properties": [
+              "Integrity",
+              "Availability",
+              "Non-repudiation"
+            ],
+            "position": {
+              "x": 550,
+              "y": 80
+            },
+            "positionAbsolute": {
+              "x": 550,
+              "y": 80
+            },
+            "style": {
+              "height": 41,
+              "width": 110
+            },
             "width": 110,
             "height": 41,
             "dragging": false,
@@ -154,10 +203,21 @@
                 "width": 110
               }
             },
-            "properties": ["Confidentiality"],
-            "position": { "x": 550, "y": 140 },
-            "positionAbsolute": { "x": 550, "y": 140 },
-            "style": { "height": 39, "width": 110 },
+            "properties": [
+              "Confidentiality"
+            ],
+            "position": {
+              "x": 550,
+              "y": 140
+            },
+            "positionAbsolute": {
+              "x": 550,
+              "y": 140
+            },
+            "style": {
+              "height": 39,
+              "width": 110
+            },
             "width": 110,
             "height": 39,
             "dragging": false,
@@ -184,10 +244,23 @@
                 "width": 110
               }
             },
-            "properties": ["Integrity", "Authenticity", "Availability"],
-            "position": { "x": 550, "y": 195 },
-            "positionAbsolute": { "x": 550, "y": 195 },
-            "style": { "height": 41, "width": 110 },
+            "properties": [
+              "Integrity",
+              "Authenticity",
+              "Availability"
+            ],
+            "position": {
+              "x": 550,
+              "y": 195
+            },
+            "positionAbsolute": {
+              "x": 550,
+              "y": 195
+            },
+            "style": {
+              "height": 41,
+              "width": 110
+            },
             "width": 110,
             "height": 41,
             "dragging": false,
@@ -214,10 +287,23 @@
                 "width": 110
               }
             },
-            "properties": ["Integrity", "Availability", "Authorization"],
-            "position": { "x": 420, "y": 165 },
-            "positionAbsolute": { "x": 420, "y": 165 },
-            "style": { "height": 37, "width": 110 },
+            "properties": [
+              "Integrity",
+              "Availability",
+              "Authorization"
+            ],
+            "position": {
+              "x": 420,
+              "y": 165
+            },
+            "positionAbsolute": {
+              "x": 420,
+              "y": 165
+            },
+            "style": {
+              "height": 37,
+              "width": 110
+            },
             "width": 110,
             "height": 37,
             "dragging": false,
@@ -244,10 +330,22 @@
                 "width": 160
               }
             },
-            "properties": ["Integrity", "Availability"],
-            "position": { "x": 100, "y": 60 },
-            "positionAbsolute": { "x": 100, "y": 60 },
-            "style": { "height": 70, "width": 160 },
+            "properties": [
+              "Integrity",
+              "Availability"
+            ],
+            "position": {
+              "x": 100,
+              "y": 60
+            },
+            "positionAbsolute": {
+              "x": 100,
+              "y": 60
+            },
+            "style": {
+              "height": 70,
+              "width": 160
+            },
             "width": 160,
             "height": 70,
             "dragging": false,
@@ -274,10 +372,22 @@
                 "width": 160
               }
             },
-            "properties": ["Integrity", "Availability"],
-            "position": { "x": 100, "y": 240 },
-            "positionAbsolute": { "x": 100, "y": 240 },
-            "style": { "height": 70, "width": 160 },
+            "properties": [
+              "Integrity",
+              "Availability"
+            ],
+            "position": {
+              "x": 100,
+              "y": 240
+            },
+            "positionAbsolute": {
+              "x": 100,
+              "y": 240
+            },
+            "style": {
+              "height": 70,
+              "width": 160
+            },
             "width": 160,
             "height": 70,
             "dragging": false,
@@ -304,10 +414,22 @@
                 "width": 150
               }
             },
-            "properties": ["Integrity", "Availability"],
-            "position": { "x": 760, "y": 200 },
-            "positionAbsolute": { "x": 760, "y": 200 },
-            "style": { "height": 50, "width": 150 },
+            "properties": [
+              "Integrity",
+              "Availability"
+            ],
+            "position": {
+              "x": 760,
+              "y": 200
+            },
+            "positionAbsolute": {
+              "x": 760,
+              "y": 200
+            },
+            "style": {
+              "height": 50,
+              "width": 150
+            },
             "width": 150,
             "height": 50,
             "dragging": false,
@@ -334,10 +456,23 @@
                 "width": 150
               }
             },
-            "properties": ["Integrity", "Availability", "Authorization"],
-            "position": { "x": 100, "y": 400 },
-            "positionAbsolute": { "x": 100, "y": 400 },
-            "style": { "height": 50, "width": 150 },
+            "properties": [
+              "Integrity",
+              "Availability",
+              "Authorization"
+            ],
+            "position": {
+              "x": 100,
+              "y": 400
+            },
+            "positionAbsolute": {
+              "x": 100,
+              "y": 400
+            },
+            "style": {
+              "height": 50,
+              "width": 150
+            },
             "width": 150,
             "height": 50,
             "dragging": false,
@@ -364,10 +499,22 @@
                 "width": 150
               }
             },
-            "properties": ["Integrity", "Availability"],
-            "position": { "x": 1050, "y": 50 },
-            "positionAbsolute": { "x": 1050, "y": 50 },
-            "style": { "height": 400, "width": 150 },
+            "properties": [
+              "Integrity",
+              "Availability"
+            ],
+            "position": {
+              "x": 1050,
+              "y": 50
+            },
+            "positionAbsolute": {
+              "x": 1050,
+              "y": 50
+            },
+            "style": {
+              "height": 400,
+              "width": 150
+            },
             "width": 150,
             "height": 400,
             "dragging": false,
@@ -395,9 +542,18 @@
               }
             },
             "properties": [],
-            "position": { "x": 1250, "y": 50 },
-            "positionAbsolute": { "x": 1250, "y": 50 },
-            "style": { "height": 60, "width": 200 },
+            "position": {
+              "x": 1250,
+              "y": 50
+            },
+            "positionAbsolute": {
+              "x": 1250,
+              "y": 50
+            },
+            "style": {
+              "height": 60,
+              "width": 200
+            },
             "width": 200,
             "height": 60,
             "dragging": false,
@@ -424,10 +580,22 @@
                 "width": 130
               }
             },
-            "properties": ["Authenticity", "Integrity"],
-            "position": { "x": 480, "y": 400 },
-            "positionAbsolute": { "x": 480, "y": 400 },
-            "style": { "height": 30, "width": 130 },
+            "properties": [
+              "Authenticity",
+              "Integrity"
+            ],
+            "position": {
+              "x": 480,
+              "y": 400
+            },
+            "positionAbsolute": {
+              "x": 480,
+              "y": 400
+            },
+            "style": {
+              "height": 30,
+              "width": 130
+            },
             "width": 130,
             "height": 30,
             "dragging": false,
@@ -454,10 +622,22 @@
                 "width": 130
               }
             },
-            "properties": ["Authenticity", "Integrity"],
-            "position": { "x": 640, "y": 400 },
-            "positionAbsolute": { "x": 640, "y": 400 },
-            "style": { "height": 30, "width": 130 },
+            "properties": [
+              "Authenticity",
+              "Integrity"
+            ],
+            "position": {
+              "x": 640,
+              "y": 400
+            },
+            "positionAbsolute": {
+              "x": 640,
+              "y": 400
+            },
+            "style": {
+              "height": 30,
+              "width": 130
+            },
             "width": 130,
             "height": 30,
             "dragging": false,
@@ -472,11 +652,31 @@
             "target": "abs_wheel_speed_sensors",
             "type": "step",
             "animated": true,
-            "properties": ["Integrity"],
-            "data": { "label": "PWM_Input", "offset": 0, "t": 0.5 },
-            "style": { "stroke": "#808080", "strokeWidth": 2 },
-            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 },
-            "markerStart": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18, "orient": "auto-start-reverse" }
+            "properties": [
+              "Integrity"
+            ],
+            "data": {
+              "label": "PWM_Input",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18,
+              "orient": "auto-start-reverse"
+            }
           },
           {
             "id": "edge_abs_mcu_hcu",
@@ -484,11 +684,32 @@
             "target": "abs_hydraulic_control_unit",
             "type": "step",
             "animated": true,
-            "properties": ["Integrity", "Availability"],
-            "data": { "label": "PWM_Control", "offset": 0, "t": 0.5 },
-            "style": { "stroke": "#808080", "strokeWidth": 2 },
-            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 },
-            "markerStart": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18, "orient": "auto-start-reverse" }
+            "properties": [
+              "Integrity",
+              "Availability"
+            ],
+            "data": {
+              "label": "PWM_Control",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18,
+              "orient": "auto-start-reverse"
+            }
           },
           {
             "id": "edge_abs_mcu_can",
@@ -496,11 +717,32 @@
             "target": "abs_can_transceiver",
             "type": "step",
             "animated": true,
-            "properties": ["Integrity", "Authenticity"],
-            "data": { "label": "CAN_Internal", "offset": 0, "t": 0.5 },
-            "style": { "stroke": "#808080", "strokeWidth": 2 },
-            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 },
-            "markerStart": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18, "orient": "auto-start-reverse" }
+            "properties": [
+              "Integrity",
+              "Authenticity"
+            ],
+            "data": {
+              "label": "CAN_Internal",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18,
+              "orient": "auto-start-reverse"
+            }
           },
           {
             "id": "edge_abs_mcu_obd",
@@ -508,11 +750,31 @@
             "target": "abs_obd_interface",
             "type": "step",
             "animated": true,
-            "properties": ["Authorization"],
-            "data": { "label": "UDS_Diag", "offset": 0, "t": 0.5 },
-            "style": { "stroke": "#808080", "strokeWidth": 2 },
-            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 },
-            "markerStart": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18, "orient": "auto-start-reverse" }
+            "properties": [
+              "Authorization"
+            ],
+            "data": {
+              "label": "UDS_Diag",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18,
+              "orient": "auto-start-reverse"
+            }
           },
           {
             "id": "edge_abs_can_vcb",
@@ -520,11 +782,32 @@
             "target": "abs_vehicle_can_bus",
             "type": "step",
             "animated": true,
-            "properties": ["Integrity", "Availability"],
-            "data": { "label": "CAN_Bus", "offset": 0, "t": 0.5 },
-            "style": { "stroke": "#808080", "strokeWidth": 2 },
-            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 },
-            "markerStart": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18, "orient": "auto-start-reverse" }
+            "properties": [
+              "Integrity",
+              "Availability"
+            ],
+            "data": {
+              "label": "CAN_Bus",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18,
+              "orient": "auto-start-reverse"
+            }
           },
           {
             "id": "edge_abs_vcb_ecm",
@@ -532,11 +815,31 @@
             "target": "abs_ecm",
             "type": "step",
             "animated": true,
-            "properties": ["Integrity"],
-            "data": { "label": "Vehicle_CAN", "offset": 0, "t": 0.5 },
-            "style": { "stroke": "#808080", "strokeWidth": 2 },
-            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 },
-            "markerStart": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18, "orient": "auto-start-reverse" }
+            "properties": [
+              "Integrity"
+            ],
+            "data": {
+              "label": "Vehicle_CAN",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18,
+              "orient": "auto-start-reverse"
+            }
           },
           {
             "id": "edge_abs_mcu_bpd",
@@ -544,10 +847,24 @@
             "target": "abs_brake_pressure_data",
             "type": "step",
             "animated": true,
-            "properties": ["Integrity"],
-            "data": { "label": "Computes", "offset": 0, "t": 0.5 },
-            "style": { "stroke": "#808080", "strokeWidth": 2 },
-            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 }
+            "properties": [
+              "Integrity"
+            ],
+            "data": {
+              "label": "Computes",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            }
           },
           {
             "id": "edge_abs_mcu_dd",
@@ -555,10 +872,24 @@
             "target": "abs_diagnostic_data",
             "type": "step",
             "animated": true,
-            "properties": ["Integrity"],
-            "data": { "label": "Logs", "offset": 0, "t": 0.5 },
-            "style": { "stroke": "#808080", "strokeWidth": 2 },
-            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 }
+            "properties": [
+              "Integrity"
+            ],
+            "data": {
+              "label": "Logs",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            }
           },
           {
             "id": "edge_abs_obd_dd",
@@ -566,22 +897,261 @@
             "target": "abs_diagnostic_data",
             "type": "step",
             "animated": true,
-            "properties": ["Authorization"],
-            "data": { "label": "Reads_DTC", "offset": 0, "t": 0.5 },
-            "style": { "stroke": "#808080", "strokeWidth": 2 },
-            "markerEnd": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18 },
-            "markerStart": { "type": "arrowclosed", "color": "#64B5F6", "height": 18, "width": 18, "orient": "auto-start-reverse" }
+            "properties": [
+              "Authorization"
+            ],
+            "data": {
+              "label": "Reads_DTC",
+              "offset": 0,
+              "t": 0.5
+            },
+            "style": {
+              "stroke": "#808080",
+              "strokeWidth": 2
+            },
+            "markerEnd": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18
+            },
+            "markerStart": {
+              "type": "arrowclosed",
+              "color": "#64B5F6",
+              "height": 18,
+              "width": 18,
+              "orient": "auto-start-reverse"
+            }
           }
         ]
-      }
+      },
+      "Details": [
+        {
+          "nodeId": "abs_ecu_group",
+          "name": "ABS ECU",
+          "desc": "Main ECU group containing the MCU, memory, comms, and sensor interfaces for the Anti-Lock Braking System.",
+          "type": "group",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "abs-prop-int-ecu"
+            },
+            {
+              "name": "Authenticity",
+              "id": "abs-prop-auth-ecu"
+            },
+            {
+              "name": "Availability",
+              "id": "abs-prop-av-ecu"
+            }
+          ]
+        },
+        {
+          "nodeId": "abs_code_flash",
+          "name": "Code Flash",
+          "desc": "Stores ABS control firmware and safety-critical braking algorithms.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Confidentiality",
+              "id": "abs-prop-conf-cf"
+            },
+            {
+              "name": "Integrity",
+              "id": "abs-prop-int-cf"
+            },
+            {
+              "name": "Availability",
+              "id": "abs-prop-av-cf"
+            },
+            {
+              "name": "Authenticity",
+              "id": "abs-prop-auth-cf"
+            }
+          ]
+        },
+        {
+          "nodeId": "abs_data_flash",
+          "name": "Data Flash",
+          "desc": "Stores calibration parameters, variant coding, and NVM configuration for the ABS ECU.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "abs-prop-int-df"
+            },
+            {
+              "name": "Availability",
+              "id": "abs-prop-av-df"
+            },
+            {
+              "name": "Non-repudiation",
+              "id": "abs-prop-nonrep-df"
+            }
+          ]
+        },
+        {
+          "nodeId": "abs_keys",
+          "name": "Keys",
+          "desc": "Cryptographic keys for secure boot, ECU authentication, and UDS seed-key access.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Confidentiality",
+              "id": "abs-prop-conf-keys"
+            }
+          ]
+        },
+        {
+          "nodeId": "abs_certificates",
+          "name": "Certificates",
+          "desc": "X.509 certificates used for secure ECU authentication and OTA update validation.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "abs-prop-int-cert"
+            },
+            {
+              "name": "Authenticity",
+              "id": "abs-prop-auth-cert"
+            },
+            {
+              "name": "Availability",
+              "id": "abs-prop-av-cert"
+            }
+          ]
+        },
+        {
+          "nodeId": "abs_debug_port",
+          "name": "Debug Port",
+          "desc": "JTAG/SWD debug interface for firmware development and diagnostic access. Must be locked in production.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "abs-prop-int-dbg"
+            },
+            {
+              "name": "Availability",
+              "id": "abs-prop-av-dbg"
+            },
+            {
+              "name": "Authorization",
+              "id": "abs-prop-authz-dbg"
+            }
+          ]
+        },
+        {
+          "nodeId": "abs_wheel_speed_sensors",
+          "name": "Wheel Speed Sensors",
+          "desc": "Four hall-effect/magnetoresistive sensors (FL, FR, RL, RR) delivering wheel rotation data via PWM.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "abs-prop-int-wss"
+            },
+            {
+              "name": "Availability",
+              "id": "abs-prop-av-wss"
+            }
+          ]
+        },
+        {
+          "nodeId": "abs_hydraulic_control_unit",
+          "name": "Hydraulic Control Unit",
+          "desc": "Electro-hydraulic actuator (solenoid valves + pump motor) that modulates brake pressure per MCU commands.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "abs-prop-int-hcu"
+            },
+            {
+              "name": "Availability",
+              "id": "abs-prop-av-hcu"
+            }
+          ]
+        },
+        {
+          "nodeId": "abs_can_transceiver",
+          "name": "CAN Transceiver",
+          "desc": "Physical-layer CAN-FD transceiver bridging the MCU CAN controller to the in-vehicle CAN bus.",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "abs-prop-int-can"
+            },
+            {
+              "name": "Availability",
+              "id": "abs-prop-av-can"
+            }
+          ]
+        },
+        {
+          "nodeId": "abs_obd_interface",
+          "name": "OBD-II Interface",
+          "desc": "Standardised diagnostic connector exposing UDS services (0x22, 0x27, 0x34/0x36).",
+          "type": "default",
+          "props": [
+            {
+              "name": "Integrity",
+              "id": "abs-prop-int-obd"
+            },
+            {
+              "name": "Availability",
+              "id": "abs-prop-av-obd"
+            },
+            {
+              "name": "Authorization",
+              "id": "abs-prop-authz-obd"
+            }
+          ]
+        },
+        {
+          "nodeId": "abs_brake_pressure_data",
+          "name": "Brake Pressure Data",
+          "desc": "Real-time hydraulic pressure values per wheel channel computed by the ABS control algorithm.",
+          "type": "data",
+          "props": [
+            {
+              "name": "Authenticity",
+              "id": "abs-prop-auth-bpd"
+            },
+            {
+              "name": "Integrity",
+              "id": "abs-prop-int-bpd"
+            }
+          ]
+        },
+        {
+          "nodeId": "abs_diagnostic_data",
+          "name": "Diagnostic Data",
+          "desc": "DTC and freeze-frame snapshots stored in NVM; read via OBD-II UDS services.",
+          "type": "data",
+          "props": [
+            {
+              "name": "Authenticity",
+              "id": "abs-prop-auth-dd"
+            },
+            {
+              "name": "Integrity",
+              "id": "abs-prop-int-dd"
+            }
+          ]
+        }
+      ]
     }
   ],
-  "DamageScenarios": [
+  "Damage_scenarios": [
     {
-      "_id": "abs_ds_001",
+      "_id": "abs_ds_main_001",
       "model_id": "abs_model_001",
+      "user_id": "user_id_123",
       "type": "damage",
-      "derivation": [
+      "Derivations": [
         {
           "id": "abs_deriv_1",
           "nodeId": "abs_code_flash",
@@ -589,8 +1159,8 @@
           "name": "CWE-494: Download of Code Without Integrity Check",
           "loss": "Unauthorized firmware modification via OTA or diagnostic service",
           "asset": "Code Flash",
-          "damage_scene": "An attacker delivers a tampered firmware image to the ABS ECU through an unsecured OTA channel or an unlocked UDS 0x34/0x36 session. The modified firmware disables the wheel lock prevention logic, causing the ABS to fail silently and creating a life-threatening loss-of-braking condition.",
-          "isChecked": false
+          "damageScene": "An attacker delivers a tampered firmware image to the ABS ECU through an unsecured OTA channel or an unlocked UDS 0x34/0x36 session. The modified firmware disables the wheel lock prevention logic, causing the ABS to fail silently and creating a life-threatening loss-of-braking condition.",
+          "is_checked": false
         },
         {
           "id": "abs_deriv_2",
@@ -599,18 +1169,18 @@
           "name": "CWE-321: Use of Hard-coded Cryptographic Key",
           "loss": "Compromise of ECU authentication and seed-key mechanism",
           "asset": "Keys",
-          "damage_scene": "Reverse-engineering of the ABS ECU binary reveals a hard-coded seed-key algorithm. An attacker gains full UDS SecurityAccess (service 0x27), enabling arbitrary memory read/write and firmware reprogramming without valid workshop credentials.",
-          "isChecked": false
+          "damageScene": "Reverse-engineering of the ABS ECU binary reveals a hard-coded seed-key algorithm. An attacker gains full UDS SecurityAccess (0x27), enabling arbitrary memory read/write and firmware reprogramming without valid workshop credentials.",
+          "is_checked": false
         },
         {
           "id": "abs_deriv_3",
           "nodeId": "abs_wheel_speed_sensors",
           "task": "Threat Analysis",
-          "name": "CAPEC-390: Bypassing of Intermediate Forms in Multiple-Form Sets",
+          "name": "CAPEC-390: Bypassing Intermediate Forms — Wheel Speed Signal Injection",
           "loss": "Injection of spoofed wheel speed signals causing inappropriate ABS activation",
           "asset": "Wheel Speed Sensors",
-          "damage_scene": "An attacker with physical or CAN access injects falsified PWM wheel-speed signals. The ABS MCU misinterprets normal braking as wheel lock and activates pulse modulation, dramatically extending stopping distance and increasing accident risk.",
-          "isChecked": false
+          "damageScene": "An attacker with physical or CAN access injects falsified PWM wheel-speed signals. The ABS MCU misinterprets normal braking as wheel lock and activates pulse modulation, dramatically extending stopping distance and increasing accident risk.",
+          "is_checked": false
         },
         {
           "id": "abs_deriv_4",
@@ -619,18 +1189,18 @@
           "name": "ATM Technique: CAN Bus Message Injection",
           "loss": "Injection of spoofed ABS status CAN frames affecting adjacent ECUs",
           "asset": "CAN Transceiver",
-          "damage_scene": "An adversary connected to the in-vehicle CAN bus transmits fabricated ABS_Active and WheelSpeed CAN frames. The ECM and ESC/ESP receive false data, alter torque distribution and stability control, potentially inducing a spin or loss of vehicle stability.",
-          "isChecked": false
+          "damageScene": "An adversary connected to the in-vehicle CAN bus transmits fabricated ABS_Active and WheelSpeed CAN frames. The ECM and ESC receive false data, alter torque distribution and stability control, potentially inducing a spin or loss of vehicle stability.",
+          "is_checked": false
         },
         {
           "id": "abs_deriv_5",
           "nodeId": "abs_obd_interface",
           "task": "Threat Analysis",
-          "name": "CAPEC-167: Bluetooth Brute Force Attack / CWE-307: Improper Restriction of Excessive Authentication Attempts",
+          "name": "CWE-307: Improper Restriction of Excessive Auth Attempts — OBD-II UDS Brute Force",
           "loss": "Brute-force of UDS SecurityAccess seed-key to gain privileged diagnostic session",
           "asset": "OBD-II Interface",
-          "damage_scene": "An attacker connects a rogue diagnostic tool to the OBD-II port and performs automated seed-key brute-forcing using the short 16-bit seed space. After unlocking level 2 security, the attacker reprograms the ABS ECU or corrupts its NVM calibration, degrading braking performance.",
-          "isChecked": false
+          "damageScene": "An attacker connects a rogue diagnostic tool to the OBD-II port and performs automated seed-key brute-forcing. After unlocking level 2 security, the attacker reprograms the ABS ECU or corrupts its NVM calibration, degrading braking performance.",
+          "is_checked": false
         },
         {
           "id": "abs_deriv_6",
@@ -639,28 +1209,28 @@
           "name": "CWE-276: Incorrect Default Permissions on Calibration Data",
           "loss": "Tampering of ABS calibration parameters degrading stopping distance",
           "asset": "Data Flash",
-          "damage_scene": "An attacker who obtains UDS programming access overwrites ABS threshold calibration values (slip ratio limits, pressure ramp rates) stored in Data Flash. The modified parameters cause the ABS system to intervene too early or too late, increasing stopping distance measurably beyond ISO 21434 safety targets.",
-          "isChecked": false
+          "damageScene": "An attacker who obtains UDS programming access overwrites ABS threshold calibration values (slip ratio limits, pressure ramp rates) stored in Data Flash. The modified parameters cause the ABS system to intervene too early or too late, increasing stopping distance beyond ISO 21434 safety targets.",
+          "is_checked": false
         },
         {
           "id": "abs_deriv_7",
           "nodeId": "abs_debug_port",
           "task": "Threat Analysis",
-          "name": "MITRE ICS Technique T0843: Program Download / Physical Access via JTAG",
+          "name": "MITRE ICS T0843: Program Download via Physical JTAG Access",
           "loss": "Full ECU compromise through unlocked JTAG debug port in production hardware",
           "asset": "Debug Port",
-          "damage_scene": "A production ABS ECU is found with the JTAG/SWD interface active and unprotected. An attacker extracts the full flash image (including Keys and firmware), patches the binary to disable ABS logic, and re-flashes the modified image, indistinguishable from legitimate firmware.",
-          "isChecked": false
+          "damageScene": "A production ABS ECU is found with the JTAG/SWD interface active and unprotected. An attacker extracts the full flash image, patches the binary to disable ABS logic, and re-flashes the modified image indistinguishable from legitimate firmware.",
+          "is_checked": false
         },
         {
           "id": "abs_deriv_8",
           "nodeId": "abs_hydraulic_control_unit",
           "task": "Threat Analysis",
-          "name": "ATM Technique: Manipulate Control Logic",
+          "name": "ATM Technique: Manipulate Control Logic — HCU Actuator Command Injection",
           "loss": "Denial of braking or asymmetric braking through actuator command injection",
           "asset": "Hydraulic Control Unit",
-          "damage_scene": "An attacker who has compromised the ABS MCU firmware sends erroneous solenoid valve commands to the HCU. This causes asymmetric brake pressure modulation (e.g., locking one wheel while releasing another), resulting in severe vehicle yaw and potential rollover at highway speed.",
-          "isChecked": false
+          "damageScene": "An attacker who has compromised the ABS MCU firmware sends erroneous solenoid valve commands to the HCU. This causes asymmetric brake pressure modulation, locking one wheel while releasing another, resulting in severe vehicle yaw and potential rollover at highway speed.",
+          "is_checked": false
         },
         {
           "id": "abs_deriv_9",
@@ -669,23 +1239,25 @@
           "name": "CWE-20: Improper Input Validation — Spoofed Sensor Computation Output",
           "loss": "Falsified brake pressure data corrupting ABS control loop decisions",
           "asset": "Brake Pressure Data",
-          "damage_scene": "Tampered computation inputs cause the ABS algorithm to operate on falsified pressure values. The control loop races between excessive modulation and no modulation, creating brake fade and an inability to maintain optimal wheel slip, increasing stopping distance by up to 40%.",
-          "isChecked": false
+          "damageScene": "Tampered computation inputs cause the ABS algorithm to operate on falsified pressure values. The control loop oscillates between excessive modulation and no modulation, creating brake fade and increasing stopping distance by up to 40%.",
+          "is_checked": false
         },
         {
           "id": "abs_deriv_10",
           "nodeId": "abs_diagnostic_data",
           "task": "Threat Analysis",
-          "name": "CWE-117: Improper Output Neutralization for Logs / DTC Suppression",
+          "name": "CWE-117: Improper Output Neutralization for Logs — DTC Suppression",
           "loss": "Suppression or falsification of ABS DTCs concealing safety-critical faults",
           "asset": "Diagnostic Data",
-          "damage_scene": "An attacker uses an authorised-looking diagnostic tool to clear or overwrite DTC entries after inducing ABS faults. Technicians performing pre-delivery inspections see a clean fault memory, remain unaware of the underlying vulnerability, and the compromised vehicle is released to the customer.",
-          "isChecked": false
+          "damageScene": "An attacker uses an authorised-looking diagnostic tool to clear or overwrite DTC entries after inducing ABS faults. Technicians performing pre-delivery inspections see a clean fault memory and the compromised vehicle is released to the customer.",
+          "is_checked": false
         }
       ],
-      "details": [
+      "Details": [
         {
           "Name": "ABS Firmware Tampering via OTA / UDS",
+          "_id": "abs_detail_1",
+          "key": 1,
           "Description": "Exploitation of CWE-494 to deliver unsigned/tampered ABS firmware. Disables wheel-lock prevention logic and creates a silent safety-critical failure. Rated Catastrophic for Safety Impact.",
           "cyberLosses": [
             {
@@ -702,12 +1274,12 @@
             "Safety Impact": "Catastrophic",
             "Operational Impact": "Major",
             "Privacy Impact": "Negligible"
-          },
-          "key": 1,
-          "_id": "abs_detail_1"
+          }
         },
         {
           "Name": "Hard-coded Key Extraction and UDS Unlock",
+          "_id": "abs_detail_2",
+          "key": 2,
           "Description": "Hard-coded seed-key compromise (CWE-321) grants full security level access to ABS ECU memory and programming services, enabling any subsequent attack.",
           "cyberLosses": [
             {
@@ -724,12 +1296,12 @@
             "Safety Impact": "Major",
             "Operational Impact": "Major",
             "Privacy Impact": "Minor"
-          },
-          "key": 2,
-          "_id": "abs_detail_2"
+          }
         },
         {
           "Name": "Wheel Speed Sensor Signal Spoofing",
+          "_id": "abs_detail_3",
+          "key": 3,
           "Description": "Injection of falsified PWM wheel-speed signals (CAPEC-390) causes the ABS to incorrectly activate during normal braking, extending stopping distance and increasing collision risk.",
           "cyberLosses": [
             {
@@ -746,13 +1318,13 @@
             "Safety Impact": "Catastrophic",
             "Operational Impact": "Major",
             "Privacy Impact": "Negligible"
-          },
-          "key": 3,
-          "_id": "abs_detail_3"
+          }
         },
         {
           "Name": "CAN Bus ABS Frame Injection",
-          "Description": "Spoofed ABS CAN frames (ATM) mislead connected safety ECUs (ECM, ESC), triggering unintended traction interventions and vehicle instability.",
+          "_id": "abs_detail_4",
+          "key": 4,
+          "Description": "Spoofed ABS CAN frames mislead connected safety ECUs (ECM, ESC), triggering unintended traction interventions and vehicle instability.",
           "cyberLosses": [
             {
               "id": "cl_abs_4",
@@ -768,12 +1340,12 @@
             "Safety Impact": "Major",
             "Operational Impact": "Major",
             "Privacy Impact": "Negligible"
-          },
-          "key": 4,
-          "_id": "abs_detail_4"
+          }
         },
         {
           "Name": "OBD-II Seed-Key Brute Force",
+          "_id": "abs_detail_5",
+          "key": 5,
           "Description": "Automated UDS SecurityAccess brute-force (CWE-307) through physical OBD-II port grants elevated programming access allowing ECU reprogramming.",
           "cyberLosses": [
             {
@@ -790,12 +1362,12 @@
             "Safety Impact": "Major",
             "Operational Impact": "Moderate",
             "Privacy Impact": "Minor"
-          },
-          "key": 5,
-          "_id": "abs_detail_5"
+          }
         },
         {
           "Name": "Calibration Data Tampering in Data Flash",
+          "_id": "abs_detail_6",
+          "key": 6,
           "Description": "Unauthorised modification of ABS threshold calibration (CWE-276) stored in Data Flash degrades braking performance beyond safe limits.",
           "cyberLosses": [
             {
@@ -812,12 +1384,12 @@
             "Safety Impact": "Major",
             "Operational Impact": "Moderate",
             "Privacy Impact": "Negligible"
-          },
-          "key": 6,
-          "_id": "abs_detail_6"
+          }
         },
         {
           "Name": "JTAG-based Full ECU Compromise",
+          "_id": "abs_detail_7",
+          "key": 7,
           "Description": "Unlocked Debug Port enables physical firmware extraction and re-flash (MITRE ICS T0843) allowing complete ECU takeover in production.",
           "cyberLosses": [
             {
@@ -834,13 +1406,13 @@
             "Safety Impact": "Catastrophic",
             "Operational Impact": "Major",
             "Privacy Impact": "Minor"
-          },
-          "key": 7,
-          "_id": "abs_detail_7"
+          }
         },
         {
           "Name": "HCU Actuator Command Injection",
-          "Description": "Compromised MCU firmware sends erroneous solenoid commands (ATM: Manipulate Control Logic) causing asymmetric braking and vehicle yaw.",
+          "_id": "abs_detail_8",
+          "key": 8,
+          "Description": "Compromised MCU firmware sends erroneous solenoid commands causing asymmetric braking and vehicle yaw/rollover.",
           "cyberLosses": [
             {
               "id": "cl_abs_8",
@@ -856,13 +1428,13 @@
             "Safety Impact": "Catastrophic",
             "Operational Impact": "Major",
             "Privacy Impact": "Negligible"
-          },
-          "key": 8,
-          "_id": "abs_detail_8"
+          }
         },
         {
           "Name": "Brake Pressure Data Integrity Violation",
-          "Description": "Falsified computation inputs (CWE-20) corrupt the real-time brake pressure data used by the ABS control loop, causing oscillating modulation and extended stopping distance.",
+          "_id": "abs_detail_9",
+          "key": 9,
+          "Description": "Falsified computation inputs (CWE-20) corrupt real-time brake pressure data, causing oscillating ABS modulation and extended stopping distance.",
           "cyberLosses": [
             {
               "id": "cl_abs_9",
@@ -878,13 +1450,13 @@
             "Safety Impact": "Major",
             "Operational Impact": "Moderate",
             "Privacy Impact": "Negligible"
-          },
-          "key": 9,
-          "_id": "abs_detail_9"
+          }
         },
         {
           "Name": "DTC Suppression Concealing ABS Safety Faults",
-          "Description": "Rogue diagnostic tool clears or overwrites Diagnostic Data (CWE-117) after inducing faults, masking ABS defects and allowing compromised vehicles to pass inspection.",
+          "_id": "abs_detail_10",
+          "key": 10,
+          "Description": "Rogue diagnostic tool clears Diagnostic Data (CWE-117) after inducing faults, masking ABS defects and allowing compromised vehicles to pass inspection.",
           "cyberLosses": [
             {
               "id": "cl_abs_10",
@@ -900,9 +1472,969 @@
             "Safety Impact": "Major",
             "Operational Impact": "Moderate",
             "Privacy Impact": "Minor"
-          },
-          "key": 10,
-          "_id": "abs_detail_10"
+          }
+        }
+      ]
+    }
+  ],
+  "Threat_scenarios": [
+    {
+      "_id": "abs_ts_001",
+      "model_id": "abs_model_001",
+      "user_id": "user_id_123",
+      "type": "threat",
+      "Details": [
+        {
+          "rowId": "f25fd5b4-3d84-42ad-9681-411ec3f05698",
+          "id": "TSD001",
+          "Details": [
+            {
+              "node": "Code Flash",
+              "nodeId": "abs_code_flash",
+              "props": [
+                {
+                  "id": "ts_abs_cf_1",
+                  "is_risk_added": true,
+                  "name": "Integrity",
+                  "isSelected": true,
+                  "key": 1
+                },
+                {
+                  "id": "ts_abs_cf_2",
+                  "is_risk_added": true,
+                  "name": "Authenticity",
+                  "isSelected": true,
+                  "key": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "rowId": "3033f605-7068-45f2-9061-f9214556d893",
+          "id": "TSD002",
+          "Details": [
+            {
+              "node": "Keys",
+              "nodeId": "abs_keys",
+              "props": [
+                {
+                  "id": "ts_abs_keys_1",
+                  "is_risk_added": true,
+                  "name": "Confidentiality",
+                  "isSelected": true,
+                  "key": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "rowId": "04566fac-ebc6-4683-87d1-79aa6c927e31",
+          "id": "TSD003",
+          "Details": [
+            {
+              "node": "Wheel Speed Sensors",
+              "nodeId": "abs_wheel_speed_sensors",
+              "props": [
+                {
+                  "id": "ts_abs_wss_1",
+                  "is_risk_added": true,
+                  "name": "Integrity",
+                  "isSelected": true,
+                  "key": 1
+                },
+                {
+                  "id": "ts_abs_wss_2",
+                  "is_risk_added": false,
+                  "name": "Availability",
+                  "isSelected": true,
+                  "key": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "rowId": "0ac0e250-8997-471b-9295-1bd8245c9a59",
+          "id": "TSD004",
+          "Details": [
+            {
+              "node": "CAN Transceiver",
+              "nodeId": "abs_can_transceiver",
+              "props": [
+                {
+                  "id": "ts_abs_can_1",
+                  "is_risk_added": true,
+                  "name": "Integrity",
+                  "isSelected": true,
+                  "key": 1
+                },
+                {
+                  "id": "ts_abs_can_2",
+                  "is_risk_added": true,
+                  "name": "Availability",
+                  "isSelected": true,
+                  "key": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "rowId": "17b972a2-f900-4960-a3aa-640f6e19d11b",
+          "id": "TSD005",
+          "Details": [
+            {
+              "node": "OBD-II Interface",
+              "nodeId": "abs_obd_interface",
+              "props": [
+                {
+                  "id": "ts_abs_obd_1",
+                  "is_risk_added": true,
+                  "name": "Authorization",
+                  "isSelected": true,
+                  "key": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "rowId": "8a785204-c280-402d-abba-37d1493d7ee2",
+          "id": "TSD006",
+          "Details": [
+            {
+              "node": "Data Flash",
+              "nodeId": "abs_data_flash",
+              "props": [
+                {
+                  "id": "ts_abs_df_1",
+                  "is_risk_added": true,
+                  "name": "Integrity",
+                  "isSelected": true,
+                  "key": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "rowId": "20b8ea70-d622-4868-909a-7a9dd69fc42c",
+          "id": "TSD007",
+          "Details": [
+            {
+              "node": "Debug Port",
+              "nodeId": "abs_debug_port",
+              "props": [
+                {
+                  "id": "ts_abs_dbg_1",
+                  "is_risk_added": true,
+                  "name": "Authorization",
+                  "isSelected": true,
+                  "key": 1
+                },
+                {
+                  "id": "ts_abs_dbg_2",
+                  "is_risk_added": true,
+                  "name": "Integrity",
+                  "isSelected": true,
+                  "key": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "abs_ts_002",
+      "model_id": "abs_model_001",
+      "user_id": "user_id_123",
+      "type": "threat",
+      "Details": [
+        {
+          "name": "ABS Firmware Tampering via OTA / UDS",
+          "description": "Attacker injects unsigned firmware image through OTA or UDS 0x34/0x36. Disables wheel-lock prevention; CAL 3 — special tools and insider knowledge required.",
+          "id": "bc460b03-7333-4656-a474-14300a86302d",
+          "threat_ids": [
+            {
+              "propId": "f1804046-064f-4040-8f7f-0ecf8e97c598",
+              "nodeId": "abs_code_flash"
+            }
+          ]
+        },
+        {
+          "name": "Cryptographic Key Extraction via Binary RE",
+          "description": "Hard-coded seed (CWE-321) reverse-engineered from ECU binary dump. Grants full UDS SecurityAccess level 2, enabling programming session without valid credentials.",
+          "id": "079969bd-3b39-4381-a5e4-ee2bbf818da7",
+          "threat_ids": [
+            {
+              "propId": "892f2326-a0bc-47ea-887d-41e9766f897f",
+              "nodeId": "abs_keys"
+            }
+          ]
+        },
+        {
+          "name": "Wheel Speed Signal Injection (PWM Spoofing)",
+          "description": "Falsified PWM signals on sensor lines trigger inappropriate ABS activation during normal braking. Requires physical or CAN bus proximity — CAL 2.",
+          "id": "5072afce-20fa-434e-a417-fa3837dd9ce9",
+          "threat_ids": [
+            {
+              "propId": "65f79bb6-25aa-45cf-bafc-b75e85252875",
+              "nodeId": "abs_wheel_speed_sensors"
+            }
+          ]
+        },
+        {
+          "name": "CAN Bus ABS Frame Injection",
+          "description": "Fabricated ABS_Active and WheelSpeed CAN frames sent to ECM/ESC. No authentication on CAN — any node on bus can spoof. CAL 2.",
+          "id": "264e61c3-c193-4803-a488-62869c76a34a",
+          "threat_ids": [
+            {
+              "propId": "ad57010b-72bd-4249-a54b-01e1b7c416d8",
+              "nodeId": "abs_can_transceiver"
+            }
+          ]
+        },
+        {
+          "name": "OBD-II Seed-Key Brute Force Attack",
+          "description": "Automated UDS 0x27 SecurityAccess brute-force using a 16-bit seed space. Physical OBD-II access required; lockout delay bypass via power cycling — CAL 2.",
+          "id": "a38185e2-5d25-4e03-bec3-90d91482c7e6",
+          "threat_ids": [
+            {
+              "propId": "2029b008-113d-40a8-a8ae-aa94db3b0675",
+              "nodeId": "abs_obd_interface"
+            }
+          ]
+        },
+        {
+          "name": "Calibration Tampering via UDS WriteDataByIdentifier",
+          "description": "Attacker with programming-session access writes malicious calibration records to Data Flash, altering slip-ratio limits. Safety Impact: Major — CAL 3.",
+          "id": "dc38ac84-3c70-47b7-826b-5df22bcf024a",
+          "threat_ids": [
+            {
+              "propId": "98f45935-8ed8-48ee-a0c6-8fbc522863de",
+              "nodeId": "abs_data_flash"
+            }
+          ]
+        },
+        {
+          "name": "JTAG Physical Attack — Full Flash Extraction",
+          "description": "Production ECU with JTAG/SWD unlocked allows full firmware extraction and patch-reflash. One-device attack; requires hardware removal — CAL 2.",
+          "id": "9433bc99-f7cb-4d1a-8342-fa079f41f847",
+          "threat_ids": [
+            {
+              "propId": "34e00a4c-6046-4083-bb75-918be30a32be",
+              "nodeId": "abs_debug_port"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Attacks": [
+    {
+      "_id": "abs_atk_001",
+      "model_id": "abs_model_001",
+      "user_id": "user_id_123",
+      "type": "attacks",
+      "scenes": [
+        {
+          "ID": "b89a35e9-d26e-472d-9231-525ffca59054",
+          "Name": "ABS Firmware Injection Attack",
+          "threat_id": "",
+          "damage_id": "abs_detail_1",
+          "threat_key": "TSD001",
+          "overall_rating": "High",
+          "templates": {
+            "nodes": [
+              {
+                "id": "7b52f8f8-b7ec-4df4-aa1a-4a0dc41f66e2",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 50
+                },
+                "data": {
+                  "label": "[TSD001] ABS Firmware Injection via OTA/UDS",
+                  "nodeType": "derived",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "56e20551-1ad0-4017-ada1-66e83f920271",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 180
+                },
+                "data": {
+                  "label": "OR Gate",
+                  "nodeType": "gate",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "d490956e-6763-46d2-a46a-a7cb14c71aa7",
+                "type": "default",
+                "position": {
+                  "x": 150,
+                  "y": 310
+                },
+                "data": {
+                  "label": "Compromise OTA Channel (BGP Hijack / Rogue CDN)",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "db64c35e-ef19-439e-9dd1-7fe45d0694c6",
+                "type": "default",
+                "position": {
+                  "x": 650,
+                  "y": 310
+                },
+                "data": {
+                  "label": "Unlock UDS Programming Session (0x27 Brute-force)",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              }
+            ],
+            "edges": []
+          }
+        },
+        {
+          "ID": "3b13b192-b479-4cbc-81f4-a69e74f031e0",
+          "Name": "Wheel Speed Sensor Spoofing",
+          "threat_id": "",
+          "damage_id": "abs_detail_3",
+          "threat_key": "TSD003",
+          "overall_rating": "High",
+          "templates": {
+            "nodes": [
+              {
+                "id": "2e2735ea-3318-499b-8e47-8cb38bb86ce2",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 50
+                },
+                "data": {
+                  "label": "[TSD003] Wheel Speed Signal Spoofing",
+                  "nodeType": "derived",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "9e193e21-7ee1-4294-bd5b-b355370d36e3",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 180
+                },
+                "data": {
+                  "label": "OR Gate",
+                  "nodeType": "gate",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "3776982c-ebab-444d-b557-b26eb3a977b5",
+                "type": "default",
+                "position": {
+                  "x": 150,
+                  "y": 310
+                },
+                "data": {
+                  "label": "Physical PWM Line Tap and Signal Injection",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "0d851f81-b80f-4c4e-a298-7e6e0d873bf0",
+                "type": "default",
+                "position": {
+                  "x": 650,
+                  "y": 310
+                },
+                "data": {
+                  "label": "CAN Bus False WheelSpeed Frame Injection",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              }
+            ],
+            "edges": []
+          }
+        },
+        {
+          "ID": "336babf6-0622-4834-80aa-f0d0dca5ee29",
+          "Name": "CAN Bus Attack (ABS Frame Spoofing)",
+          "threat_id": "",
+          "damage_id": "abs_detail_4",
+          "threat_key": "TSD004",
+          "overall_rating": "Medium",
+          "templates": {
+            "nodes": [
+              {
+                "id": "ab45f643-bad1-492a-aa89-ea1132215be8",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 50
+                },
+                "data": {
+                  "label": "[TSD004] CAN Bus ABS Frame Injection",
+                  "nodeType": "derived",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "b1a79362-20e0-40a5-b7b5-de2f48f38704",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 180
+                },
+                "data": {
+                  "label": "OR Gate",
+                  "nodeType": "gate",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "70e9be07-8e56-441d-95b5-6f8b3364c53d",
+                "type": "default",
+                "position": {
+                  "x": 150,
+                  "y": 310
+                },
+                "data": {
+                  "label": "Gain CAN Bus Access via OBD-II or Physical Tap",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "0b6439d6-a297-4a4d-bfe9-20d377627b2e",
+                "type": "default",
+                "position": {
+                  "x": 650,
+                  "y": 310
+                },
+                "data": {
+                  "label": "Replay or Inject Custom ABS CAN Frames",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              }
+            ],
+            "edges": []
+          }
+        },
+        {
+          "ID": "390c91d9-6080-4820-8d43-164e3b3baf72",
+          "Name": "JTAG Physical Compromise",
+          "threat_id": "",
+          "damage_id": "abs_detail_7",
+          "threat_key": "TSD007",
+          "overall_rating": "Critical",
+          "templates": {
+            "nodes": [
+              {
+                "id": "abbd79a5-7514-40c8-ad7a-32567e12d6e9",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 50
+                },
+                "data": {
+                  "label": "[TSD007] JTAG Firmware Extraction & Reflash",
+                  "nodeType": "derived",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "1082120a-0b8b-45ae-8159-fc0cf342d6fb",
+                "type": "default",
+                "position": {
+                  "x": 400,
+                  "y": 180
+                },
+                "data": {
+                  "label": "AND Gate",
+                  "nodeType": "gate",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "23988eea-575c-4828-835a-30f951f35bda",
+                "type": "default",
+                "position": {
+                  "x": 150,
+                  "y": 310
+                },
+                "data": {
+                  "label": "Physical access to ECU JTAG/SWD pins",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              },
+              {
+                "id": "af6f016e-620c-494a-9248-63eb592f8fd2",
+                "type": "default",
+                "position": {
+                  "x": 650,
+                  "y": 310
+                },
+                "data": {
+                  "label": "Unlock or bypass JTAG protection fuse",
+                  "nodeType": "leaf",
+                  "connections": [],
+                  "style": {
+                    "backgroundColor": "transparent",
+                    "borderColor": "black",
+                    "borderStyle": "solid",
+                    "borderWidth": "2px",
+                    "color": "black",
+                    "fontFamily": "Inter",
+                    "fontSize": "14px"
+                  }
+                }
+              }
+            ],
+            "edges": []
+          }
+        }
+      ]
+    },
+    {
+      "_id": "abs_atk_002",
+      "model_id": "abs_model_001",
+      "user_id": "user_id_123",
+      "type": "attacks",
+      "scenes": [
+        {
+          "ID": "4d938b82-0061-475d-bdfa-4d748dc7d907",
+          "Name": "ABS Firmware Injection Attack",
+          "Approach": "OTA channel compromise or UDS diagnostic exploitation",
+          "Expertise": "Specialist (firmware RE + automotive protocol knowledge)",
+          "Knowledge of the Item": "Significant (ECU binary analysis required)",
+          "Window of Opportunity": "Long (available whenever vehicle connects to OTA server)",
+          "Equipment": "Custom OTA proxy, UDS tool",
+          "Elapsed Time": "> 1 month",
+          "Attack Feasibilities Rating": "Medium — CAL 3"
+        },
+        {
+          "ID": "6f090a5b-17e4-47c2-a4d7-06cb18d38d4a",
+          "Name": "Wheel Speed Signal Spoofing",
+          "Approach": "Physical signal injection on PWM sensor wires or CAN spoofing",
+          "Expertise": "Proficient (signal analysis, automotive access)",
+          "Knowledge of the Item": "Moderate",
+          "Window of Opportunity": "Short (requires physical proximity or CAN access)",
+          "Equipment": "Oscilloscope, signal injector, CAN adapter",
+          "Elapsed Time": "< 1 week",
+          "Attack Feasibilities Rating": "High — CAL 2"
+        },
+        {
+          "ID": "9724a92b-3cd9-463f-a413-86874e06dd70",
+          "Name": "CAN Bus ABS Frame Injection",
+          "Approach": "CAN bus replay or injection via OBD-II port",
+          "Expertise": "Proficient",
+          "Knowledge of the Item": "Moderate (public CAN database DBC files available)",
+          "Window of Opportunity": "Short (physical OBD access, ~5 min)",
+          "Equipment": "CAN adapter + laptop",
+          "Elapsed Time": "< 1 day",
+          "Attack Feasibilities Rating": "High — CAL 2"
+        },
+        {
+          "ID": "f274f26a-758c-438d-aa18-e612747744c8",
+          "Name": "JTAG Physical Compromise",
+          "Approach": "Hardware lab firmware extraction and patch reassembly",
+          "Expertise": "Expert (hardware security, firmware reverse engineering)",
+          "Knowledge of the Item": "High (ECU teardown required)",
+          "Window of Opportunity": "Long (vehicle workshop access needed)",
+          "Equipment": "JTAG debugger, soldering tools, RE suite",
+          "Elapsed Time": "1–4 weeks",
+          "Attack Feasibilities Rating": "Medium — CAL 3"
+        }
+      ]
+    }
+  ],
+  "Cybersecurity": [
+    {
+      "_id": "abs_cyber_001",
+      "model_id": "abs_model_001",
+      "user_id": "user_id_123",
+      "type": "cybersecurity",
+      "scenes": [
+        {
+          "ID": "092d0fdc-3458-40c3-95bf-87a8468b14a8",
+          "Name": "Secure Boot with Cryptographic Firmware Verification",
+          "Description": "The ABS ECU shall verify the integrity and authenticity of all firmware images before execution using RSA-2048 or ECDSA-P256 digital signatures stored in an on-chip HSM.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "8390fc7b-6eed-4d47-99b1-77bd41b477f5",
+          "Name": "HSM-Protected Cryptographic Key Storage",
+          "Description": "All UDS seed-key material and secure boot keys shall be stored in a dedicated Hardware Security Module (SHE/EVITA Medium) and never exposed to the main CPU RAM in plaintext.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "9ca0abb2-d23a-4a8d-967b-ec8522d2a458",
+          "Name": "UDS SecurityAccess Brute-Force Lockout",
+          "Description": "The ABS ECU shall enforce exponential backoff and a maximum of 5 failed SecurityAccess (0x27) attempts per key-cycling cycle before locking the programming session for 24 hours.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "1229209b-f522-48ff-98f3-9f24412f791e",
+          "Name": "CAN Message Authentication (MAC) for Safety-Critical Frames",
+          "Description": "All ABS_Active and WheelSpeed CAN frames shall be authenticated using a 32-bit AUTOSAR SecOC MAC. Unauthenticated frames shall be discarded and logged as DTCs.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "02c4a6d9-cd6a-48cf-9374-06ff59c8b599",
+          "Name": "Disable JTAG/SWD Debug Interface in Production",
+          "Description": "All JTAG and SWD debug interfaces shall be permanently disabled via OTP fuse programming prior to vehicle shipment. Production builds shall enforce this via build-time security policy.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "38077754-7397-458c-9e91-5b964c174991",
+          "Name": "OTA Update Package Integrity and Anti-Rollback",
+          "Description": "OTA update packages shall include a cryptographic hash (SHA-256) and ECDSA signature. The OTA client shall enforce monotonic version counters to prevent rollback attacks.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "01c04e91-8e76-4851-9899-0898ea96e232",
+          "Name": "Wheel Speed Input Plausibility Checking",
+          "Description": "The ABS MCU shall cross-validate all four wheel-speed sensor inputs for physical plausibility (max delta, sensor correlation). Implausible values trigger a safe fallback and DTC C0035.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "81ee6b8d-f5c6-412c-a7c2-22f17e6a86aa",
+          "Name": "Data Flash Write Protection via Hardware Permissions",
+          "Description": "ABS calibration parameters in Data Flash shall be protected by hardware write-enable pins and software access tokens. Writes shall only be permitted within a secured programming session with level 3 access.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        }
+      ]
+    },
+    {
+      "_id": "abs_cyber_002",
+      "model_id": "abs_model_001",
+      "user_id": "user_id_123",
+      "type": "cybersecurity",
+      "scenes": [
+        {
+          "ID": "66413461-7e07-4425-9d69-33bc40372b1b",
+          "Name": "[CS-ABS-R1] Implement RSA-2048 Secure Boot Signature Verification",
+          "Description": "Integrate a ROM-based secure boot loader verifying firmware SHA-256 hash signed with RSA-2048 before transferring execution. Failure halts the ECU and asserts fail-safe braking.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "16e08020-ec9d-41b6-8e1a-fd98ca0b73e0",
+          "Name": "[CS-ABS-R2] Store Keys in SHE/EVITA HSM — No Plaintext CPU Exposure",
+          "Description": "Provision symmetric keys exclusively through the SHE CMD_LOAD_KEY protocol. The application MCU shall never have direct register access to key material.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "56b69d98-36e2-4fba-842b-a0e6b884bf28",
+          "Name": "[CS-ABS-R3] Enforce Session Lockout After 5 Failed UDS 0x27 Attempts",
+          "Description": "Implement NRC 0x37 (requiredTimeDelayNotExpired) with a 24-hour lockout counter persisted in NVM. Counter shall only reset via a signed unlock token sent from the OEM factory tool.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "c9cb61a2-595b-4b75-b59f-9ef312f1106d",
+          "Name": "[CS-ABS-R4] Apply AUTOSAR SecOC MAC to CAN IDs 0x1A0 and 0x1A8",
+          "Description": "Configure SecOC to append a 32-bit Poly1305 MAC to ABS_Active (0x1A0) and WheelSpeed (0x1A8) frames. CRC failures logged as DTC U0001 and message discarded.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "5245dda8-8e50-4efb-aeaa-aa3afeafabaf",
+          "Name": "[CS-ABS-R5] OTP-Fuse JTAG Disable in Production Build Process",
+          "Description": "Add a manufacturing test step that programs JTAG_EN OTP fuse to 0 before EOL programming. Production firmware build pipeline shall fail-safe if fuse state is not verified.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        },
+        {
+          "ID": "0797a65d-4430-418e-9eef-7364c4405925",
+          "Name": "[CS-ABS-R6] Wheel Speed Cross-Validation with Max-Delta Threshold",
+          "Description": "Compare wheel acceleration between adjacent sensors. Delta exceeding 15 g over 10 ms from a previous stable reading shall disable ABS assist and log DTC C0040.",
+          "threat_id": null,
+          "threat_key": null,
+          "attack_scene_id": null,
+          "attack_scene_name": null
+        }
+      ]
+    },
+    {
+      "_id": "abs_cyber_003",
+      "model_id": "abs_model_001",
+      "user_id": "user_id_123",
+      "type": "cybersecurity",
+      "scenes": []
+    }
+  ],
+  "Risk_treatment": [
+    {
+      "_id": "abs_rt_001",
+      "model_id": "abs_model_001",
+      "user_id": "user_id_123",
+      "Details": [
+        {
+          "id": "870fbb1b-217f-476c-bfb3-6da3cbc6d322",
+          "threat_id": "abs_ts_002_fw",
+          "node_id": "abs_code_flash",
+          "label": "[TSD001] ABS Firmware Tampering via OTA/UDS — Reduce: Implement Secure Boot + OTA ECDSA Signing",
+          "damage_id": "abs_detail_1",
+          "threat_key": "TSD001"
+        },
+        {
+          "id": "7a46e981-aac2-4c64-9a07-0bccbc0ababb",
+          "threat_id": "abs_ts_002_key",
+          "node_id": "abs_keys",
+          "label": "[TSD002] Hard-coded Key Compromise — Reduce: Migrate to HSM-based SHE key storage",
+          "damage_id": "abs_detail_2",
+          "threat_key": "TSD002"
+        },
+        {
+          "id": "6372ee30-9ff2-4ffe-ac28-36fc25be2e9a",
+          "threat_id": "abs_ts_002_wss",
+          "node_id": "abs_wheel_speed_sensors",
+          "label": "[TSD003] Wheel Speed Spoofing — Reduce: Enable plausibility cross-validation, DTC C0035",
+          "damage_id": "abs_detail_3",
+          "threat_key": "TSD003"
+        },
+        {
+          "id": "f913e7d1-368e-45e6-9afa-b6427ef70774",
+          "threat_id": "abs_ts_002_can",
+          "node_id": "abs_can_transceiver",
+          "label": "[TSD004] CAN Bus ABS Frame Injection — Reduce: Enforce SecOC MAC on 0x1A0 / 0x1A8",
+          "damage_id": "abs_detail_4",
+          "threat_key": "TSD004"
+        },
+        {
+          "id": "647459e4-92a8-419a-ae95-1e7040e7383e",
+          "threat_id": "abs_ts_002_obd",
+          "node_id": "abs_obd_interface",
+          "label": "[TSD005] OBD-II Seed-Key Brute Force — Reduce: Lockout after 5 attempts, NVM-persisted counter",
+          "damage_id": "abs_detail_5",
+          "threat_key": "TSD005"
+        },
+        {
+          "id": "776a34d2-250b-4ed3-b53b-45a7677c7a8f",
+          "threat_id": "abs_ts_002_df",
+          "node_id": "abs_data_flash",
+          "label": "[TSD006] Data Flash Calibration Tampering — Reduce: Hardware write-protect + level-3 UDS session requirement",
+          "damage_id": "abs_detail_6",
+          "threat_key": "TSD006"
+        },
+        {
+          "id": "4112bc4a-2fe6-4ba9-893a-ccd46029a594",
+          "threat_id": "abs_ts_002_dbg",
+          "node_id": "abs_debug_port",
+          "label": "[TSD007] JTAG Physical Attack — Reduce: OTP-fuse JTAG disable in production build step",
+          "damage_id": "abs_detail_7",
+          "threat_key": "TSD007"
+        },
+        {
+          "id": "c2de61f3-7601-48c3-b506-5a68493f9ec1",
+          "threat_id": "abs_ts_002_hcu",
+          "node_id": "abs_hydraulic_control_unit",
+          "label": "[TSD008] HCU Actuator Injection — Retain (residual): Monitor via OBD watchdog + firmware integrity check",
+          "damage_id": "abs_detail_8",
+          "threat_key": "TSD008"
+        },
+        {
+          "id": "cfe35939-2b64-445b-b8db-eaf3486b52cc",
+          "threat_id": "abs_ts_002_bpd",
+          "node_id": "abs_brake_pressure_data",
+          "label": "[TSD009] Brake Pressure Data Integrity — Reduce: Plausibility checks on computed pressure; fallback to raw sensor",
+          "damage_id": "abs_detail_9",
+          "threat_key": "TSD009"
+        },
+        {
+          "id": "69a2cd8c-7249-4352-802b-fd127d2070e9",
+          "threat_id": "abs_ts_002_dtc",
+          "node_id": "abs_diagnostic_data",
+          "label": "[TSD010] DTC Suppression — Reduce: Hash DTC log with HMAC; verify on read; require auth for clear",
+          "damage_id": "abs_detail_10",
+          "threat_key": "TSD010"
         }
       ]
     }
